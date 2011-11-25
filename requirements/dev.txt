@@ -1,6 +1,7 @@
-# This file pulls in everything a developer needs. If it's a basic package
-# needed to run the site, it belongs in requirements/prod.txt. If it's a
-# package for developers (testing, docs, etc.), it goes in this file.
+MySQL-python==1.2.3c1
+Jinja2==2.5.5
 
--r ../vendor/src/funfactory/funfactory/requirements/compiled.txt
--r ../vendor/src/funfactory/funfactory/requirements/dev.txt
+# for bcrypt passwords
+hmac==20101005
+hashlib==20081119
+py-bcrypt==0.2
