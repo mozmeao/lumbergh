@@ -1,25 +1,59 @@
-# This is your project's main settings file that can be committed to your
-# repo. If you need to override a setting locally, use settings_local.py
+# Django settings file for careers
+
+import os
+
+from django.utils.functional import lazy
 
 from funfactory.settings_base import *
+
+# Make file paths relative to settings.
+ROOT = os.path.dirname(os.path.abspath(__file__))
+path = lambda *a: os.path.join(ROOT, *a)
+
+# Language code for this installation. All choices can be found here:
+# http://www.i18nguy.com/unicode/language-identifiers.html
+LANGUAGE_CODE = 'en-US'
+
+# Accepted locales
+PROD_LANGUAGES = ('de', 'en-US', 'es', 'fr',)
+
+
+TEMPLATE_DIRS = (
+    path('templates'),
+    path('locale')
+)
+
+def JINJA_CONFIG():
+    import jinja2
+    from django.conf import settings
+    config = {'extensions': ['tower.template.i18n', 'jinja2.ext.do',
+                             'jinja2.ext.with_', 'jinja2.ext.loopcontrols',
+                             'l10n_utils.template.l10n_blocks'],
+              'finalize': lambda x: x if x is not None else ''}
+    return config
 
 
 # Bundles is a dictionary of two dictionaries, css and js, which list css files
 # and js files that can be bundled together by the minify app.
 MINIFY_BUNDLES = {
     'css': {
-        'example_css': (
-            'css/examples/main.css',
+        'common': (
+            'css/covehead/template.css',
+            'css/covehead/content.css',
+            'css/careers.css',
         ),
-        'example_mobile_css': (
-            'css/examples/mobile.css',
+        'benefits': (
+            'css/benefits.css',
         ),
     },
     'js': {
-        'example_js': (
-            'js/examples/libs/jquery-1.4.4.min.js',
-            'js/examples/libs/jquery.cookie.js',
-            'js/examples/init.js',
+        'common': (
+            'js/libs/jquery-1.4.4.min.js',
+            'js/util.js',
+            'js/nav-main.js',
+        ),
+        'benefits': (
+            'js/benefits.js',
         ),
     }
 }
@@ -27,30 +61,17 @@ MINIFY_BUNDLES = {
 
 INSTALLED_APPS = list(INSTALLED_APPS) + [
     # Example code. Can (and should) be removed for actual projects.
-    'examples',
+    'careers',
+    'django_jobvite',
+    'south',
 ]
 
 
-# Because Jinja2 is the default template loader, add any non-Jinja templated
-# apps here:
-JINGO_EXCLUDE_APPS = [
-    'admin',
-]
+## Auth
+PWD_ALGORITHM = 'bcrypt'
+HMAC_KEYS = {
+    #'2011-01-01': 'cheesecake',
+}
 
-# Tells the extract script what files to look for L10n in and what function
-# handles the extraction. The Tower library expects this.
-
-# # Use this if you have localizable HTML files:
-# DOMAIN_METHODS['lhtml'] = [
-#    ('**/templates/**.lhtml',
-#        'tower.management.commands.extract.extract_tower_template'),
-# ]
-
-# # Use this if you have localizable HTML files:
-# DOMAIN_METHODS['javascript'] = [
-#    # Make sure that this won't pull in strings from external libraries you
-#    # may use.
-#    ('media/js/**.js', 'javascript'),
-# ]
-
-LOGGING = dict(loggers=dict(playdoh = {'level': logging.DEBUG}))
+# Jobvite XML URI
+JOBVITE_URI = '' # http://www.jobvite.com/CompanyJobs/Xml.aspx?c=...

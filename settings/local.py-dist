@@ -9,7 +9,7 @@
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'playdoh_app',
+        'NAME': 'lumbergh_app',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': '',
