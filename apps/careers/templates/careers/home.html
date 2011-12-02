@@ -1,57 +1,65 @@
 {% extends "base.html" %}
-{% from "careers/macros.html" import breadcrumbs %}
 
 {% block page_title %}{{ _('Mozilla Jobs &mdash; Open Positions') }}{% endblock %}
 
 {% block content %}
+<div class="wrapper">
+  <h1 class="home-header">{{ _('Careers at Mozilla') }}</h1>
 
-{# todo - figure out where 'Home' is #}
-{{ breadcrumbs(
-    ('', _('Home')),
-    last=_('Open Positions'),
-    title=_('Mozilla is Hiring!')) }}
-
-<div id="main">
-  <div class="jobs-side-col">
-    <div class="jobs-offices">
-      <h3>{{ _('We\'re Global!') }}</h3>
-      <p>
-        {% trans %}We're a small company, but we've got people all around the world. Join us at one of our local offices, or <a href="">work remotely from anywhere</a>.{% endtrans %}
-      </p>
-      <ul>
-        {# todo - office views #}
-        <li><a href="">{{ _('Mountain View') }}</a></li>
-        <li><a href="">{{ _('Toronto') }}</a></li>
-        <li><a href="">{{ _('Vancouver') }}</a></li>
-        <li><a href="">{{ _('Paris') }}</a></li>
-        <li><a href="">{{ _('Tokyo') }}</a></li>
-        <li><a href="">{{ _('Beijing') }}</a></li>
-        <li><a href="">{{ _('Auckland') }}</a></li>
-      </ul>
-  </div>
-</div>
-
-<div class="jobs-main-col">
-  <div id="job-desc">
-    <div class="desc">
-      <p>{% trans %}At Mozilla, we believe in building talented teams. If you're looking for a fast-paced, exciting environment that's full of reasons to take pride in your work, apply below.{% endtrans %}</p>
-    </div>
-  </div>
+  <ul id="sections">
+    <li><a data-jobtype="all" class="active">All Positions</a></li>
+    <li><a data-jobtype="full-time">Full-time</a></li>
+    <li><a data-jobtype="intern">Internships</a></li>
+    <li><a data-jobtype="contractor">Contractor</a></li>
+    <li class="last"><a data-jobtype="volunteer">Volunteer</a></li>
+  </ul>
 
   <div class="role-group large">
-    <ul>
-      {% for category in categories -%}
-        <li>
-          <a href="{{ url('careers.views.department', slug=category.slug) }}">{{ category.name }}</a>
-          {% if category.description -%}
-            <small>{{ category.description }}</small>
-          {% else -%}
-            {# todo - remove after testing #}
-            <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</small>
-          {% endif -%}
-        </li>
-      {% endfor -%}
+    {#
+      Once there is some reorganization by HR on the categories, there will
+      be less categories and this hacky thing will be adjusted accordingly.
+      Internships will always sit on the right-side column, while everything
+      else sits in the left and middle alphabetically. Since the categories
+      do not change often (or at all), the hacky number will be generally okay.
+    #}
+    {% for category in categories -%}
+      {% if loop.first %}
+        <ul>
+      {% endif %}
+      <li>
+        <h2>{{ category.name }}</h2>
+        <ul> 
+          {% for position in category.position_set.order_by('title') %}
+            <li>
+              <a href="{{ url('careers.views.position', job_id=position.job_id) }}"
+                 data-jobtype="{{ position.job_type.lower() }}"
+                 alt="{{ position.title }}"
+                 title="{{ position.title }}">{{ position.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </li>
+      {% if loop.index % 7 == 0 %}
+        </ul><ul>
+      {% endif %}
+    {% endfor -%}
     </ul>
+    {% if internships %}
+      <ul>
+        <li>
+          <h2>{{ internships.name }}</h2>
+          <ul> 
+            {% for position in internships.position_set.order_by('title') %}
+              <li>
+                <a href="{{ url('careers.views.position', job_id=position.job_id) }}"
+                   data-jobtype="{{ position.job_type.lower() }}"
+                   alt="{{ position.title }}"
+                   title="{{ position.title }}">{{ position.title }}</a>
+              </li>
+            {% endfor %}
+        </li>
+      </ul>
+    {% endif %}
   </div>
 </div>
 {% endblock %}

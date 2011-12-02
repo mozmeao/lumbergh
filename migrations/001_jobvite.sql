@@ -19,7 +19,7 @@ CREATE TABLE `django_jobvite_position` (
     `job_id` varchar(25) NOT NULL,
     `title` varchar(100) NOT NULL,
     `requisition_id` integer UNSIGNED NOT NULL,
-    `job_type` varchar(10) NOT NULL,
+    `job_type` varchar(10) NULL,
     `location` varchar(150) NOT NULL,
     `date` varchar(100) NOT NULL,
     `detail_url` varchar(200) NOT NULL,

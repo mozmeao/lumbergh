@@ -1,32 +1,25 @@
-import jingo
-
-from django.shortcuts import get_object_or_404
+from django.shortcuts import render, get_object_or_404
 
 from django_jobvite.models import Position, Category
 
 
-def careers(request, slug=None):
-    categories = Category.objects.all().order_by('name')
-    return jingo.render(request, 'careers/home.html', {
+def home(request):
+    categories = Category.objects.exclude(name='Internships').order_by('name')
+    internships = get_object_or_404(Category, name='Internships')
+    return render(request, 'careers/home.html', {
         'categories': categories,
-    })
-
-
-def department(request, slug):
-    category = get_object_or_404(Category, slug=slug)
-    positions = Position.objects.filter(category=category).order_by('title')
-    return jingo.render(request, 'careers/department.html', {
-        'positions': positions,
-        'category': category
+        'internships': internships,
     })
 
 
 def position(request, job_id=None):
-    position = get_object_or_404(Position, job_id=job_id)
-    return jingo.render(request, 'careers/position.html', {
+    position = Position.objects.select_related('category').get(job_id=job_id)
+    positions = position.category.position_set.all()
+    return render(request, 'careers/position.html', {
         'position': position,
-    })
+        'positions': positions,
+    }) 
 
 
 def benefits(request):
-    return jingo.render(request, 'careers/benefits.html')
+    return render(request, 'careers/benefits.html')
