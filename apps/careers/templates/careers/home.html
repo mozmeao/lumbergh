@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "careers/macros.html" import position_listing %}
 
 {% block page_title %}{{ _('Mozilla Jobs &mdash; Open Positions') }}{% endblock %}
 
@@ -22,42 +23,19 @@
       else sits in the left and middle alphabetically. Since the categories
       do not change often (or at all), the hacky number will be generally okay.
     #}
-    {% for category in categories -%}
-      {% if loop.first %}
-        <ul>
-      {% endif %}
-      <li>
-        <h2>{{ category.name }}</h2>
-        <ul> 
-          {% for position in category.position_set.order_by('title') %}
-            <li>
-              <a href="{{ url('careers.views.position', job_id=position.job_id) }}"
-                 data-jobtype="{{ position.job_type.lower() }}"
-                 alt="{{ position.title }}"
-                 title="{{ position.title }}">{{ position.title }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-      </li>
-      {% if loop.index % 7 == 0 %}
-        </ul><ul>
-      {% endif %}
-    {% endfor -%}
+    <ul>
+      {% for category in categories[:5] -%}
+        {{ position_listing(category) }}
+      {% endfor %}
+    </ul>
+    <ul>
+      {% for category in categories[6:] -%}
+        {{ position_listing(category) }}
+      {% endfor %}
     </ul>
     {% if internships %}
       <ul>
-        <li>
-          <h2>{{ internships.name }}</h2>
-          <ul> 
-            {% for position in internships.position_set.order_by('title') %}
-              <li>
-                <a href="{{ url('careers.views.position', job_id=position.job_id) }}"
-                   data-jobtype="{{ position.job_type.lower() }}"
-                   alt="{{ position.title }}"
-                   title="{{ position.title }}">{{ position.title }}</a>
-              </li>
-            {% endfor %}
-        </li>
+        {{ position_listing(internships) }}
       </ul>
     {% endif %}
   </div>

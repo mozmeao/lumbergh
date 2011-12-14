@@ -6,7 +6,7 @@
   <div id="main">
     <div class="primary">
       <h1>{{ position.title }}</h1>
-      <h2 class="locations">{{ position.location }}</h2>
+      <h2 class="locations">{{ position.location|default(_('All'), True) }}</h2>
       <div id="job-meta">
         <div class="float">
           <div id="job-description">
