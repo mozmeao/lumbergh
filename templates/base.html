@@ -3,18 +3,6 @@
   <head>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <title>{% block page_title %}mozilla.org{% endblock %}</title>
-
-    <style>
-    {# TODO put this into CSS file. #}
-    {# MetaWebPro font family licensed from fontshop.com. WOFF-FTW! #}
-    @font-face {
-        font-family: 'MetaBlack';
-        src: url('http://mozcom-cdn.mozilla.net/img/fonts/MetaWebPro-Black.eot');
-        src: local('☺'), url('http://mozcom-cdn.mozilla.net/img/fonts/MetaWebPro-Black.woff') format('woff');
-        font-weight: bold;
-    }
-    </style>
-
     {% block site_css %}
       {{ css('common') }}
     {% endblock %}

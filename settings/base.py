@@ -48,9 +48,10 @@ MINIFY_BUNDLES = {
     },
     'js': {
         'common': (
-            'js/libs/jquery-1.4.4.min.js',
+            'js/libs/jquery-1.7.1.min.js',
             'js/util.js',
             'js/nav-main.js',
+            'js/careers.js',
         ),
         'benefits': (
             'js/benefits.js',

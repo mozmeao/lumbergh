@@ -1,9 +1,10 @@
-from django.conf.urls.defaults import patterns
+from django.conf.urls.defaults import patterns, url
+
+from careers import views
 
 
 urlpatterns = patterns('',
-    (r'^/?$', 'careers.views.careers'),
-    (r'^benefits/?$', 'careers.views.benefits'),
-    (r'^/(?P<slug>[\w-]+)/$', 'careers.views.department'),
-    (r'^position/(?P<job_id>[\w]+)/$', 'careers.views.position'),
+    url(r'^$', views.home, name='careers.home'),
+    url(r'^benefits?$', views.benefits, name='careers.benefits'),
+    url(r'^position/(?P<job_id>[\w]+)$', views.position, name='careers.position'),
 )
