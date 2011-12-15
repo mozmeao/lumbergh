@@ -4,7 +4,7 @@ from django_jobvite.models import Position, Category
 
 
 def home(request):
-    categories = Category.objects.exclude(name='Internships').order_by('name')
+    categories = list(Category.objects.exclude(name='Internships').order_by('name'))
     internships = get_object_or_404(Category, name='Internships')
     return render(request, 'careers/home.html', {
         'categories': categories,

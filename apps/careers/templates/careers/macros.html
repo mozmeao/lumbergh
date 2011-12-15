@@ -1,15 +1,15 @@
-{% macro breadcrumbs() -%}
-<header id="jobs-header">
-  <nav id="jobs-breadcrumbs">
-    <ul>
-      {% for crumb in varargs -%}
-        <li><a href="{{ crumb[0] }}">{{ crumb[1] }}</a></li>
-      {% endfor -%}
-      <li>{{ kwargs.last }}</li>
+{% macro position_listing(category) -%}
+  <li>
+    <h2>{{ category.name }}</h2>
+    <ul> 
+      {% for position in category.position_set.order_by('title') %}
+        <li>
+          <a href="{{ url('careers.views.position', job_id=position.job_id) }}"
+             data-jobtype="{{ position.job_type.lower() }}"
+             alt="{{ position.title }}"
+             title="{{ position.title }}">{{ position.title }}</a>
+        </li>
+      {% endfor %}
     </ul>
-  </nav>
-  {% if kwargs.title -%}
-    <h1>{{ kwargs.title }}</h1>
-  {% endif -%}
-</header>
+  </li>
 {% endmacro -%}
