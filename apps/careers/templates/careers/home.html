@@ -12,7 +12,7 @@
     <li><a data-jobtype="full-time">Full-time</a></li>
     <li><a data-jobtype="intern">Internships</a></li>
     <li><a data-jobtype="contractor">Contractor</a></li>
-    <li class="last"><a data-jobtype="volunteer">Volunteer</a></li>
+    <li><a data-jobtype="volunteer">Volunteer</a></li>
   </ul>
 
   <div class="role-group large">
@@ -34,7 +34,7 @@
       {% endfor %}
     </ul>
     {% if internships %}
-      <ul>
+      <ul class="last">
         {{ position_listing(internships) }}
       </ul>
     {% endif %}
