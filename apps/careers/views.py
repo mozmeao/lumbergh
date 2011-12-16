@@ -21,5 +21,5 @@ def position(request, job_id=None):
     }) 
 
 
-def benefits(request):
-    return render(request, 'careers/benefits.html')
+def why(request):
+    return render(request, 'careers/why.html')
