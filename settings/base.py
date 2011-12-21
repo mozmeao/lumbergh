@@ -38,23 +38,18 @@ def JINJA_CONFIG():
 MINIFY_BUNDLES = {
     'css': {
         'common': (
-            'css/covehead/template.css',
+            'global/template.css',
             'css/covehead/content.css',
             'css/careers.css',
-        ),
-        'benefits': (
-            'css/benefits.css',
         ),
     },
     'js': {
         'common': (
             'js/libs/jquery-1.7.1.min.js',
+            'global/js/nav-main.js',
             'js/util.js',
             'js/nav-main.js',
             'js/careers.js',
-        ),
-        'benefits': (
-            'js/benefits.js',
         ),
     }
 }
