@@ -1,82 +1,40 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-    display: block;
-}
-body {
-    line-height: 1;
-}
-ol, ul {
-    list-style: none;
-}
-blockquote, q {
-    quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: '';
-    content: none;
-}
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
 /* {{{ Text and Links */
 
+@font-face {
+    font-family: 'MetaBlack';
+    src: url('http://mozcom-cdn.mozilla.net/img/fonts/MetaWebPro-Black.eot');
+    src: local('☺'), url('http://mozcom-cdn.mozilla.net/img/fonts/MetaWebPro-Black.woff') format('woff');
+    font-weight: bold;
+}
+
 body {
-	font-family: Arial, sans-serif;
-	font-size: 13px;
-	line-height: 1.231;
-	color: #6d7581;
+    font-family: georgia, serif;
+    font-size: 14px;
+    line-height: 21px;
+    color: #6d7581;
 }
 
 a:link,
 a:visited {
-	text-decoration: none;
-	color: #447bc4;
+    text-decoration: none;
+    color: #447bc4;
 }
 
 a:hover,
 a:active {
-	text-decoration: underline;
-	color: #447bc4;
+    text-decoration: underline;
+    color: #447bc4;
 }
 
 a.external:link,
 a.external:visited {
-	padding-right: 8px;
+    padding-right: 8px;
 }
 
 a.external:hover,
 a.external:active {
-	padding-right: 8px;
-	background: transparent url(/media/img/tignish/content/external-link.png) center right no-repeat;
+    padding-right: 8px;
+    background: transparent url(/media/img/tignish/content/external-link.png) center right no-repeat;
 }
 
 h1 a.external:link,
@@ -91,7 +49,7 @@ h3 a.external:visited,
 h4 a.external:visited,
 h5 a.external:visited,
 h6 a.external:visited {
-	padding-right: 16px;
+    padding-right: 16px;
 }
 
 h1 a.external:hover,
@@ -106,18 +64,18 @@ h3 a.external:active,
 h4 a.external:active,
 h5 a.external:active,
 h6 a.external:active {
-	padding-right: 16px;
-	background: transparent url(/media/img/tignish/content/external-link-large.png) center right no-repeat;
+    padding-right: 16px;
+    background: transparent url(/media/img/tignish/content/external-link-large.png) center right no-repeat;
 }
 a.email:link,
 a.email:visited {
-	padding-right: 16px;
+    padding-right: 16px;
 }
 
 a.email:hover,
 a.email:hover {
-	padding-right: 16px;
-	background: transparent url(/media/img/tignish/content/email-link.png) center right no-repeat;
+    padding-right: 16px;
+    background: transparent url(/media/img/tignish/content/email-link.png) center right no-repeat;
 }
 
 p { margin: 0 0 1em 0; }
@@ -128,12 +86,12 @@ p,
 dd,
 #content li,
 #main-content li {
-	line-height: 1.5;
+    line-height: 1.5;
 }
 
 #footer a.external:hover,
 #footer a.external:hover {
-	background-image: url(/media/img/tignish/content/external-link-footer.png);
+    background-image: url(/media/img/tignish/content/external-link-footer.png);
 }
 
 strong { font-weight: bold; }
@@ -142,19 +100,36 @@ em { font-style: italic; }
 
 abbr,
 acronym {
-	border-bottom :1px dotted #000;
-	cursor: help;
+    border-bottom :1px dotted #000;
+    cursor: help;
 }
 
 p,
 fieldset,
 table,
 pre {
-	margin-bottom: 1em;
+    margin-bottom: 1em;
 }
 
 /* }}} */
 /* {{{ Headings */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: georgia, serif;
+    font-weight: normal;
+    font-style: italic;
+    color: #484848;
+}
+
+h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
+    font-family: MetaBlack, "Trebuchet MS", sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-style: normal;
+    font-size: 130%;
+    display: block;
+    letter-spacing: -0.02em;
+}
 
 h1 { font-size: 36px; }
 h2 { font-size: 28px; }
@@ -164,40 +139,40 @@ h5 { font-size: 16px; }
 h6 { font-size: 14px; }
 
 h1, h2, h3 {
-	margin: 1em 0 0.5em 0;
+    margin: 1em 0 0.5em 0;
 }
 
 /* }}} */
 /* {{{ Lists */
 
 ul {
-	margin: 1em 0 1em 0;
-	padding: 0;
+    margin: 1em 0 1em 0;
+    padding: 0;
 }
 
 blockquote {
-	margin: 1em;
+    margin: 1em;
 }
 
 ol,
 dl {
-	margin: 1em;
+    margin: 1em;
 }
 
 ol,
 dl {
-	margin-left: 0;
+    margin-left: 0;
     padding-left: 1.5em;
 }
 
 ol li,
 ul li ol li {
-	list-style: decimal outside;
-	background: none;
+    list-style: decimal outside;
+    background: none;
 }
 
 dl dd {
-	margin-left:1em;
+    margin-left:1em;
 }
 
 /* }}} */
@@ -206,13 +181,13 @@ dl dd {
 td, th { border: 0; }
 
 table.data-table {
-	border-top: 1px solid #eee;
+    border-top: 1px solid #eee;
 }
 
 table.data-table td,
 table.data-table th {
-	padding: 0.5em 0.5em;
-	border-bottom: 1px solid #eee;
+    padding: 0.5em 0.5em;
+    border-bottom: 1px solid #eee;
 }
 
 /* }}} */
@@ -220,66 +195,66 @@ table.data-table th {
 
 ul.home-download,
 ul.home-download li {
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-	background: none;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    background: none;
 }
 
 ul.home-download {
-	margin-left: 0;
-	position: relative;
-	width: 300px;
-	overflow: hidden;
+    margin-left: 0;
+    position: relative;
+    width: 300px;
+    overflow: hidden;
 }
 
 a.download-link,
 a.download-link:link,
 a.download-link:visited {
-	display: block;
-	margin: 0 0 10px 50px;
-	height: 95px;
-	-moz-box-shadow:    0 3px rgba(0,0,0,0.1), inset 0 -4px rgba(0,0,0,0.1);
-	-webkit-box-shadow: 0 3px rgba(0,0,0,0.1), inset 0 -4px rgba(0,0,0,0.1);
-	box-shadow:         0 3px rgba(0,0,0,0.1), inset 0 -4px rgba(0,0,0,0.1);
-	-webkit-border-radius: 6px;
-	-moz-border-radius: 6px;
-	border-radius: 6px;
-	color: #fff;
-	overflow: visible;
-	background: #58a100; /* old browsers */
-	background: -moz-linear-gradient(top, #84C63C 0%, #489615 100%); /* firefox */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#84C63C), color-stop(100%,#489615)); /* webkit */
-	background: linear-gradient(top, #84C63C 0%, #489615 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#84C63C', endColorstr='#489615',GradientType=0 ); /* ie */
-	-moz-transition:   box-shadow 0.2s ease-in-out;
-	-webit-transition: box-shadow 0.2s ease-in-out;
-	transition:        box-shadow 0.2s ease-in-out;
+    display: block;
+    margin: 0 0 10px 50px;
+    height: 95px;
+    -moz-box-shadow:    0 3px rgba(0,0,0,0.1), inset 0 -4px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0 3px rgba(0,0,0,0.1), inset 0 -4px rgba(0,0,0,0.1);
+    box-shadow:         0 3px rgba(0,0,0,0.1), inset 0 -4px rgba(0,0,0,0.1);
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    color: #fff;
+    overflow: visible;
+    background: #58a100; /* old browsers */
+    background: -moz-linear-gradient(top, #84C63C 0%, #489615 100%); /* firefox */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#84C63C), color-stop(100%,#489615)); /* webkit */
+    background: linear-gradient(top, #84C63C 0%, #489615 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#84C63C', endColorstr='#489615',GradientType=0 ); /* ie */
+    -moz-transition:   box-shadow 0.2s ease-in-out;
+    -webit-transition: box-shadow 0.2s ease-in-out;
+    transition:        box-shadow 0.2s ease-in-out;
     zoom: 1;
 }
 
 a.download-link:hover,
 a.download-link:active {
-	-moz-box-shadow:    0 3px rgba(0,0,0,0.15), inset 0 -4px rgba(0,0,0,0.15), inset 0 0 80px rgba(255,255,255,0.3);
-	-webkit-box-shadow: 0 3px rgba(0,0,0,0.15), inset 0 -4px rgba(0,0,0,0.15), inset 0 0 80px rgba(255,255,255,0.3);
-	box-shadow:         0 3px rgba(0,0,0,0.15), inset 0 -4px rgba(0,0,0,0.15), inset 0 0 80px rgba(255,255,255,0.3);
-	-moz-transition:    box-shadow 0.2s ease-in-out;
-	-webkit-transition: box-shadow 0.2s ease-in-out;
-	transition:         box-shadow 0.2s ease-in-out;
+    -moz-box-shadow:    0 3px rgba(0,0,0,0.15), inset 0 -4px rgba(0,0,0,0.15), inset 0 0 80px rgba(255,255,255,0.3);
+    -webkit-box-shadow: 0 3px rgba(0,0,0,0.15), inset 0 -4px rgba(0,0,0,0.15), inset 0 0 80px rgba(255,255,255,0.3);
+    box-shadow:         0 3px rgba(0,0,0,0.15), inset 0 -4px rgba(0,0,0,0.15), inset 0 0 80px rgba(255,255,255,0.3);
+    -moz-transition:    box-shadow 0.2s ease-in-out;
+    -webkit-transition: box-shadow 0.2s ease-in-out;
+    transition:         box-shadow 0.2s ease-in-out;
 }
 
 a.download-link span.download-content {
-	position: relative;
+    position: relative;
     margin-left: -50px;
-	display: block;
-	background: url(/media/img/home/download-logo.png) 0 0 no-repeat;
-	height: 95px;
-	font-family: georgia, "Bitstream Charter", serif;
-	font-style: italic;
-	font-weight: normal;
-	font-size: 18px;
-	line-height: 18px;
-	padding: 10px 10px 0 112px;
+    display: block;
+    background: url(/media/img/home/download-logo.png) 0 0 no-repeat;
+    height: 95px;
+    font-family: georgia, "Bitstream Charter", serif;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 18px;
+    padding: 10px 10px 0 112px;
 }
 
 * html a.download-link,
@@ -309,9 +284,9 @@ a.download-link span.download-title {
 
 a.download-link:hover,
 a.download-link:active {
-	background-position: -300px 0;
-	text-decoration: none;
-	cursor: pointer;
+    background-position: -300px 0;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 * html ul.home-download li a.download-link {
@@ -321,12 +296,12 @@ a.download-link:active {
 }
 
 ul.home-download li a.download-link span.download-info {
-	display: block;
-	margin-top: 3px;
-	color: #346012;
-	font-size: 12px;
-	font-style: normal;
-	line-height: 12px;
+    display: block;
+    margin-top: 3px;
+    color: #346012;
+    font-size: 12px;
+    font-style: normal;
+    line-height: 12px;
 }
 
 ul.beta-download li a.download-link span.download-info {
@@ -335,14 +310,14 @@ ul.beta-download li a.download-link span.download-info {
 
 ul.home-download li a.download-link #download-arrow,
 ul.home-download li a.download-link .download-arrow {
-	position: absolute;
-	top: 15px;
-	right: 15px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
 }
 
 ul.home-download li a.download-link span.download-info em {
-	display: block;
-	font-style: normal;
+    display: block;
+    font-style: normal;
 }
 
 .download-noscript { margin-left: 35px; width: 400px; }
@@ -351,12 +326,12 @@ ul.home-download li a.download-link span.download-info em {
 .download-noscript ul { margin-top: 0.5em; }
 
 .download-other {
-	font-family: "Trebuchet MS", sans-serif;
-	font-size: 11px;
-	width: 310px;
-	text-align: center;
-	color: #ccc;
-	margin: 0;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 11px;
+    width: 310px;
+    text-align: center;
+    color: #ccc;
+    margin: 0;
 }
 
 #download .download-noscript h3 span a,
@@ -365,8 +340,8 @@ ul.home-download li a.download-link span.download-info em {
 .download-other a,
 .download-other a:link,
 .download-other a:visited {
-	white-space: nowrap;
-	color: #999;
+    white-space: nowrap;
+    color: #999;
 }
 
 .home-download abbr,
@@ -440,8 +415,8 @@ ul.home-download li a.download-link span.download-info em {
 }
 
 #download .download-noscript h3 span {
-	font-family: "Trebuchet MS", sans-serif;
-	font-size: 11px;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 11px;
     font-weight: normal;
     text-transform: none;
 }
@@ -454,8 +429,8 @@ ul.home-download li a.download-link span.download-info em {
 #download .download-noscript ul li {
     display: inline;
     margin-right: 10px;
-	font-family: "Trebuchet MS", sans-serif;
-	font-size: 11px;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 11px;
 }
 
 /* }}} */
@@ -468,41 +443,41 @@ ul.home-download li a.download-link span.download-info em {
 #download.mobile .dl,
 #download.mobile .dl:link,
 #download.mobile .dl:visited {
-	font-size: 17px;
-	display: block;
-	margin-bottom: 5px;
-	-moz-box-shadow:    0 3px rgba(0,0,0,0.1), inset 0 -4px rgba(0,0,0,0.1);
-	-webkit-box-shadow: 0 3px rgba(0,0,0,0.1), inset 0 -4px rgba(0,0,0,0.1);
-	box-shadow:         0 3px rgba(0,0,0,0.1), inset 0 -4px rgba(0,0,0,0.1);
-	-webkit-border-radius: 6px;
-	-moz-border-radius: 6px;
-	border-radius: 6px;
-	color: #fff;
-	overflow: visible;
-	background: #84C63C; /* old browsers */
-	background: -moz-linear-gradient(top, #84C63C 0%, #489615 100%); /* firefox */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#84C63C), color-stop(100%,#489615)); /* webkit */
-	background: linear-gradient(top, #84C63C 0%, #489615 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#84C63C', endColorstr='#489615',GradientType=0 ); /* ie */
-	-moz-transition:   box-shadow 0.2s ease-in-out;
-	-webit-transition: box-shadow 0.2s ease-in-out;
-	transition:        box-shadow 0.2s ease-in-out;
+    font-size: 17px;
+    display: block;
+    margin-bottom: 5px;
+    -moz-box-shadow:    0 3px rgba(0,0,0,0.1), inset 0 -4px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0 3px rgba(0,0,0,0.1), inset 0 -4px rgba(0,0,0,0.1);
+    box-shadow:         0 3px rgba(0,0,0,0.1), inset 0 -4px rgba(0,0,0,0.1);
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    color: #fff;
+    overflow: visible;
+    background: #84C63C; /* old browsers */
+    background: -moz-linear-gradient(top, #84C63C 0%, #489615 100%); /* firefox */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#84C63C), color-stop(100%,#489615)); /* webkit */
+    background: linear-gradient(top, #84C63C 0%, #489615 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#84C63C', endColorstr='#489615',GradientType=0 ); /* ie */
+    -moz-transition:   box-shadow 0.2s ease-in-out;
+    -webit-transition: box-shadow 0.2s ease-in-out;
+    transition:        box-shadow 0.2s ease-in-out;
 }
 
 #download.mobile .dl span {
-	display: block;
-	background: url(/media/img/firefox/download-arrow.png) 10px 14px no-repeat;
-	padding: 8px 20px 8px 30px;
+    display: block;
+    background: url(/media/img/firefox/download-arrow.png) 10px 14px no-repeat;
+    padding: 8px 20px 8px 30px;
 }
 
 #download.mobile .dl:hover,
 #download.mobile .dl:active {
-	-moz-box-shadow:    0 3px rgba(0,0,0,0.15), inset 0 -4px rgba(0,0,0,0.15), inset 0 0 80px rgba(255,255,255,0.3);
-	-webkit-box-shadow: 0 3px rgba(0,0,0,0.15), inset 0 -4px rgba(0,0,0,0.15), inset 0 0 80px rgba(255,255,255,0.3);
-	box-shadow:         0 3px rgba(0,0,0,0.15), inset 0 -4px rgba(0,0,0,0.15), inset 0 0 80px rgba(255,255,255,0.3);
-	-moz-transition:    box-shadow 0.2s ease-in-out;
-	-webkit-transition: box-shadow 0.2s ease-in-out;
-	transition:         box-shadow 0.2s ease-in-out;
+    -moz-box-shadow:    0 3px rgba(0,0,0,0.15), inset 0 -4px rgba(0,0,0,0.15), inset 0 0 80px rgba(255,255,255,0.3);
+    -webkit-box-shadow: 0 3px rgba(0,0,0,0.15), inset 0 -4px rgba(0,0,0,0.15), inset 0 0 80px rgba(255,255,255,0.3);
+    box-shadow:         0 3px rgba(0,0,0,0.15), inset 0 -4px rgba(0,0,0,0.15), inset 0 0 80px rgba(255,255,255,0.3);
+    -moz-transition:    box-shadow 0.2s ease-in-out;
+    -webkit-transition: box-shadow 0.2s ease-in-out;
+    transition:         box-shadow 0.2s ease-in-out;
 }
 
 #download.mobile h3 {
@@ -516,9 +491,9 @@ ul.home-download li a.download-link span.download-info em {
 }
 
 #download.mobile .notes {
-	font-size: 11px;
-	font-family: "Trebuchet MS", sans-serif;
-	zoom: 1;
+    font-size: 11px;
+    font-family: "Trebuchet MS", sans-serif;
+    zoom: 1;
 }
 
 /* }}} */
@@ -534,14 +509,14 @@ ul.os_osx li.os_osx,
 noscript li.os_linux,
 noscript li.os_windows,
 noscript li.os_osx{
-	display: block;
+    display: block;
 }
 
 /* }}} */
 /* {{{ Main Features */
 
 #main-feature {
-	margin: 0 20px;
+    margin: 0 20px;
 }
 
 #main-feature h2 {

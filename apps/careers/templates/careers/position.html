@@ -1,8 +1,11 @@
 {% extends "base.html" %}
+{% from "careers/macros.html" import breadcrumbs with context %}
 
 {% block page_title %}{{ _('{position} &mdash; Mozilla Jobs &mdash; Open Positions')|f(position=position.title)|safe }}{% endblock %}
 
 {% block content %}
+  {{ breadcrumbs((url('careers.home'), _('Careers')), last=position.title) }}
+
   <div id="main">
     <div class="primary">
       <h1>{{ position.title }}</h1>
@@ -49,6 +52,52 @@
             {% endfor %}
           </ul>
         </div>
+      </div>
+    </div>
+
+    <div id="why-mozilla">
+      <h2>{{ _('Why Mozilla?') }}</h2>
+      <div class="tertiary why">
+        <p>
+          {% trans %}
+            Mozilla is a thriving community of intelligent, principled
+            and passionate individuals who build software to preserve choice,
+            openness, and innovation on the Internet. We work in the open on hard
+            problems to ensure that the future of the Web is not dominated by large
+            corporate  interests, but driven by the idea that indivdual users should
+            always be in control or their online lives.  Join us!
+          {% endtrans %}
+        </p>
+
+        <h3>{{ _('We Are Global') }}</h3>
+        <ul>
+          <li>{{ _('500+ paid staff from over 30 countries and 25 US States') }}</li>
+          <li>{{ _('Thousands of active contributors across six continents') }}</li>
+          <li>{{ _('Nine principal offices: Mt. View, San Francisco, Vancouver,
+                    Toronto, Berlin, Paris, London, Beijing, Taipei') }}</li>
+          <li>{{ _('Hundreds of home offices around the world.') }}</li>
+        </ul>
+
+        <h3>{{ _('And so are our benefits...') }}</h3>
+        <ul>
+          <li>{{ _('Competitive pay') }}</li>
+          <li>{{ _('Great health coverage') }}</li>
+          <li>{{ _('Travel and conference budgets') }}</li>
+          <li>{{ _('Ability to work using the latest hardware and software of
+                    your choice') }}</li>
+          <li>{{ _('Dozens of technical brownbags and invited speakers each
+                    month') }}</li>
+        </ul>
+
+        <h3>{{ _('Because we love what we do!') }}</h3>
+        <ul>
+          <li>{{ _('We take bold technical leaps') }}</li>
+          <li>{{ _('We code in the open and we ship in the open') }}</li>
+          <li>{{ _('We direcly impact over 450 Million users') }}</li>
+          <li>{{ _("We build technology for the benefit of the Web's users
+                    and creators") }}</li>
+          <li>{{ _('We work in a culture defined by principles over profits') }}</li>
+        </ul>
       </div>
     </div>
   </div>

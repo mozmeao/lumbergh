@@ -1,43 +1,46 @@
 {% extends "base.html" %}
-{% from "careers/macros.html" import position_listing %}
+{% from "careers/macros.html" import breadcrumbs, position_listing with context %}
 
 {% block page_title %}{{ _('Mozilla Jobs &mdash; Open Positions') }}{% endblock %}
 
 {% block content %}
-<div class="wrapper">
-  <h1 class="home-header">{{ _('Careers at Mozilla') }}</h1>
 
-  <ul id="sections">
-    <li><a data-jobtype="all" class="active">All Positions</a></li>
-    <li><a data-jobtype="full-time">Full-time</a></li>
-    <li><a data-jobtype="intern">Internships</a></li>
-    <li><a data-jobtype="contractor">Contractor</a></li>
-    <li><a data-jobtype="volunteer">Volunteer</a></li>
-  </ul>
+  {{ breadcrumbs(last=_('Careers')) }}
 
-  <div class="role-group large">
-    {#
-      Once there is some reorganization by HR on the categories, there will
-      be less categories and this hacky thing will be adjusted accordingly.
-      Internships will always sit on the right-side column, while everything
-      else sits in the left and middle alphabetically. Since the categories
-      do not change often (or at all), the hacky number will be generally okay.
-    #}
-    <ul>
-      {% for category in categories[:5] -%}
-        {{ position_listing(category) }}
-      {% endfor %}
+  <div class="wrapper">
+    <h1 class="home-header">{{ _('Careers at Mozilla') }}</h1>
+    <p class="headline">{{ _("Let's build a better Web") }}</p>
+
+    <ul id="sections">
+      <li><a data-jobtype="all" class="active">{{ _('All Positions') }}</a></li>
+      <li><a data-jobtype="full-time">{{ _('Full-time') }}</a></li>
+      <li><a data-jobtype="intern">{{ _('Internships') }}</a></li>
+      <li><a data-jobtype="contractor">{{ _('Contractor') }}</a></li>
     </ul>
-    <ul>
-      {% for category in categories[6:] -%}
-        {{ position_listing(category) }}
-      {% endfor %}
-    </ul>
-    {% if internships %}
-      <ul class="last">
-        {{ position_listing(internships) }}
+
+    <div class="role-group large">
+      {#
+        Once there is some reorganization by HR on the categories, there will
+        be less categories and this hacky thing will be adjusted accordingly.
+        Internships will always sit on the right-side column, while everything
+        else sits in the left and middle alphabetically. Since the categories
+        do not change often (or at all), the hacky number will be generally okay.
+      #}
+      <ul>
+        {% for category in categories[:4] -%}
+          {{ position_listing(category) }}
+        {% endfor %}
       </ul>
-    {% endif %}
+      <ul>
+        {% for category in categories[5:] -%}
+          {{ position_listing(category) }}
+        {% endfor %}
+      </ul>
+      {% if internships %}
+        <ul class="last">
+          {{ position_listing(internships) }}
+        </ul>
+      {% endif %}
+    </div>
   </div>
-</div>
 {% endblock %}

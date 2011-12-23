@@ -1,3 +1,9 @@
+[submodule "templates/global"]
+	path = templates/global
+	url = git://github.com/mozilla/django-moz-header.git
+[submodule "media/global"]
+	path = media/global
+	url = git://github.com/mozilla/django-moz-header.git
 [submodule "vendor"]
-	path = vendor
-	url = git://github.com/mozilla/lumbergh-lib.git
+    path = vendor
+    url = git://github.com/mozilla/lumbergh-lib.git

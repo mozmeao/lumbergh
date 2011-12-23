@@ -1,11 +1,11 @@
-.wrapper {
-    text-align: center;
+li {
+    list-style-type: none;
 }
 
-h1.home-header {
-    font-size: 47px;
-    font-weight: bold;
-    margin: 1em 0 0.1em 0;
+.wrapper {
+    margin: 0px 20px 0px 20px;
+    text-align: center;
+    width: 940px;
 }
 
 .logo {
@@ -15,26 +15,31 @@ h1.home-header {
     text-align: left;
 }
 
-.logo a {
-    background: url(../img/mozilla-jobs-logo.png) no-repeat;
-    display: block;
-    font-size: 1px;
-    height: 25px;
-    text-indent: -9999px;
-    width: 165px;
+.headline {
+    font-size: 20px;
+}
+
+#breadcrumbs a.home {
+    background: url('../img/template/breadcrumb-home.png') no-repeat;
+}
+
+#main {
+    margin: 0px 20px 0px 20px;
+    min-height: 200px;
 }
 
 #sections {
     margin: 0 auto;
     padding-bottom: 40px;
-    width: 460px;
+    width: 380px;
 }
 
 #sections li {
     float: left;
     font-size: 14px;
+    font-style: italic;
     text-align: center;
-    width: 92px;
+    width: 95px;
 }
 
 #sections li.last {
@@ -55,8 +60,8 @@ h1.home-header {
 }
 
 #sections li a.active:hover, #sections li a.active:focus {
-    text-decoration: none;
     cursor: default;
+    text-decoration: none;
 }
 
 .secondary li a.active {
@@ -79,7 +84,7 @@ h1.home-header {
     border-top: 1px solid #eee;
     float: left;
     margin-right: 40px;
-    width: 300px;
+    width: 286px;
 }
 
 .role-group.large.last > ul {
@@ -97,7 +102,7 @@ h1.home-header {
 .role-group.large li h2 {
     color: #000;
     font-size: 14px;
-    font-style: normal;
+    font-style: italic;
     font-weight: bold;
 }
 
@@ -136,9 +141,28 @@ h1.home-header {
     width: 250px;
 }
 
-.primary h1 {
+.primary h1, .primary h2 {
     font-size: 28px;
-    font-weight: bold;
+    line-height: 30px;
+}
+
+#why-mozilla {
+    clear: both;
+    float: left;
+    margin-top: 40px;
+}
+
+#why-mozilla h3 {
+    font-style: normal;
+    margin-bottom: 20px;
+}
+
+#why-mozilla ul {
+    padding-left: 40px;
+}
+
+#why-mozilla ul li {
+    list-style-type: disc;
 }
 
 .apply {
@@ -148,26 +172,16 @@ h1.home-header {
 }
 
 #job-apply {
-    background-image: linear-gradient(bottom, rgb(98,144,49) 30%, rgb(134,182,82) 65%, rgb(134,182,82) 83%);
-    background-image: -o-linear-gradient(bottom, rgb(98,144,49) 30%, rgb(134,182,82) 65%, rgb(134,182,82) 83%);
-    background-image: -moz-linear-gradient(bottom, rgb(98,144,49) 30%, rgb(134,182,82) 65%, rgb(134,182,82) 83%);
-    background-image: -webkit-linear-gradient(bottom, rgb(98,144,49) 30%, rgb(134,182,82) 65%, rgb(134,182,82) 83%);
-    background-image: -ms-linear-gradient(bottom, rgb(98,144,49) 30%, rgb(134,182,82) 65%, rgb(134,182,82) 83%);
-    background-image: -webkit-gradient(
-        linear,
-        left bottom,
-        left top,
-        color-stop(0.3, rgb(98,144,49)),
-        color-stop(0.65, rgb(134,182,82)),
-        color-stop(0.83, rgb(134,182,82))
-    );
-    background-color: #86b652;
-    border: 1px solid #8ba56f;
+    background-color: #6194d7;
+    border-bottom: 3px solid #4e76ab;
     border-radius: 5px;
-    box-shadow: #666 1px 1px 2px;
-    color: #efffde;
-    padding: 6px 15px 6px 15px;
-    text-shadow: #6da037 1px 1px 2px;
+    -moz-box-shadow: #dde0e4 0px 3px 0px;
+    -webkit-box-shadow: #dde0e4 0px 3px 0px;
+    box-shadow: #dde0e4 0px 3px 0px;
+    color: #fff;
+    font-size: 15px;
+    font-style: italic;
+    padding: 9px 15px 9px 15px;
 }
 
 .secondary h2 {

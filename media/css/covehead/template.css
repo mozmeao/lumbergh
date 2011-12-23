@@ -47,13 +47,24 @@ body {
 #header {
     text-align: center;
     height: 58px;
-    position: relative;
-    margin: 0px;
+    margin: 0 10px;
 }
 
-#header h1 {
+#header h1 {    
     margin: 0;
     float: left;
+}
+
+#header h1 a,
+#header h1 a:link,
+#header h1 a:visited {
+    display: block;
+    height: 68px;
+    width: 171px;
+    background: url(/media/img/covehead/template/title.png) 0 0 no-repeat;
+    text-indent: -500px;
+    font-size: 1px;
+    overflow: hidden;
 }
 
 #footer h3 a:hover,
@@ -68,15 +79,27 @@ body {
 
 /* Top Level Menu Items */
 
+#nav-main {
+    display: inline-block;
+    *display: inline;
+    _height: 47px;
+    zoom: 1;
+    text-align: left;
+    font-family: "Trebuchet MS", sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
 #nav-main li {
     list-style: none;
 }
 
 #nav-main ul {
     float: left;
-    z-index: 2;
-    display: block;
-    margin: 20px 0px 0px 0px;
+    z-index: 99;
+    left: auto;
+    margin: 0;
     padding: 0;
 }
 
@@ -86,32 +109,52 @@ body {
     margin: 0 0 0 -1px;
     padding: 0;
     position: relative;
-    z-index: 3;
+    z-index: 100;
 }
 
 #nav-main ul li a,
+#nav-main ul li a:link,
+#nav-main ul li a:visited,
 #nav-main ul li span {
-    padding: 0px 10px 0px 10px;
+    padding: 15px 20px 10px;
+    height: 18px;
     display: block;
     float: left;
-    border-left: 1px solid #999;
+    border-width: 0 1px;
+    border-style: solid;
+    border-color: #98b2c9;
     z-index: 100;
     position: relative;
-    color: #447BC4;
+    color: #484848;
     text-decoration: none;
-    outline: none;
-}
-
-#nav-main ul li a:hover {
-    text-decoration: underline;
-}
-
-#nav-main li.last a {
-    border-right: none;
 }
 
 #nav-main ul li.current.last a {
     border-color: #98b2c9;
+}
+
+#nav-main ul li.hover a,
+#nav-main ul li.hover a:link,
+#nav-main ul li.hover a:visited {
+    -webkit-box-shadow:
+        inset rgba(255,255,255,0.8) 0 -6px 20px 10px;
+    -webkit-box-shadow:
+        rgba(152,178,201,0.2) 0 0px 0px,
+        inset rgba(255,255,255,0.8) 0 -6px 20px 10px;
+    box-shadow:
+        rgba(152,178,201,0.2) 0 0px 0px,
+        inset rgba(255,255,255,0.8) 0 -6px 20px 10px;
+    -moz-transition: 0.2s linear;
+    -moz-transition-property: background, box-shadow, border-right;
+    background: rgb(251,253,255);
+    background: rgba(255,255,255,0);
+    outline: 0;
+    padding-bottom: 15px;
+}
+
+#nav-main ul li.last a,
+#nav-main ul li.last span {
+    border-right-color: transparent;
 }
 
 #nav-main ul li.last a:hover,
@@ -290,13 +333,13 @@ body {
 }
 
 #header a.mozilla {
-    position: absolute;
-    right: 0px;
+    position: relative;
+    float: right;
     display: block;
     height: 49px;
     width: 118px;
     background: url(/media/img/covehead/template/title.png) 100% 0 no-repeat;
-    text-indent: -9999px;
+    text-indent: -200px;
     overflow: hidden;
 }
 
