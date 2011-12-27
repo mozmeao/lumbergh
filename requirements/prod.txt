@@ -24,3 +24,6 @@ Babel>=0.9.4
 
 # Jobvite integration
 -e git://github.com/mozilla/django-jobvite#egg=django_jobvite
+
+# South
+south
