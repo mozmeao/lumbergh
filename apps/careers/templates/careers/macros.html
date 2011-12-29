@@ -20,7 +20,7 @@
     <ul>
       {% for position in category.position_set.order_by('title') %}
         <li>
-          <a href="{{ url('careers.views.position', job_id=position.job_id) }}"
+          <a href="{{ url('careers.position', job_id=position.job_id) }}"
              data-jobtype="{{ position.job_type.lower() }}"
              alt="{{ position.title }}"
              title="{{ position.title }}">{{ position.title }}</a>
