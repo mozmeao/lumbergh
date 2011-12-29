@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% from "careers/macros.html" import breadcrumbs, position_listing with context %}
+
+{% block page_title %}{{ _('Mozilla Jobs &mdash; Error') }}{% endblock %}
+
+{% block content %}
+  {{ breadcrumbs(last=_('Careers')) }}
+
+  <div class="wrapper">
+    <h1 class="home-header">{{ _('Sorry, but something went wrong!') }}</h1>
+
+    <p>
+      {% trans home_url=url('home') %}
+        Sorry, but something went wrong on our end and we couldn't process
+        your request. You can reload the page to try again, or
+        <a href="{{ home_url }}">check out all the listings</a> for all
+        careers at Mozilla.
+      {% endtrans %}
+    </p>
+  </div>
+{% endblock %}
