@@ -7,9 +7,9 @@
     <h1 class="home-header">{{ _('Page not found!') }}</h1>
 
     <p>
-      {% trans %}
+      {% trans home_url=url('careers.home') %}
         Sorry, but we couldn't find the job listing or page you're looking for.
-        <a href="{{ url('careers.home') }}">Check out all the listings</a> for all
+        <a href="{{ home_url }}">Check out all the listings</a> for all
         careers at Mozilla.
       {% endtrans %}
     </p>
