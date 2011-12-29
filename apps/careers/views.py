@@ -7,7 +7,7 @@ def home(request):
     excluded_categories = ['Internships', 'Volunteer and Community Opportunities']
     categories = list(Category.objects.exclude(
             name__in=excluded_categories).order_by('name'))
-    internships = get_object_or_404(Category, name='Internships')
+    internships = Category.objects.filter(name='Internships')
     return render(request, 'careers/home.html', {
         'categories': categories,
         'internships': internships,

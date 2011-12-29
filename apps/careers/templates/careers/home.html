@@ -55,19 +55,21 @@
         else sits in the left and middle alphabetically. Since the categories
         do not change often (or at all), the hacky number will be generally okay.
       #}
-      <ul>
-        {% for category in categories[:4] -%}
-          {{ position_listing(category) }}
-        {% endfor %}
-      </ul>
-      <ul>
-        {% for category in categories[5:] -%}
-          {{ position_listing(category) }}
-        {% endfor %}
-      </ul>
+      {% if categories %}
+        <ul>
+          {% for category in categories[:4] -%}
+            {{ position_listing(category) }}
+          {% endfor %}
+        </ul>
+        <ul>
+          {% for category in categories[5:] -%}
+            {{ position_listing(category) }}
+          {% endfor %}
+        </ul>
+      {% endif %}
       {% if internships %}
         <ul class="last">
-          {{ position_listing(internships) }}
+          {{ position_listing(internships[0]) }}
         </ul>
       {% endif %}
     </div>
