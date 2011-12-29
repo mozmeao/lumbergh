@@ -1,4 +1,6 @@
 $(function() {
+    VideoJS.setupAllWhenReady();
+    
     $('#sections li a').click(function(ev) {
         ev.preventDefault();
         var self = $(this);
