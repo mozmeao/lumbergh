@@ -7,10 +7,10 @@
     <h1 class="home-header">{{ _('Sorry, but something went wrong!') }}</h1>
 
     <p>
-      {% trans home_url=url('home') %}
+      {% trans %}
         Sorry, but something went wrong on our end and we couldn't process
         your request. You can reload the page to try again, or
-        <a href="{{ home_url }}">check out all the listings</a> for all
+        <a href="{{ url('careers.home') }}">check out all the listings</a> for all
         careers at Mozilla.
       {% endtrans %}
     </p>
