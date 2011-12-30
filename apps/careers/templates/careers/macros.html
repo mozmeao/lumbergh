@@ -1,9 +1,9 @@
 {% macro breadcrumbs() -%}
   <header id="jobs-header">
     <p id="breadcrumbs">
-      <a href="http://www.mozilla.org/{{ LANG }}" class="home">{{ _('Home') }}</a>
+      <a href="http://www.mozilla.org/{{ LANG }}" class="home">Home</a>
       <strong>»</strong>
-      <a href="http://www.mozilla.org/{{ LANG }}/about">{{ _('About') }}</a>
+      <a href="http://www.mozilla.org/{{ LANG }}/about">About</a>
       <strong>»</strong>
       {% for crumb in varargs -%}
         <a href="{{ crumb[0] }}">{{ crumb[1] }}</a>

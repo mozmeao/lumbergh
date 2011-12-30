@@ -20,17 +20,17 @@ PROD_LANGUAGES = ('de', 'en-US', 'es', 'fr',)
 
 TEMPLATE_DIRS = (
     path('templates'),
-    path('locale')
+    # path('locale')
 )
 
-def JINJA_CONFIG():
-    import jinja2
-    from django.conf import settings
-    config = {'extensions': ['tower.template.i18n', 'jinja2.ext.do',
-                             'jinja2.ext.with_', 'jinja2.ext.loopcontrols',
-                             'l10n_utils.template.l10n_blocks'],
-              'finalize': lambda x: x if x is not None else ''}
-    return config
+# def JINJA_CONFIG():
+#    import jinja2
+#    from django.conf import settings
+#    config = {'extensions': ['tower.template.i18n', 'jinja2.ext.do',
+#                             'jinja2.ext.with_', 'jinja2.ext.loopcontrols',
+#                             'l10n_utils.template.l10n_blocks'],
+#              'finalize': lambda x: x if x is not None else ''}
+#    return config
 
 
 # Bundles is a dictionary of two dictionaries, css and js, which list css files
@@ -55,7 +55,6 @@ MINIFY_BUNDLES = {
         ),
     }
 }
-
 
 INSTALLED_APPS = list(INSTALLED_APPS) + [
     # Example code. Can (and should) be removed for actual projects.

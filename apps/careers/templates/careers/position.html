@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 {% from "careers/macros.html" import breadcrumbs with context %}
 
-{% block page_title %}{{ _('{position} &mdash; Mozilla Jobs &mdash; Open Positions')|f(position=position.title)|safe }}{% endblock %}
+{% block page_title %}{{ '{position} &mdash; Mozilla Jobs &mdash; Open Positions'|f(position=position.title)|safe }}{% endblock %}
 
 {% block content %}
-  {{ breadcrumbs((url('careers.home'), _('Careers')), last=position.title) }}
+  {{ breadcrumbs((url('careers.home'), 'Careers'), last=position.title) }}
 
   <div id="main">
     <div class="primary">
       <h1>{{ position.title }}</h1>
-      <h2 class="locations">{{ position.location|default(_('All'), True) }}</h2>
+      <h2 class="locations">{{ position.location|default('All', True) }}</h2>
       <div id="job-meta">
         <div class="float">
           <div id="job-description">
@@ -22,14 +22,14 @@
           </div>
 
           <dl id="job-details">
-            <dt>{{ _('Team:') }}</dt>
+            <dt>Team:</dt>
             <dd>{{ position.category.name }}</dd>
-            <dt>{{ _('Posted:') }}</dt>
+            <dt>Posted:</dt>
             <dd>{{ position.date }}</dd>
           </dl>
 
           <div class="apply">
-            <a id="job-apply" href="{{ position.apply_url }}">{{ _('Apply for this Job') }}</a>
+            <a id="job-apply" href="{{ position.apply_url }}">Apply for this Job</a>
           </div>
         </div> <!-- /.float -->
       </div> <!-- /#job-meta -->
@@ -41,7 +41,7 @@
           <h2>{{ position.category.name }}</h2>
           <p>{{ position.category.description }}</p>
           {# TODO: Update brief_description with video field #}
-          <h2>{{ _('Open Positions') }}</h2>
+          <h2>Open Positions</h2>
           <ul>
             {% for p in positions %}
               <li>
@@ -56,47 +56,43 @@
     </div>
 
     <div id="why-mozilla">
-      <h2>{{ _('Why Mozilla?') }}</h2>
+      <h2>Why Mozilla?</h2>
       <div class="tertiary why">
         <p>
-          {% trans %}
-            Mozilla is a thriving community of intelligent, principled
-            and passionate individuals who build software to preserve choice,
-            openness, and innovation on the Internet. We work in the open on hard
-            problems to ensure that the future of the Web is not dominated by large
-            corporate  interests, but driven by the idea that indivdual users should
-            always be in control or their online lives.  Join us!
-          {% endtrans %}
+          Mozilla is a thriving community of intelligent, principled
+          and passionate individuals who build software to preserve choice,
+          openness, and innovation on the Internet. We work in the open on hard
+          problems to ensure that the future of the Web is not dominated by large
+          corporate  interests, but driven by the idea that indivdual users should
+          always be in control or their online lives.  Join us!
         </p>
 
-        <h3>{{ _('We Are Global') }}</h3>
+        <h3>We Are Global</h3>
         <ul>
-          <li>{{ _('500+ paid staff from over 30 countries and 25 US States') }}</li>
-          <li>{{ _('Thousands of active contributors across six continents') }}</li>
-          <li>{{ _('Nine principal offices: Mt. View, San Francisco, Vancouver,
-                    Toronto, Berlin, Paris, London, Beijing, Taipei') }}</li>
-          <li>{{ _('Hundreds of home offices around the world.') }}</li>
+          <li>500+ paid staff from over 30 countries and 25 US States</li>
+          <li>Thousands of active contributors across six continents</li>
+          <li>Nine principal offices: Mt. View, San Francisco, Vancouver,
+              Toronto, Berlin, Paris, London, Beijing, Taipei</li>
+          <li>Hundreds of home offices around the world.</li>
         </ul>
 
-        <h3>{{ _('And so are our benefits...') }}</h3>
+        <h3>And so are our benefits...</h3>
         <ul>
-          <li>{{ _('Competitive pay') }}</li>
-          <li>{{ _('Great health coverage') }}</li>
-          <li>{{ _('Travel and conference budgets') }}</li>
-          <li>{{ _('Ability to work using the latest hardware and software of
-                    your choice') }}</li>
-          <li>{{ _('Dozens of technical brownbags and invited speakers each
-                    month') }}</li>
+          <li>Competitive pay</li>
+          <li>Great health coverage</li>
+          <li>Travel and conference budgets</li>
+          <li>Ability to work using the latest hardware and software of
+              your choice</li>
+          <li>Dozens of technical brownbags and invited speakers each month</li>
         </ul>
 
-        <h3>{{ _('Because we love what we do!') }}</h3>
+        <h3>Because we love what we do!</h3>
         <ul>
-          <li>{{ _('We take bold technical leaps') }}</li>
-          <li>{{ _('We code in the open and we ship in the open') }}</li>
-          <li>{{ _('We direcly impact over 450 Million users') }}</li>
-          <li>{{ _("We build technology for the benefit of the Web's users
-                    and creators") }}</li>
-          <li>{{ _('We work in a culture defined by principles over profits') }}</li>
+          <li>We take bold technical leaps</li>
+          <li>We code in the open and we ship in the open</li>
+          <li>We direcly impact over 450 Million users</li>
+          <li>We build technology for the benefit of the Web's users and creators</li>
+          <li>We work in a culture defined by principles over profits</li>
         </ul>
       </div>
     </div>

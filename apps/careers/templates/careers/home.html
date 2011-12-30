@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% from "careers/macros.html" import breadcrumbs, position_listing with context %}
 
-{% block page_title %}{{ _('Mozilla Jobs &mdash; Open Positions') }}{% endblock %}
+{% block page_title %}Mozilla Jobs &mdash; Open Positions{% endblock %}
 
 {% block content %}
 
-  {{ breadcrumbs(last=_('Careers')) }}
+  {{ breadcrumbs(last='Careers') }}
 
   <div class="wrapper">
-    <h1 class="home-header">{{ _('Careers at Mozilla') }}</h1>
+    <h1 class="home-header">Careers at Mozilla</h1>
 
     <div id="current-video">
       <div id="video-player" class="mozilla-video-control">
@@ -38,13 +38,13 @@
       </div>
     </div>
 
-    <p class="headline">{{ _("Let's build a better Web") }}</p>
+    <p class="headline">Let's build a better Web</p>
 
     <ul id="sections">
-      <li><a data-jobtype="all" class="active">{{ _('All Positions') }}</a></li>
-      <li><a data-jobtype="full-time">{{ _('Full-time') }}</a></li>
-      <li><a data-jobtype="intern">{{ _('Internships') }}</a></li>
-      <li><a data-jobtype="contractor">{{ _('Contractor') }}</a></li>
+      <li><a data-jobtype="all" class="active">All Positions</a></li>
+      <li><a data-jobtype="full-time">Full-time</a></li>
+      <li><a data-jobtype="intern">Internships</a></li>
+      <li><a data-jobtype="contractor">Contractor</a></li>
     </ul>
 
     <div class="role-group large">
