@@ -2,8 +2,6 @@
 
 import os
 
-from django.utils.functional import lazy
-
 from funfactory.settings_base import *
 
 # Make file paths relative to the base directory.
@@ -70,5 +68,5 @@ HMAC_KEYS = {
     #'2011-01-01': 'cheesecake',
 }
 
-# Jobvite XML URI
-JOBVITE_URI = '' # http://www.jobvite.com/CompanyJobs/Xml.aspx?c=...
+# Jobvite URI
+JOBVITE_URI = 'http://www.jobvite.com/CompanyJobs/Xml.aspx?c=qpX9Vfwa'

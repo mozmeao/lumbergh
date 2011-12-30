@@ -5,7 +5,7 @@ from l10n_utils.management.commands.l10n_check import list_templates, L10nParser
 class TestL10nCheck(unittest.TestCase):
 
     def test_list_templates(self):
-        tmpls = filter(lambda tmpl: 'mozorg/channel.html' in tmpl,
+        tmpls = filter(lambda tmpl: 'careers/home.html' in tmpl,
                        list_templates())
         print list(list_templates())
         assert tmpls
