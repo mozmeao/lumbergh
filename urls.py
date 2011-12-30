@@ -8,21 +8,9 @@ from django.shortcuts import render
 # from django.contrib import admin
 # admin.autodiscover()
 
-# def error_page(request, template, status=None):
-#    """Render error templates, found in the root /templates directory.
-#    If no status parameter is explcitedly passed, this function assumes
-#    your HTTP status code is the same as your template name (i.e. passing
-#    a template=404 will render 404.html with the HTTP status code 404).
-#    """
-#    return render(request, '%d.html' % template, status=(status or template))
-
-
-# handler404 = lambda r: error_page(r, 404)
-# handler500 = lambda r: error_page(r, 500)
-
 urlpatterns = patterns('',
-    (r'', include('careers.urls')),
     (r'^jobvite/', include('django_jobvite.urls')),
+    (r'', include('careers.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
@@ -38,7 +26,4 @@ if settings.DEBUG:
     urlpatterns += patterns('',
         (r'^%s/(?P<path>.*)$' % media_url, 'django.views.static.serve',
          {'document_root': settings.MEDIA_ROOT}),
-        # Add 404 and 500 pages for testing.
-        # (r'^404$', handler404),
-        # (r'^500$', handler500),
     )
