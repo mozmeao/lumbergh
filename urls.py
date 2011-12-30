@@ -9,7 +9,7 @@ from django.shortcuts import render
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-    (r'^careers/', include('careers.urls')),
+    (r'', include('careers.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
