@@ -9,7 +9,6 @@ from django.shortcuts import render
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-    (r'^jobvite/', include('django_jobvite.urls')),
     (r'', include('careers.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
