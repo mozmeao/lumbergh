@@ -21,7 +21,3 @@ def position(request, job_id=None):
         'position': position,
         'positions': positions,
     }) 
-
-
-def why(request):
-    return render(request, 'careers/why.html')
