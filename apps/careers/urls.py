@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import patterns, url
 
-from careers import views
+from . import views
 
 
 urlpatterns = patterns('',
