@@ -29,7 +29,7 @@ class playdoh {
 
     exec { "sql_migrate":
         cwd => "$PROJ_DIR",
-        command => "python ./vendor/src/schematic/schematic migrations/",
+        command => "python ./manage.py migrate",
         require => [
             Service["mysql"],
             Package["python2.6-dev", "libapache2-mod-wsgi", "python-wsgi-intercept" ],
