@@ -1,3 +1,5 @@
+-r ../vendor/src/funfactory/funfactory/requirements/prod.txt
+
 # Django stuff
 -e git://github.com/django/django@36c82ac8#egg=django
 

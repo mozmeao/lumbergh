@@ -8,5 +8,3 @@ urlpatterns = patterns('',
         name='careers.position'),
     url('^/?$', views.home, name='careers.home'),
 )
-
-import pdb; pdb.set_trace()
