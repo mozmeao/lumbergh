@@ -4,8 +4,9 @@ from . import views
 
 
 urlpatterns = patterns('',
-    url('^$', views.home, name='careers.home'),
-    url('^position/(?P<job_id>[\w]+)$', views.position, name='careers.position'),
+    url('^position/(?P<job_id>[\w]+)$', views.position,
+        name='careers.position'),
+    url('^/?$', views.home, name='careers.home'),
 )
 
 import pdb; pdb.set_trace()
