@@ -8,6 +8,8 @@ from django.shortcuts import render
 # from django.contrib import admin
 # admin.autodiscover()
 
+import pdb; pdb.set_trace()
+
 urlpatterns = patterns('',
     (r'', include('careers.urls')),
 
@@ -26,3 +28,4 @@ if settings.DEBUG:
         (r'^%s/(?P<path>.*)$' % media_url, 'django.views.static.serve',
          {'document_root': settings.MEDIA_ROOT}),
     )
+    import pdb; pdb.set_trace()
