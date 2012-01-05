@@ -22,3 +22,4 @@ manage.setup_environ(__file__)
 
 if __name__ == "__main__":
     manage.main()
+    import pdb; pdb.set_trace()
