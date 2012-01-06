@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404
+from django.http import Http404
+from django.shortcuts import render
 
 from django_jobvite.models import Position, Category
 
@@ -15,9 +16,12 @@ def home(request):
 
 
 def position(request, job_id=None):
-    position = Position.objects.select_related('category').get(job_id=job_id)
-    positions = position.category.position_set.all()
-    return render(request, 'careers/position.html', {
-        'position': position,
-        'positions': positions,
-    }) 
+    try:
+        position = Position.objects.select_related('category').get(job_id=job_id)
+        positions = position.category.position_set.all()
+        return render(request, 'careers/position.html', {
+            'position': position,
+            'positions': positions,
+        })
+    except Position.DoesNotExist:
+        raise Http404

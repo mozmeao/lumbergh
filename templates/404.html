@@ -1,20 +1,18 @@
 {% extends "base.html" %}
 {% from "careers/macros.html" import breadcrumbs, position_listing with context %}
 
-{% block page_title %}{{ _('Mozilla Jobs &mdash; Page not found') }}{% endblock %}
+{% block page_title %}Mozilla Jobs &mdash; Page not found{% endblock %}
 
 {% block content %}
   {{ breadcrumbs(last=_('Careers')) }}
 
   <div class="wrapper">
-    <h1 class="home-header">{{ _('Page not found!') }}</h1>
+    <h1 class="home-header">Page not found!</h1>
 
     <p>
-      {% trans home_url=url('home') %}
-        Sorry, but we couldn't find the job listing or page you're looking for.
-        <a href="{{ home_url }}">Check out all the listings</a> for all
-        careers at Mozilla.
-      {% endtrans %}
+      Sorry, but we couldn't find the job listing or page you're looking for.
+      <a href="{{ url('careers.home') }}">Check out all the listings</a> for all
+      careers at Mozilla.
     </p>
   </div>
 {% endblock %}
