@@ -17,7 +17,7 @@ def home(request):
 
 def position(request, job_id=None):
     try:
-        position = Position.objects.select_related('category').get(job_id=job_id)
+        position = Position.objects.select_related('category').get(job_id__contains=job_id)
         positions = position.category.position_set.all()
         return render(request, 'careers/position.html', {
             'position': position,
