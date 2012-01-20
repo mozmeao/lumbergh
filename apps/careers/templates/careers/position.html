@@ -36,10 +36,7 @@
     <div class="secondary">
       <div id="job-desc">
         <div class="desc">
-          <h2>{{ position.category.name }}</h2>
-          <p>{{ position.category.description }}</p>
-          {# TODO: Update brief_description with video field #}
-          <h2>Open Positions</h2>
+          <h2>{{ position.category.name }}: {{ _('Open Positions') }}</h2>
           <ul>
             {% for p in positions %}
               <li>
