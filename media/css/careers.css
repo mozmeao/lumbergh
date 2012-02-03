@@ -195,3 +195,7 @@ h1 {
 .secondary li {
     margin-bottom: 6px;
 }
+
+#current-video {
+    overflow: hidden;
+}
