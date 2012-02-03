@@ -196,6 +196,6 @@ h1 {
     margin-bottom: 6px;
 }
 
-#current-video {
+div#current-video {
     overflow: hidden;
 }
