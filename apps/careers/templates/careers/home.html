@@ -61,14 +61,14 @@
           {% endfor %}
         </ul>
         <ul>
-          {% for category in categories[5:] -%}
+          {% for category in categories[5:10] -%}
             {{ position_listing(category) }}
           {% endfor %}
         </ul>
-      {% endif %}
-      {% if internships %}
         <ul class="last">
-          {{ position_listing(internships[0]) }}
+          {% for category in categories[10:] -%}
+            {{ position_listing(category) }}
+          {% endfor %}
         </ul>
       {% endif %}
     </div>
