@@ -5,13 +5,12 @@ from django_jobvite.models import Position, Category
 
 
 def home(request):
-    excluded_categories = ['Internships', 'Volunteer and Community Opportunities']
+    excluded_categories = ['Volunteer and Community Opportunities']
     categories = list(Category.objects.exclude(
             name__in=excluded_categories).order_by('name'))
     internships = Category.objects.filter(name='Internships')
     return render(request, 'careers/home.html', {
         'categories': categories,
-        'internships': internships,
     })
 
 
