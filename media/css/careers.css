@@ -199,3 +199,8 @@ h1 {
 div#current-video {
     overflow: hidden;
 }
+
+#job-description li {
+    list-style-type: disc;
+    margin-left: 30px;
+}
