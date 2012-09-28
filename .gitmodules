@@ -7,3 +7,6 @@
 [submodule "vendor"]
     path = vendor
     url = git://github.com/mozilla/lumbergh-lib.git
+[submodule "vendor-local/src/django-jobvite"]
+	path = vendor-local/src/django-jobvite
+	url = https://github.com/mozilla/django-jobvite.git
