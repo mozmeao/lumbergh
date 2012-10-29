@@ -56,9 +56,10 @@ MINIFY_BUNDLES = {
 
 INSTALLED_APPS = list(INSTALLED_APPS) + [
     # Example code. Can (and should) be removed for actual projects.
-    'careers',
+    'careers.careers',
     'django_jobvite',
     'south',
+    'jingo_minify',
 ]
 
 

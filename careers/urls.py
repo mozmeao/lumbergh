@@ -4,6 +4,8 @@ from django.contrib import admin
 from django.shortcuts import render
 
 
+from funfactory.monkeypatches import patch
+patch()
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()

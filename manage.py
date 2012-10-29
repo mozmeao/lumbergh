@@ -2,6 +2,10 @@
 import os
 import sys
 
+
+# Edit this if necessary or override the variable in your environment.
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'careers.settings')
+
 try:
     # For local development in a virtualenv:
     from funfactory import manage
@@ -18,7 +22,7 @@ except ImportError:
     sys.path.remove(tmp_path)
 
 
-manage.setup_environ(__file__)
+manage.setup_environ(__file__, more_pythonic=True)
 
 if __name__ == "__main__":
     manage.main()
