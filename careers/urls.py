@@ -33,6 +33,7 @@ urlpatterns = patterns('',
     # (r'^admin/', include(admin.site.urls)),
 )
 
+
 ## In DEBUG mode, serve media files through Django.
 if settings.DEBUG:
     # Remove leading and trailing slashes so the regex matches.

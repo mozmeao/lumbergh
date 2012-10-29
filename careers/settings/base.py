@@ -4,9 +4,8 @@ import os
 
 from funfactory.settings_base import *
 
-# Make file paths relative to the base directory.
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-path = lambda *a: os.path.join(ROOT, *a)
+# Defines the views served for root URLs.
+ROOT_URLCONF = 'careers.urls'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -15,11 +14,6 @@ LANGUAGE_CODE = 'en-US'
 # Accepted locales
 PROD_LANGUAGES = ('de', 'en-US', 'es', 'fr',)
 
-
-TEMPLATE_DIRS = (
-    path('templates'),
-    # path('locale')
-)
 
 # def JINJA_CONFIG():
 #    import jinja2
@@ -56,6 +50,7 @@ MINIFY_BUNDLES = {
 
 INSTALLED_APPS = list(INSTALLED_APPS) + [
     # Example code. Can (and should) be removed for actual projects.
+    'careers.base',
     'careers.careers',
     'django_jobvite',
     'south',
