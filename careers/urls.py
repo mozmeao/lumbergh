@@ -24,7 +24,7 @@ handler404 = lambda r: error_page(r, 404)
 handler500 = lambda r: error_page(r, 500)
 
 urlpatterns = patterns('',
-    (r'', include('careers.urls')),
+    (r'', include('careers.careers.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
