@@ -1,5 +1,5 @@
-[submodule "templates/global"]
-	path = templates/global
+[submodule "careers/base/templates/global"]
+	path = careers/base/templates/global
 	url = git://github.com/mozilla/django-moz-header.git
 [submodule "media/global"]
 	path = media/global
