@@ -30,7 +30,8 @@ def list_templates():
     """List all the templates in all the installed apps"""
 
     for app in settings.INSTALLED_APPS:
-        tmpl_dir = path.join(settings.ROOT, 'apps', app, 'templates')
+        app_dir = [settings.ROOT] + app.split('.') + ['templates']
+        tmpl_dir = path.join(*app_dir)
 
         if path.exists(tmpl_dir):
             # Find all the .html files
