@@ -1,5 +1,5 @@
-settings_local.py
-settings/local.py
+local.py
+careers/settings/local.py
 *.py[co]
 *.sw[po]
 .coverage
