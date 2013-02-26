@@ -56,7 +56,7 @@ DEV = True
 SECRET_KEY = ''
 
 # Jobvite URI
-JOBVITE_URI = 'http://www.jobvite.com/CompanyJobs/Xml.aspx?c=XXXXX'
+# JOBVITE_URI = 'http://www.jobvite.com/CompanyJobs/Xml.aspx?c=XXXXX'
 
 # Uncomment these to activate and customize Celery:
 # CELERY_ALWAYS_EAGER = False  # required to activate celeryd
