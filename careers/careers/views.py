@@ -18,6 +18,8 @@ def position(request, job_id=None):
     try:
         position = Position.objects.select_related('category').get(job_id__contains=job_id)
         positions = position.category.position_set.all()
+        # Add applicant source param for jobvite
+        position.apply_url += '&s=PDN'
         return render(request, 'careers/position.html', {
             'position': position,
             'positions': positions,
