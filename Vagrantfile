@@ -15,26 +15,22 @@ end
 CONF = _config
 MOUNT_POINT = '/home/vagrant/project'
 
-Vagrant::Config.run do |config|
+Vagrant.configure("2") do |config|
     config.vm.box = "lucid32"
     config.vm.box_url = "http://files.vagrantup.com/lucid32.box"
 
-    config.vm.forward_port("web", 8000, 8000)
+    config.vm.network :forwarded_port, guest: 8000, host: 8000
+    config.vm.network :forwarded_port, guest: 3306, host: 3306
 
-    # Increase vagrant's patience during hang-y CentOS bootup
-    # see: https://github.com/jedi4ever/veewee/issues/14
-    config.ssh.max_tries = 50
-    config.ssh.timeout   = 300
-
-    # nfs needs to be explicitly enabled to run.
+    #nfs needs to be explicitly enabled to run. 
     if CONF['nfs'] == false or RUBY_PLATFORM =~ /mswin(32|64)/
-        config.vm.share_folder("v-root", MOUNT_POINT, ".")
-    else
-        config.vm.share_folder("v-root", MOUNT_POINT, ".", :nfs => true)
+    config.vm.synced_folder ".", MOUNT_POINT
+    else 
+        config.vm.synced_folder ".", MOUNT_POINT, nfs: true
     end
 
     # Add to /etc/hosts: 33.33.33.24 dev.playdoh.org
-    config.vm.network "33.33.33.24"
+    config.vm.network :private_network, ip: "33.33.33.24"
 
     config.vm.provision :puppet do |puppet|
         puppet.manifests_path = "puppet/manifests"
