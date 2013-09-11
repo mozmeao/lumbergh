@@ -64,4 +64,4 @@ HMAC_KEYS = {
 }
 
 # Jobvite URI
-JOBVITE_URI = 'http://www.jobvite.com/CompanyJobs/Xml.aspx?c=qpX9Vfwa'
+JOBVITE_URI = '//www.jobvite.com/CompanyJobs/Xml.aspx?c=qpX9Vfwa'
