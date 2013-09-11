@@ -30,18 +30,12 @@ PROD_LANGUAGES = ('de', 'en-US', 'es', 'fr',)
 MINIFY_BUNDLES = {
     'css': {
         'common': (
-            'global/template.css',
-            'css/covehead/content.css',
             'css/careers.css',
-            'css/video-js.css',
         ),
     },
     'js': {
         'common': (
             'js/libs/jquery-1.7.1.min.js',
-            'js/libs/video.js',
-            'js/util.js',
-            'js/nav-main.js',
             'js/careers.js',
         ),
     }

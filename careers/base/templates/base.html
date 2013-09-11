@@ -1,56 +1,58 @@
 <!DOCTYPE html>
-<html LANG="{{ LANG }}" dir="{{ DIR }}">
+<html lang="{{ LANG }}" dir="{{ DIR }}" class="js-disabled">
   <head>
-    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    {# meta #}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{% block page_title %}mozilla.org{% endblock %}</title>
+
+    {# css #}
+    <link href="//mozorg.cdn.mozilla.net/media/css/tabzilla-min.css" rel="stylesheet" />
     {% block site_css %}
       {{ css('common') }}
     {% endblock %}
 
-    <link rel="shortcut icon" type="image/png" href="{{ MEDIA_URL }}img/favicon.png"/>
-    
-    <script type="text/javascript">
+    {# js #}
+    <script src="{{ static('js/head.js') }}"></script>
+    <!--[if lte IE 8]>
+        <script src="{{ static('js/libs/html5shiv-printshiv.js') }}"></script>
+    <![endif]-->
 
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-36116321-8']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    
-    </script>
+    {# icons #}
+    <link rel="shortcut icon" type="image/png" href="{{ static('img/favicon.png') }}"/>
 
   </head>
 
   <body id="{% block body_id %}{% endblock %}" class="html-{{ DIR }}">
-    <div id="wrapper">
-      <div id="doc">
-        <div id="nav-access">
-          <a href="#nav-main">{{ _('skip to navigation') }}</a>
-          <a href="#lang_form">{{ _('switch language') }}</a>
-        </div>
 
-        {% block site_header %}
-          {% include "global/header.html" %}
-        {% endblock %}
+    {% block site_header %}
+      {% include "base/header.html" %}
+    {% endblock %}
+
+    <div id="wrapper">
+      <main role="main">
 
         {% block content %}{% endblock %}
 
-      </div>{# /#doc #}
-    </div>{# /#wrapper #}
+      </main>
 
-    {% block site_footer %}
-      {% include "global/footer.html" %}
-    {% endblock %}
+      {% block site_footer %}
+        {% include "base/footer.html" %}
+      {% endblock %}
 
+    </div><!-- /#wrapper -->
+
+    <!-- JS -->
     {% block site_js %}
       {{ js('common') }}
     {% endblock %}
     {% block js %}{% endblock %}
 
-    {# {% include "includes/webtrends.html" %} #}
+    <script src="//mozorg.cdn.mozilla.net/tabzilla/tabzilla.js"></script>
+
+    <!-- ANALYTICS -->
+    {% include "base/ga.html" %}
+
   </body>
 </html>
