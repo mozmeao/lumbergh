@@ -1,8 +1,4 @@
 -r compiled.txt
 -r prod.txt
 
-# for bcrypt passwords
-hmac==20101005
-hashlib==20081119
-
-pyquery
+factory_boy==2.1.2
