@@ -1,14 +1,14 @@
 from django.conf import settings
-from django.conf.urls.defaults import include, patterns, url
-from django.contrib import admin
+from django.conf.urls.defaults import include, patterns
+from django.http import HttpResponse
 from django.shortcuts import render
 
-
 from funfactory.monkeypatches import patch
+
+
+# Activate funfactory monkeypatches.
 patch()
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+
 
 def error_page(request, template, status=None):
     """Render error templates, found in the root /templates directory.
@@ -23,14 +23,15 @@ def error_page(request, template, status=None):
 handler404 = lambda r: error_page(r, 404)
 handler500 = lambda r: error_page(r, 500)
 
+
 urlpatterns = patterns('',
     (r'', include('careers.careers.urls')),
 
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    # (r'^admin/', include(admin.site.urls)),
+    # Generate a robots.txt
+    (r'^robots\.txt$', lambda r: HttpResponse(
+        "User-agent: *\n%s: /" % 'Allow' if settings.ENGAGE_ROBOTS else 'Disallow' ,
+        mimetype="text/plain"
+    ))
 )
 
 
