@@ -1,15 +1,13 @@
 from django.http import Http404
 from django.shortcuts import render
 
-from django_jobvite.models import Position, Category
+from django_jobvite.models import Category, Position
 
 
 def home(request):
-    excluded_categories = ['Volunteer and Community Opportunities']
-    categories = Category.objects.exclude(name__in=excluded_categories).order_by('name')
-
     return render(request, 'careers/home.html', {
-        'categories': categories,
+        'positions': Position.objects.order_by('category__name', 'title'),
+        'categories': Category.objects.all(),
     })
 
 
