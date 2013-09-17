@@ -156,44 +156,11 @@ a:active {
     helper classes
     =================================================================== */
 
-/* image replacement */
-.imgswap {
-    overflow: hidden;
-    text-indent: 100%;
-    white-space: nowrap;
-}
-
 /* hide except from screen readers */
 .ally {
     left: -9999px;
     position: absolute;
 }
-
-/* responsive image */
-.responsive {
-    height: auto;
-    width: auto;
-    max-width: 100%;
-
-}
-
-/* hide except from mobile */
-.mobileonly {
-    display: none;
-}
-@media all and (max-width: 680px) {
-    .mobileonly {
-        display: block;
-    }
-}
-
-/* hide from mobile */
-@media all and (max-width: 680px) {
-    .mobileno {
-        display: none;
-    }
-}
-
 
 /*  ===================================================================
     Modules
@@ -276,6 +243,15 @@ a:active {
     /* big logo is removed on mobile & tablet - tabzilla logo remains for brand visiability */
     .masthead-logo { /* TODO: don't load this image for mobile? */
         display: none;
+    }
+}
+
+@media (min-width:921px) {
+    .masthead-logo {
+        position:absolute;
+        bottom:0;
+        left:50%;
+        margin-left:-470px;
     }
 }
 
@@ -467,7 +443,7 @@ a:active {
     font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
     font-size: 12px;
 }
-    .colophone-info a:link {
+    .colophon-info a:link {
         color: #bbb;
     }
 
