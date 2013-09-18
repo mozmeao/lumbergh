@@ -16,6 +16,7 @@
     function animationInit() {
         differentListInit();
         knowBoxInit();
+        testimonialsInit();
     }
 
 
@@ -23,7 +24,7 @@
     *  It's Different section
     */
 
-    var different = document.getElementById("different");
+    var different = document.getElementById('different');
     var bottomInView = $(window).height() - $('#different').outerHeight();
 
     // bring in coffee cup
@@ -90,6 +91,7 @@
     *  Things You'll Want to Know section
     */
 
+    // fade in boxes
     function knowBoxFadeIn() {
         $('#know').waypoint(function() {
             var knowBoxes = $('.know-box');
@@ -101,6 +103,7 @@
         }, { offset: '100%' });
     }
 
+    // swipe boxes
     function knowBoxSwipe() {
 
         // add class to fix this style in case of resize
@@ -114,14 +117,14 @@
         // init carousel
         var knowBoxWidth = $('#know-boxes-pager').width();
         $('.know-box').width(knowBoxWidth);
-        $("#know-boxes").carouFredSel({
+        $('#know-boxes').carouFredSel({
             responsive: true,
             width: knowBoxWidth,
             height: 'auto',
             align: 'center',
             prev: '#know-boxes-prev',
             next: '#know-boxes-next',
-            pagination: "#know-boxes-pager",
+            pagination: '#know-boxes-pager',
             scroll: 1,
             swipe: {
                 onTouch: true
@@ -136,10 +139,109 @@
 
     // init #know section
     function knowBoxInit() {
-        if(Mozilla.Test.isSmallScreen) {
+        if (Mozilla.Test.isSmallScreen) {
             knowBoxSwipe();
         } else if (Mozilla.Test.isParallax) {
             knowBoxFadeIn();
+        }
+    }
+
+    /*
+    *  Testimonials
+    */
+
+    function testimonialsSwipe() {
+
+        // add next & prev & pagination
+        $('<button id="testimonials-prev" class="carousel-button carousel-button-prev"></button>').insertBefore('.testimonials');
+        $('<button id="testimonials-next" class="carousel-button carousel-button-next"></button>').insertBefore('.testimonials');
+
+        // init carousel
+        $('.testimonials').eq(0).carouFredSel({
+            responsive : false,
+            width: 320,
+            height: 'auto',
+            align: 'center',
+            prev: '#testimonials-prev',
+            next: '#testimonials-next',
+            scroll: 1,
+            swipe: {
+                onTouch: true
+            },
+            items: {
+                width: 320,
+                visible: 1
+            },
+            auto: false
+        });
+
+        function testimonialsSwipeResize() {
+            if ($(window).width() > 680) {
+                $('.testimonials').trigger('destroy', true);
+                testimonialsChooseInit();
+                $(window).off('resize', testimonialsSwipeResize);
+            }
+        }
+
+        $(window).resize(testimonialsSwipeResize);
+    }
+
+    function testimonialsMovePointer() {
+        var testimonialsCurrentImg = $('.testimonial-current img');
+        var windowWidth = $(window).width();
+        var testimonialPointerLeft = testimonialsCurrentImg.offset().left + 50;
+        var testimonialPointerLeftFromCenter = windowWidth / 2 - testimonialPointerLeft;
+
+        var testimonialPointerNewLeft;
+        testimonialPointerNewLeft = testimonialPointerLeftFromCenter * -1;
+        testimonialPointerNewLeft = testimonialPointerNewLeft + 'px';
+
+        if (Modernizr.csstransitions) {
+            $('.testimonials-pointer').css({'margin-left' : testimonialPointerNewLeft});
+        } else {
+            $('.testimonials-pointer').animate({ 'margin-left': testimonialPointerNewLeft}, 800, 'linear');
+        }
+    }
+
+    function testimonialsChoose(e) {
+        if (e.type === 'click' || e.which === 13) {
+            var target = e.target;
+
+            // remove class from others
+            $('.testimonial-current').removeClass('testimonial-current');
+
+            // add class to this one
+            $(target).closest('.testimonial').addClass('testimonial-current');
+
+            testimonialsMovePointer();
+        }
+    }
+
+    function testimonialsChooseInit() {
+        var testimonials = $('#testimonials');
+        var testimonialImages = testimonials.find('img');
+
+        // add class to parent to remove default styling
+        testimonials.addClass('testimonials-choose');
+        // attach triggers to pictures
+        testimonialImages.attr('tabindex', 0).on('click keydown', testimonialsChoose);
+        // add pointer
+        $('<div class="testimonials-pointer"></div>').appendTo(testimonials);
+        // click on first image to move pointer into place
+        testimonialImages.eq(0).click();
+
+        $(window).on('resize', function() {
+            clearTimeout(this.resizeTimeout);
+            this.resizeTimeout = setTimeout(testimonialsMovePointer, 200);
+        });
+    }
+
+    // init #testimonials section
+    function testimonialsInit() {
+        if (Mozilla.Test.isSmallScreen) {
+            testimonialsSwipe();
+        } else {
+            testimonialsChooseInit();
         }
     }
 

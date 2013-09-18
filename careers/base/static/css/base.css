@@ -316,6 +316,8 @@ a:active {
     width: 100%;
     overflow: hidden;
     left: 0;
+    width:100%;
+    overflow:hidden;
     -webkit-transition: left 1s;
        -moz-transition: left 1s;
             transition: left 1s;
@@ -630,4 +632,6 @@ a.cta:active {
             background-position: -114px -5px;
         }
 
-
+#testimonials .carousel-button {
+    top: 300px;
+}

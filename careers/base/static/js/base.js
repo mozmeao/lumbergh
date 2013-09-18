@@ -23,6 +23,7 @@ Mozilla.Test = (function(w, $) {
     }
 
     function _checkTouch() {
+        // add check for pointer events to the modernizer check for touch events
         return (window.navigator.msMaxTouchPoints || window.navigator.maxTouchPoints || Modernizr.touch);
     }
 
