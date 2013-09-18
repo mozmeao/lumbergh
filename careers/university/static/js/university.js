@@ -144,4 +144,47 @@
     }
 
 
+
+    /*
+    *  Events Section
+    */
+
+    function eventsToggle() {
+
+        if ($('.event-toggle-off').length) {
+            // show
+            $('.event-toggle').each( function (index) {
+                var delay = index * 50;
+                var currentElement = $(this);
+                window.setTimeout( function(){ $(currentElement).removeClass('event-toggle-off') } , delay);
+            });
+        } else {
+             // hide
+            $($('.event-toggle').get().reverse()).each( function (index) {
+                var delay = index * 50;
+                var currentElement = $(this);
+                window.setTimeout( function(){ $(currentElement).addClass('event-toggle-off') } , delay);
+            });
+            // scroll up if list is now out of sight
+            var endOfVisible = $('#events table tbody tr:eq(5)').offset().top;
+            if (endOfVisible < $('body').scrollTop()) {
+                $('body').animate({scrollTop: endOfVisible - 80}, '500', 'swing');
+            }
+        }
+    }
+
+
+    function eventsLengthInit() {
+        // go through list and hide any greater than 5
+        $('#events table tbody tr').slice(4).addClass('event-toggle').addClass('event-toggle-off');
+
+        // add show button & listener
+        $('<button id="event-toggle-button">Show More</button>').appendTo('#events .contain');
+        $('#event-toggle-button').bind('click', eventsToggle);
+
+ if(Mozilla.Test.isSmallScreen) {
+        eventsLengthInit();
+    }
+
+
 })(window, window.jQuery);

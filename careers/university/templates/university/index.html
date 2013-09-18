@@ -94,21 +94,149 @@
 
   {# This section is placeholder HTML for now. #}
   <section id="events">
-    <table>
-      <tr>
-        <th>Date</th>
-        <th>Event</th>
-        <th>Location</th>
-      </tr>
-      {% for event in events %}
-        <tr>
-          <td>{{ event.date }}</td>
-          <td>{{ event.name }}</td>
-          <td>{{ event.location }}</td>
-        </tr>
-      {% endfor %}
-    </table>
+    <div class="contain">
+      <h2 class="events-head">Come meet us in person</h2>
+      <table id="events-table">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Event</th>
+            <th scope="col">Location</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- test data -->
+          <tr>
+            <td class="event-date">Sept 6–9, 2013</td>
+            <td class="event-name">University of Pennsylvania, PennApps Hackathon</td>
+            <td class="event-location">Philadelphia</td>
+          </tr>
+          <tr>
+            <td class="event-date">Sept 9, 2013</td>
+            <td class="event-name">Georgia Tech, Fall College of Computing Career Fair</td>
+            <td class="event-location">Atlanta</td>
+          </tr>
+          <tr>
+            <td class="event-date">Sept 17, 2013</td>
+            <td class="event-name">Carnegie Mellon University, Technical Opportunities Conference</td>
+            <td class="event-location">Pittsburgh</td>
+          </tr>
+          <tr>
+            <td class="event-date">Sept 18, 2013</td>
+            <td class="event-name">Brown, General Career Fair</td>
+            <td class="event-location">Providence</td>
+          </tr>
+          <tr>
+            <td class="event-date">Sept 20, 2013</td>
+            <td class="event-name">MIT, Fall Career Fair</td>
+            <td class="event-location">Cambridge</td>
+          </tr>
+          <tr>
+            <td class="event-date">Sept 25, 2013</td>
+            <td class="event-name">UC Berkeley, EECS Career Fair</td>
+            <td class="event-location">Berkeley</td>
+          </tr>
+          <tr>
+            <td class="event-date">Oct 10, 2013</td>
+            <td class="event-name">Polytechnic University of Bucharest in conjunction with ROSEdu, Tech Talk and Info Session</td>
+            <td class="event-location">Bucharest</td>
+          </tr>
+          <tr>
+            <td class="event-date">Oct 12, 2013</td>
+            <td class="event-name">Northwestern University, Industry Day</td>
+            <td class="event-location">Evanston</td>
+          </tr>
+          <tr>
+            <td class="event-date">Oct 17, 2013</td>
+            <td class="event-name">Oregon State University, Open Source Lab Beaver BarCamp</td>
+            <td class="event-location">Corvallis</td>
+          </tr>
+          <tr>
+            <td class="event-date">Jan, 2014 (date TBD)</td>
+            <td class="event-name">University of Waterloo, Tech Talk and Info Session</td>
+            <td class="event-location">Waterloo</td>
+          </tr>
+          <!-- /test data -->
+          {% for event in events %}
+            <tr>
+              <td class="event-date">{{ event.date }}</td>
+              <td class="event-name">{{ event.name }}</td>
+              <td class="event-location">{{ event.location }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
   </section>
+
+<p>
+&nbsp;
+</p>
+
+<p>
+&nbsp;
+</p>
+
+<p>
+&nbsp;
+</p>
+
+<p>
+&nbsp;
+</p>
+
+<p>
+&nbsp;
+</p>
+
+<p>
+&nbsp;
+</p>
+
+<p>
+&nbsp;
+</p>
+
+<p>
+&nbsp;
+</p>
+
+<p>
+&nbsp;
+</p>
+
+<p>
+&nbsp;
+</p>
+
+<p>
+&nbsp;
+</p>
+
+<p>
+&nbsp;
+</p>
+
+<p>
+&nbsp;
+</p>
+
+<p>
+&nbsp;
+</p>
+
+<p>
+&nbsp;
+</p>
+
+<p>
+&nbsp;
+</p>
+
+<p>
+&nbsp;
+</p>
+
 {% endblock %}
 
 {% block site_js %}

@@ -445,6 +445,7 @@
 
 }
 
+
 /*  -------------------------------------------------------------------
     Things You'll Want to Know
     ------------------------------------------------------------------- */
@@ -663,3 +664,183 @@
     }
 }
 
+/*  -------------------------------------------------------------------
+    Events
+    ------------------------------------------------------------------- */
+
+#events {
+    padding: 30px 0;
+    background-color: #ffffff;
+}
+
+.events-head {
+    margin: 0 0 20px 0;
+    font-size: 26px;
+    line-height: 1.2;
+}
+
+#events table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#events thead {
+    display: none;
+}
+
+#events tr {
+    display: block;
+}
+
+#events td {
+    display: block;
+    background-color: #fff;
+}
+
+.event-date {
+    padding-top: 20px;
+    background-image: url(data:image/gif;base64,R0lGODlhCQAJAIAAAMzMzP///yH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS41LWMwMTQgNzkuMTUxNDgxLCAyMDEzLzAzLzEzLTEyOjA5OjE1ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NkMyOTBCN0QxRTkwMTFFM0FBMDlEQTk2Njk5NUYyN0YiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NkMyOTBCN0UxRTkwMTFFM0FBMDlEQTk2Njk5NUYyN0YiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo2QzI5MEI3QjFFOTAxMUUzQUEwOURBOTY2OTk1RjI3RiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo2QzI5MEI3QzFFOTAxMUUzQUEwOURBOTY2OTk1RjI3RiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PgH//v38+/r5+Pf29fTz8vHw7+7t7Ovq6ejn5uXk4+Lh4N/e3dzb2tnY19bV1NPS0dDPzs3My8rJyMfGxcTDwsHAv769vLu6ubi3trW0s7KxsK+urayrqqmop6alpKOioaCfnp2cm5qZmJeWlZSTkpGQj46NjIuKiYiHhoWEg4KBgH9+fXx7enl4d3Z1dHNycXBvbm1sa2ppaGdmZWRjYmFgX15dXFtaWVhXVlVUU1JRUE9OTUxLSklIR0ZFRENCQUA/Pj08Ozo5ODc2NTQzMjEwLy4tLCsqKSgnJiUkIyIhIB8eHRwbGhkYFxYVFBMSERAPDg0MCwoJCAcGBQQDAgEAACH5BAAAAAAALAAAAAAJAAkAAAIPRGJ4l61v3GNUyVhTpjcUADs=);
+    background-repeat: repeat-x;
+    color: #b2b2b2;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.event-name {
+    padding: 4px 0 10px 0;
+    font-family: 'Open Sans Light',sans-serif;
+    font-size: 22px;
+    line-height: 1.2;
+}
+
+.event-location {
+    padding-bottom: 26px;
+    color: #b2b2b2;
+    font-size: 15px;
+}
+
+@media (max-width: 681px) {
+
+    .event-toggle {
+        max-height: 300px;
+        overflow: hidden;
+        opacity: 1;
+        -webkit-transition: max-height 0.5s, opacity 0.8s;
+                transition: max-height 0.5s, opacity 0.8s;
+    }
+
+    .event-toggle-off {
+        max-height: 0;
+        opacity: 0;
+    }
+
+    #event-toggle-button {
+        width: 100%;
+        border: 1px solid transparent;
+        padding: 5px;
+        background-color: #d0cfcf;
+        color: #fff;
+        font-size: 13px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    #event-toggle-button:focus {
+        border-color: #4d4e53;
+        outline: 0;
+    }
+
+    #event-toggle-button:hover,
+    #event-toggle-button:active {
+        background-color: #4d4e53;
+    }
+
+}
+
+@media (min-width:681px) {
+
+    #events {
+        padding: 50px 0;
+    }
+
+    .events-head {
+        font-size: 28px;
+    }
+
+    #events thead {
+        display: table-header-group;
+    }
+
+    #events th {
+        font-family: 'Open Sans Light',sans-serif;
+        font-size: 10px;
+        text-align: left;
+        text-transform: uppercase;
+    }
+
+    #events tr {
+        display: table-row;
+    }
+
+     #events td {
+        display: table-cell;
+        background-image: url(data:image/gif;base64,R0lGODlhCQAJAIAAAMzMzP///yH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS41LWMwMTQgNzkuMTUxNDgxLCAyMDEzLzAzLzEzLTEyOjA5OjE1ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NkMyOTBCN0QxRTkwMTFFM0FBMDlEQTk2Njk5NUYyN0YiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NkMyOTBCN0UxRTkwMTFFM0FBMDlEQTk2Njk5NUYyN0YiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo2QzI5MEI3QjFFOTAxMUUzQUEwOURBOTY2OTk1RjI3RiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo2QzI5MEI3QzFFOTAxMUUzQUEwOURBOTY2OTk1RjI3RiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PgH//v38+/r5+Pf29fTz8vHw7+7t7Ovq6ejn5uXk4+Lh4N/e3dzb2tnY19bV1NPS0dDPzs3My8rJyMfGxcTDwsHAv769vLu6ubi3trW0s7KxsK+urayrqqmop6alpKOioaCfnp2cm5qZmJeWlZSTkpGQj46NjIuKiYiHhoWEg4KBgH9+fXx7enl4d3Z1dHNycXBvbm1sa2ppaGdmZWRjYmFgX15dXFtaWVhXVlVUU1JRUE9OTUxLSklIR0ZFRENCQUA/Pj08Ozo5ODc2NTQzMjEwLy4tLCsqKSgnJiUkIyIhIB8eHRwbGhkYFxYVFBMSERAPDg0MCwoJCAcGBQQDAgEAACH5BAAAAAAALAAAAAAJAAkAAAIPRGJ4l61v3GNUyVhTpjcUADs=);
+        background-repeat: repeat-x;
+        vertical-align: top;
+    }
+
+    .event-date {
+        width: 25.7%;
+        padding: 18px 20px 15px 0;
+        font-size: 14px;
+    }
+
+    .event-name {
+        width: 51%;
+        padding: 18px 20px 15px 0;
+        font-size: 20px;
+    }
+
+    .event-location {
+        padding: 18px 0 15px 0;
+        font-size: 14px;
+    }
+
+    #event-toggle-button {
+        display:none;
+    }
+}
+
+@media (min-width:921px) {
+
+    #events {
+        padding: 70px 0;
+    }
+
+    .events-head {
+        margin-bottom: 30px;
+        font-size: 38px;
+    }
+
+    #events thead th {
+        font-size: 14px;
+    }
+
+    .event-date {
+        padding: 25px 20px 20px 0;
+        font-size: 18px;
+    }
+
+    .event-name {
+        padding: 25px 20px 20px 0;
+        font-size: 26px;
+    }
+
+    .event-location {
+        padding: 25px 0 20px 0;
+        font-size: 18px;
+    }
+
+
+}
