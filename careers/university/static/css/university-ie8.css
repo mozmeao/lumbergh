@@ -1,3 +1,12 @@
 #uintro h2 {
     background-image: url(/static/img/university-banner-920.jpg);
 }
+
+.video-js {
+    padding-top: 56.25%
+} /* reset to make videos fluid */
+
+.vjs-poster img {
+    height: 100%;
+    width: 100%;
+}
