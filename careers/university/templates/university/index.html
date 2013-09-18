@@ -116,22 +116,34 @@
 </section>
 
   {# This section is placeholder HTML for now. #}
-  <section id="events">
-    <table>
-      <tr>
-        <th>Date</th>
-        <th>Event</th>
-        <th>Location</th>
-      </tr>
-      {% for event in events %}
-        <tr>
-          <td>{{ event.date }}</td>
-          <td>{{ event.name }}</td>
-          <td>{{ event.location }}</td>
-        </tr>
-      {% endfor %}
-    </table>
+  <section id="meetus">
+    <div class="contain">
+      <h2 class="events-head">Come meet us in person</h2>
+      {% if events %}
+      <table id="events-table">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Event</th>
+            <th scope="col">Location</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for event in events %}
+            <tr>
+              <td class="event-date">{{ event.date }}</td>
+              <td class="event-name">{{ event.name }}</td>
+              <td class="event-location">{{ event.location }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+        <p>There are no upcoming events at this time.</p>
+      {% endif %}
+    </div>
   </section>
+
 {% endblock %}
 
 {% block site_js %}
