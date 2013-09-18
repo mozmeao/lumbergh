@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ LANG }}" dir="{{ DIR }}" class="js-disabled">
   <head>
+
     {# meta #}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,17 +15,21 @@
     {% endblock %}
 
     {# js #}
-    <script src="{{ static('js/head.js') }}"></script>
+    <!--[if gt IE 8]> <!-- -->
+      <script src="{{ static('js/head.js') }}"></script>
+    <!-- <![endif]-->
+
     <!--[if lte IE 8]>
-      <script src="{{ static('js/libs/html5shiv-printshiv.js') }}"></script>
+    {% block site_ie8shims_js %}
+      {{ js('ie8') }}
+    {% endblock %}
     <![endif]-->
 
     {# icons #}
     <link rel="shortcut icon" type="image/png" href="{{ static('img/favicon.png') }}"/>
 
   </head>
-
-  <body id="{% block body_id %}{% endblock %}" class="html-{{ DIR }}">
+  <body id="{% block body_id %}{% endblock %}" >
 
     {% block site_header %}
       {% include "base/header.html" %}
@@ -43,11 +48,13 @@
 
     </div><!-- /#wrapper -->
 
-    <!-- JS -->
+    {# js #}
+    <!--[if gt IE 8]> <!-- -->
     {% block site_js %}
       {{ js('common') }}
     {% endblock %}
     {% block js %}{% endblock %}
+    <!-- <![endif]-->
 
     <script src="//mozorg.cdn.mozilla.net/tabzilla/tabzilla.js"></script>
 
