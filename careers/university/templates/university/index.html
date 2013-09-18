@@ -2,7 +2,13 @@
 
 {% block page_title %}Mozilla University{% endblock %}
 
+{% block site_css %}
+    {{ super() }}
+    {{ css('university') }}
+{% endblock %}
+
 {% block content %}
+
   <section id="uintro">
     <h2>Once a Mozillian,<br> always a Mozillian</h2>
     <div class="contain">
@@ -15,6 +21,37 @@
     </div>
     <a class="cta" href="/listings">Apply Now</a> <!-- TODO: URL needs to prompt filter for internships -->
     <a class="cta" href="#meetus">Meet us on Campus</a>
+  </section>
+  <section id="different">
+    <div class="contain">
+      <h2 class="different-head">It's different here. Good different.</h2>
+      <p class="different-subhead">
+        As part of our internship program, there are things you’ll experience — and things you’ll never experience.
+      </p>
+      <div id="different-lists">
+        <div id="different-will" class="different-list different-list-current">
+          <h3>You will</h3>
+          <ul>
+            <li>Be mentored 1:1 by somebody brilliant.</li>
+            <li>Work on and impact cool projects like Firefox OS and Persona.</li>
+            <li>Get to take part in lots of awesome activities with your fellow interns.</li>
+            <li>Be able to blog about your projects and share them with the outside world.</li>
+            <li>No longer be the smartest person in the room.</li>
+            <li>Be part of our community care program — aka, Army of Awesome.</li>
+          </ul>
+        </div>
+        <div id="different-not" class="different-list">
+          <h3>You will not</h3>
+          <ul>
+            <li>Ever be bored. We just won’t let that happen.</li>
+            <li>Leave without having learned a lot.</li>
+            <li>Be able to hide. At Mozilla, we work in the open and share with our community.</li>
+            <li>Go hungry. There are snacks and drinks everywhere!</li>
+            <li>Be able to stop telling everyone you know how great it is to be a Mozillian.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </section>
 
   {# This section is placeholder HTML for now. #}
@@ -34,4 +71,9 @@
       {% endfor %}
     </table>
   </section>
+{% endblock %}
+
+{% block site_js %}
+    {{ super() }}
+    {{ js('university') }}
 {% endblock %}

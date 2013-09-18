@@ -1,3 +1,27 @@
+// create namespace
+if (typeof Mozilla === 'undefined') {
+    var Mozilla = {};
+}
+
+Mozilla.Pin = (function(w, $) {
+    'use strict';
+
+    function _checkBigScreen() {
+        if($(window).width() > 920) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    var isBigScreen = _checkBigScreen();
+    var isNotTouch = !Modernizr.touch;
+    var isParallax = (isBigScreen && isNotTouch) ? true : false;
+
+    var heightNav = $('header.masthead').height();
+
+})(window, window.jQuery); // Mozilla.Pin
+
 (function($) {
     'use strict';
 
@@ -94,10 +118,13 @@
        $('#tray-toggle').focus();
     }
 
-
     // trigger menu
     $(function() {
         trayMenuInit();
     });
+
+
+
+
 
 })(jQuery);

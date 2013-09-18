@@ -42,13 +42,28 @@ PROD_LANGUAGES = ('de', 'en-US', 'es', 'fr',)
 MINIFY_BUNDLES = {
     'css': {
         'common': (
-            'css/careers.css',
+            'css/base.css',
+        ),
+        'university': (
+            'css/university.css',
         ),
     },
     'js': {
         'common': (
             'js/libs/jquery-1.7.1.min.js',
-            'js/careers.js',
+            'js/libs/modernizr.custom.05289.js',
+            'js/libs/waypoints.min.js',
+            'js/base.js',
+        ),
+        'university': (
+            'js/university.js',
+        ),
+        'ie8': (
+            #'js/libs/respond.min.js',
+            'js/libs/html5shiv-printshiv.js',
+        ),
+        'notouch': (
+
         ),
     }
 }

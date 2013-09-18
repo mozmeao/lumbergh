@@ -139,13 +139,13 @@ a:active {
 }
 
 
-@media all and (max-width: 680px) {
+@media (max-width: 680px) {
     .js-enabled body {
         padding-top: 60px; /* space for fixed menu */
     }
 }
 
-@media all and (min-width: 681px) {
+@media (min-width: 681px) {
      body {
          padding-top: 100px;
      }
@@ -161,6 +161,7 @@ a:active {
     left: -9999px;
     position: absolute;
 }
+
 
 /*  ===================================================================
     Modules
@@ -190,7 +191,7 @@ a:active {
     margin: 0;
 }
 
-@media all and (max-width: 680px) {
+@media (max-width: 680px) {
     /* if we have javascript then we get the tray menu at this size, make this menu a short fixie */
     .js-enabled .masthead {
         position: fixed;
@@ -219,7 +220,7 @@ a:active {
 }
 
 
-@media all and (min-width: 681px) {
+@media (min-width: 681px) {
     /* desktop gets a fixed menu */
     .masthead {
         position: fixed;
@@ -239,19 +240,10 @@ a:active {
     }
 }
 
-@media all and (max-width: 920px) {
+@media (max-width: 920px) {
     /* big logo is removed on mobile & tablet - tabzilla logo remains for brand visiability */
     .masthead-logo { /* TODO: don't load this image for mobile? */
         display: none;
-    }
-}
-
-@media (min-width:921px) {
-    .masthead-logo {
-        position:absolute;
-        bottom:0;
-        left:50%;
-        margin-left:-470px;
     }
 }
 
@@ -300,14 +292,14 @@ a:active {
         text-decoration: none;
     }
 
-@media all and (max-width: 680px) {
+@media (max-width: 680px) {
     /* hide nav-main if they have javascript enabled, tray nav takes over */
     .js-enabled .nav-main ul {
         display: none;
     }
 }
 
-@media all and (max-width: 920px;) {
+@media (max-width: 920px;) {
      .nav-main {
          float: left;
      }
@@ -406,7 +398,7 @@ a:active {
     }
 
 
-@media all and (min-width: 681px) {
+@media (min-width: 681px) {
     #tray-toggle {
         display: none; /* hide toggle on desktop */
     }
@@ -468,13 +460,13 @@ a:active {
     padding: 5px 0;
 }
 
-@media all and (max-width: 680px) {
+@media (max-width: 680px) {
     .colophon-nav ul + ul {
         display: none; /* hide social media links on small enough screens */
     }
 }
 
-@media all and (min-width: 681px) {
+@media (min-width: 681px) {
     .colophon {
         padding-top: 40px;
     }
@@ -521,7 +513,7 @@ a.cta:active {
     background:         linear-gradient(#3799d8, #0d55bd);
 }
 
-@media all and (min-width: 681px) {
+@media (min-width: 681px) {
     .cta {
         min-width: 175px;
         display: inline-block;
@@ -548,142 +540,9 @@ a.cta:active {
 
 }
 
-@media all and (min-width: 681px) {
+@media (min-width: 681px) {
     .cta {
     padding: 7px 20px;
         font-size: 18px;
     }
 }
-
-/*  -------------------------------------------------------------------
-    University Intro
-    - big banner with paragraphs and buttons stacked underneath
-    - image is actually the h2 tag to responsivly load appropriate image without loading wrong one first
-        - all background-image definitions should be inside media queries
-        - see: http://timkadlec.com/2012/04/media-query-asset-downloading-results/
-    - buttons become absolute positioned and display over banner at big enough sizes
-    - paragraphs float left and right when large enough
-    ------------------------------------------------------------------- */
-
-    #uintro {
-        overflow: hidden; _overflow: visible; zoom: 1; /* clearfix */
-        position: relative;
-        color: #fff;
-        background-color: #4d4e53;
-         -webkit-font-smoothing: antialiased;
-        text-align: center;
-    }
-
-    #uintro h2 {
-        -moz-box-sizing: border-box;
-             box-sizing: border-box;
-        height: 264px;
-        margin: 0 auto;
-        padding-top: 90px;
-        background-color: #97938c;
-        background-position: center top;
-        background-repeat: no-repeat;
-        font-family: 'Open Sans Light',sans-serif;
-        font-size: 32px;
-        letter-spacing: -1px;
-        line-height: 1.25;
-        text-align: center;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-    }
-
-    #uintro p {
-        margin-bottom: 30px;
-        font-size: 18px;
-        text-align: left;
-    }
-
-        #uintro p:first-child {
-            color: #a2a2a9;
-            font-family: 'Open Sans Light',sans-serif;
-            font-size: 26px;
-            line-height: 1.25;
-        }
-
-    @media all and (max-width: 320px) {
-        #uintro h2 {
-            background-image: url(/static/img/university-banner-320.jpg);
-        }
-    }
-
-    @media all and (min-width: 321px) and (max-width: 680px) {
-        #uintro h2 {
-            background-image: url(/static/img/university-banner-680.jpg);
-        }
-    }
-
-    @media all and (min-width: 681px) {
-        #uintro {
-            padding-bottom: 10px;
-        }
-
-        #uintro h2 {
-            height: 376px;
-            padding-top: 120px;
-            background-image: url(/static/img/university-banner-920.jpg);
-            font-size: 50px;
-            line-height: 1;
-        }
-
-        #uintro p {
-            float:right;
-            -moz-box-sizing: border-box;
-                 box-sizing: border-box;
-            width: 50%;
-            margin-top: 40px;
-            padding: 0 0 0 10px;
-            font-size: 14px;
-        }
-            #uintro p:first-child {
-                float: left;
-                padding: 0 10px 0 0;
-                font-size: 20px;
-            }
-
-        #uintro .cta {
-            position: absolute;
-            top: 250px;
-            right: 50.5%;
-        }
-
-         #uintro .cta + .cta {
-             right: auto;
-             left: 50.5%;
-         }
-    }
-
-    @media all and (min-width: 921px) {
-        #uintro {
-            padding-bottom: 25px;
-        }
-
-        #uintro h2 {
-            height: 500px;
-            padding-top: 170px;
-            background-image: url(/static/img/university-banner-1280.jpg);
-            font-size: 60px;
-        }
-
-         #uintro p {
-            font-size: 18px;
-        }
-            #uintro p:first-child {
-                font-size: 26px;
-            }
-
-
-        #uintro .cta {
-            top: 350px;
-        }
-    }
-
-    @media all and (min-width: 1281px) {
-        #uintro h2 {
-            background-image: url(/static/img/university-banner-2560.jpg);
-        }
-    }
-
