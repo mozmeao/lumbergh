@@ -16,6 +16,7 @@
     function animationInit() {
         differentListInit();
         knowBoxInit();
+        testimonialsInit();
     }
 
 
@@ -90,6 +91,7 @@
     *  Things You'll Want to Know section
     */
 
+    // fade in boxes
     function knowBoxFadeIn() {
         $('#know').waypoint(function() {
             var knowBoxes = $('.know-box');
@@ -101,6 +103,7 @@
         }, { offset: '100%' });
     }
 
+    // swipe boxes
     function knowBoxSwipe() {
 
         // add class to fix this style in case of resize
@@ -140,6 +143,76 @@
             knowBoxSwipe();
         } else if (Mozilla.Test.isParallax) {
             knowBoxFadeIn();
+        }
+    }
+
+    /*
+    *  Testimonials
+    */
+
+    function testimonialsSwipe() {
+
+        // add next & prev & pagination
+        $('<button id="testimonials-prev" class="carousel-button carousel-button-prev"></button>').insertBefore('.testimonials');
+        $('<button id="testimonials-next" class="carousel-button carousel-button-next"></button>').insertBefore('.testimonials');
+
+        // init carousel
+        $(".testimonials").eq(0).carouFredSel({
+            responsive : false,
+            width: 320,
+            height: 'auto',
+            align: 'center',
+            prev: '#testimonials-prev',
+            next: '#testimonials-next',
+            scroll: 1,
+            swipe: {
+                onTouch: true
+            },
+            items: {
+                width: 320,
+                visible: 1
+            },
+            auto: false,
+        });
+    }
+
+    function testimonialsChoose(e) {
+         if(e.type === 'click' || e.which === 13) {
+
+            // remove class from others
+            $('.testimonial-current').removeClass('testimonial-current');
+
+            // add class to this one
+            $(e.target).closest('.testimonial').addClass('testimonial-current');
+
+            // move arrow
+            var testimonialPointerOffset = $(e.target).closest('img').offset().left + 50;
+            if(Modernizr.csstransitions) {
+                $('.testimonials-pointer').css({left : testimonialPointerOffset});
+            } else {
+                $('.testimonials-pointer').animate({ left: testimonialPointerOffset }, 800, 'linear');
+            }
+        }
+    }
+
+    function testimonialsChooseInit() {
+
+        // add class to parent to remove default styling
+        $('#testimonials').addClass('testimonials-choose');
+        // attach triggers to pictures
+        $('.testimonial img').attr('tabindex', 0).bind('click keydown', testimonialsChoose);
+        // add pointer
+        $('<div class="testimonials-pointer"></div>').appendTo('#testimonials');
+        // click on first image to move pointer into place
+        $('#testimonials img').eq(0).click();
+    }
+
+    // init #testimonials section
+    function testimonialsInit() {
+        if(Mozilla.Test.isSmallScreen) {
+            testimonialsSwipe();
+        } else {
+            testimonialsChooseInit();
         }
     }
 

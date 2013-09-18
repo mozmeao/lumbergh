@@ -662,3 +662,243 @@
     }
 }
 
+/*  -------------------------------------------------------------------
+    Testimonials
+    - with JS off testimonials look like the blocks that display individually in mobile
+        - in mobile they stack
+        - on larger screens they each fill 33.3% of space and float left
+    - with JS on the mobile ones become a swipable slide show
+    - with JS on the desktop ones become clickable and the quotes cross fade into the same space
+    ------------------------------------------------------------------- */
+
+#testimonials {
+    overflow: hidden; _overflow: visible; zoom: 1; /* clearfix */
+    position:relative;
+}
+
+.testimonials {
+    margin: 0 auto;
+    max-width:320px;
+}
+
+.testimonial {
+    position: relative;
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+    width:320px;
+    margin: 20px 0;
+    background-color: #4d4e53;
+    color: #d7d3c8;
+    padding: 25px 20px 233px 20px;
+    font-family: 'Open Sans Light',sans-serif;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+}
+
+    .testimonial:before {
+        content: '';
+        position: absolute;
+        bottom:0;
+        left: 50px;
+        z-index:1;
+        display: block;
+        margin-bottom:61%;
+        border-top: 19px solid #4d4e53;
+        border-right: 19px solid transparent;
+        border-left: 19px solid transparent;
+    }
+
+.testimonial > img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.testimonial > blockquote {
+    margin: 0 0 15px 0;
+    font-size: 21px;
+    line-height: 1.2;
+}
+
+.testimonial > figcaption {
+    font-weight: normal;
+}
+
+.testimonial > figcaption > strong {
+    font-family: 'Open Sans',sans-serif;
+}
+
+@media (max-width:680px) {
+    .js-enabled .testimonials {
+        max-width:none;
+    }
+
+    .js-enabled .testimonial {
+        float:left;
+        height:450px;
+        margin:0;
+    }
+
+    #testimonials .caroufredsel_wrapper {
+        margin: 0 auto !important; /* it puts the lotion on its skin or it gets the hose */
+    }
+
+    .js-enabled #testimonials:before{
+        content: 'd';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 237px;
+        width: 100%;
+        margin-left: -100%;
+        padding: 0 100%;
+        background-color: #4d4e53;
+    }
+
+}
+
+@media (min-width:681px) {
+
+    .testimonials {
+        width: 100%;
+        max-width: 940px;
+    }
+
+    .testimonial > img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .testimonial {
+        float: left;
+        width: 33.3%;
+        margin: 0;
+        padding-bottom: 26%;
+    }
+
+    .js-disabled .testimonial > blockquote {
+       min-height: 11em;
+    }
+
+
+    .js-enabled .testimonials {
+        position: relative;
+        height: 147px;
+        padding-bottom: 160px;
+    }
+
+        .js-enabled .testimonials:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 147px;
+            width: 100%;
+            margin-left: -100%;
+            padding: 0 100%;
+            background-color: #4d4e53;
+        }
+
+    .js-enabled .testimonials-pointer {
+        content: '';
+        position: absolute;
+        top:147px;
+        left: 50px;
+        z-index:1;
+        display: block;
+        border-top: 19px solid #4d4e53;
+        border-right: 19px solid transparent;
+        border-left: 19px solid transparent;
+        -webkit-transition: left 1s;
+                transition: left 1s;
+    }
+
+    .js-enabled .testimonial {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 147px;
+        padding-top:3 5px;
+        padding-bottom: 0;
+        background-color: transparent;
+    }
+
+        .js-enabled .testimonial:before {
+            content: none;
+        }
+
+    .js-enabled .testimonial > blockquote {
+        opacity: 0;
+        font-size: 20px;
+        -webkit-transition: opacity 1s ease-out;
+                transition: opacity 1s ease-out;
+    }
+
+        .js-enabled .testimonial-current > blockquote {
+            opacity: 1;
+        }
+
+    .js-enabled .testimonial > img {
+        bottom: auto;
+        top: 100%;
+        left: 33.3%;
+        width: 33.3%;
+    }
+
+         .js-enabled .testimonial > img:focus {
+             z-index:1;
+             outline:1px solid #4d4e53;
+         }
+
+        .js-enabled .testimonial:first-child  > img{
+            left: 0;
+        }
+
+        .js-enabled .testimonial:last-child  > img{
+            left: 66.6%;
+        }
+
+     .js-enabled .testimonial > figcaption {
+        opacity: 0;
+        font-size: 11px;
+        -webkit-transition: opacity 1s;
+                transition: opacity 1s;
+     }
+
+          .js-enabled .testimonial-current > figcaption {
+              opacity: 1;
+          }
+
+}
+
+
+@media (min-width:921px) {
+
+     .js-enabled .testimonials {
+        height: 195px;
+        padding-bottom: 213px;
+     }
+        .js-enabled .testimonials:before {
+            height: 195px;
+        }
+
+    .js-enabled .testimonials-pointer {
+        top:195px;
+    }
+
+    .js-enabled .testimonial {
+        height: 195px;
+    }
+
+    .js-enabled .testimonial > blockquote {
+        min-height: 99px;
+        font-size: 28px;
+    }
+
+    .js-enabled .testimonial > figcaption {
+        font-size: 15px;
+    }
+
+}
+
