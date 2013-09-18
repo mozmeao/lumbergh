@@ -45,6 +45,8 @@ MINIFY_BUNDLES = {
             'css/base.css',
         ),
         'university': (
+            'js/libs/video-js/video-js.css',
+            'js/libs/video-js/video-js-sandstone.css',
             'css/university.css',
         ),
         'university-ie8': (
@@ -62,12 +64,16 @@ MINIFY_BUNDLES = {
             'js/filters.js',
         ),
         'university': (
+            'js/libs/video-js/video.dev.js',
             'js/university.js',
         ),
         'ie8shims': (
-            #'js/libs/respond.min.js',
             'js/libs/html5shiv-printshiv.js',
-        )
+        ),
+        'university-ie8': (
+            'js/libs/video-js/video.dev.js',
+            'js/university-ie8.js',
+        ),
     }
 }
 

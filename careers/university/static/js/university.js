@@ -23,7 +23,7 @@
     *  It's Different section
     */
 
-    var different = document.getElementById("different");
+    var different = document.getElementById('different');
     var bottomInView = $(window).height() - $('#different').outerHeight();
 
     // bring in coffee cup
@@ -114,14 +114,14 @@
         // init carousel
         var knowBoxWidth = $('#know-boxes-pager').width();
         $('.know-box').width(knowBoxWidth);
-        $("#know-boxes").carouFredSel({
+        $('#know-boxes').carouFredSel({
             responsive: true,
             width: knowBoxWidth,
             height: 'auto',
             align: 'center',
             prev: '#know-boxes-prev',
             next: '#know-boxes-next',
-            pagination: "#know-boxes-pager",
+            pagination: '#know-boxes-pager',
             scroll: 1,
             swipe: {
                 onTouch: true
@@ -140,8 +140,83 @@
             knowBoxSwipe();
         } else if (Mozilla.Test.isParallax) {
             knowBoxFadeIn();
+        } else {
+            $('.know-box').addClass('past');
         }
     }
+
+
+    /*
+    *  Videos
+    */
+
+    // function to make sure video cues to play again when finished
+    function videoEnded() {
+        this.posterImage.show();
+        this.bigPlayButton.show();
+        this.currentTime(0);
+        this.pause();
+    }
+
+    // change the video to the one matching the thumbnail that was clicked
+    function videoFadeTo(e) {
+        var videoTarget = $(e.target);
+        if (e.type === 'click' || e.which === 13) {
+            // get video user wants to see
+            var videoNewID = videoTarget.attr('data-video-id');
+            var videoOldID = $('.video-current .video-js').attr('id');
+
+            // if it isn't what they're already watching
+            if(videoNewID !== videoOldID) {
+                // pause the current one
+                videojs(videoOldID).pause();
+
+                // move the current class on the videos
+                $('.video-current').removeClass('video-current');
+                $('#' + videoNewID).closest('figure').addClass('video-current');
+
+                // move the current class on the buttons
+                $('.video-thumb-current').removeClass('video-thumb-current');
+                videoTarget.addClass('video-thumb-current');
+            }
+        }
+    }
+
+    function videoInit() {
+        $('.video-js').each( function(index) {
+            var posterID = $(this).attr('id');
+
+            // attach an appropriate poster image
+            var windowWidth = $(window).width();
+            var posterSize = 480;
+            if (windowWidth < 321) {
+                posterSize = 320;
+            } else if (windowWidth > 481) {
+                posterSize = 700;
+            }
+            var posterName = posterID.slice(6);
+            $(this).attr('poster','/static/img/video-thumbs/' + posterName + '-' + posterSize + '.jpg');
+
+            // initialize video.js
+            var thisVideo;
+            if (!Mozilla.Test.isSmallScreen && index === 0) {
+                thisVideo = videojs(posterID, { 'preload': 'auto' });
+            } else {
+                thisVideo = videojs(posterID);
+            }
+
+            // make sure it ques to play again when it finishes
+            thisVideo.on('ended', videoEnded);
+        });
+
+        // wire buttons up
+        $('.video-thumb').on('click keydown', videoFadeTo);
+    }
+
+
+    $(function() {
+        videoInit();
+    });
 
 
 })(window, window.jQuery);
