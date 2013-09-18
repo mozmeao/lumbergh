@@ -43,6 +43,16 @@ Mozilla.Test = (function(w, $) {
     'use strict';
 
     /*
+    *   add class to HTML if we detect support for pointer events AKA microsoft touch screen
+    */
+    if (window.navigator.msMaxTouchPoints || window.navigator.maxTouchPoints || Modernizr.touch) {
+        $('html').addClass('moz-touch');
+    } else {
+        $('html').addClass('moz-no-touch');
+    }
+
+
+    /*
     *   move tabzilla into the header so it plays nice with our sticky menu
     */
 
@@ -139,9 +149,6 @@ Mozilla.Test = (function(w, $) {
     $(function() {
         trayMenuInit();
     });
-
-
-
 
 
 })(jQuery);

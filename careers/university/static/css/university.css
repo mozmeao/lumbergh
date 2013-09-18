@@ -281,7 +281,6 @@
             }
 
 }
-
 @media (min-width: 681px) {
 
     #different {
@@ -318,14 +317,14 @@
         }
 
         #different.different-cup:before,
-        .mod-touch #different:before,
+        .moz-touch #different:before,
         .js-disabled #different:before {
             margin-right: 200px;
 
         }
 
         #different.different-phone:after,
-        .mod-touch #different:after,
+        .moz-touch #different:after,
         .js-disabled #different:after {
             margin-left: 190px;
         }
@@ -373,14 +372,14 @@
       }
 
         #different.different-cup:before,
-        .mod-touch #different:before,
+        .moz-touch #different:before,
         .js-disabled #different:before {
             top: 160px;
             margin-right: 320px;
         }
 
         #different.different-phone:after,
-        .mod-touch #different:after,
+        .moz-touch #different:after,
         .js-disabled #different:after {
             margin-left: 300px;
         }
@@ -445,3 +444,222 @@
      }
 
 }
+
+/*  -------------------------------------------------------------------
+    Things You'll Want to Know
+    ------------------------------------------------------------------- */
+
+#know {
+    position: relative;
+    padding: 30px 0;
+    background: #1d1b19;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    color: #fff;
+    font-size: 15px;
+    text-align: center
+}
+
+.caroufredsel_wrapper {
+    margin: 0 auto !important; /* overridding inline properties of js injected code */
+}
+
+.know-head {
+    max-width: 200px;
+    margin: 0 auto;
+    font-size: 26px;
+    line-height: 1.2;
+}
+
+.know-box {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.know-box > h3 {
+    position: relative;
+    min-height: 80px;
+    padding-bottom: 20px;
+}
+
+    .know-box > h3:after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 50%;
+        width: 28px;
+        margin-left: -14px;
+        border-top: 1px solid #c13832;
+    }
+
+    .know-box > h3 > strong {
+        display: block;
+        color: #c13832;
+        font-family: 'Open Sans Light',sans-serif;
+        font-size: 42px;
+        font-weight: normal;
+        line-height: 1;
+        text-transform: uppercase;
+    }
+
+.know-box > p {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#know-boxes-pager {
+    margin:15px 0 1px 0;
+    width:100%;
+    text-align:center;
+}
+
+    #know-boxes-pager > a {
+        display: inline-block;
+        height: 0;
+        width: 8px;
+        overflow: hidden;
+        border-radius: 100%;
+        margin:0 6px;
+        padding-top: 8px;
+        background-color: #9e9e9e;
+    }
+
+        #know-boxes-pager > a:hover,
+        #know-boxes-pager > a:focus,
+        #know-boxes-pager > a:active {
+            background-color: #cccccc;
+        }
+
+        #know-boxes-pager > a.selected {
+            background-color: #0095dd;
+        }
+
+.js-enabled .know-box > h3 {
+    padding: 0 40px 20px 40px;
+}
+
+.js-enabled .know-box {
+    display: block;
+    float: left;
+    text-align: center;
+}
+
+@media (min-width:681px) {
+     #know {
+         padding: 40px 0;
+         font-size: 14px;
+     }
+
+     .know-head {
+         max-width: none;
+         margin-bottom: 30px;
+         font-size: 28px;
+         text-align: center;
+     }
+
+    #know-boxes {
+       margin: 0 -20px 0 0;
+    }
+
+    .caroufredsel #know-boxes {
+        margin: 0;
+    }
+
+        #know-boxes:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+    .know-box {
+        float: left;
+        -moz-box-sizing: border-box;
+             box-sizing: border-box;
+        width: 25%;
+        padding-right: 20px;
+        font-size: 11px;
+        text-align: left;
+    }
+
+        .caroufredsel .know-box {
+            padding: 0;
+            font-size: 14px;
+        }
+
+    .know-box > h3 {
+        width: 80%;
+        height: 70px;
+        margin: 0 auto;
+        font-size: 14px;
+        text-align: center;
+    }
+
+        .js-enabled .know-box > h3 {
+            padding: 0; /* override carousel heading padding */
+        }
+
+        .know-box > h3 > strong {
+            font-size: 32px;
+        }
+}
+
+@media (min-width:921px) {
+    #know {
+        padding: 60px 0;
+        font-size: 18px;
+    }
+
+    .know-head {
+        margin-bottom: 50px;
+        font-size: 38px;
+    }
+
+    #know-boxes {
+        margin-bottom: 10px;
+    }
+
+    .know-box {
+        font-size: 15px;
+    }
+
+        .moz-no-touch .know-box {
+            opacity: 0.2;
+             -webkit-transition: opacity 0.5s ease-in;
+                     transition: opacity 0.5s ease-in;
+        }
+
+            .caroufredsel .know-box,
+            .moz-no-touch .know-box.past {
+                opacity: 1;
+            }
+
+    .know-box > h3 {
+        min-height: 100px;
+        font-size: 18px;
+    }
+
+    .know-box > h3 > strong {
+        font-size: 42px;
+    }
+}
+
+/* background declarations */
+
+@media (max-width: 320px) {
+    #know {
+        background-image: url(/static/img/know-bg-320.jpg);
+    }
+}
+
+@media (min-width: 321px) and (max-width: 768px) {
+    #know {
+        background-image: url(/static/img/know-bg-768.jpg);
+    }
+}
+
+@media (min-width: 761px) {
+    #know {
+        background-image: url(/static/img/know-bg-1100.jpg);
+    }
+}
+
