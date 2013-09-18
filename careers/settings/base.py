@@ -47,6 +47,9 @@ MINIFY_BUNDLES = {
         'university': (
             'css/university.css',
         ),
+        'university-ie8': (
+            'css/university-ie8.css',
+        ),
     },
     'js': {
         'common': (
@@ -58,13 +61,10 @@ MINIFY_BUNDLES = {
         'university': (
             'js/university.js',
         ),
-        'ie8': (
+        'ie8shims': (
             #'js/libs/respond.min.js',
             'js/libs/html5shiv-printshiv.js',
-        ),
-        'notouch': (
-
-        ),
+        )
     }
 }
 
@@ -77,3 +77,4 @@ NOSE_ARGS = ['--logging-clear-handlers', '--logging-filter=-factory,-south']
 
 # URI of Jobvite job feed.
 JOBVITE_URI = 'https://www.jobvite.com/CompanyJobs/Xml.aspx?c=qpX9Vfwa'
+

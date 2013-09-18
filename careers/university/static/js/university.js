@@ -6,12 +6,19 @@
     *  check for touch support, load js libraries, and activate page interactions
     */
 
-    Modernizr.load({
-        test: Modernizr.touch,
-        complete : function () {
-            animationInit();
-        }
-    });
+    function pageInit() {
+        console.log('pageInit');
+        Modernizr.load({
+            test: Mozilla.Test.isParallax,
+            complete : function () {
+                animationInit();
+            }
+        });
+    }
+
+    pageInit();
+
+    window.onresize = function() { pageInit() };
 
     function animationInit() {
         differentListInit();
@@ -22,20 +29,38 @@
     *  It's different section
     */
 
-     // bring in coffee cup and phone
+    var different = document.getElementById("different");
+    var bottomInView = $(window).height() - $('#different').outerHeight();
+
+    // bring in coffee cup
+
+    var cupFromTop = parseInt(window.getComputedStyle((different),':before').top)
+    var cupFromBottom = $('#different').outerHeight() - cupFromTop;
+    var seeSomeCup = 100;
 
     $('#different').waypoint(function(direction) {
         if(direction === 'down') {
-            $('#different').addClass('different-objects');
+            $('#different').addClass('different-cup');
         }
-    }, { offset: 350 });
+    }, { offset: bottomInView + cupFromBottom - seeSomeCup });
 
+    // bring in phone
+
+    var phoneFromBottom = parseInt(window.getComputedStyle((different),':after').height) - 60;
+    var seeSomePhone = 200;
+
+
+    $('#different').waypoint(function(direction) {
+        if(direction === 'down') {
+            $('#different').addClass('different-phone');
+        }
+    }, { offset: function() {return bottomInView + phoneFromBottom - seeSomePhone } });
 
     // overlaping list display functions
 
     function differentListSwitch(e) {
         // if it was a click or enter key
-        if(e.type === 'click' || e.which === 13) {
+        if (e.type === 'click' || e.which === 13) {
             // remove the class from all lists
             $('.different-list').removeClass('different-list-current');
             // add it back to the parent of the heading that was clicked
@@ -61,7 +86,7 @@
     // init #different section
 
     function differentListInit() {
-        if(Mozilla.isParallax) {
+        if (Mozilla.Test.isParallax) {
             differentListScrollInit();
         } else {
             differentListSwitchInit();

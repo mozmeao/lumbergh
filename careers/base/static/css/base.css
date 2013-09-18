@@ -313,6 +313,8 @@ a:active {
 /* wrapper goes around content so it can be pushed over when menu opens */
 #wrapper {
     position: relative;
+    width: 100%;
+    overflow: hidden;
     left: 0;
     -webkit-transition: left 1s;
        -moz-transition: left 1s;

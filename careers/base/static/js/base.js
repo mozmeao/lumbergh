@@ -3,7 +3,7 @@ if (typeof Mozilla === 'undefined') {
     var Mozilla = {};
 }
 
-Mozilla.Pin = (function(w, $) {
+Mozilla.Test = (function(w, $) {
     'use strict';
 
     function _checkBigScreen() {
@@ -14,13 +14,30 @@ Mozilla.Pin = (function(w, $) {
         }
     }
 
-    var isBigScreen = _checkBigScreen();
-    var isNotTouch = !Modernizr.touch;
-    var isParallax = (isBigScreen && isNotTouch) ? true : false;
+    function _checkSmallScreen() {
+        if($(window).width() <= 680) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-    var heightNav = $('header.masthead').height();
+    function _checkTouch() {
+        return (window.navigator.msMaxTouchPoints || window.navigator.maxTouchPoints || Modernizr.touch);
+    }
 
-})(window, window.jQuery); // Mozilla.Pin
+    function _checkParallaxOkay() {
+        return (_checkBigScreen() && !_checkTouch());
+    }
+
+    return {
+        isBigScreen: _checkBigScreen(),
+        isSmallScreen: _checkSmallScreen(),
+        isParallax: _checkParallaxOkay(),
+    };
+
+
+})(window, window.jQuery); // Mozilla.Test
 
 (function($) {
     'use strict';
