@@ -58,4 +58,4 @@ NOSE_ARGS = ['--logging-clear-handlers', '--logging-filter=-factory,-south']
 ##############################################################################
 
 # URI of Jobvite job feed.
-JOBVITE_URI = 'http://www.jobvite.com/CompanyJobs/Xml.aspx?c=qpX9Vfwa'
+JOBVITE_URI = 'https://www.jobvite.com/CompanyJobs/Xml.aspx?c=qpX9Vfwa'
