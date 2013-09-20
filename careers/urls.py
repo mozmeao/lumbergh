@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.conf.urls.defaults import include, patterns
+from django.contrib import admin
 from django.http import HttpResponse
 from django.shortcuts import render
 
@@ -8,6 +9,10 @@ from funfactory.monkeypatches import patch
 
 # Activate funfactory monkeypatches.
 patch()
+
+
+# Autodiscover admin.py files.
+admin.autodiscover()
 
 
 def error_page(request, template, status=None):
@@ -26,6 +31,10 @@ handler500 = lambda r: error_page(r, 500)
 
 urlpatterns = patterns('',
     (r'', include('careers.careers.urls')),
+    (r'', include('careers.university.urls')),
+
+    # Admin interface.
+    (r'^admin/', include(admin.site.urls)),
 
     # Generate a robots.txt
     (r'^robots\.txt$', lambda r: HttpResponse(

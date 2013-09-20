@@ -6,10 +6,14 @@
           <li><a href="#teams_and_roles">Teams &amp; Roles</a></li>
           <li><a href="#life_at_mozilla">Life at Mozilla</a></li>
           <li><a href="#locations">Locations</a></li>
-          <li><a href="{{ url('careers.university') }}">University</a></li>
+          <li><a href="{{ url('university.index') }}">University</a></li>
           <li><a href="#listings">Listings</a></li>
         </ul>
       </nav>
-      <h2 class="masthead-logo"><a href="//www.mozilla.org"><img src="{{ static('img/header-mozilla-stone.png') }}" alt="mozilla"></a></h2>
+      <h2 class="masthead-logo">
+        <a href="{{ url('careers.home') }}">
+          <img src="{{ static('img/header-mozilla-stone.png') }}" alt="mozilla">
+        </a>
+      </h2>
   </div>
 </header>
