@@ -1,0 +1,548 @@
+@font-face {
+    font-family: 'Open Sans Light';
+    src: url('/static/fonts/OpenSans-Light-webfont.eot');
+    src: url('/static/fonts/OpenSans-Light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/fonts/OpenSans-Light-webfont.woff') format('woff'),
+         url('/static/fonts/OpenSans-Light-webfont.ttf') format('truetype'),
+         url('/static/fonts/OpenSans-Light-webfont.svg#OpenSansLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans Light';
+    src: url('/static/fonts/OpenSans-Regular-webfont.eot');
+    src: url('/static/fonts/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/fonts/OpenSans-Regular-webfont.woff') format('woff'),
+         url('/static/fonts/OpenSans-Regular-webfont.ttf') format('truetype'),
+         url('/static/fonts/OpenSans-Regular-webfont.svg#OpenSansRegular') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans Light';
+    src: url('/static/fonts/OpenSans-LightItalic-webfont.eot');
+    src: url('/static/fonts/OpenSans-LightItalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/fonts/OpenSans-LightItalic-webfont.woff') format('woff'),
+         url('/static/fonts/OpenSans-LightItalic-webfont.ttf') format('truetype'),
+         url('/static/fonts/OpenSans-LightItalic-webfont.svg#OpenSansRegular') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/static/fonts/OpenSans-Regular-webfont.eot');
+    src: url('/static/fonts/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/fonts/OpenSans-Regular-webfont.woff') format('woff'),
+         url('/static/fonts/OpenSans-Regular-webfont.ttf') format('truetype'),
+         url('/static/fonts/OpenSans-Regular-webfont.svg#OpenSansRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/static/fonts/OpenSans-Semibold-webfont.eot');
+    src: url('/static/fonts/OpenSans-Semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/fonts/OpenSans-Semibold-webfont.woff') format('woff'),
+         url('/static/fonts/OpenSans-Semibold-webfont.ttf') format('truetype'),
+         url('/static/fonts/OpenSans-Semibold-webfont.svg#OpenSansSemibold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/static/fonts/OpenSans-Italic-webfont.eot');
+    src: url('/static/fonts/OpenSans-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/fonts/OpenSans-Italic-webfont.woff') format('woff'),
+         url('/static/fonts/OpenSans-Italic-webfont.ttf') format('truetype'),
+         url('/static/fonts/OpenSans-Italic-webfont.svg#OpenSansItalic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+/*  ===================================================================
+    RESETS (based mostly on normalize.css)
+    =================================================================== */
+
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary { display: block; } /* HTML5 */
+audio,canvas,video { display: inline-block; } /* HTML5 */
+
+html {
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+}
+
+body { margin: 0; }
+
+h1,h2,h3,h4,h5,h6 {
+    font-size: 1em;
+    font-weight: normal;
+    margin: 1em 0;
+}
+
+img { border: 0; }
+
+b,strong { font-weight: bold; }
+
+a { background: transparent; }
+
+sub,sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+    sup { top: -0.5em; }
+    sub { bottom: -0.25em; }
+
+
+/*  ===================================================================
+    Base - modifications to elements that are not resets
+    =================================================================== */
+
+html {
+    background: #fff;
+    height: 100%;
+}
+
+body {
+    background: #f5f1e8 url(/static/img/bg-sand.png) repeat;
+    background: url(/static/img/bg-gradient-sand.png) repeat-x 0 0,
+                url(/static/img/bg-sand.png) repeat 0 0, #f5f1e8;
+    border-top: 2px solid #fff;
+    color: #4d4e53;
+    font: 14px/1.5 'Open Sans', sans-serif;
+    width: 100%;
+    overflow-x: hidden;
+
+}
+    body.freeze { /* used by trayMenu js */
+        overflow: hidden;
+    }
+
+a:link,
+a:visited {
+    color: #0096dd;
+    text-decoration: none;
+}
+
+a:hover,
+a:focus,
+a:active {
+    color: #0073aa;
+    text-decoration: underline;
+}
+
+
+@media (max-width: 680px) {
+    .js-enabled body {
+        padding-top: 60px; /* space for fixed menu */
+    }
+}
+
+@media (min-width: 681px) {
+     body {
+         padding-top: 100px;
+     }
+}
+
+
+/*  ===================================================================
+    helper classes
+    =================================================================== */
+
+/* hide except from screen readers */
+.ally {
+    left: -9999px;
+    position: absolute;
+}
+
+
+/*  ===================================================================
+    Modules
+    =================================================================== */
+
+/*  -------------------------------------------------------------------
+    Layout
+    ------------------------------------------------------------------- */
+
+ /* max width, centered with padding */
+.contain {
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/*  -------------------------------------------------------------------
+    Header
+    ------------------------------------------------------------------- */
+
+.masthead {
+    border-top: 2px solid #fff;
+}
+
+.masthead-logo {
+    padding: 30px 0 20px;
+    margin: 0;
+}
+
+@media (max-width: 680px) {
+    /* if we have javascript then we get the tray menu at this size, make this menu a short fixie */
+    .js-enabled .masthead {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        width: 100%;
+        min-height: 60px;
+        /* TODO: flat image for mobile header? */
+        background: #f5f1e8 url(/static/img/bg-sand.png) repeat;
+        background: url(/static/img/bg-gradient-sand.png) repeat-x 0 0,
+                    url(/static/img/bg-sand.png) repeat 0 0, #f5f1e8;
+        -webkit-transition: left 1s;
+           -moz-transition: left 1s;
+                transition: left 1s;
+    }
+        .js-enabled .tray-open .masthead {
+            left: 200px; /* moves over if tray is open to make space */
+        }
+
+    .js-enabled .masthead .contain {
+        height: 60px; /* restrict menu to height of padding added to body */
+        overflow: hidden;
+    }
+
+}
+
+
+@media (min-width: 681px) {
+    /* desktop gets a fixed menu */
+    .masthead {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        width: 100%;
+        min-height: 100px;
+        background: #f5f1e8 url(/static/img/bg-sand.png) repeat;
+        background: url(/static/img/bg-gradient-sand.png) repeat-x 0 0,
+                    url(/static/img/bg-sand.png) repeat 0 0, #f5f1e8;
+    }
+
+    .js-enabled .masthead .contain {
+       height: 100px;
+       overflow: hidden;
+    }
+}
+
+@media (max-width: 920px) {
+    /* big logo is removed on mobile & tablet - tabzilla logo remains for brand visiability */
+    .masthead-logo { /* TODO: don't load this image for mobile? */
+        display: none;
+    }
+}
+
+/*  -------------------------------------------------------------------
+    Main Navigation
+    - menu and links are floated right, on small screens they begin to stack
+    - stacking behaviour is over-ridden by tray menu at 680px if they have javascript enabled
+    ------------------------------------------------------------------- */
+
+.nav-main {
+    font: 13px 'Open Sans', sans-serif;
+    float: right;
+    margin-right: 16px;
+    min-height: 60px;
+    text-transform: uppercase;
+}
+
+.nav-main ul {
+    margin: 0;
+    padding: 0;
+}
+
+.nav-main li {
+    display: inline-block;
+    list-style-type: none;
+    margin: 0;
+}
+
+.nav-main a {
+    font-weight: normal;
+    display: inline-block;
+    padding: 12px;
+}
+
+    .nav-main a,
+    .nav-main a:link,
+    .nav-main a:visited {
+        color: #484848;
+    }
+
+    .nav-main .current a,
+    .nav-main a:hover,
+    .nav-main a:focus,
+    .nav-main nav a:active {
+        color: #0096dd;
+        text-decoration: none;
+    }
+
+@media (max-width: 680px) {
+    /* hide nav-main if they have javascript enabled, tray nav takes over */
+    .js-enabled .nav-main ul {
+        display: none;
+    }
+}
+
+@media (max-width: 920px;) {
+     .nav-main {
+         float: left;
+     }
+}
+
+/*  ------------------------------------
+    Tray Navigation - side nav for mobile
+    ------------------------------------ */
+
+
+/* wrapper goes around content so it can be pushed over when menu opens */
+#wrapper {
+    position: relative;
+    left: 0;
+    -webkit-transition: left 1s;
+       -moz-transition: left 1s;
+            transition: left 1s;
+}
+    .tray-open #wrapper {
+        left: 200px;
+    }
+
+#tray-toggle {
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+    height: 0;
+    width: 32px;
+    overflow: hidden;
+    border: 0;
+    padding: 32px 0 0 0;
+    background: transparent url(/static/img/icon-sprites.png);
+}
+
+#nav-tray-close {
+    position: fixed;
+    top: 2px;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    display: none;
+    width: 0;
+    margin: 0;
+    border: 0;
+    padding-left: 100%;
+    background: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);
+}
+
+    .tray-open #nav-tray-close {
+         display: block;
+    }
+
+#nav-tray {
+    position: fixed;
+    top: 2px;
+    left: -200px;
+    bottom: -60px;
+    z-index: 2;
+    -webkit-overflow-scrolling: touch;
+    overflow: scroll;
+    width: 200px;
+    box-shadow: inset 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    background-color: #4d4e53;
+    -webkit-transition: left 1s;
+       -moz-transition: left 1s;
+            transition: left 1s;
+}
+
+    .tray-open #nav-tray {
+        left: 0;
+    }
+
+#nav-tray > ul {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+#nav-tray > ul > li > a {
+    display: block;
+    border-top: 1px solid #5f6065;
+    border-bottom: 1px solid #3b3a37;
+    padding: 15px 20px 12px 20px;
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+    #nav-tray > ul > li.current a,
+    #nav-tray > ul > li > a:hover,
+    #nav-tray > ul > li > a:focus,
+    #nav-tray > ul > li > a:active {
+        color: #0096dd;
+    }
+
+
+@media (min-width: 681px) {
+    #tray-toggle {
+        display: none; /* hide toggle on desktop */
+    }
+}
+
+
+/*  -------------------------------------------------------------------
+    Footer
+    - content floats left and stacks on narrower screens
+    - nav menus are in a block together so they stack under logo and info
+    - entire footer stacks vertically on small enough screen
+    ------------------------------------------------------------------- */
+
+.colophon {
+    overflow: hidden; _overflow: visible; zoom: 1; /* clearfix */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #fff;
+}
+
+.colophon-logo {
+    display: block;
+    float: left;
+    width: 160px; /* 2 columns */
+    margin-bottom: 15px;
+}
+
+.colophon-info {
+    display: inline-block;
+    float: left;
+    max-width: 300px; /* 4 columns */
+    margin: 0 20px 20px 0;
+    color: #bbb;
+    font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+    font-size: 12px;
+}
+    .colophon-info a:link {
+        color: #bbb;
+    }
+
+.colophon-nav {
+    display: inline-block;
+    float: left;
+    min-width: 300px; /* 4 columns */
+    margin-top: -7px;
+}
+
+    .colophon-nav ul {
+        float: left;
+        width: 140px; /* 2 columns */
+        margin: 0;
+        padding: 0 20px 0 0;
+        list-style-type: none;
+        font-size: 14px;
+    }
+
+.colophon-nav a {
+    display: inline-block;
+    padding: 5px 0;
+}
+
+@media (max-width: 680px) {
+    .colophon-nav ul + ul {
+        display: none; /* hide social media links on small enough screens */
+    }
+}
+
+@media (min-width: 681px) {
+    .colophon {
+        padding-top: 40px;
+    }
+
+    .colophon-info {
+        margin-right: 100px; /* extra column of space between info and nav menus */
+    }
+
+    .colophon ul {
+        font-size: 13px;
+    }
+}
+
+/*  -------------------------------------------------------------------
+    call to action links/buttons
+    ------------------------------------------------------------------- */
+
+.cta {
+    display: block;
+    padding: 11px;
+    font-size: 20px;
+}
+
+a.cta:link,
+a.cta:visited {
+    box-shadow: inset 0 0 1px 0 rgba(0, 0, 0, 0.3);
+    border-top: 1px solid #44a5e1;
+    border-bottom: 1px solid #257cc0;
+    background-color: #338fd1;
+    background: -webkit-linear-gradient(#44a5e1, #257cc0);
+    background:         linear-gradient(#44a5e1, #257cc0);
+    color: #fff;
+    text-decoration: none;
+}
+
+a.cta:hover,
+a.cta:focus,
+a.cta:active {
+    box-shadow: inset 0 0 1px 0 rgba(255, 255, 255, 0.3);
+    border-top: 1px solid #3799d8;
+    border-bottom: 1px solid #0d55bd;
+    background-color: #1f73c9;
+    background: -webkit-linear-gradient(#3799d8, #0d55bd);
+    background:         linear-gradient(#3799d8, #0d55bd);
+}
+
+@media (min-width: 681px) {
+    .cta {
+        min-width: 175px;
+        display: inline-block;
+        border-radius: 4px;
+        padding: 6px 20px;
+        font-size: 14px;
+    }
+
+    a.cta:link,
+    a.cta:visited {
+        box-shadow: inset 0 2px 2px 0 rgba(255, 255, 255, 0.2);
+        background-color: #338fd1;
+        background: -webkit-linear-gradient(#50c5e9, #2985d0);
+        background:         linear-gradient(#50c5e9, #2985d0);
+    }
+
+    a.cta:hover,
+    a.cta:focus,
+    a.cta:active {
+        background-color: #1f73c9;
+        background: -webkit-linear-gradient(#4bbde6, #125dc1);
+        background:         linear-gradient(#4bbde6, #125dc1);
+    }
+
+}
+
+@media (min-width: 681px) {
+    .cta {
+    padding: 7px 20px;
+        font-size: 18px;
+    }
+}
