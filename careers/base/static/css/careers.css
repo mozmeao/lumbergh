@@ -73,16 +73,16 @@ audio,canvas,video { display: inline-block; } /* HTML5 */
 
 html {
     font-family: sans-serif;
-    -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
 }
 
 body { margin: 0; }
 
 h1,h2,h3,h4,h5,h6 {
-    margin:1em 0;
-    font-size:1em;
-    font-weight:normal;
+    font-size: 1em;
+    font-weight: normal;
+    margin: 1em 0;
 }
 
 img { border: 0; }
@@ -96,7 +96,7 @@ sub,sup {
     line-height: 0;
     position: relative;
     vertical-align: baseline;
-    }
+}
     sup { top: -0.5em; }
     sub { bottom: -0.25em; }
 
@@ -106,22 +106,23 @@ sub,sup {
     =================================================================== */
 
 html {
-    height:100%;
     background: #fff;
+    height: 100%;
 }
 
 body {
-    width:100%;
-    overflow-x:hidden;
-    border-top: 2px solid #fff;
     background: #f5f1e8 url(/static/img/bg-sand.png) repeat;
     background: url(/static/img/bg-gradient-sand.png) repeat-x 0 0,
                 url(/static/img/bg-sand.png) repeat 0 0, #f5f1e8;
+    border-top: 2px solid #fff;
+    color: #4d4e53;
     font: 14px/1.5 'Open Sans', sans-serif;
-    color: #333;
+    width: 100%;
+    overflow-x: hidden;
+
 }
-    body.freeze{ /* used by trayMenu js */
-        overflow:hidden;
+    body.freeze { /* used by trayMenu js */
+        overflow: hidden;
     }
 
 a:link,
@@ -138,59 +139,28 @@ a:active {
 }
 
 
-@media all and (min-width:681px){
+@media all and (max-width: 680px) {
+    .js-enabled body {
+        padding-top: 60px; /* space for fixed menu */
+    }
+}
+
+@media all and (min-width: 681px) {
      body {
-         padding-top:100px;
+         padding-top: 100px;
      }
 }
 
-@media all and (max-width:680px){
-    .js-enabled body {
-        padding-top:60px; /* space for fixed menu */
-    }
-}
 
 /*  ===================================================================
     helper classes
     =================================================================== */
 
-/* image replacement */
-.imgswap {
-    text-indent: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
 /* hide except from screen readers */
 .ally {
-    position: absolute;
     left: -9999px;
+    position: absolute;
 }
-
-/* responsive image */
-.responsive {
-    width:auto;
-    max-width:100%;
-    height:auto;
-}
-
-/* hide except from mobile */
-.mobileonly {
-    display:none;
-}
-@media all and (max-width:680px) {
-    .mobileonly {
-        display:block;
-    }
-}
-
-/* hide from mobile */
-@media all and (max-width:680px) {
-    .mobileno {
-        display:none;
-    }
-}
-
 
 /*  ===================================================================
     Modules
@@ -202,9 +172,9 @@ a:active {
 
  /* max width, centered with padding */
 .contain {
-    max-width:940px;
-    margin:0 auto;
-    padding:0 20px;
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 /*  -------------------------------------------------------------------
@@ -217,49 +187,71 @@ a:active {
 
 .masthead-logo {
     padding: 30px 0 20px;
-    margin:0;
+    margin: 0;
 }
 
-@media all and (max-width:680px){
+@media all and (max-width: 680px) {
     /* if we have javascript then we get the tray menu at this size, make this menu a short fixie */
     .js-enabled .masthead {
-        position:fixed;
-        top:0;
-        left:0;
-        z-index:1;
-        width:100%;
-        min-height:60px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        width: 100%;
+        min-height: 60px;
         /* TODO: flat image for mobile header? */
         background: #f5f1e8 url(/static/img/bg-sand.png) repeat;
         background: url(/static/img/bg-gradient-sand.png) repeat-x 0 0,
                     url(/static/img/bg-sand.png) repeat 0 0, #f5f1e8;
-        -webkit-transition:left 1s;
-           -moz-transition:left 1s;
-                transition:left 1s;
+        -webkit-transition: left 1s;
+           -moz-transition: left 1s;
+                transition: left 1s;
     }
-         .js-enabled .tray-open .masthead {
-            left:200px; /* moves over if tray is open to make space */
+        .js-enabled .tray-open .masthead {
+            left: 200px; /* moves over if tray is open to make space */
         }
 
-    /* big logo is removed on mobile - tabzilla logo remains for brand visiability */
-    .masthead-logo { /* TODO: don't load this image for mobile? */
-        display:none;
+    .js-enabled .masthead .contain {
+        height: 60px; /* restrict menu to height of padding added to body */
+        overflow: hidden;
     }
+
 }
 
 
-@media all and (min-width:681px){
+@media all and (min-width: 681px) {
     /* desktop gets a fixed menu */
     .masthead {
-        position:fixed;
-        top:0;
-        left:0;
-        z-index:1;
-        width:100%;
-        min-height:100px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        width: 100%;
+        min-height: 100px;
         background: #f5f1e8 url(/static/img/bg-sand.png) repeat;
         background: url(/static/img/bg-gradient-sand.png) repeat-x 0 0,
                     url(/static/img/bg-sand.png) repeat 0 0, #f5f1e8;
+    }
+
+    .js-enabled .masthead .contain {
+       height: 100px;
+       overflow: hidden;
+    }
+}
+
+@media all and (max-width: 920px) {
+    /* big logo is removed on mobile & tablet - tabzilla logo remains for brand visiability */
+    .masthead-logo { /* TODO: don't load this image for mobile? */
+        display: none;
+    }
+}
+
+@media (min-width:921px) {
+    .masthead-logo {
+        position:absolute;
+        bottom:0;
+        left:50%;
+        margin-left:-470px;
     }
 }
 
@@ -273,13 +265,13 @@ a:active {
     font: 13px 'Open Sans', sans-serif;
     float: right;
     margin-right: 16px;
-    min-height:60px;
+    min-height: 60px;
     text-transform: uppercase;
 }
 
 .nav-main ul {
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-main li {
@@ -308,11 +300,17 @@ a:active {
         text-decoration: none;
     }
 
-@media all and (max-width:680px){
+@media all and (max-width: 680px) {
     /* hide nav-main if they have javascript enabled, tray nav takes over */
     .js-enabled .nav-main ul {
-        display:none;
+        display: none;
     }
+}
+
+@media all and (max-width: 920px;) {
+     .nav-main {
+         float: left;
+     }
 }
 
 /*  ------------------------------------
@@ -322,82 +320,82 @@ a:active {
 
 /* wrapper goes around content so it can be pushed over when menu opens */
 #wrapper {
-    position:relative;
-    left:0;
-    -webkit-transition:left 1s;
-       -moz-transition:left 1s;
-            transition:left 1s;
+    position: relative;
+    left: 0;
+    -webkit-transition: left 1s;
+       -moz-transition: left 1s;
+            transition: left 1s;
 }
     .tray-open #wrapper {
-        left:200px;
+        left: 200px;
     }
 
 #tray-toggle {
-    position:absolute;
-    bottom:20px;
-    left:10px;
-    height:0;
-    width:32px;
-    overflow:hidden;
-    border:0;
-    padding:32px 0 0 0;
-    background:transparent url(../img/icon_sprites.png);
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+    height: 0;
+    width: 32px;
+    overflow: hidden;
+    border: 0;
+    padding: 32px 0 0 0;
+    background: transparent url(/static/img/icon-sprites.png);
 }
 
 #nav-tray-close {
-    position:fixed;
-    top:2px;
-    left:0;
-    bottom:0;
-    z-index:2;
-    display:none;
-    width:0;
-    margin:0;
-    border:0;
-    padding-left:100%;
+    position: fixed;
+    top: 2px;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    display: none;
+    width: 0;
+    margin: 0;
+    border: 0;
+    padding-left: 100%;
     background: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);
 }
 
     .tray-open #nav-tray-close {
-         display:block;
+         display: block;
     }
 
 #nav-tray {
-    position:fixed;
-    top:2px;
-    left:-200px;
-    bottom:-60px;
-    z-index:2;
+    position: fixed;
+    top: 2px;
+    left: -200px;
+    bottom: -60px;
+    z-index: 2;
     -webkit-overflow-scrolling: touch;
-    overflow:scroll;
-    width:200px;
-    box-shadow:inset 0 0 10px 0 rgba(0, 0, 0, 0.5);
-    background-color:#4d4e53;
-    -webkit-transition:left 1s;
-       -moz-transition:left 1s;
-            transition:left 1s;
+    overflow: scroll;
+    width: 200px;
+    box-shadow: inset 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    background-color: #4d4e53;
+    -webkit-transition: left 1s;
+       -moz-transition: left 1s;
+            transition: left 1s;
 }
 
     .tray-open #nav-tray {
-        left:0;
+        left: 0;
     }
 
 #nav-tray > ul {
-    height:100%;
-    margin:0;
-    padding:0;
-    list-style-type:none;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
 }
 
 #nav-tray > ul > li > a {
-    display:block;
-    border-top:1px solid #5f6065;
-    border-bottom:1px solid #3b3a37;
-    padding:15px 20px 12px 20px;
-    color:#fff;
-    font-size:14px;
-    text-decoration:none;
-    text-transform:uppercase;
+    display: block;
+    border-top: 1px solid #5f6065;
+    border-bottom: 1px solid #3b3a37;
+    padding: 15px 20px 12px 20px;
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: uppercase;
 }
 
     #nav-tray > ul > li.current a,
@@ -408,9 +406,9 @@ a:active {
     }
 
 
-@media all and (min-width:681px) {
+@media all and (min-width: 681px) {
     #tray-toggle {
-        display:none; /* hide toggle on desktop */
+        display: none; /* hide toggle on desktop */
     }
 }
 
@@ -423,67 +421,269 @@ a:active {
     ------------------------------------------------------------------- */
 
 .colophon {
-    overflow:hidden; _overflow:visible; zoom:1; /* clearfix */
-    padding-top:20px;
-    padding-bottom:20px;
-    background-color:#fff;
+    overflow: hidden; _overflow: visible; zoom: 1; /* clearfix */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #fff;
 }
 
 .colophon-logo {
-    display:block;
-    float:left;
-    width:160px; /* 2 columns */
-    margin-bottom:15px;
+    display: block;
+    float: left;
+    width: 160px; /* 2 columns */
+    margin-bottom: 15px;
 }
 
 .colophon-info {
-    display:inline-block;
-    float:left;
-    max-width:300px; /* 4 columns */
-    margin:0 20px 20px 0;
-    color:#bbb;
+    display: inline-block;
+    float: left;
+    max-width: 300px; /* 4 columns */
+    margin: 0 20px 20px 0;
+    color: #bbb;
     font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
-    font-size:12px;
+    font-size: 12px;
 }
-    .colophone-info a:link {
-        color:#bbb;
+    .colophon-info a:link {
+        color: #bbb;
     }
 
 .colophon-nav {
-    display:inline-block;
-    float:left;
-    min-width:300px; /* 4 columns */
-    margin-top:-7px;
+    display: inline-block;
+    float: left;
+    min-width: 300px; /* 4 columns */
+    margin-top: -7px;
 }
 
     .colophon-nav ul {
-        float:left;
-        width:140px; /* 2 columns */
-        margin:0;
-        padding:0 20px 0 0;
-        list-style-type:none;
-        font-size:14px;
+        float: left;
+        width: 140px; /* 2 columns */
+        margin: 0;
+        padding: 0 20px 0 0;
+        list-style-type: none;
+        font-size: 14px;
     }
 
 .colophon-nav a {
-    display:inline-block;
-    padding:5px 0;
+    display: inline-block;
+    padding: 5px 0;
 }
 
-@media all and (max-width:680px) {
-    .colophon-nav ul + ul { display:none; } /* hide social media links on small enough screens */
+@media all and (max-width: 680px) {
+    .colophon-nav ul + ul {
+        display: none; /* hide social media links on small enough screens */
+    }
 }
 
-@media all and (min-width:681px) {
+@media all and (min-width: 681px) {
     .colophon {
-        padding-top:40px;
+        padding-top: 40px;
     }
 
     .colophon-info {
-        margin-right:100px; /* extra column of space between info and nav menus */
+        margin-right: 100px; /* extra column of space between info and nav menus */
     }
 
     .colophon ul {
-        font-size:13px;
+        font-size: 13px;
     }
 }
+
+/*  -------------------------------------------------------------------
+    call to action links/buttons
+    ------------------------------------------------------------------- */
+
+.cta {
+    display: block;
+    padding: 11px;
+    font-size: 20px;
+}
+
+a.cta:link,
+a.cta:visited {
+    box-shadow: inset 0 0 1px 0 rgba(0, 0, 0, 0.3);
+    border-top: 1px solid #44a5e1;
+    border-bottom: 1px solid #257cc0;
+    background-color: #338fd1;
+    background: -webkit-linear-gradient(#44a5e1, #257cc0);
+    background:         linear-gradient(#44a5e1, #257cc0);
+    color: #fff;
+    text-decoration: none;
+}
+
+a.cta:hover,
+a.cta:focus,
+a.cta:active {
+    box-shadow: inset 0 0 1px 0 rgba(255, 255, 255, 0.3);
+    border-top: 1px solid #3799d8;
+    border-bottom: 1px solid #0d55bd;
+    background-color: #1f73c9;
+    background: -webkit-linear-gradient(#3799d8, #0d55bd);
+    background:         linear-gradient(#3799d8, #0d55bd);
+}
+
+@media all and (min-width: 681px) {
+    .cta {
+        min-width: 175px;
+        display: inline-block;
+        border-radius: 4px;
+        padding: 6px 20px;
+        font-size: 14px;
+    }
+
+    a.cta:link,
+    a.cta:visited {
+        box-shadow: inset 0 2px 2px 0 rgba(255, 255, 255, 0.2);
+        background-color: #338fd1;
+        background: -webkit-linear-gradient(#50c5e9, #2985d0);
+        background:         linear-gradient(#50c5e9, #2985d0);
+    }
+
+    a.cta:hover,
+    a.cta:focus,
+    a.cta:active {
+        background-color: #1f73c9;
+        background: -webkit-linear-gradient(#4bbde6, #125dc1);
+        background:         linear-gradient(#4bbde6, #125dc1);
+    }
+
+}
+
+@media all and (min-width: 681px) {
+    .cta {
+    padding: 7px 20px;
+        font-size: 18px;
+    }
+}
+
+/*  -------------------------------------------------------------------
+    University Intro
+    - big banner with paragraphs and buttons stacked underneath
+    - image is actually the h2 tag to responsivly load appropriate image without loading wrong one first
+        - all background-image definitions should be inside media queries
+        - see: http://timkadlec.com/2012/04/media-query-asset-downloading-results/
+    - buttons become absolute positioned and display over banner at big enough sizes
+    - paragraphs float left and right when large enough
+    ------------------------------------------------------------------- */
+
+    #uintro {
+        overflow: hidden; _overflow: visible; zoom: 1; /* clearfix */
+        position: relative;
+        color: #fff;
+        background-color: #4d4e53;
+         -webkit-font-smoothing: antialiased;
+        text-align: center;
+    }
+
+    #uintro h2 {
+        -moz-box-sizing: border-box;
+             box-sizing: border-box;
+        height: 264px;
+        margin: 0 auto;
+        padding-top: 90px;
+        background-color: #97938c;
+        background-position: center top;
+        background-repeat: no-repeat;
+        font-family: 'Open Sans Light',sans-serif;
+        font-size: 32px;
+        letter-spacing: -1px;
+        line-height: 1.25;
+        text-align: center;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    }
+
+    #uintro p {
+        margin-bottom: 30px;
+        font-size: 18px;
+        text-align: left;
+    }
+
+        #uintro p:first-child {
+            color: #a2a2a9;
+            font-family: 'Open Sans Light',sans-serif;
+            font-size: 26px;
+            line-height: 1.25;
+        }
+
+    @media all and (max-width: 320px) {
+        #uintro h2 {
+            background-image: url(/static/img/university-banner-320.jpg);
+        }
+    }
+
+    @media all and (min-width: 321px) and (max-width: 680px) {
+        #uintro h2 {
+            background-image: url(/static/img/university-banner-680.jpg);
+        }
+    }
+
+    @media all and (min-width: 681px) {
+        #uintro {
+            padding-bottom: 10px;
+        }
+
+        #uintro h2 {
+            height: 376px;
+            padding-top: 120px;
+            background-image: url(/static/img/university-banner-920.jpg);
+            font-size: 50px;
+            line-height: 1;
+        }
+
+        #uintro p {
+            float:right;
+            -moz-box-sizing: border-box;
+                 box-sizing: border-box;
+            width: 50%;
+            margin-top: 40px;
+            padding: 0 0 0 10px;
+            font-size: 14px;
+        }
+            #uintro p:first-child {
+                float: left;
+                padding: 0 10px 0 0;
+                font-size: 20px;
+            }
+
+        #uintro .cta {
+            position: absolute;
+            top: 250px;
+            right: 50.5%;
+        }
+
+         #uintro .cta + .cta {
+             right: auto;
+             left: 50.5%;
+         }
+    }
+
+    @media all and (min-width: 921px) {
+        #uintro {
+            padding-bottom: 25px;
+        }
+
+        #uintro h2 {
+            height: 500px;
+            padding-top: 170px;
+            background-image: url(/static/img/university-banner-1280.jpg);
+            font-size: 60px;
+        }
+
+         #uintro p {
+            font-size: 18px;
+        }
+            #uintro p:first-child {
+                font-size: 26px;
+            }
+
+
+        #uintro .cta {
+            top: 350px;
+        }
+    }
+
+    @media all and (min-width: 1281px) {
+        #uintro h2 {
+            background-image: url(/static/img/university-banner-2560.jpg);
+        }
+    }
+
