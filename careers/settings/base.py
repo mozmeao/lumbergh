@@ -14,6 +14,9 @@ LANGUAGE_CODE = 'en-US'
 INSTALLED_APPS = list(INSTALLED_APPS) + [
     'careers.base',
     'careers.careers',
+    'careers.university',
+
+    'django.contrib.admin',
 
     'django_jobvite',
     'jingo_minify',

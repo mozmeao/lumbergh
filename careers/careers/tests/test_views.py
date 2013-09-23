@@ -1,8 +1,7 @@
-from django.test import TestCase
-
 from funfactory.urlresolvers import reverse
 from nose.tools import eq_
 
+from careers.base.tests import TestCase
 from careers.careers.tests import PositionFactory
 
 

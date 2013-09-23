@@ -12,9 +12,6 @@ def home(request):
         'categories': categories,
     })
 
-def university(request):
-    return render(request, 'careers/university.html')
-
 
 def position(request, job_id=None):
     try:
