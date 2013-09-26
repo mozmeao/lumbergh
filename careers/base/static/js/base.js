@@ -1,3 +1,44 @@
+// create namespace
+if (typeof Mozilla === 'undefined') {
+    var Mozilla = {};
+}
+
+Mozilla.Test = (function(w, $) {
+    'use strict';
+
+    function _checkBigScreen() {
+        if($(window).width() > 920) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function _checkSmallScreen() {
+        if($(window).width() <= 680) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function _checkTouch() {
+        return (window.navigator.msMaxTouchPoints || window.navigator.maxTouchPoints || Modernizr.touch);
+    }
+
+    function _checkParallaxOkay() {
+        return (_checkBigScreen() && !_checkTouch());
+    }
+
+    return {
+        isBigScreen: _checkBigScreen(),
+        isSmallScreen: _checkSmallScreen(),
+        isParallax: _checkParallaxOkay(),
+    };
+
+
+})(window, window.jQuery); // Mozilla.Test
+
 (function($) {
     'use strict';
 
@@ -94,10 +135,13 @@
        $('#tray-toggle').focus();
     }
 
-
     // trigger menu
     $(function() {
         trayMenuInit();
     });
+
+
+
+
 
 })(jQuery);

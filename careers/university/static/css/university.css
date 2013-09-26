@@ -1,0 +1,447 @@
+/*  -------------------------------------------------------------------
+    University Intro
+    - big banner with paragraphs and buttons stacked underneath
+    - image is actually the h2 tag to responsivly load appropriate image without loading wrong one first
+        - all background-image definitions should be inside media queries
+        - see: http://timkadlec.com/2012/04/media-query-asset-downloading-results/
+    - buttons become absolute positioned and display over banner at big enough sizes
+    - paragraphs float left and right when large enough
+    ------------------------------------------------------------------- */
+
+    #uintro {
+        overflow: hidden; _overflow: visible; zoom: 1; /* clearfix */
+        position: relative;
+        color: #fff;
+        background-color: #4d4e53;
+         -webkit-font-smoothing: antialiased;
+        text-align: center;
+    }
+
+    #uintro h2 {
+        -moz-box-sizing: border-box;
+             box-sizing: border-box;
+        height: 264px;
+        margin: 0 auto;
+        padding-top: 90px;
+        background-color: #97938c;
+        background-position: center top;
+        background-repeat: no-repeat;
+        font-family: 'Open Sans Light',sans-serif;
+        font-size: 32px;
+        letter-spacing: -1px;
+        line-height: 1.25;
+        text-align: center;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    }
+
+    #uintro p {
+        margin-bottom: 30px;
+        font-size: 18px;
+        text-align: left;
+    }
+
+        #uintro p:first-child {
+            color: #a2a2a9;
+            font-family: 'Open Sans Light',sans-serif;
+            font-size: 26px;
+            line-height: 1.25;
+        }
+
+    @media (max-width: 320px) {
+        #uintro h2 {
+            background-image: url(/static/img/university-banner-320.jpg);
+        }
+    }
+
+    @media (min-width: 321px) and (max-width: 680px) {
+        #uintro h2 {
+            background-image: url(/static/img/university-banner-680.jpg);
+        }
+    }
+
+    @media (min-width: 681px) {
+        #uintro {
+            padding-bottom: 10px;
+        }
+
+        #uintro h2 {
+            height: 376px;
+            padding-top: 120px;
+            background-image: url(/static/img/university-banner-920.jpg);
+            font-size: 50px;
+            line-height: 1;
+        }
+
+        #uintro p {
+            float:right;
+            -moz-box-sizing: border-box;
+                 box-sizing: border-box;
+            width: 50%;
+            margin-top: 40px;
+            padding:0 0 0 10px;
+            font-size: 14px;
+        }
+            #uintro p:first-child {
+                float: left;
+                padding:0 10px 0 0;
+                font-size: 20px;
+            }
+
+        #uintro .cta {
+            position: absolute;
+            top: 250px;
+            right: 50.5%;
+        }
+
+         #uintro .cta + .cta {
+             right: auto;
+             left: 50.5%;
+         }
+    }
+
+    @media (min-width: 921px) {
+        #uintro {
+            padding-bottom: 25px;
+        }
+
+        #uintro h2 {
+            height: 500px;
+            padding-top: 170px;
+            background-image: url(/static/img/university-banner-1280.jpg);
+            font-size: 60px;
+        }
+
+         #uintro p {
+            font-size: 18px;
+        }
+            #uintro p:first-child {
+                font-size: 26px;
+            }
+
+
+        #uintro .cta {
+            top: 350px;
+        }
+    }
+
+    @media (min-width: 1281px) {
+        #uintro h2 {
+            background-image: url(/static/img/university-banner-2560.jpg);
+        }
+    }
+/*  -------------------------------------------------------------------
+    It's Different
+    - small screen sizes have title above and list below
+    - desktop has title to left list to right
+    - mobile does not have cup and phone
+    - without javascript the lists stack one on top of the other and the container expands
+    ------------------------------------------------------------------- */
+
+#different {
+    position: relative;
+    padding-top: 25px;
+    padding-bottom: 15px;
+    background-color: #f7f6f2;
+}
+
+#different > .contain {
+    max-width: 500px;
+}
+
+.different-head {
+    max-width: 400px; /* to cause line break at period */
+    margin: 0 0 15px 0;
+    font-family: 'Open Sans Light',sans-serif;
+    font-size: 38px;
+    line-height: 1.2;
+}
+
+.different-subhead {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    color: #7f8089;
+    font-size: 15px;
+    line-height: 1.2;
+}
+
+    .different-subhead:after {
+        content: '';
+        position: relative;
+        top: 20px;
+        left: 50%;
+        display: block;
+        width: 940px;
+        margin-left: -460px;
+        border-bottom: 1px solid #deddd9;
+
+    }
+
+#different-lists {
+    position: relative;
+    margin: 0 auto;
+    max-width: 300px;
+}
+
+.different-list {
+     overflow: hidden; _overflow: visible; zoom: 1; /* clearfix */
+     width: 100%;
+}
+
+    .different-list > ul {
+        padding-left: 30px;
+        font-size: 15px;
+        color: #4d4e53;
+        -webkit-transition: opacity 0.5s;
+                transition: opacity 0.5s;
+    }
+
+    .different-list > ul > li {
+        margin: 15px 0;
+    }
+
+    .different-list h3 {
+        position:relative;
+        z-index: 1;
+        -moz-box-sizing: border-box;
+             box-sizing: border-box;
+        border: 1px solid transparent;
+        margin-top: 0;
+        padding: 6px 9px;
+        background-color: #d6d4ce;
+        color: inherit;
+        font-size: 18px;
+        text-align: center;
+        text-shadow: none;
+    }
+
+        .different-list h3:focus {
+            outline: 0;
+            border: 1px solid #0095dd;
+        }
+
+@media (max-width: 920px) {
+    .js-enabled .different-list#different-not {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .js-enabled .different-list > ul {
+           opacity: 0;
+        }
+
+        .js-enabled .different-list-current > ul{
+            opacity: 1;
+        }
+
+    .js-enabled .different-list h3 {
+        width: 49.5%;
+    }
+
+        .js-enabled .different-list#different-not h3 {
+            margin-left: 50.5%;
+        }
+
+    .different-list-current h3 {
+        background-color: #0095dd;
+        color: #fff;
+        text-shadow: 0 1px 0 #757d82;
+    }
+
+        .js-disabled .different-list-current h3 {
+            position: relative;
+            z-index: 1;
+            -moz-box-sizing: border-box;
+                 box-sizing: border-box;
+            border: 1px solid transparent;
+            margin-top: 0;
+            padding: 6px 9px;
+            background-color: #d6d4ce;
+            color: inherit;
+            font-size: 18px;
+            text-align: center;
+            text-shadow: none;
+        }
+
+        .different-list-current h3:after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            display: block;
+            margin-left: -10px;
+            border-top: 10px solid #0095dd;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 0;
+        }
+
+            .js-disabled .different-list-current h3:after{
+                content: none;
+            }
+
+}
+
+@media (min-width: 681px) {
+
+    #different {
+        padding-top: 40px;
+        padding-bottom: 25px;
+    }
+
+        #different:before,
+        #different:after {
+            content: '';
+            position: absolute;
+            z-index: 1;
+            display: block;
+            height: 260px;
+            width: 270px;
+            background: url(/static/img/different-sprites-tablet.png);
+            -webkit-transition: margin 1s ease-out;
+                    transition: margin 1s ease-out;
+        }
+
+        #different:before {
+            top: 150px;
+            right: 50%;
+            margin-right: 1300px;
+        }
+
+        #different:after {
+            left: 50%;
+            bottom: -60px;
+            height: 410px;
+            width: 320px;
+            margin-left: 1290px;
+            background-position: -275px -15px;
+        }
+
+        #different.different-cup:before,
+        .mod-touch #different:before,
+        .js-disabled #different:before {
+            margin-right: 200px;
+
+        }
+
+        #different.different-phone:after,
+        .mod-touch #different:after,
+        .js-disabled #different:after {
+            margin-left: 190px;
+        }
+
+    #different > .contain {
+        max-width: 800px;
+    }
+
+     .different-head {
+        max-width: 620px;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 28px;
+     }
+
+     .different-subhead {
+        padding-right: 20px;
+        font-family: 'Open Sans Light', sans-serif;
+        font-size: 26px;
+     }
+
+     .different-list > ul {
+        font-size: 14px;
+     }
+}
+
+
+@media (min-width: 921px) {
+     #different {
+        padding-top: 50px;
+        padding-bottom: 45px;
+     }
+
+      #different:before,
+      #different:after {
+            height: 320px;
+            width: 350px;
+            background: url(/static/img/different-sprites-desktop.png);
+      }
+
+      #different:after {
+            bottom: -90px;
+            height: 550px;
+            width: 400px;
+            background-position: -355px -15px;
+      }
+
+        #different.different-cup:before,
+        .mod-touch #different:before,
+        .js-disabled #different:before {
+            top: 160px;
+            margin-right: 320px;
+        }
+
+        #different.different-phone:after,
+        .mod-touch #different:after,
+        .js-disabled #different:after {
+            margin-left: 300px;
+        }
+
+     #different > .contain {
+        max-width: 940px;
+    }
+
+    .different-head {
+        max-width: 100%;
+        font-family: 'Open Sans',sans-serif;
+        font-size: 38px;
+     }
+
+     .different-subhead {
+        margin-top: 20px;
+        padding-right: 170px;
+        padding-bottom: 30px;
+        font-family: 'Open Sans Light',sans-serif;
+        font-size: 26px;
+     }
+
+         .different-subhead:after {
+             top: 25px;
+             left: 0;
+             margin-left: 0;
+         }
+
+    #different-lists {
+        max-width: 660px;
+    }
+
+    .different-list > h3 {
+        float: left;
+        width: 320px;
+        padding: 0 20px;
+        background-color: transparent;
+        color: #d0cfcf;
+        text-shadow: 1px 0 0 #d0cfcf, -1px 0 0 #d0cfcf, 0 1px 0 #d0cfcf, 0 -1px 0 #d0cfcf;
+        font-size: 100px;
+        font-weight: bold;
+        line-height: 1;
+        letter-spacing: -4px;
+        text-align: left;
+        text-transform: uppercase;
+    }
+
+    .different-list > ul {
+        float: right;
+        width: 310px;
+        margin-top: 0;
+        margin-bottom: 60px;
+        font-size: 18px;
+     }
+
+        #different-not > ul {
+            margin-bottom: 0;
+        }
+
+     .different-list > ul > li:first-child {
+         margin-top: 12px;
+     }
+
+}
