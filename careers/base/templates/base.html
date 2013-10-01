@@ -54,13 +54,12 @@
     {% block site_js %}
       {{ js('common') }}
     {% endblock %}
-    {% block js %}{% endblock %}
     <!-- <![endif]-->
+    {% block unfiltered_js %}{% endblock %}
 
     <script src="//mozorg.cdn.mozilla.net/tabzilla/tabzilla.js"></script>
 
     <!-- ANALYTICS -->
     {% include "base/ga.html" %}
-
   </body>
 </html>

@@ -58,6 +58,9 @@ MINIFY_BUNDLES = {
             'js/libs/waypoints.min.js',
             'js/base.js',
         ),
+        'listings': (
+            'js/filters.js',
+        ),
         'university': (
             'js/university.js',
         ),
@@ -76,5 +79,4 @@ NOSE_ARGS = ['--logging-clear-handlers', '--logging-filter=-factory,-south']
 ##############################################################################
 
 # URI of Jobvite job feed.
-JOBVITE_URI = 'https://www.jobvite.com/CompanyJobs/Xml.aspx?c=qpX9Vfwa'
-
+JOBVITE_URI = 'https://www.jobvite.com/CompanyJobs/Xml.aspx?c=qpX9Vfwa&cf=e'
