@@ -44,6 +44,12 @@ MINIFY_BUNDLES = {
         'common': (
             'css/base.css',
         ),
+        'careers': (
+            'css/careers.css',
+        ),
+        'careers-ie8': (
+            'css/careers-ie8.css',
+        ),
         'university': (
             'css/university.css',
         ),
@@ -63,6 +69,9 @@ MINIFY_BUNDLES = {
         ),
         'university': (
             'js/university.js',
+        ),
+        'careers': (
+            'js/careers.js',
         ),
         'ie8shims': (
             #'js/libs/respond.min.js',
