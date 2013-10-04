@@ -26,7 +26,7 @@
         background-color: #97938c;
         background-position: center top;
         background-repeat: no-repeat;
-        font-family: 'Open Sans Light',sans-serif;
+        font-family: 'Open Sans Light', sans-serif;
         font-size: 32px;
         letter-spacing: -1px;
         line-height: 1.25;
@@ -42,7 +42,7 @@
 
         #uintro p:first-child {
             color: #a2a2a9;
-            font-family: 'Open Sans Light',sans-serif;
+            font-family: 'Open Sans Light', sans-serif;
             font-size: 26px;
             line-height: 1.25;
         }
@@ -1378,5 +1378,88 @@
     .video-thumb {
         width: 100%;
         margin: 0 0 15px 0;
+    }
+}
+
+/*  -------------------------------------------------------------------
+    Apply
+    ------------------------------------------------------------------- */
+
+#apply {
+    position: relative;
+    padding: 40px 0;
+    background-color: #4d4e53;
+    color: #a2a2a9;
+    font-size: 15px;
+    text-align:center;
+}
+
+#apply h3 {
+    position: relative;
+    margin-top: 0;
+    color: #fff;
+    font-family: 'Open Sans Light', sans-serif;
+    font-size: 23px;
+    line-height: 1.2;
+    -webkit-font-smoothing: antialiased;
+}
+
+    .apply-closed {
+        position: relative;
+        padding-top: 60px;
+    }
+
+     .apply-closed:before {
+        content: '';
+        position: absolute;
+        top: -7px;
+        right: 50%;
+        display: block;
+        height: 46px;
+        width: 51px;
+        margin-right: -25px;
+        background: url(/static/img/icon-sprites.png) -141px 0;
+    }
+
+#apply p {
+    margin-bottom: 0;
+    text-align: left;
+}
+
+#apply p a:hover,
+#apply p a:focus,
+#apply p a:active {
+    color: #4bbde6;
+    text-decoration: none;
+}
+
+@media (min-width: 681px) {
+    #apply .contain {
+        width: 66.6%;
+    }
+
+    .apply-open h3 {
+        display: inline;
+        padding-right: 20px;
+    }
+
+    .apply-closed {
+        padding-top: 0;
+    }
+
+        .apply-closed:before {
+            right: 100%;
+            margin-right: 0;
+        }
+
+    #apply h3,
+    #apply p {
+        text-align: left;
+    }
+}
+
+@media (min-width: 921px) {
+    #apply {
+        padding: 60px 0;
     }
 }
