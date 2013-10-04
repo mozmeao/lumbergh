@@ -89,7 +89,6 @@
     </div>
     <a class="cta" href="/listings">Apply Now</a> <!-- TODO: URL needs to prompt filter for internships -->
   </div>
-
 </section>
 
   {# This section is placeholder HTML for now. #}
@@ -109,6 +108,22 @@
       {% endfor %}
     </table>
   </section>
+
+<section id="apply">
+  <h2 class="ally">Apply</h2>
+  <!-- openings -->
+  <div class="contain apply-open">
+    <h3>Ready to start your Mozilla internship?</h3>
+    <a class="cta" href="">Apply Now</a>
+  </div>
+  <!-- no openings -->
+  <div class="contain apply-closed">
+    <h3 class="apply">We don't have any internship positions open right now.</h3>
+    <p>But check back with us soon! We typically accept applications from September through April. If you'd like to get a head start on applying, feel free to <a href="mailto:university@mozilla.com">email us</a> your resume and tell us why you are interested in an internship with Mozilla.</p>
+ </div>
+</section>
+
+
 {% endblock %}
 
 {% block site_js %}

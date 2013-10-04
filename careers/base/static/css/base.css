@@ -488,8 +488,10 @@ a:active {
 
 .cta {
     display: block;
+    margin: 0 auto;
     padding: 11px;
     font-size: 20px;
+    text-align: center;
 }
 
 a.cta:link,
@@ -525,7 +527,8 @@ a.cta:active {
 
     .contain a.cta:link,
     .contain a.cta:visited {
-        box-shadow: inset 0 2px 2px 0 rgba(255, 255, 255, 0.2);
+        box-shadow: inset 0 2px 2px 0 rgba(255, 255, 255, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.6);
+        border-top: 1px solid #68cdeb;
         background-color: #338fd1;
         background: -webkit-linear-gradient(#50c5e9, #2985d0);
         background:         linear-gradient(#50c5e9, #2985d0);
@@ -546,6 +549,10 @@ a.cta:active {
     margin-bottom:-20px;
 }
 
+#apply .cta {
+    margin: 10px 0;
+}
+
 @media (min-width: 681px) {
     .cta {
         min-width: 175px;
@@ -558,6 +565,7 @@ a.cta:active {
     a.cta:link,
     a.cta:visited {
         box-shadow: inset 0 2px 2px 0 rgba(255, 255, 255, 0.2);
+        border-top: 1px solid #68cdeb;
         background-color: #338fd1;
         background: -webkit-linear-gradient(#50c5e9, #2985d0);
         background:         linear-gradient(#50c5e9, #2985d0);
