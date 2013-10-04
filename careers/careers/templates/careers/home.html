@@ -3,43 +3,43 @@
 
 {% block page_title %}Mozilla Jobs &mdash; Open Positions{% endblock %}
 
-{% block unfiltered_js %}
-  {{ js('listings') }}
+{% block site_css %}
+  {{ super() }}
+  {{ css('careers') }}
+{% endblock %}
+
+{% block site_ie8 %}
+  {{ super() }}
+  {{ css('careers-ie8') }}
 {% endblock %}
 
 {% block content %}
-  <div class="wrapper">
+<section id="splash">
+  <h2 class="splash-head">We’re a global pack of do-gooders, hell-raisers and passionate defenders of the Web.</h2>
+  <p class="splash-subhead">Want to join in?</p>
+  <div class="cta-strip">
+    <a class="cta" href="#">View our current openings</a>
+    <a class="cta" href="#">Apply for an internship</a>
+    <a class="cta" href="#">Become a volunteer</a>
+  </div>
+  <div class="splash-credo">
+    <div class="contain">
+      <h3 class="splash-credo-head">Just call us Mozillians</h3>
+      <p>
+        We are a proudly non-profit organization driven by a culture of openness and collaboration. It’s a value we hold strong and it’s how we work together, day in and day out.
+      </p>
+      <p>
+        When you join Mozilla, you’re becoming part of a global community that’s helping to build a brighter future for the Web &mdash; and for everyone.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
+<div class="wrapper">
     <h1 class="home-header">Careers at Mozilla</h1>
 
-    <div id="current-video">
-      <div id="video-player" class="mozilla-video-control">
-        <video id="video" width="640" height="360" controls preload="metadata"
-               poster="//videos-cdn.mozilla.net/serv/hr/HR-Why.jpg">
-
-          <source src="//videos-cdn.mozilla.net/serv/hr/HR-Why.webm" type="video/webm">
-          <source src="//videos-cdn.mozilla.net/serv/hr/HR-Why.theora.ogv"
-                  type='video/ogg; codecs="theora, vorbis"'>
-          <source src="//videos-cdn.mozilla.net/serv/hr/HR-Why.mp4" type="video/mp4">
-
-          <object id="flash_fallback_1" class="vjs-flash-fallback" width="640" height="360"
-                  type="application/x-shockwave-flash"
-                  data="//releases.flowplayer.org/swf/flowplayer-3.2.1.swf">
-            <param name="movie" value="//releases.flowplayer.org/swf/flowplayer-3.2.1.swf">
-            <param name="allowfullscreen" value="true">
-            <param name="flashvars" value='config={"playlist":["//videos-cdn.mozilla.net/serv/hr/HR-Why.jpg",
-                   {"url":"//videos-cdn.mozilla.net/serv/hr/HR-Why.mp4",
-                    "autoPlay":false,"autoBuffering":true}]}'>
-            <img src="//videos-cdn.mozilla.net/serv/hr/HR-Why.jpg" width="640" height="360"
-                 alt="Poster Image" title="No video playback capabilities.">
-          </object>
-        </video>
-        <a href="#" class="mozilla-video-control-overlay">
-          <span>video</span>
-        </a>
-      </div>
-    </div>
-
-    <p class="headline">Let's build a better Web</p>
 
     {# Placeholder HTML, table and form are not final. #}
     <form id="position-filters">
@@ -98,4 +98,11 @@
       </tr>
     </table>
   </div>
+
 {% endblock %}
+
+{% block site_js %}
+  {{ super() }}
+  {{ js('careers') }}
+{% endblock %}
+

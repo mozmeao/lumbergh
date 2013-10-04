@@ -44,6 +44,12 @@ MINIFY_BUNDLES = {
         'common': (
             'css/base.css',
         ),
+        'careers': (
+            'css/careers.css',
+        ),
+        'careers-ie8': (
+            'css/careers-ie8.css',
+        ),
         'university': (
             'js/libs/video-js/video-js.css',
             'js/libs/video-js/video-js-sandstone.css',
@@ -66,6 +72,9 @@ MINIFY_BUNDLES = {
         'university': (
             'js/libs/video-js/video.dev.js',
             'js/university.js',
+        ),
+        'careers': (
+            'js/careers.js',
         ),
         'ie8shims': (
             'js/libs/html5shiv-printshiv.js',
