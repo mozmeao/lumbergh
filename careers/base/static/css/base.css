@@ -343,8 +343,6 @@ figure {
     width: 100%;
     overflow: hidden;
     left: 0;
-    width:100%;
-    overflow:hidden;
     -webkit-transition: left 1s;
        -moz-transition: left 1s;
             transition: left 1s;
@@ -579,6 +577,14 @@ figure {
 
 #apply .cta {
     margin: 10px 0;
+}
+
+.teams-team .cta {
+    min-width: 0;
+    display: inline-block;
+    border-radius: 4px;
+    padding: 6px 20px;
+    font-size: 18px;
 }
 
 .listings-done .cta {

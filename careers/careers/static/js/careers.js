@@ -22,13 +22,365 @@
 
 
     function animationInit() {
+         teamsInit();
         galleryInit();
         perksInit();
         communityVideoInit();
         locationsInit();
         nextInit();
     }
-/*
+
+   /*
+    *  Teams & Roles
+    *  - makes headings clickable
+    *  - creates secondary nav for larger monitors
+    *  - on mobile clicking the headings expands and contracts that team
+    *  - on larger screens clicking the nav brings teams in or out and hides or shows intro
+    *  - all elements are in place and classes manipulated at all screens sizes
+    *  - transitions are dependant on media queries in css
+    *  - fall back jquery animations are specified here for browsers which don't support transitions
+    */
+
+    // show identified team
+    function teamShow(teamId) {
+        var team = $('#' + teamId);
+        if (Modernizr.csstransitions && Modernizr.csstransforms) {
+            team.addClass('team-current');
+        } else {
+            if(Mozilla.Test.isSmallScreen) {
+                // animate appearance, then clear inline styles and add class to keep it there
+                team.stop(true).animate( {
+                        'max-height': '500px'
+                    }, 800, function() {
+                        team.css('max-height', '').addClass('team-current');
+                    }
+                );
+            } else {
+                // add class so buttons appear, but keep off screen
+                // animate appearance, then clear inline styles
+                team.css('left', '100%').addClass('team-current');
+                team.stop(true).animate( {
+                        'left': '0%'
+                    }, 800, function() {
+                        team.css('left', '');
+                    }
+                );
+            }
+        }
+    }
+
+    // hide identified team
+    function teamHide(teamId) {
+        var team = $('#' + teamId);
+        if(Modernizr.csstransitions && Modernizr.csstransforms) {
+            team.removeClass('team-current');
+        } else {
+            if(Mozilla.Test.isSmallScreen) {
+                // animate collapse, then remove class and remove inline styles
+                team.stop(true).animate( {
+                        'max-height': '68px'
+                    }, 800, function() {
+                        team.css('max-height', '').removeClass('team-current');
+                    }
+                );
+            } else {
+            // animate left, then remove class and remove inline styles
+                team.stop(true).animate( {
+                        'left': '100%'
+                    }, 800, function() {
+                        team.css('left', '').removeClass('team-current');
+                    }
+                );
+            }
+        }
+    }
+
+    // show or hide intro
+    function teamsIntroToggle(action) {
+        var teamsIntro = $('#teams-intro');
+        var teamsNavSecond = $('#teams-nav-second');
+
+        if (action === 'show') {
+            if(Modernizr.csstransitions && Modernizr.csstransforms){
+                teamsIntro.removeClass('teams-intro-hidden');
+                teamsNavSecond.removeClass('teams-nav-show');
+            } else {
+                // animate margin-left, then remove class and remove inline styles
+                teamsIntro.animate( {
+                        right: '0%'
+                    }, 800, function() {
+                        teamsIntro.css('right', '').removeClass('teams-intro-hidden');
+                    }
+                );
+                teamsNavSecond.animate( {
+                        left: '100%'
+                    }, 800, function() {
+                        teamsNavSecond.css('left', '').removeClass('teams-nav-show');
+                    }
+                );
+            }
+        } else {
+            if(Modernizr.csstransitions && Modernizr.csstransforms){
+                teamsIntro.addClass('teams-intro-hidden');
+                teamsNavSecond.addClass('teams-nav-show');
+            } else {
+                // animate margin-left, then add class and remove inline styles
+                teamsIntro.animate( {
+                        right: '100%'
+                    }, 800, function() {
+                        teamsIntro.css('right', '').addClass('teams-intro-hidden');
+                    }
+                );
+                teamsNavSecond.css('left', '100%').addClass('teams-nav-show');
+                teamsNavSecond.animate( {
+                        left: '0%'
+                    }, 800, function() {
+                        teamsNavSecond.css('left', '');
+                    }
+                );
+            }
+        }
+    }
+
+    // determine if we should be hiding or showing which teams and intro
+    function teamsToggle(e, newTeamId) {
+
+        if (e.type === 'click' || e.which === 13) {
+            e.preventDefault();
+
+            // find current team
+            var currentTeam = $('.team-current');
+
+            if (currentTeam.length) {
+                var requestingCurrent = false
+                // if there is a current team(s) hide it
+                currentTeam.each( function(){
+                    var currentTeamId = this.id;
+                    teamHide(currentTeamId);
+                    if (currentTeamId === newTeamId) {
+                        requestingCurrent = true;
+                    }
+                });
+
+                // if we're requesting the intro or the current team...
+                if (newTeamId === 'teams-intro' || requestingCurrent) {
+                    // show the intro again
+                    teamsIntroToggle('show');
+                } else {
+                    // show the new team
+                    teamShow(newTeamId);
+                }
+
+            } else {
+                // else there is no current team...
+                if (newTeamId === 'teams-intro') {
+                    teamsIntroToggle('show');
+                } else {
+                    // hide intro
+                    teamsIntroToggle('hide');
+                    // show new team
+                    teamShow(newTeamId);
+                }
+            }
+
+            // get the navigation menus
+            var teamLinks = $('#teams-nav-second .teams-hex a');
+
+            // loop through
+            teamLinks.each( function() {
+                var linkHref = $(this).attr('href');
+                if (linkHref === '#' + newTeamId) {
+                    $(this).addClass('current');
+                } else {
+                    $(this).removeClass('current');
+                }
+            });
+        }
+    } // teamsToggle
+
+    // set up teams section
+    function teamsInit (){
+        var teams = $('.teams-team');
+
+        // make team heads clickable, attach listener, load background
+        teams.each( function() {
+            var teamId = this.id;
+
+            // trigger background image loading
+            $(this).addClass('team-bg');
+
+            // creat button to toggle display on mobile
+            var teamButton = $('<button />');
+            teamButton.addClass('team-button');
+            teamButton.on('click keydown', function(e) {
+                teamsToggle(e, teamId);
+            });
+
+            // add button
+            var teamContain = $(this).find('.team-contain');
+            teamButton.prependTo(teamContain);
+
+        });
+
+        // attach listner to nav
+        var teamHexLinks = $('.teams-hex a');
+        teamHexLinks.each( function() {
+            var teamId = $(this).attr('href');
+            teamId = teamId.substr(1);
+            $(this).on('click keydown', function(e) {
+                teamsToggle(e, teamId);
+            });
+
+        });
+
+        // create second nav for bigScreen
+        var secondNav = $('<div id="teams-nav-second"></div>');
+        var secondNavWrapper = $('<div class="teams-nav-wrapper"></div>');
+
+        // clone existing nav list, events and all
+        var teamNav = $('.teams-nav').clone(true);
+
+        // append to second nav container
+        teamNav.appendTo(secondNavWrapper);
+
+        // add link to return to intro page
+        var teamIntroLink = $('<button>Menu</button>').addClass('teams-back').on('click', function(e) {
+            teamsToggle(e,'teams-intro');
+        });
+        teamIntroLink.appendTo(secondNavWrapper);
+
+        // append to page
+        secondNavWrapper.appendTo(secondNav);
+        secondNav.insertAfter('.teams-head');
+    }
+
+    /*
+    *  Locations
+    *  - two ways to show details:
+    *    - on mobile a select box can be used to pick one
+    *    - on desktop the user can click the link
+    *  - both ways are initialized and the associated form controls are hidden by media queries
+    *  - details can be hidden by:
+    *    - selecting a new location details
+    *    - pressing escape
+    *    - on mobile: navgigating to the empty form option
+    */
+
+    function locationsEscapeWatch(e) {
+        // if escape key is pressed, hide all modals
+        if (e.keyCode == 27) {
+            locationsHide(null);
+        }
+    }
+
+    function locationsShow(locationId) {
+        // remove class from any current one
+        $('.location-current').removeClass('location-current');
+
+        // add class to the one with matching ID
+        $('#' + locationId).addClass('location-current');
+
+        // add watcher for escape key
+        $(document).on('keyup', locationsEscapeWatch);
+    }
+
+    function locationsHide() {
+        // remove class from currently visible
+        $('.location-current').removeClass('location-current');
+
+        // remove watcher for escape key
+        $(document).off('keyup', locationsEscapeWatch);
+    }
+
+    function locationsToggle(locationId) {
+        if(locationId){
+            locationsShow(locationId);
+        } else {
+            locationsHide();
+        }
+    }
+
+    function locationsModalInit() {
+        var locations = $('.locations-location');
+
+        // loop through locations links
+        $(locations).each( function() {
+            var location = $(this);
+
+            // create close button
+            var locationsModalClose = $('<button class="location-close">&times;</button>');
+            locationsModalClose.on('click', locationsHide);
+
+            // add close button
+            var locationDetails = location.find('.location-details');
+            locationDetails.prepend(locationsModalClose);
+
+            // hijack links
+            var locationLink = location.find('.location-link');
+            var locationId = this.id;
+            $(locationLink).on('click', function(e) {
+                e.preventDefault();
+                locationsToggle(locationId);
+            });
+        });
+
+    }
+
+    function locationsParallaxInit() {
+        // TODO: parallax being left for last
+    }
+
+    function locationsMenuInit() {
+        // create container, select, and label
+        var locationMenuContain = $('<div class="locations-menu"></div>');
+        var locationsLabel = $('<label class="locations-label" for="locations-select">Select Location</label>');
+        var locationsMenu = $('<select id="locations-select"></select>');
+        var locationsDefaultOption = $('<option />');
+        locationsDefaultOption.appendTo(locationsMenu);
+
+        // get locations
+        var locations = $('.locations-location');
+
+        // create option tag for each location
+        $(locations).each(function() {
+            // get name
+            var locationName = $(this).find('.location-link').text();
+
+            // get id of location
+            var locationId = this.id;
+
+            // create option
+            var locationOption = $('<option value="' + locationId + '">' + locationName + '</option>');
+
+            // attach option
+            locationOption.appendTo(locationsMenu);
+
+        });
+
+        // when contents of select change, change the visible location
+        locationsMenu.on('change', function(e){
+            var locationNew = $(e.target).val();
+            locationsToggle(locationNew);
+        });
+
+        // attach menu to page
+        locationsMenu.appendTo(locationMenuContain);
+        locationsLabel.appendTo(locationMenuContain);
+        locationMenuContain.insertBefore('.locations-list');
+    }
+
+    function locationsInit() {
+        // create drop down for mobile
+        locationsMenuInit();
+        // create modal for larger
+        locationsModalInit();
+
+        if(Mozilla.Test.isParallax){
+            locationsParallaxInit();
+        }
+    }
+
+    /*
     *  Gallery
     *  - gallery images are all sprites, loaded in phases
     *  - carousel is initilized at mobile tablet or desktop size
