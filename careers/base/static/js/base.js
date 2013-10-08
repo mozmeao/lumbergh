@@ -36,8 +36,8 @@ Mozilla.Test = (function(w, $) {
         isParallax: _checkParallaxOkay(),
     };
 
-
 })(window, window.jQuery); // Mozilla.Test
+
 
 (function($) {
     'use strict';
@@ -149,6 +149,27 @@ Mozilla.Test = (function(w, $) {
     $(function() {
         trayMenuInit();
     });
+
+    /*
+    *  smooth scrolling
+    *  http://css-tricks.com/snippets/jquery/smooth-scrolling/
+    */
+
+    $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+            if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') || location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top - $('.masthead').height()
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+
 
 
 })(jQuery);

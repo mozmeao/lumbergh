@@ -144,4 +144,63 @@
     }
 
 
-})(window, window.jQuery);
+    /*
+    *  Events Section
+    */
+
+    function eventsToggle() {
+        var transitionDelay = 0;
+        if (Modernizr.csstransitions) {
+            transitionDelay = 50;
+        }
+
+        if ($('.event-toggle-off').length) {
+            // show - loop through with small offset for smooth open
+            $('.event-toggle').each(function(index) {
+                var delay = index * transitionDelay;
+                var currentElement = $(this);
+                window.setTimeout(function(){
+                    currentElement.removeClass('event-toggle-off');
+                }, delay);
+            });
+            // change text of button
+            $('#event-toggle-button').text('Hide more');
+        } else {
+             // hide - loop through with small offset for smooth close
+            $($('.event-toggle').get().reverse()).each( function (index) {
+                var delay = index * transitionDelay;
+                var currentElement = $(this);
+                window.setTimeout(function() {
+                    currentElement.addClass('event-toggle-off');
+                }, delay);
+            });
+            // scroll up if list is now out of sight
+            var endOfVisible = $('#meetus table tbody tr:eq(5)').offset().top;
+            var paddingFromTop = $('.masthead').height();
+            if (endOfVisible < $('body').scrollTop()) {
+                $('body').animate({scrollTop: endOfVisible - paddingFromTop}, '500', 'swing');
+            }
+            // change text of button
+            $('#event-toggle-button').text('Show more');
+        }
+    }
+
+
+    function eventsLengthInit() {
+        var eventRows = $('#meetus table tbody tr');
+        if(eventRows.length > 4) {
+            // go through list and hide any greater than 5
+            eventRows.slice(4).addClass('event-toggle').addClass('event-toggle-off');
+
+            // add show button & listener
+            $('<button id="event-toggle-button">Show More</button>').appendTo('#meetus .contain');
+            $('#event-toggle-button').on('click', eventsToggle);
+        }
+    }
+
+    if(Mozilla.Test.isSmallScreen) {
+        eventsLengthInit();
+    }
+
+
+})(window, jQuery);
