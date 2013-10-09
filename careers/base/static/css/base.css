@@ -138,6 +138,9 @@ a:active {
     text-decoration: underline;
 }
 
+figure {
+    margin: 0;
+}
 
 @media (max-width: 680px) {
     .js-enabled body {
