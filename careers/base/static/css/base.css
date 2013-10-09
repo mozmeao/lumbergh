@@ -64,6 +64,30 @@
     font-style: italic;
 }
 
+@font-face {
+    font-family: 'icomoon';
+    src:url('/static/fonts/icomoon/icomoon.eot');
+    src:url('/static/fonts/icomoon/icomoon.eot?#iefix') format('embedded-opentype'),
+        url('/static/fonts/icomoon/icomoon.woff') format('woff'),
+        url('/static/fonts/icomoon/icomoon.ttf') format('truetype'),
+        url('/static/fonts/icomoon/icomoon.svg#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+    /*  Elements using font icons */
+    .carousel-button:before {
+        font-family: 'icomoon';
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+    }
+
+
 /*  ===================================================================
     RESETS (based mostly on normalize.css)
     =================================================================== */
@@ -333,7 +357,7 @@ a:active {
     overflow: hidden;
     border: 0;
     padding: 32px 0 0 0;
-    background: transparent url(/static/img/icon-sprites.png);
+    background: transparent url(/static/img/nav-icon.png);
 }
 
 #nav-tray-close {
@@ -490,6 +514,7 @@ a:active {
     display: block;
     padding: 11px;
     font-size: 20px;
+    text-align: center;
 }
 
 a.cta:link,
@@ -558,7 +583,7 @@ a.cta:active {
     a.cta:link,
     a.cta:visited {
         box-shadow: inset 0 2px 2px 0 rgba(255, 255, 255, 0.2);
-        background-color: #338fd1;
+        background: #338fd1;
         background: -webkit-linear-gradient(#50c5e9, #2985d0);
         background:         linear-gradient(#50c5e9, #2985d0);
     }
@@ -566,17 +591,80 @@ a.cta:active {
     a.cta:hover,
     a.cta:focus,
     a.cta:active {
-        background-color: #1f73c9;
+        background: #1f73c9;
         background: -webkit-linear-gradient(#4bbde6, #125dc1);
         background:         linear-gradient(#4bbde6, #125dc1);
     }
 
+    .cta-strip {
+        box-shadow: inset 0 2px 2px 0 rgba(255, 255, 255, 0.2), 0 -2px 2px -2px rgba(0, 0, 0, 1);
+        background: #338fd1;
+        background: -webkit-linear-gradient(#2f9ace, #01539f);
+        background:         linear-gradient(#2f9ace, #01539f);
+        font-size: 0;
+    }
+        .cta-strip:before,
+        .cta-strip:after {
+            content: '';
+            display:inline-block;
+            height: 79px;
+            width: 1px;
+            background:#014a8a;
+            font-size: 10px;
+        }
+
+        .cta-strip:after {
+            background: #4ea9d4;
+        }
+
+        .cta-strip a.cta {
+            -moz-box-sizing: border-box;
+                 box-sizing: border-box;
+            height: 79px;
+            width: 33%;
+            max-width: 240px;
+            border-radius: 0;
+            padding: 15px 45px;
+            font-size: 17px;
+            line-height: 1.35;
+            vertical-align: top;
+        }
+
+        .cta-strip a.cta:link,
+        .cta-strip a.cta:visited {
+            border-top: 0;
+            border-right: 1px solid #014a8a;
+            border-bottom: 0;
+            border-left: 1px solid #4ea9d4;
+            background: -webkit-linear-gradient(#2f9ace, #01539f);
+            background:         linear-gradient(#2f9ace, #01539f);
+        }
+
+        .cta-strip a.cta:hover,
+        .cta-strip a.cta:focus,
+        .cta-strip a.cta:active {
+            background: -webkit-linear-gradient(#0054a0, #147fb6);
+            background:         linear-gradient(#0054a0, #147fb6);
+        }
 }
 
-@media (min-width: 681px) {
+@media (min-width: 921px) {
     .cta {
         padding: 7px 20px;
         font-size: 18px;
+    }
+
+    .cta-strip:before,
+    .cta-strip:after {
+         height: 106px;
+    }
+
+    .cta-strip a.cta {
+        height: 106px;
+        max-width: 313px;
+        padding: 20px 60px ;
+        font-size: 23px;
+        -webkit-font-smoothing: antialiased;
     }
 }
 
@@ -604,7 +692,7 @@ a.cta:active {
 
 
 .carousel-button:before {
-    content: '';
+    content: '\e00e';
     position: absolute;
     top: 50%;
     left: 20px;
@@ -612,22 +700,19 @@ a.cta:active {
     height: 25px;
     width: 20px;
     margin-top: -13px;
-    background: transparent url(/static/img/icon-sprites.png) -40px -5px;
+    color: #696868;
+    font-size: 27px;
 }
 
     .carousel-button:hover:before {
-        background-position: -90px -5px;
+       color: #fff;
+       color: rgba(255, 255, 255, 0.8);
     }
 
 
     .carousel-button-next:before {
+        content: '\e010';
         left: auto;
         right: 20px;
-        background-position: -65px -5px;
     }
-
-         .carousel-button-next:hover:before {
-            background-position: -114px -5px;
-        }
-
 
