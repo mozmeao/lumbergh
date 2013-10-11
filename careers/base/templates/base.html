@@ -5,7 +5,7 @@
   <head>
     {# meta #}
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{% block page_title %}mozilla.org{% endblock %}</title>
 
@@ -30,7 +30,11 @@
     <link rel="shortcut icon" type="image/png" href="{{ static('img/favicon.png') }}"/>
 
   </head>
-  <body id="{% block body_id %}{% endblock %}" {% block body_data %}{% endblock %}>
+  <body id="{% block body_id %}{% endblock %}"
+        {% block body_data %}
+          data-js-smallscreen="{{ js_urls_json('smallscreen') }}"
+        {% endblock %}>
+
     {% include "base/header.html" %}
     <div id="wrapper">
       <main role="main">

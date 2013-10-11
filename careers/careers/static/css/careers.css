@@ -2,7 +2,13 @@
     Elements using font icons
     ------------------------------------------------------------------- */
 
-.splash-credo-head:before  {
+.splash-credo-head:before,
+.life-perk > h4:before,
+.life-perk > h4:after,
+#life-blocks-next:before,
+#life-blocks-next:after,
+#life-blocks-prev:before,
+#life-blocks-prev:after {
     font-family: 'icomoon';
     speak: none;
     font-style: normal;
@@ -39,7 +45,6 @@
     padding: 40px 20px 80px 20px;
     font-family: 'Open Sans Light',sans-serif;
     font-size: 32px;
-    line-height: 1.2;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
@@ -194,4 +199,502 @@
 
 @media (min-width: 1281px) {
     #splash { background-image: url(/static/img/careers-banner-2560.jpg); }
+}
+
+/*  -------------------------------------------------------------------
+    Life at Mozilla
+    ------------------------------------------------------------------- */
+
+#life {
+    overflow: hidden; _overflow: visible; zoom: 1; /* clearfix */
+    padding: 20px 0;
+    background: #414f5a url(/static/img/perks-bg.png) top center;
+    color: #fff;
+    font-size: 15px;
+}
+
+.life-head {
+    margin: 0 0 15px 0;
+    color: #a2a2a9;
+    font-size: 26px;
+}
+
+.life-intro-head {
+    margin: 15px 0;
+    font-family: 'Open Sans Light',sans-serif;
+    font-size: 38px;
+}
+
+#life-gallery {
+    margin: 30px 0;
+    height: 226px;
+}
+
+.life-perks-head {
+    font-size: 21px;
+    font-weight: bold;
+}
+
+#life-perks {
+    position: relative;
+    text-align: center;
+}
+
+.life-perk {
+    width: 100%;
+    float: left;
+    padding: 0 0 20px 0;
+    text-align: center;
+    vertical-align: top;
+}
+
+.life-perk > h4 {
+    position: relative;
+    padding-top: 85px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+    .life-perk > h4:before,
+    .life-perk > h4:after {
+        content: '\e005';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        display: block;
+        height: 70px;
+        width: 80px;
+        margin-left: -40px;
+        font-size: 74px;
+        line-height: 70px;
+        text-align: center;
+    }
+
+    .life-perk > h4:before {
+        color: #2e3a42;
+
+    }
+    .life-perk > h4:after {
+        content: '';
+        margin-top: -2px;
+        color: #4a5966;
+        font-size: 40px;
+    }
+
+         .life-perk-medical > h4:after { content: '\e001'; margin-top: 2px; }
+         .life-perk-quarterly > h4:after { content: '\e00d'; margin-top: -2px; }
+         .life-perk-remote > h4:after { content: '\e004'; padding-left: 1px; font-size: 30px; }
+         .life-perk-personal > h4:after { content: '\e007'; margin-top: 0px; }
+         .life-perk-office > h4:after { content: '\e00a'; padding-left: 1px; }
+         .life-perk-snacks > h4:after { content: '\e008'; margin-top: 0px; }
+
+@media (min-width: 680px) {
+
+    #life {
+        padding: 30px 0;
+    }
+
+    .life-head {
+        display:none;
+     }
+
+     .life-intro-head {
+         font-size: 28px;
+     }
+
+    .life-intro-head,
+    .life-intro {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 460px;
+        text-align: center;
+    }
+
+    #life-gallery {
+        margin: 50px 0;
+        height: 345px;
+    }
+
+    #life-perks-perks {
+        margin:0 -20px 0 0;
+
+    }
+
+    .life-perk {
+        display: inline-block;
+        -moz-box-sizing: border-box;
+             box-sizing: border-box;
+        width: 33.3%;
+        float: left;
+        padding-right: 20px;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    .life-perk:nth-child(3n+1) {
+        clear: both;
+    }
+
+    .life-perk > h4:before,
+    .life-perk > h4:after {
+        left: 0;
+        margin-left: -6px;
+    }
+}
+
+@media (min-width: 921px) {
+
+    #life {
+        padding: 50px 0;
+    }
+
+    .life-intro-head {
+        max-width: 620px;
+        font-size: 38px;
+    }
+
+    .life-intro {
+        max-width: 620px;
+    }
+
+    #life-gallery {
+        height: 460px;
+        margin: 60px 0;
+    }
+
+    .life-perks-head {
+        font-size: 26px;
+    }
+
+
+}
+
+
+ /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    Life - Carousel
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+/* javascript enabled but no media query support */
+#life-gallery {
+    display: none;
+}
+
+/* no javascript and no media queries */
+.js-disabled #life-gallery {
+    display: block;
+    height: 345px;
+    background-image: url(/static/img/gallery/gallery-tablet-1.jpg);
+}
+
+/* real browsers
+   - height set by media queries
+   - other configerations set by class added by js
+ */
+
+@media (max-width:680px) {
+    #life-gallery,
+    #life-blocks {
+        height:225px;
+    }
+}
+@media (min-width:681px) {
+    #life-gallery,
+    #life-blocks { height:345; }
+}
+@media (min-width:921px) {
+    #life-gallery,
+    #life-blocks { height:460px; }
+}
+
+@media (min-width:1px) {
+    #life-gallery { display: block; height: auto; }
+
+    #life-blocks.life-blocks-small {
+        height: 225px;
+    }
+    #life-blocks.life-blocks-medium {
+        height: 345px;
+    }
+    #life-blocks.life-blocks-large {
+        height: 460px;
+    }
+
+}
+
+#life-blocks {
+    overflow: hidden; _overflow: visible; zoom: 1; /* clearfix */
+    position: relative;
+    display: block;
+}
+
+.life-blocks-contain {
+    overflow: hidden; _overflow: visible; zoom: 1; /* clearfix */
+    float: left;
+    width: 100%;
+}
+
+#life-blocks .caroufredsel_wrapper {
+    /* override inline styles added by plugin */
+    overflow: visible !important;
+    margin: 0 auto !important;
+}
+
+.life-blocks-frame {
+    position: relative;
+    float: left;
+}
+
+    .life-blocks-small .life-blocks-frame {
+        width: 280px;
+        height: 225px;
+        margin: 0 5px;
+    }
+
+    .life-blocks-medium .life-blocks-frame {
+        width: 360px;
+        height: 345px;
+    }
+
+    .life-blocks-large .life-blocks-frame {
+        width: 480px;
+        height: 460px;
+    }
+
+/* small image sprites
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+/* first sprite */
+.life-blocks-small .life-blocks-frame-31,
+.life-blocks-small .life-blocks-frame-32,
+.life-blocks-small .life-blocks-frame-33,
+.life-blocks-small .life-blocks-frame-34,
+.life-blocks-small .life-blocks-frame-35,
+.life-blocks-small .life-blocks-frame-1,
+.life-blocks-small .life-blocks-frame-2,
+.life-blocks-small .life-blocks-frame-3,
+.life-blocks-small .life-blocks-frame-4,
+.life-blocks-small .life-blocks-frame-5 {
+    background-image: url(/static/img/gallery/gallery-mobile-1.jpg);
+}
+
+/* second sprite */
+.life-blocks-small.sprite-load-2 .life-blocks-frame-26,
+.life-blocks-small.sprite-load-2 .life-blocks-frame-27,
+.life-blocks-small.sprite-load-2 .life-blocks-frame-28,
+.life-blocks-small.sprite-load-2 .life-blocks-frame-29,
+.life-blocks-small.sprite-load-2 .life-blocks-frame-30,
+.life-blocks-small.sprite-load-2 .life-blocks-frame-6,
+.life-blocks-small.sprite-load-2 .life-blocks-frame-7,
+.life-blocks-small.sprite-load-2 .life-blocks-frame-8,
+.life-blocks-small.sprite-load-2 .life-blocks-frame-9,
+.life-blocks-small.sprite-load-2 .life-blocks-frame-10 {
+    background-image: url(/static/img/gallery/gallery-mobile-2.jpg);
+}
+
+/* third sprite */
+.life-blocks-small.sprite-load-3 .life-blocks-frame-21,
+.life-blocks-small.sprite-load-3 .life-blocks-frame-22,
+.life-blocks-small.sprite-load-3 .life-blocks-frame-23,
+.life-blocks-small.sprite-load-3 .life-blocks-frame-24,
+.life-blocks-small.sprite-load-3 .life-blocks-frame-25,
+.life-blocks-small.sprite-load-3 .life-blocks-frame-11,
+.life-blocks-small.sprite-load-3 .life-blocks-frame-12,
+.life-blocks-small.sprite-load-3 .life-blocks-frame-13,
+.life-blocks-small.sprite-load-3 .life-blocks-frame-14,
+.life-blocks-small.sprite-load-3 .life-blocks-frame-15 {
+    background-image: url(/static/img/gallery/gallery-mobile-3.jpg);
+}
+
+/* fourth sprite */
+.life-blocks-small.sprite-load-4 .life-blocks-frame-16,
+.life-blocks-small.sprite-load-4 .life-blocks-frame-17,
+.life-blocks-small.sprite-load-4 .life-blocks-frame-18,
+.life-blocks-small.sprite-load-4 .life-blocks-frame-19,
+.life-blocks-small.sprite-load-4 .life-blocks-frame-20 {
+    background-image: url(/static/img/gallery/gallery-mobile-4.jpg);
+}
+
+/* second image */
+.life-blocks-small .life-blocks-frame-32,
+.life-blocks-small .life-blocks-frame-27,
+.life-blocks-small .life-blocks-frame-22 {
+    background-position: -280px 0;
+}
+/* third image */
+.life-blocks-small .life-blocks-frame-33,
+.life-blocks-small .life-blocks-frame-28,
+.life-blocks-small .life-blocks-frame-23,
+.life-blocks-small .life-blocks-frame-17{
+    background-position: -560px 0;
+}
+/* fourth image */
+.life-blocks-small .life-blocks-frame-34,
+.life-blocks-small .life-blocks-frame-29,
+.life-blocks-small .life-blocks-frame-24,
+.life-blocks-small .life-blocks-frame-18{
+    background-position: -840px 0;
+}
+/* fifth image */
+.life-blocks-small .life-blocks-frame-35,
+.life-blocks-small .life-blocks-frame-30,
+.life-blocks-small .life-blocks-frame-25,
+.life-blocks-small .life-blocks-frame-19 {
+    background-position: -1120px 0;
+}
+/* sixth image */
+.life-blocks-small .life-blocks-frame-1,
+.life-blocks-small .life-blocks-frame-6,
+.life-blocks-small .life-blocks-frame-11,
+.life-blocks-small .life-blocks-frame-20 {
+    background-position: -1400px 0;
+}
+/* seventh image */
+.life-blocks-small .life-blocks-frame-2,
+.life-blocks-small .life-blocks-frame-7,
+.life-blocks-small .life-blocks-frame-12 {
+    background-position: -1680px 0;
+}
+/* eighth image */
+.life-blocks-small .life-blocks-frame-3,
+.life-blocks-small .life-blocks-frame-8,
+.life-blocks-small .life-blocks-frame-13 {
+    background-position: -1960px 0;
+}
+/* ninth image */
+.life-blocks-small .life-blocks-frame-4,
+.life-blocks-small .life-blocks-frame-9,
+.life-blocks-small .life-blocks-frame-14 {
+    background-position: -2240px 0;
+}
+/* tenth image */
+.life-blocks-small .life-blocks-frame-5,
+.life-blocks-small .life-blocks-frame-10,
+.life-blocks-small .life-blocks-frame-15 {
+    background-position: -2520px 0;
+}
+
+
+/* medium image sprites
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+/* first sprite */
+.life-blocks-medium .life-blocks-frame-1,
+.life-blocks-medium .life-blocks-frame-2,
+.life-blocks-medium .life-blocks-frame-3,
+.life-blocks-medium .life-blocks-frame-4 {
+    background-image: url(/static/img/gallery/gallery-tablet-1.jpg);
+}
+
+/* second sprite */
+.life-blocks-medium.sprite-load-2 .life-blocks-frame-5,
+.life-blocks-medium.sprite-load-2 .life-blocks-frame-6,
+.life-blocks-medium.sprite-load-2 .life-blocks-frame-7,
+.life-blocks-medium.sprite-load-2 .life-blocks-frame-8,
+.life-blocks-medium.sprite-load-2 .life-blocks-frame-9,
+.life-blocks-medium.sprite-load-2 .life-blocks-frame-10,
+.life-blocks-medium.sprite-load-2 .life-blocks-frame-11,
+.life-blocks-medium.sprite-load-2 .life-blocks-frame-12,
+.life-blocks-medium.sprite-load-2 .life-blocks-frame-13,
+.life-blocks-medium.sprite-load-2 .life-blocks-frame-14 {
+    background-image: url(/static/img/gallery/gallery-tablet-2.jpg);
+}
+
+/* second image */
+.life-blocks-medium .life-blocks-frame-2,
+.life-blocks-medium .life-blocks-frame-6{
+    background-position: -360px 0;
+}
+/* third image */
+.life-blocks-medium .life-blocks-frame-3,
+.life-blocks-medium .life-blocks-frame-7{
+    background-position: -720px 0;
+}
+/* fourth image */
+.life-blocks-medium .life-blocks-frame-4,
+.life-blocks-medium .life-blocks-frame-8 {
+    background-position: -1080px 0;
+}
+/* fifth image */
+.life-blocks-medium .life-blocks-frame-9 {
+    background-position: -1440px 0;
+}
+/* sixth image */
+.life-blocks-medium .life-blocks-frame-10{
+    background-position: -1800px 0;
+}
+/* seventh image */
+.life-blocks-medium .life-blocks-frame-11 {
+    background-position: -2160px 0;
+}
+/* eighth image */
+.life-blocks-medium .life-blocks-frame-12 {
+    background-position: -2520px 0;
+}
+/* ninth image */
+.life-blocks-medium .life-blocks-frame-13 {
+    background-position: -2880px 0;
+}
+/* tenth image */
+.life-blocks-medium .life-blocks-frame-14 {
+    background-position: -3240px 0;
+}
+
+
+/* large image sprites
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+/* first sprite */
+.life-blocks-large .life-blocks-frame-1,
+.life-blocks-large .life-blocks-frame-2,
+.life-blocks-large .life-blocks-frame-3,
+.life-blocks-large .life-blocks-frame-4,
+.life-blocks-large .life-blocks-frame-5,
+.life-blocks-large .life-blocks-frame-6 {
+    background-image: url(/static/img/gallery/gallery-desktop-1.jpg);
+}
+
+/* second sprite */
+.life-blocks-large.sprite-load-2 .life-blocks-frame-7,
+.life-blocks-large.sprite-load-2 .life-blocks-frame-8,
+.life-blocks-large.sprite-load-2 .life-blocks-frame-9,
+.life-blocks-large.sprite-load-2 .life-blocks-frame-10,
+.life-blocks-large.sprite-load-2 .life-blocks-frame-11,
+.life-blocks-large.sprite-load-2 .life-blocks-frame-12,
+.life-blocks-large.sprite-load-2 .life-blocks-frame-13,
+.life-blocks-large.sprite-load-2 .life-blocks-frame-14 {
+    background-image: url(/static/img/gallery/gallery-desktop-2.jpg);
+}
+
+/* second image */
+.life-blocks-large .life-blocks-frame-2,
+.life-blocks-large .life-blocks-frame-8{
+    background-position: -480px 0;
+}
+/* third image */
+.life-blocks-large .life-blocks-frame-3,
+.life-blocks-large .life-blocks-frame-9{
+    background-position: -960px 0;
+}
+/* fourth image */
+.life-blocks-large .life-blocks-frame-4,
+.life-blocks-large .life-blocks-frame-10 {
+    background-position: -1440px 0;
+}
+/* fifth image */
+.life-blocks-large .life-blocks-frame-5,
+.life-blocks-large .life-blocks-frame-11 {
+    background-position: -1920px 0;
+}
+/* sixth image */
+.life-blocks-large .life-blocks-frame-6,
+.life-blocks-large .life-blocks-frame-12{
+    background-position: -2400px 0;
+}
+/* seventh image */
+.life-blocks-large .life-blocks-frame-13 {
+    background-position: -2880px 0;
+}
+/* eighth image */
+.life-blocks-large .life-blocks-frame-14 {
+    background-position: -3360px 0;
 }

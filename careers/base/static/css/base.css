@@ -104,9 +104,10 @@ html {
 body { margin: 0; }
 
 h1,h2,h3,h4,h5,h6 {
+    margin: 1em 0;
     font-size: 1em;
     font-weight: normal;
-    margin: 1em 0;
+    line-height: 1.2;
 }
 
 img { border: 0; }
@@ -716,22 +717,133 @@ a.cta:active {
     font-size: 27px;
 }
 
-.carousel-button:hover:before {
- color: #fff;
- color: rgba(255, 255, 255, 0.8);
-}
+    .carousel-button:hover:before {
+        color: #fff;
+        color: rgba(255, 255, 255, 0.8);
+    }
 
+    .carousel-button-next:before {
+        content: '\e010';
+        left: auto;
+        right: 20px;
+    }
 
-.carousel-button-next:before {
-    content: '\e010';
-    left: auto;
-    right: 20px;
-}
-
-.carousel-button-next:hover:before {
-    background-position: -114px -5px;
-}
+        .carousel-button-next:hover:before {
+            background-position: -114px -5px;
+        }
 
 #testimonials .carousel-button {
     top: 300px;
 }
+
+#life-perks .carousel-button {
+    top: 75px;
+}
+
+#life-blocks .carousel-button {
+    top: 0;
+    z-index: 1;
+    height: 100%;
+    width: 20px;
+    padding: 0;
+    opacity: 1;
+    background: rgba(255, 255, 255, 0);
+    -webkit-transition: background-color 0.5s;
+            transition: background-color 0.5s;
+}
+
+    #life-blocks .carousel-button-next {
+        left: auto;
+        right: 0;
+    }
+
+    #life-blocks .carousel-button:before,
+    #life-blocks .carousel-button:after {
+        content: '\e005';
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        display: block;
+        height: 45px;
+        width: 45px;
+        margin-top: -23px;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 40px;
+        line-height: 45px;
+        text-align: center;
+        -webkit-transition: color 0.5s;
+                transition: color 0.5s;
+    }
+
+    #life-blocks .carousel-button:focus,
+    #life-blocks .carousel-button:hover {
+        background: rgba(255, 255, 255, 0.3);
+        outline: none;
+    }
+
+    #life-blocks .carousel-button-next:before,
+    #life-blocks .carousel-button-next:after {
+        left: auto;
+        right: 20px;
+    }
+
+    #life-blocks .carousel-button:hover:before {
+        color: rgba(255, 255, 255, 1);
+    }
+
+    #life-blocks .carousel-button:after {
+        content: '\e012';
+        color: #231f20;
+        font-size: 20px;
+    }
+
+    #life-blocks .carousel-button:hover:after {
+        color: #0095dd;
+    }
+
+    #life-blocks .carousel-button-next:after {
+        content: '\e011';
+    }
+
+    @media (max-width:680px) {
+        #life-blocks .carousel-button {
+            left:-5px;
+        }
+        #life-blocks .carousel-button-next {
+            left: auto;
+            right:-5px;
+        }
+        #life-blocks .carousel-button:before,
+        #life-blocks .carousel-button:after {
+            display: none;
+        }
+    }
+
+
+.carousel-pager {
+    margin:15px 0 1px 0;
+    width:100%;
+    text-align:center;
+}
+
+    .carousel-pager > a {
+        display: inline-block;
+        height: 0;
+        width: 8px;
+        overflow: hidden;
+        border-radius: 100%;
+        margin:0 6px;
+        padding-top: 8px;
+        background-color: #9e9e9e;
+    }
+
+        .carousel-pager > a:hover,
+        .carousel-pager > a:focus,
+        .carousel-pager > a:active {
+            background-color: #cccccc;
+        }
+
+        .carousel-pager > a.selected {
+            background-color: #0095dd;
+        }
+
