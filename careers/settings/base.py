@@ -58,6 +58,12 @@ MINIFY_BUNDLES = {
         'university-ie8': (
             'css/university-ie8.css',
         ),
+        'position': (
+            'css/position.css',
+        ),
+        'listings': (
+            'css/listings.css',
+        ),
     },
     'js': {
         'jquery': (
@@ -78,14 +84,20 @@ MINIFY_BUNDLES = {
         'listings': (
             'js/filters.js',
         ),
+        'careers': (
+            'js/careers.js',
+        ),
         'university': (
             'js/university.js',
         ),
         'university_links': (
             'js/university_links.js',
         ),
-        'careers': (
-            'js/careers.js',
+        'listings': (
+            'js/filters.js',
+        ),
+        'position': (
+            'js/position.js',
         ),
         'smallscreen': (
             'js/libs/jquery.carouFredSel-6.2.1-packed.js',
