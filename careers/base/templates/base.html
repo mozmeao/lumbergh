@@ -30,7 +30,11 @@
     <link rel="shortcut icon" type="image/png" href="{{ static('img/favicon.png') }}"/>
 
   </head>
-  <body id="{% block body_id %}{% endblock %}" {% block body_data %}{% endblock %}>
+  <body id="{% block body_id %}{% endblock %}"
+        {% block body_data %}
+          data-js-smallscreen="{{ js_urls_json('smallscreen') }}"
+        {% endblock %}>
+
     {% include "base/header.html" %}
     <div id="wrapper">
       <main role="main">
