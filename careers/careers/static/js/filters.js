@@ -70,7 +70,7 @@
          * Hide any positions that do have the correct value for the given field.
          */
         filterPositions: function(field, value) {
-            if (value !== 'all') {
+            if (value !== '') {
                 var selector = '.position:not([data-' + field + '="' + value + '"])';
                 this.$positionTable.find(selector).addClass('hidden').hide();
             }
@@ -80,7 +80,7 @@
          * Hide any positions that are not located in a location matching the given filter value.
          */
         filterPositionsByLocation: function(filterValue) {
-            if (this.locationsFor.hasOwnProperty(filterValue)) {
+            if (filterValue !== '' && this.locationsFor.hasOwnProperty(filterValue)) {
                 var validLocations = this.locationsFor[filterValue];
                 var positions = this.$positionTable.find('.position');
                 for (var k = 0; k < validLocations.length; k++) {
@@ -94,8 +94,9 @@
 
     $(function() {
         var inputs = document.getElementById('position-filters').elements;
-        var filters = new PositionFilters(inputs.type, inputs.team, inputs.location,
+        var filters = new PositionFilters(inputs.position_type, inputs.team, inputs.location,
                                           document.getElementById('positions'));
         filters.bindEvents();
+        filters.onFilterChange(); // Trigger sorting on initial load for querystring arguments.
     });
 })(jQuery);

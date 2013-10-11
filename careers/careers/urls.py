@@ -4,9 +4,10 @@ from . import views
 
 
 urlpatterns = patterns('',
-    url('^position/(?P<job_id>[\w]+)$', views.position,
+    url(r'^position/(?P<job_id>[\w]+)$', views.position,
         name='careers.position'),
-    url('^position/(?P<job_id>[\w]+)$', views.position,
+    url(r'^position/(?P<job_id>[\w]+)$', views.position,
         name='django_jobvite_position'),
-    url('^/?$', views.home, name='careers.home'),
+    url(r'^$', views.home, name='careers.home'),
+    url(r'^listings/$', views.listings, name='careers.listings'),
 )

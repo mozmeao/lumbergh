@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% from "careers/macros.html" import position_listing with context %}
 
 {% block page_title %}Mozilla Jobs &mdash; Open Positions{% endblock %}
 
@@ -34,71 +33,6 @@
     </div>
   </div>
 </section>
-
-
-
-<div class="wrapper">
-    <h1 class="home-header">Careers at Mozilla</h1>
-
-
-    {# Placeholder HTML, table and form are not final. #}
-    <form id="position-filters">
-      <select name="type" autocomplete="off">
-        <option value="all">All Positions</option>
-        <option value="Full time">Full time</option>
-        <option value="Contractor">Contractor</option>
-        <option value="Intern">Intern</option>
-      </select>
-
-      <select name="team" autocomplete="off">
-        <option value="all">All Teams</option>
-        {% for category in categories %}
-          <option value="{{ category.slug }}">{{ category.name }}</option>
-        {% endfor %}
-      </select>
-
-      <select name="location" autocomplete="off">
-        <option value="all">All Locations</option>
-        <option value="remote">Remote</option>
-        <option value="berlin">Berlin</option>
-        <option value="boston">Boston</option>
-        <option value="london">London</option>
-        <option value="mountainview">Mountain View</option>
-        <option value="newzealand">New Zealand</option>
-        <option value="paris">Paris</option>
-        <option value="portland">Portland</option>
-        <option value="sanfrancisco">San Francisco</option>
-        <option value="toronto">Toronto</option>
-        <option value="vancouver">Vancouver</option>
-      </select>
-    </form>
-
-    <table id="positions">
-      <tr>
-        <th>Job Title</th>
-        <th>Location</th>
-        <th>Position</th>
-        <th>Team</th>
-      </tr>
-      {% for position in positions %}
-        <tr class="position"
-            data-team="{{ position.category.slug }}"
-            data-type="{{ position.job_type|readable_job_type }}"
-            data-location="{{ position.location_filter }}">
-          <td class="title"><a href="{{ position.get_absolute_url() }}">{{ position.title }}</a></td>
-          <td class="location">{{ position.location }}</td>
-          <td class="type">{{ position.job_type|readable_job_type }}</td>
-          <td class="name">{{ position.category.name }}</td>
-        </tr>
-      {% endfor %}
-      <tr class="empty-filter-message" style="display: none">
-        <td colspan="4">
-          <p>No jobs found that match the selected filters.</p>
-        </td>
-      </tr>
-    </table>
-  </div>
-
 {% endblock %}
 
 {% block site_js %}

@@ -1,13 +1,19 @@
 from django.http import Http404
 from django.shortcuts import render
 
-from django_jobvite.models import Category, Position
+from django_jobvite.models import Position
+
+from careers.careers.forms import PositionFilterForm
 
 
 def home(request):
-    return render(request, 'careers/home.html', {
+    return render(request, 'careers/home.html')
+
+
+def listings(request):
+    return render(request, 'careers/listings.html', {
         'positions': Position.objects.order_by('category__name', 'title'),
-        'categories': Category.objects.all(),
+        'form': PositionFilterForm(request.GET or None),
     })
 
 
