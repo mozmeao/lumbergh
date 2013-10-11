@@ -75,6 +75,9 @@ MINIFY_BUNDLES = {
             'js/libs/video-js/video.dev.js',
             'js/university.js',
         ),
+        'university_links': (
+            'js/university_links.js',
+        ),
         'careers': (
             'js/careers.js',
         ),

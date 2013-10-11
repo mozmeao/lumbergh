@@ -30,7 +30,7 @@
     <link rel="shortcut icon" type="image/png" href="{{ static('img/favicon.png') }}"/>
 
   </head>
-  <body id="{% block body_id %}{% endblock %}">
+  <body id="{% block body_id %}{% endblock %}" {% block body_data %}{% endblock %}>
     {% include "base/header.html" %}
     <div id="wrapper">
       <main role="main">
@@ -47,8 +47,8 @@
 
     {# js #}
     {% block site_js %}
-      <!--[if gt IE 8]> <!-- -->
       {{ js('jquery') }}
+      <!--[if gt IE 8]> <!-- -->
       {{ js('common') }}
       <!-- <![endif]-->
     {% endblock %}
