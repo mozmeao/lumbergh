@@ -58,9 +58,9 @@
     background: url(/static/img/credo-mobile.png) center 15px no-repeat;
 }
 
-    .splash-credo > .contain {
-        max-width: 500px;
-    }
+.splash-credo > .contain {
+    max-width: 500px;
+}
 
 .splash-credo-head {
     margin: 15px 0;
