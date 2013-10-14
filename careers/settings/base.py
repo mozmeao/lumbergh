@@ -41,7 +41,7 @@ PROD_LANGUAGES = ('de', 'en-US', 'es', 'fr',)
 # and js files that can be bundled together by the minify app.
 MINIFY_BUNDLES = {
     'css': {
-        'common': (
+        'base': (
             'css/base.css',
         ),
         'careers': (

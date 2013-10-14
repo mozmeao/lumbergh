@@ -10,7 +10,7 @@
     {# css #}
     <link href="//mozorg.cdn.mozilla.net/media/css/tabzilla-min.css" rel="stylesheet" />
     {% block site_css %}
-      {{ css('common') }}
+      {{ css('base') }}
     {% endblock %}
 
     {# js #}
@@ -28,8 +28,7 @@
     <link rel="shortcut icon" type="image/png" href="{{ static('img/favicon.png') }}"/>
 
   </head>
-  <body id="{% block body_id %}{% endblock %}"
-        data-common-js="{{ js_urls_json('common') }}">
+  <body id="{% block body_id %}{% endblock %}">
 
     {% block site_header %}
       {% include "base/header.html" %}
