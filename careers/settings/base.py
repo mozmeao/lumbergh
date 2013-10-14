@@ -43,6 +43,8 @@ MINIFY_BUNDLES = {
     'css': {
         'base': (
             'css/base.css',
+            'js/libs/video-js/video-js.css',
+            'js/libs/video-js/video-js-sandstone.css',
         ),
         'careers': (
             'css/careers.css',
@@ -51,8 +53,6 @@ MINIFY_BUNDLES = {
             'css/careers-ie8.css',
         ),
         'university': (
-            'js/libs/video-js/video-js.css',
-            'js/libs/video-js/video-js-sandstone.css',
             'css/university.css',
         ),
         'university-ie8': (
@@ -64,13 +64,13 @@ MINIFY_BUNDLES = {
             'js/libs/jquery-1.7.1.min.js',
             'js/libs/modernizr.custom.05289.js',
             'js/libs/waypoints.min.js',
+            'js/libs/video-js/video.dev.js',
             'js/base.js',
         ),
         'listings': (
             'js/filters.js',
         ),
         'university': (
-            'js/libs/video-js/video.dev.js',
             'js/university.js',
         ),
         'careers': (
