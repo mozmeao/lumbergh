@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+{% set navbar_section = 'listings' %}
 {% block page_title %}Listings{% endblock %}
 
 {% block content %}
@@ -39,6 +40,6 @@
 {% endblock %}
 
 {% block site_js %}
-  {{ super() }}
+  {{ js('jquery') }}
   {{ js('listings') }}
 {% endblock %}
