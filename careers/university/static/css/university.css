@@ -23,6 +23,7 @@
         height: 264px;
         margin: 0 auto;
         padding-top: 90px;
+        position: relative;
         background-color: #97938c;
         background-position: center top;
         background-repeat: no-repeat;
