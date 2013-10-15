@@ -38,7 +38,7 @@
         <div class="desc">
           <h2>{{ position.category.name }}: {{ _('Open Positions') }}</h2>
           <ul>
-            {% for p in positions %}
+            {% for p in positions if p != position %}
               <li>
                 <a href="{{ url('careers.position', p.job_id) }}"
                    class="{% if position.job_id == p.job_id %}active{% endif %}"
