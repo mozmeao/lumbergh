@@ -22,139 +22,13 @@
 
 
     function animationInit() {
-        locationsInit();
         galleryInit();
         perksInit();
-        communityVideoInit(); // TODO: delay until page loaded
+        communityVideoInit();
+        locationsInit();
+        nextInit();
     }
-
-    /*
-    *  Locations
-    *  - two ways to show details:
-    *    - on mobile a select box can be used to pick one
-    *    - on desktop the user can click the link
-    *  - both ways are initialized and the associated form controls are hidden by media queries
-    *  - details can be hidden by:
-    *    - selecting a new location details
-    *    - pressing escape
-    *    - on mobile: navgigating to the empty form option
-    */
-
-    function locationsEscapeWatch(e) {
-        // if escape key is pressed, hide all modals
-        if (e.keyCode == 27) {
-            locationsHide(null);
-        }
-    }
-
-    function locationsShow(locationId) {
-        // remove class from any current one
-        $('.location-current').removeClass('location-current');
-
-        // add class to the one with matching ID
-        $('#' + locationId).addClass('location-current');
-
-        // add watcher for escape key
-        $(document).on('keyup', locationsEscapeWatch);
-    }
-
-    function locationsHide() {
-        // remove class from currently visible
-        $('.location-current').removeClass('location-current');
-
-        // remove watcher for escape key
-        $(document).off('keyup', locationsEscapeWatch);
-    }
-
-    function locationsToggle(locationId) {
-        if(locationId){
-            locationsShow(locationId);
-        } else {
-            locationsHide();
-        }
-    }
-
-    function locationsModalInit() {
-        var locations = $('.locations-location');
-
-        // loop through locations links
-        $(locations).each( function() {
-            var location = $(this);
-
-            // create close button
-            var locationsModalClose = $('<button class="location-close">&times;</button>');
-            locationsModalClose.on('click', locationsHide);
-
-            // add close button
-            var locationDetails = location.find('.location-details');
-            locationDetails.prepend(locationsModalClose);
-
-            // hijack links
-            var locationLink = location.find('.location-link');
-            var locationId = this.id;
-            $(locationLink).on('click', function(e) {
-                e.preventDefault();
-                locationsToggle(locationId);
-            });
-        });
-
-    }
-
-    function locationsParallaxInit() {
-        // TODO: parallax being left for last
-    }
-
-    function locationsMenuInit() {
-        // create container, select, and label
-        var locationMenuContain = $('<div class="locations-menu"></div>');
-        var locationsLabel = $('<label class="locations-label" for="locations-select">Select Location</label>');
-        var locationsMenu = $('<select id="locations-select"></select>');
-        var locationsDefaultOption = $('<option />');
-        locationsDefaultOption.appendTo(locationsMenu);
-
-        // get locations
-        var locations = $('.locations-location');
-
-        // create option tag for each location
-        $(locations).each(function() {
-            // get name
-            var locationName = $(this).find('.location-link').text();
-
-            // get id of location
-            var locationId = this.id;
-
-            // create option
-            var locationOption = $('<option value="' + locationId + '">' + locationName + '</option>');
-
-            // attach option
-            locationOption.appendTo(locationsMenu);
-
-        });
-
-        // when contents of select change, change the visible location
-        locationsMenu.on('change', function(e){
-            var locationNew = $(e.target).val();
-            locationsToggle(locationNew);
-        });
-
-        // attach menu to page
-        locationsMenu.appendTo(locationMenuContain);
-        locationsLabel.appendTo(locationMenuContain);
-        locationMenuContain.insertBefore('.locations-list');
-    }
-
-    function locationsInit() {
-        // create drop down for mobile
-        locationsMenuInit();
-        // create modal for larger
-        locationsModalInit();
-
-        if(Mozilla.Test.isParallax){
-            locationsParallaxInit();
-        }
-    }
-
-    /*
+/*
     *  Gallery
     *  - gallery images are all sprites, loaded in phases
     *  - carousel is initilized at mobile tablet or desktop size
@@ -338,7 +212,7 @@
 
     function communityEscapeWatch(e) {
         // if escape key is pressed, hide all modals
-        if (e.keyCode == 27) {
+        if (e.keyCode === 27) {
             communityVideoHide(null);
         }
     }
@@ -417,4 +291,237 @@
         }
 
     }
+
+
+    /*
+    *  Locations
+    *  - two ways to show details:
+    *    - on mobile a select box can be used to pick one
+    *    - on desktop the user can click the link
+    *  - both ways are initialized and the associated form controls are hidden by media queries
+    *  - details can be hidden by:
+    *    - selecting a new location details
+    *    - pressing escape
+    *    - on mobile: navgigating to the empty form option
+    */
+
+    function locationsEscapeWatch(e) {
+        // if escape key is pressed, hide all modals
+        if (e.keyCode === 27) {
+            locationsHide(null);
+        }
+    }
+
+    function locationsShow(locationId) {
+        // remove class from any current one
+        $('.location-current').removeClass('location-current');
+
+        // add class to the one with matching ID
+        $('#' + locationId).addClass('location-current');
+
+        // add watcher for escape key
+        $(document).on('keyup', locationsEscapeWatch);
+    }
+
+    function locationsHide() {
+        // remove class from currently visible
+        $('.location-current').removeClass('location-current');
+
+        // remove watcher for escape key
+        $(document).off('keyup', locationsEscapeWatch);
+    }
+
+    function locationsToggle(locationId) {
+        if (locationId) {
+            locationsShow(locationId);
+        } else {
+            locationsHide();
+        }
+    }
+
+    function locationsModalInit() {
+        var locations = $('.locations-location');
+
+        // loop through locations links
+        $(locations).each( function() {
+            var location = $(this);
+
+            // create close button
+            var locationsModalClose = $('<button class="location-close">&times;</button>');
+            locationsModalClose.on('click', locationsHide);
+
+            // add close button
+            var locationDetails = location.find('.location-details');
+            locationDetails.prepend(locationsModalClose);
+
+            // hijack links
+            var locationLink = location.find('.location-link');
+            var locationId = this.id;
+            $(locationLink).on('click', function(e) {
+                e.preventDefault();
+                locationsToggle(locationId);
+            });
+        });
+
+    }
+
+    function locationsParallaxInit() {
+
+        // waypoint to add/remove background pin
+        var locations = $('#locations');
+
+        locations.waypoint( function(direction) {
+            if (direction === 'down'){
+                locations.addClass('pin');
+            } else if(direction === 'up') {
+                locations.removeClass('pin');
+            }
+        }, {
+            offset: -50
+        });
+
+        // waypoint to close locations modal
+        $('#locations-list').waypoint(function(direction) {
+            if (direction === 'down') {
+                locationsHide();
+            }
+        }, {
+            offset: function() {
+                return $('header.masthead').height() - 50;
+            }
+        });
+    }
+
+    function locationsMenuInit() {
+        // create container, select, and label
+        var locationMenuContain = $('<div class="locations-menu"></div>');
+        var locationsLabel = $('<label class="locations-label" for="locations-select">Select Location</label>');
+        var locationsMenu = $('<select id="locations-select"></select>');
+        var locationsDefaultOption = $('<option />');
+        locationsDefaultOption.appendTo(locationsMenu);
+
+        // get locations
+        var locations = $('.locations-location');
+
+        // create option tag for each location
+        $(locations).each(function() {
+            // get name
+            var locationName = $(this).find('.location-link').text();
+
+            // get id of location
+            var locationId = this.id;
+
+            // create option
+            var locationOption = $('<option value="' + locationId + '">' + locationName + '</option>');
+
+            // attach option
+            locationOption.appendTo(locationsMenu);
+
+        });
+
+        // when contents of select change, change the visible location
+        locationsMenu.on('change', function(e){
+            var locationNew = $(e.target).val();
+            locationsToggle(locationNew);
+        });
+
+        // attach menu to page
+        locationsMenu.appendTo(locationMenuContain);
+        locationsLabel.appendTo(locationMenuContain);
+        locationMenuContain.insertBefore('#locations-list');
+    }
+
+    function locationsInit() {
+        // create drop down for mobile
+        locationsMenuInit();
+        // create modal for larger
+        locationsModalInit();
+
+        if (Mozilla.Test.isParallax) {
+            locationsParallaxInit();
+        }
+    }
+
+
+    /*
+    *  Next / ...and you?
+    */
+
+    function nextFadeBoxes() {
+        var nextBoxes = $('.next-box');
+
+
+        if (Modernizr.csstransitions) {
+            $(nextBoxes).each( function (index) {
+                var delay = index * 1000;
+                var currentBox = $(this);
+                window.setTimeout( function() {
+                    currentBox.addClass('show');
+                } , delay );
+            });
+
+            window.setTimeout( function() {
+                $('.next-you').addClass('show');
+            } , 5000 );
+
+        } else {
+
+            $(nextBoxes).each( function (index) {
+                var delay = index * 1000;
+                var currentBox = $(this);
+                window.setTimeout( function() {
+                    currentBox.fadeTo( 'slow', 1, function() {
+                        currentBox.addClass('show').css('opacity', '');
+                    });
+                } , delay);
+            });
+
+            window.setTimeout( function() {
+                $('.next-you').fadeTo( 'slow', 1, function() {
+                    $(this).addClass('show').css('opacity', '');
+                });
+            } , 5000 );
+        }
+
+
+    }
+
+    function nextInit() {
+        if (Mozilla.Test.isParallax) {
+            // waypoint to add/remove background pin
+            var next = $('#next');
+            next.waypoint(function(direction) {
+                if (direction === 'down') {
+                    next.addClass('pin');
+                } else if (direction === 'up') {
+                    next.removeClass('pin');
+                }
+            }, {
+                offset: function() {
+                    return $('header.masthead').height();
+                }
+            });
+
+            // waypoint to fade in boxes
+            var nextTeaser = $('#next-teaser');
+            nextTeaser.waypoint( function(direction) {
+                if (direction === 'down') {
+                    // add class
+                    nextFadeBoxes();
+                }
+            }, {
+                offset: function() {
+                    return $(window).height() - 100;
+                },
+                triggerOnce: true
+            });
+        } else {
+            // add classes which display everything incase of resize
+            $('.next-box').addClass('show');
+            $('.next-you').addClass('show');
+        }
+    }
+
+
+
 })(window, window.jQuery);
