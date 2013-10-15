@@ -2,7 +2,10 @@
     Elements using font icons
     ------------------------------------------------------------------- */
 
-.splash-credo-head:before  {
+.splash-credo-head:before,
+.locations-remote:before,
+.locations-label:before,
+.location-link:before {
     font-family: 'icomoon';
     speak: none;
     font-style: normal;
@@ -69,7 +72,7 @@
 }
 
     .splash-credo-head:before {
-        content: "\e00f";
+        content: '\e00f';
         display: inline-block;
         width: 25px;
         margin-right: 2%;
@@ -194,4 +197,410 @@
 
 @media (min-width: 1281px) {
     #splash { background-image: url(/static/img/careers-banner-2560.jpg); }
+}
+
+/*  -------------------------------------------------------------------
+    Locations
+    - without javascript or media queries user gets a list of locations
+      they can hover over to reveal more
+    - with javascript and media queries mobile users get a select box they
+      can pick out of
+        - select box goes in a relatively positioned parent and given 0 opacity
+            - user activates select by clicking invisible select or tabing to it
+    - without js but with mq larger screens get a map with pointers that lead off site
+    - with js and mq larger screens get a map with pointers that open a modal
+    - map is fixed, not flexable
+    ------------------------------------------------------------------- */
+
+#locations {
+    position: relative;
+    padding: 20px 0;
+    font-size: 15px;
+}
+
+.locations-head {
+    max-width: 500px;
+    margin: 10px auto;
+    padding: 0 20px;
+    font-size: 26px;
+    color: #a2a2a9;
+}
+
+.locations-subhead {
+    max-width: 500px;
+    margin: 10px auto;
+    padding: 0 20px;
+    font-size: 38px;
+    font-family: 'Open Sans Light',sans-serif;
+    line-height: 1.2;
+}
+
+.locations-remote {
+    max-width: 500px;
+    position: relative;
+    margin: 10px auto 20px auto;
+    padding: 56px 20px 0 20px;
+}
+
+    .locations-remote:before {
+        content: '\e004';
+        position: absolute;
+        top: 5px;
+        left: 20px;
+        font-size: 38px;
+    }
+
+.locations-remote > p {
+    margin: 0;
+}
+
+    .locations-remote-pins {
+        display: none;
+    }
+
+.locations-remote > strong {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.locations-menu {
+    position: relative;
+    max-width: 500px;
+    height: 47px;
+    margin: 0 auto;
+    background-color: #c8c6b6;
+    color: #fff;
+}
+
+    #locations-select {
+        position: absolute;
+        z-index: 1;
+        height: 47px;
+        width: 100%;
+        margin: 0;
+        padding: 10px 0;
+        opacity: 0;
+        background-color: #c8c6b6;
+    }
+
+    .locations-label {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 0 20px;
+        line-height: 47px;
+    }
+
+        .locations-label:before {
+            content: '\e013';
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 47px;
+            width: 50px;
+            font-size: 25px;
+            line-height: 47px;
+            text-align: center;
+        }
+
+        #locations-select:focus + .locations-label {
+            outline: 1px solid #4d4e53;
+            color: #4d4e53;
+        }
+
+.locations-list {
+    margin: 0;
+    padding: 0;
+}
+
+.locations-location {
+    display: block;
+    max-width: 500px;
+    margin: 0 auto 3px auto;
+}
+
+.location-link {
+    display: block;
+    padding: 3px 20px;
+    background-color: #c8c6b6;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+    .location-link:link,
+    .location-link:visited {
+        color: #fff;
+    }
+
+    .location-link:hover,
+    .location-link:focus,
+    .location-link:active{
+       text-decoration: none;
+    }
+
+.location-details {
+    display: none;
+    padding: 20px;
+    background-color: #fff;
+}
+
+    .locations-location:hover .location-details {
+        display: block;
+    }
+
+.location-close {
+    display: none;
+}
+
+.locations-tag {
+    display: none;
+}
+
+@media (max-width:680px) {
+
+    .js-enabled .location-link {
+        display: none;
+    }
+
+    .js-enabled .locations-location {
+        max-height: 0;
+        overflow: hidden;
+        margin-bottom: 0;
+
+        -webkit-transition: max-height 1s;
+                transition: max-height 1s;
+
+    }
+
+        .js-enabled .locations-location.location-current {
+            max-height: 250px;
+        }
+
+    .js-enabled .location-details {
+         display: block;
+    }
+
+}
+
+@media (min-width: 681px) {
+
+    #locations {
+        height: 520px;
+        overflow: hidden;
+        padding: 25px 0 30px 0;
+        background: url(/static/img/locations-tablet.jpg) top center no-repeat;
+    }
+
+    .locations-head {
+        position: absolute;
+        left: -9999px;
+    }
+
+    .locations-subhead {
+        margin-top: 0;
+        margin-bottom: 0;
+        height: 400px; /* makes space for absolutely positioned map */
+        color: #c13832;
+        font-size: 41px;
+        line-height: 1.1;
+        text-align: center;
+    }
+
+    .locations-menu {
+        display: none;
+    }
+
+    .locations-list{
+        position: absolute;
+        top: 130px;
+        left: 50%;
+        display: block;
+        height: 350px;
+        width: 700px;
+        max-width: none;
+        margin-left: -350px;
+    }
+
+    .location-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: inline-block;
+        padding: 0;
+        background-color: transparent;
+        color: #4d4e53;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+        .location-link:link,
+        .location-link:visited {
+            color: #4d4e53;
+        }
+
+        .location-link:before {
+            content: '\e000';
+            position: absolute;
+            top: -2px;
+            left: -23px;
+            color: #c13832;
+            font-size: 20px;
+        }
+
+             .location-link:hover:before,
+             .location-link:focus:before,
+             .location-link:active:before{
+                 color: #4d4e53;
+             }
+
+        #mountian-view .location-link { top: 35%; left: 12%; }
+        #auckland .location-link { top: 86%; left: auto; right: 5%; }
+            #auckland .location-link:before { left: auto; right: -23px; }
+        #beijing .location-link { top: 26%; left: auto; right: 20.5%; }
+            #beijing .location-link:before { left: auto; right: -23px; }
+        #london .location-link { top: 18%; left: auto; right: 57%; }
+            #london .location-link:before { left: auto; right: -23px; }
+        #paris .location-link { top: 23%; left: auto; right: 56%; }
+            #paris .location-link:before { left: auto; right: -23px; }
+        #portland .location-link { top: 24%; left: auto; right: 92%; }
+            #portland .location-link:before { left: auto; right: -23px; }
+        #san-francisco .location-link { top: 30%; left: 11%; }
+        #taipei .location-link { top: 37%; left: 87%; }
+        #tokyo .location-link { top: 29%; left: 90%; }
+        #toronto .location-link { top: 21%; left: 25.5%; }
+        #vancouver .location-link { top: 16%; left: 12.5%; }
+            #vancouver .location-link:before { left: -18px; top: 8px;}
+
+
+    .location-details {
+        position: absolute;
+        top: 11px;
+        left: -9999px;
+        z-index: 1;
+        display: block;
+        width: 342px;
+        margin-left: -187px;
+        box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
+        border-radius: 3px;
+        border: 1px solid #000;
+        padding: 14px 14px 14px 14px;
+        background: #464543;
+        background: rgba(0, 0, 0, 0.75);
+        color: #fff;
+        text-shadow: 1px 1px 3px #000;
+        opacity: 0;
+
+         -webkit-transition: opacity 1s, left 0s 1s;
+                 transition: opacity 1s, left 0s 1s;
+    }
+
+         .location-current .location-details {
+             left: 50%;
+             opacity: 1;
+
+             -webkit-transition: opacity 1s, left 0s 0s;
+                     transition: opacity 1s, left 0s 0s;
+         }
+
+        .location-details > strong {
+            display: inline-block;
+            margin-bottom: 15px;
+            font-size: 21px;
+            line-height: 1.2;
+        }
+
+    .location-close {
+        position: absolute;
+        top: 7px;
+        right: 11px;
+        display: block;
+        height: 18px;
+        width: 18px;
+        border: 0;
+        margin: 0;
+        padding: 0;
+        background: none;
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 18px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .locations-remote {
+         -moz-box-sizing: border-box;
+              box-sizing: border-box;
+         width: 50%;
+         max-width: 340px;
+         padding: 0 0 0 60px;
+         font-size: 12px;
+    }
+
+        .locations-remote:before {
+            top: -14px;
+            left: 10px;
+            color: #c8c6b6;
+            font-size: 30px;
+        }
+
+        .locations-remote-pins {
+            display: block;
+        }
+        .locations-remote-nopins {
+            display: none;
+        }
+
+
+    .locations-tag {
+        display: block;
+        max-width: 500px;
+        margin: 10px auto;
+        padding: 100px 20px;
+        color: #c13832;
+        font-family: 'Open Sans Light',sans-serif;
+        font-size: 55px;
+        line-height: 1.2;
+        text-align: center;
+
+    }
+
+}
+
+@media (min-width: 921px) {
+
+    #locations {
+        height: 680px;
+        padding: 40px 0;
+        background: url(/static/img/locations-desktop.jpg) top center no-repeat;
+    }
+
+    .locations-subhead {
+        height: 540px; /* makes space for absolutely positioned map */
+        font-size: 55px;
+    }
+
+    .locations-list {
+        width: 940px;
+        height: 470px;
+        top: 180px;
+        margin-left: -470px;
+    }
+
+    .location-link {
+        font-size: 16px;
+    }
+
+    .locations-remote {
+        max-width: 540px;
+        padding: 0 100px;
+        font-size: 15px;
+    }
+
+    .locations-remote:before {
+        top: -8px;
+        left: 50px;
+    }
 }

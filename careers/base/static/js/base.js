@@ -39,7 +39,6 @@ Mozilla.Test = (function(w, $) {
 
 })(window, window.jQuery); // Mozilla.Test
 
-
 (function($) {
     'use strict';
 
