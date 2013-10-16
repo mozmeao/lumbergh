@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+{% set navbar_section = 'university' %}
 {% block page_title %}Mozilla University{% endblock %}
 
 {% block site_css %}
@@ -11,6 +12,13 @@
   {{ super() }}
   {{ css('university-ie8') }}
   {{ js('university-ie8') }}
+{% endblock %}
+
+{% block site_js %}
+  {{ super() }}
+  <!--[if gt IE 8]> <!-- -->
+  {{ js('university') }}
+  <!-- <![endif]-->
 {% endblock %}
 
 {% block content %}
@@ -204,9 +212,4 @@
  </div>
 </section>
 
-{% endblock %}
-
-{% block site_js %}
-  {{ super() }}
-  {{ js('university') }}
 {% endblock %}
