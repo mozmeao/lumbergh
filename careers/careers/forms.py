@@ -16,6 +16,16 @@ class PositionFilterForm(forms.Form):
     location = forms.ChoiceField(choices=(
         ('', 'All Locations'),
         ('remote', 'Remote'),
+
+        # Continents
+        ('europe', 'Europe'),
+        ('latinamerica', 'Latin America'),
+        ('northamerica', 'North America'),
+
+        # Young money
+        ('bayarea', 'Bay Area'),
+
+        # Cities
         ('berlin', 'Berlin'),
         ('boston', 'Boston'),
         ('london', 'London'),
