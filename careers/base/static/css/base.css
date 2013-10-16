@@ -104,9 +104,10 @@ html {
 body { margin: 0; }
 
 h1,h2,h3,h4,h5,h6 {
+    margin: 1em 0;
     font-size: 1em;
     font-weight: normal;
-    margin: 1em 0;
+    line-height: 1.2;
 }
 
 img { border: 0; }
@@ -717,8 +718,8 @@ a.cta:active {
 }
 
 .carousel-button:hover:before {
- color: #fff;
- color: rgba(255, 255, 255, 0.8);
+    color: #fff;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 
