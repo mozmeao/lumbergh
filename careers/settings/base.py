@@ -60,8 +60,10 @@ MINIFY_BUNDLES = {
         ),
     },
     'js': {
-        'common': (
+        'jquery': (
             'js/libs/jquery-1.7.1.min.js',
+        ),
+        'common': (
             'js/libs/modernizr.custom.05289.js',
             'js/libs/waypoints.min.js',
             'js/base.js',
@@ -72,6 +74,9 @@ MINIFY_BUNDLES = {
         'university': (
             'js/libs/video-js/video.dev.js',
             'js/university.js',
+        ),
+        'university_links': (
+            'js/university_links.js',
         ),
         'careers': (
             'js/careers.js',

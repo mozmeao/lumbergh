@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+{% set navbar_section = 'home' %}
 {% block page_title %}Mozilla Jobs &mdash; Open Positions{% endblock %}
 
 {% block site_css %}
@@ -10,6 +11,13 @@
 {% block site_ie8 %}
   {{ super() }}
   {{ css('careers-ie8') }}
+{% endblock %}
+
+{% block site_js %}
+  {{ super() }}
+  <!--[if gt IE 8]> <!-- -->
+  {{ js('careers') }}
+  <!-- <![endif]-->
 {% endblock %}
 
 {% block content %}
@@ -33,10 +41,5 @@
     </div>
   </div>
 </section>
-{% endblock %}
-
-{% block site_js %}
-  {{ super() }}
-  {{ js('careers') }}
 {% endblock %}
 

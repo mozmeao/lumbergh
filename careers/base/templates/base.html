@@ -1,3 +1,5 @@
+{% set navbar_section = navbar_section|default(None) -%}
+
 <!DOCTYPE html>
 <html lang="{{ LANG }}" dir="{{ DIR }}" class="js-disabled">
   <head>
@@ -28,12 +30,8 @@
     <link rel="shortcut icon" type="image/png" href="{{ static('img/favicon.png') }}"/>
 
   </head>
-  <body id="{% block body_id %}{% endblock %}">
-
-    {% block site_header %}
-      {% include "base/header.html" %}
-    {% endblock %}
-
+  <body id="{% block body_id %}{% endblock %}" {% block body_data %}{% endblock %}>
+    {% include "base/header.html" %}
     <div id="wrapper">
       <main role="main">
 
@@ -48,13 +46,12 @@
     </div><!-- /#wrapper -->
 
     {# js #}
-    <!--[if gt IE 8]> <!-- -->
     {% block site_js %}
+      {{ js('jquery') }}
+      <!--[if gt IE 8]> <!-- -->
       {{ js('common') }}
+      <!-- <![endif]-->
     {% endblock %}
-    <!-- <![endif]-->
-    {% block unfiltered_js %}{% endblock %}
-
     <script src="//mozorg.cdn.mozilla.net/tabzilla/tabzilla.js"></script>
 
     <!-- ANALYTICS -->
