@@ -110,3 +110,17 @@ def update_site(ctx, tag):
     """Update the app to prep for deployment."""
     pre_update(tag)
     update()
+    
+# this is so we can use the script from the cli too!
+
+def main():
+    """
+deploy all the things
+"""
+
+    pre_update()
+    update()
+    deploy()
+
+if __name__ == "__main__":
+    main()
