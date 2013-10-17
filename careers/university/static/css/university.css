@@ -461,7 +461,7 @@
     text-align: center
 }
 
-.caroufredsel_wrapper {
+#know .caroufredsel_wrapper {
     margin: 0 auto !important; /* overridding inline properties of js injected code */
 }
 
@@ -909,6 +909,7 @@
     ------------------------------------------------------------------- */
 
 #meetus {
+    overflow: hidden; _overflow: visible; zoom: 1; /* clearfix */
     padding: 30px 0;
     background-color: #ffffff;
 }
@@ -962,6 +963,7 @@
 @media (max-width: 681px) {
 
     #meetus table,
+    #meetus tbody,
     #meetus tr,
     #meetus td {
         display:block;
@@ -1381,6 +1383,168 @@
     }
 }
 
+
+/*  -------------------------------------------------------------------
+    Gallery
+    - gallery-wrapper filled with boxes
+    - js attached background to wrapper after page load
+    - boxes inherit background image from wrapper
+    - js initializes carousel on mobile
+        - hides wrapper's background using background-size
+        - when sizing up, switches to flexable image in .gallery.band
+    - on tablet and desktop flexable background image is created in gallery-wrapper
+        - when resizing down to mobile these stay visible
+    ------------------------------------------------------------------- */
+
+#gallery {
+    overflow: hidden; _overflow: visible; zoom: 1; /* clearfix */
+    position: relative;
+}
+
+.gallery-wrapper {
+    overflow: hidden; _overflow: visible; zoom: 1; /* clearfix */
+    float: left;
+    width: 100%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+
+    .js-disabled .gallery-wrapper{
+        padding-top:40%;
+        background-image: url(/static/img/gallery-1100.jpg); /* no javascript fallback = just load ribbon as repeating background image */
+
+    }
+
+    .gallery-wrapper.gallery-carousel {
+        float: none;
+        background-size: 0%;
+    }
+
+#gallery .caroufredsel_wrapper {
+    /* override inline styles added by plugin */
+    overflow: visible !important;
+    margin: 0 auto !important;
+}
+
+.gallery-frame {
+    position: relative;
+    float: left;
+    width: 20%;
+    height: 0;
+    padding-top: 19.9%;
+    -webkit-transition: opacity 1s;
+            transition: opacity 1s;
+}
+
+    .gallery-carousel .gallery-frame {
+        height: 220px;
+        width: 220px;
+        margin: 0 5px;
+        padding-top: 0;
+        background-image: inherit;
+    }
+
+    .gallery-frame-2 { background-position: -220px 0; }
+    .gallery-frame-3 { background-position: -440px 0; }
+    .gallery-frame-4 { background-position: -660px 0; }
+    .gallery-frame-5 { background-position: -880px 0; }
+    .gallery-frame-6 { background-position: 0 -220px; }
+    .gallery-frame-7 { background-position: -220px -220px; }
+    .gallery-frame-8 { background-position: -440px -220px; }
+    .gallery-frame-9 { background-position: -660px -220px; }
+    .gallery-frame-10 { background-position: -880px -220px; }
+
+
+#gallery-next,
+#gallery-prev {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    height: 220px;
+    width: 45px;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    opacity: 0;
+    -webkit-transition: opacity 0.5s;
+            transition: opacity 0.5s;
+}
+
+#gallery-next {
+    left: auto;
+    right: 0;
+}
+
+    #gallery-next:focus,
+    #gallery-next:hover,
+    #gallery-prev:focus,
+    #gallery-prev:hover {
+        background: rgba(0, 0, 0, 0.3);
+        opacity: 1;
+        outline: none;
+    }
+
+
+
+/* mobile always has single band */
+
+@media (max-width: 680px) {
+}
+
+/* tablet gets flexible double band */
+@media (min-width: 681px) {
+
+    #gallery .caroufredsel_wrapper {
+        display: none !important; /* over riding inline  styles added by plugin */
+    }
+
+    #gallery-next,
+    #gallery-prev {
+        display:none !important; /* over riding inline  styles added by plugin */
+    }
+
+    #gallery-band {
+        height: 0;
+        padding-top: 20%;
+        background-size: 100%;
+    }
+
+    .gallery-frame {
+        margin: 0;
+    }
+
+
+}
+
+/* desktop gets fixed double band */
+@media (min-width: 1101px) {
+    #gallery {
+        height:440px;
+        padding-top: 0;
+    }
+
+    #gallery-band {
+        height: 0;
+        padding-top: 220px;
+        background-size: auto;
+        background-position: top center;
+    }
+
+    .gallery-wrapper {
+        max-width: 100%;
+        background-size: auto;
+        background-repeat: repeat;
+    }
+
+    .gallery-frame {
+        visibility: hidden;
+    }
+}
+/* add modernizer test for background size - NO, only IE8 falls into this catagory */
+
+
 /*  -------------------------------------------------------------------
     Apply
     ------------------------------------------------------------------- */
@@ -1463,3 +1627,5 @@
         padding: 60px 0;
     }
 }
+
+

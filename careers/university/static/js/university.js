@@ -6,10 +6,9 @@
     *  check for touch support, load js libraries, and activate page interactions
     */
 
-
     Modernizr.load({
         test: Mozilla.Test.isSmallScreen,
-        yep: ['/static/js/libs/jquery.carouFredSel-6.2.1-packed.js','/static/js/libs/jquery.touchSwipe.min.js'],
+        yep: $('body').data('js-smallscreen'),
         complete: animationInit
     });
 
@@ -17,8 +16,8 @@
         differentListInit();
         knowBoxInit();
         testimonialsInit();
+        galleryInit();
     }
-
 
     /*
     *  It's Different section
@@ -147,7 +146,6 @@
             $('.know-box').addClass('past');
         }
     }
-
 
     /*
     *  Videos
@@ -378,4 +376,89 @@
     if(Mozilla.Test.isSmallScreen) {
         eventsLengthInit();
     }
+
+    /*
+    *  Gallery section
+    *  - loads large gallery image after window.onload
+    *  - smaller screens get a single height image gallery they can click or swipe through
+    *  - larger screens get a double height band that is static
+    */
+
+    // load the gallery sprite
+    function galleryLoadImage() {
+
+        var galleryImageLocation = '/static/img/gallery-1100.jpg';
+        $('.gallery-wrapper').css({'background-image': 'url('+galleryImageLocation+')'});
+
+    }
+
+    // setup the carousel
+    function gallerySwipe() {
+
+        // add the carousel class so styling stayes even if window resizes
+        $('.gallery-wrapper').addClass('gallery-carousel');
+
+        // add buttons
+        $('<button id="gallery-prev" class="carousel-button carousel-button-prev"></button>').insertBefore('.gallery-carousel');
+        $('<button id="gallery-next" class="carousel-button carousel-button-next"></button>').insertBefore('.gallery-carousel');
+
+        // add div that can act as fallback if user increases window size
+        $('<div id="gallery-band"></div>').insertBefore('.gallery-carousel');
+        $('#gallery-band').css({'background-image': 'url(/static/img/gallery-1100.jpg)'});
+
+
+        // gallery items are 230px wide = 220px wide + 5px padding on each side
+        var galleryItemWidth = 230;
+
+        // how much space do we have?
+        var galleryContainWidth = $(window).width();
+
+        // measure how many items we can fit, minimum 1, leaving room for min 45px wide buttons
+        var galleryVisibleItems = Math.floor( (galleryContainWidth - (45 * 2)) / galleryItemWidth);
+        if (galleryVisibleItems < 1) { galleryVisibleItems = 1; }
+
+        // set gallery width to be width of visible items
+        var galleryWidth = galleryItemWidth * galleryVisibleItems;
+        $('.gallery-carousel').width(galleryWidth + 'px');
+
+        // set button width to fill leftover space
+        var galleryButtonWidth = ((galleryContainWidth - galleryWidth) / 2) - 5;
+        $('#gallery .carousel-button').width(galleryButtonWidth);
+
+        // initialize the carousel
+        $(".gallery-carousel").carouFredSel({
+            responsive: false,
+            width: galleryWidth,
+            height: 220,
+            align: 'center',
+            prev: '#gallery-prev',
+            next: '#gallery-next',
+            scroll: galleryVisibleItems,
+            swipe: {
+                onTouch: true
+            },
+            items: {
+                width: galleryItemWidth,
+                visible: galleryVisibleItems
+            },
+            auto: false
+        });
+
+        // add negative margin to move first item in gallery off to left
+        var galleryNegativeMargin = galleryItemWidth * -1;
+        $('.gallery-carousel').css({'margin-left': galleryNegativeMargin+ 'px'});
+    }
+
+    // init #gallery section
+    function galleryInit() {
+
+        if(Mozilla.Test.isSmallScreen) {
+            gallerySwipe();
+        }
+
+        galleryLoadImage();
+
+    }
+
+
 })(window, jQuery);
