@@ -18,16 +18,20 @@
          */
         locationsFor: {
             remote: ['Remote'],
-            berlin: ['Berlin', 'Europe', 'Any Office'],
-            boston: ['Boston', 'US', 'Any Office'],
-            london: ['London', 'Europe', 'Any Office'],
-            mountainview: ['Mountain View', 'Bay Area', 'US', 'Any Office'],
-            newzealand: ['New Zealand', 'Any Office'],
-            paris: ['Paris', 'Europe', 'Any Office'],
-            portland: ['Portland', 'US', 'Any Office'],
-            sanfrancisco: ['San Francisco', 'Bay Area', 'US', 'Any Office'],
-            toronto: ['Toronto', 'Any Office'],
-            vancouver: ['Vancouver', 'Any Office']
+            berlin: ['Berlin', 'Europe', 'Any Office', 'Remote'],
+            boston: ['Boston', 'US', 'North America', 'Any Office', 'Remote'],
+            london: ['London', 'Europe', 'Any Office', 'Remote'],
+            mountainview: ['Mountain View', 'Bay Area', 'US', 'North America', 'Any Office', 'Remote'],
+            newzealand: ['New Zealand', 'Any Office', 'Remote'],
+            paris: ['Paris', 'Europe', 'Any Office', 'Remote'],
+            portland: ['Portland', 'US', 'North America', 'Any Office', 'Remote'],
+            sanfrancisco: ['San Francisco', 'Bay Area', 'US', 'North America', 'Any Office', 'Remote'],
+            toronto: ['Toronto', 'North America', 'Any Office', 'Remote'],
+            vancouver: ['Vancouver', 'North America', 'Any Office', 'Remote'],
+            bayarea: ['Mountain View', 'San Francisco', 'Bay Area', 'US', 'North America', 'Any Office', 'Remote'],
+            latinamerica: ['Latin America', 'Remote'],
+            northamerica: ['Boston', 'Portland', 'Mountain View', 'San Francisco', 'Toronto', 'Vancouver', 'Bay Area', 'US', 'North America', 'Any Office', 'Remote'],
+            europe: ['Berlin', 'London', 'Paris', 'Europe', 'Any Office', 'Remote']
         },
 
         /**
