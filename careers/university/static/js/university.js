@@ -110,8 +110,8 @@
 
         // add next & prev & pagination
         $('<div id="know-boxes-pager" class="carousel-pager"></div>').insertBefore('#know-boxes');
-        $('<button id="know-boxes-prev" class="carousel-button carousel-button-prev">').insertBefore('#know-boxes');
-        $('<button id="know-boxes-next" class="carousel-button carousel-button-next">').insertBefore('#know-boxes');
+        $('<button id="know-boxes-prev" class="carousel-button carousel-button-prev" type="button">Previous</button>').insertBefore('#know-boxes');
+        $('<button id="know-boxes-next" class="carousel-button carousel-button-next" type="button">Next</button>').insertBefore('#know-boxes');
 
         // init carousel
         var knowBoxWidth = $('#know-boxes-pager').width();
@@ -155,8 +155,8 @@
     function testimonialsSwipe() {
 
         // add next & prev & pagination
-        $('<button id="testimonials-prev" class="carousel-button carousel-button-prev"></button>').insertBefore('.testimonials');
-        $('<button id="testimonials-next" class="carousel-button carousel-button-next"></button>').insertBefore('.testimonials');
+        $('<button id="testimonials-prev" class="carousel-button carousel-button-prev" type="button">Previous</button>').insertBefore('.testimonials');
+        $('<button id="testimonials-next" class="carousel-button carousel-button-next" type="button">Next</button>').insertBefore('.testimonials');
 
         // init carousel
         $('.testimonials').eq(0).carouFredSel({
@@ -369,7 +369,7 @@
             eventRows.slice(4).addClass('event-toggle').addClass('event-toggle-off');
 
             // add show button & listener
-            $('<button id="event-toggle-button">Show More</button>').appendTo('#meetus .contain');
+            $('<button id="event-toggle-button" type="button">Show More</button>').appendTo('#meetus .contain');
             $('#event-toggle-button').on('click', eventsToggle);
         }
     }
@@ -392,8 +392,8 @@
         $('.gallery-wrapper').addClass('gallery-carousel');
 
         // add buttons
-        $('<button id="gallery-prev" class="carousel-button carousel-button-prev"></button>').insertBefore('.gallery-carousel');
-        $('<button id="gallery-next" class="carousel-button carousel-button-next"></button>').insertBefore('.gallery-carousel');
+        $('<button id="gallery-prev" class="carousel-button carousel-button-prev" type="button">Previous</button>').insertBefore('.gallery-carousel');
+        $('<button id="gallery-next" class="carousel-button carousel-button-next" type="button">Next</button>').insertBefore('.gallery-carousel');
 
         // add div that can act as fallback if user increases window size
         $('<div id="gallery-band"></div>').insertBefore('.gallery-carousel');

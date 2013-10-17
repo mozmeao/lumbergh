@@ -125,8 +125,8 @@
         var galleryBlocksContain = $('<div class="life-blocks-contain"></div>');
 
         // blocks buttons
-        var galleryPrev = $('<button id="life-blocks-prev" class="carousel-button carousel-button-prev"></button>');
-        var galleryNext = $('<button id="life-blocks-next" class="carousel-button carousel-button-next"></button>');
+        var galleryPrev = $('<button id="life-blocks-prev" class="carousel-button carousel-button-prev" type="button">Previous</button>');
+        var galleryNext = $('<button id="life-blocks-next" class="carousel-button carousel-button-next" type="button">Next</button>');
 
         // blocks frames
         for (var i = 0 ; i < frames; i++) {
@@ -158,8 +158,8 @@
 
         // add next & prev & pagination
         $('<div id="life-perks-pager" class="carousel-pager"></div>').insertBefore('#life-perks-perks');
-        $('<button id="life-perks-prev" class="carousel-button carousel-button-prev">').insertBefore('#life-perks-perks');
-        $('<button id="life-perks-next" class="carousel-button carousel-button-next">').insertBefore('#life-perks-perks');
+        $('<button id="life-perks-prev" class="carousel-button carousel-button-prev" type="button">Previous</button>').insertBefore('#life-perks-perks');
+        $('<button id="life-perks-next" class="carousel-button carousel-button-next" type="button">Next</button>').insertBefore('#life-perks-perks');
 
         // init carousel
         var perksWidth = $('.life-perks-head').width();
@@ -248,7 +248,7 @@
             var videoModal = $('<div id="community-interns-modal" class="community-modal"></div>');
 
             // create and attach close/stop button
-            var videoModalClose = $('<button class="community-modal-close">&times;</button>');
+            var videoModalClose = $('<button class="community-modal-close" type="button">&times;</button>');
             videoModalClose.on('click', communityVideoHide);
             videoModalClose.appendTo(videoModal);
 
@@ -277,7 +277,7 @@
             videojs('#video-interns');
 
             // create button to open modal & begin playing video
-            var videoModalOpen = $('<button class="community-modal-open"></button>');
+            var videoModalOpen = $('<button class="community-modal-open" type="button"></button>');
             videoModalOpen.on('click', communityVideoShow);
             videoModalOpen.appendTo('.community-box.community-interns');
 

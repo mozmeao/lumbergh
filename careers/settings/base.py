@@ -64,6 +64,9 @@ MINIFY_BUNDLES = {
         'listings': (
             'css/listings.css',
         ),
+        'listings-ie8': (
+            'css/listings-ie8.css',
+        ),
     },
     'js': {
         'jquery': (
@@ -80,21 +83,22 @@ MINIFY_BUNDLES = {
         ),
         'google_analytics_events': (
             'js/ga_event-tracking.js',
-        ),        
-        'listings': (
-            'js/filters.js',
         ),
         'careers': (
             'js/careers.js',
+        ),
+        'listings': (
+            'js/listings.js',
+            'js/filters.js',
+        ),
+        'listings-ie8': (
+            'js/filters.js',
         ),
         'university': (
             'js/university.js',
         ),
         'university_links': (
             'js/university_links.js',
-        ),
-        'listings': (
-            'js/filters.js',
         ),
         'position': (
             'js/position.js',

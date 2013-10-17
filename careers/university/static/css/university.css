@@ -1554,7 +1554,6 @@
 #apply p a:focus,
 #apply p a:active {
     color: #4bbde6;
-    text-decoration: none;
 }
 
 @media (min-width: 681px) {

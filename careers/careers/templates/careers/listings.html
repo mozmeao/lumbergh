@@ -3,43 +3,82 @@
 {% set navbar_section = 'listings' %}
 {% block page_title %}Listings{% endblock %}
 
-{% block content %}
-<section id="listings">
-  {# Placeholder HTML, table and form are not final. #}
-  <form id="position-filters">
-    {{ form.position_type }}
-    {{ form.team }}
-    {{ form.location }}
-  </form>
+{% block site_css %}
+  {{ super() }}
+  {{ css('listings') }}
+{% endblock %}
 
-  <table id="positions">
-    <tr>
-      <th>Job Title</th>
-      <th>Location</th>
-      <th>Position</th>
-      <th>Team</th>
-    </tr>
-    {% for position in positions %}
-      <tr class="position"
-          data-team="{{ position.category.id }}"
-          data-type="{{ position.job_type|readable_job_type }}"
-          data-location="{{ position.location_filter }}">
-        <td class="title"><a href="{{ position.get_absolute_url() }}" class="ga-job-listing">{{ position.title }}</a></td>
-        <td class="location">{{ position.location }}</td>
-        <td class="type">{{ position.job_type|readable_job_type }}</td>
-        <td class="name">{{ position.category.name }}</td>
-      </tr>
-    {% endfor %}
-    <tr class="empty-filter-message" style="display: none">
-      <td colspan="4">
-        <p>No jobs found that match the selected filters.</p>
-      </td>
-    </tr>
-  </table>
-</section>
+{% block site_ie8 %}
+  {{ super() }}
+  {{ css('listings-ie8') }}
 {% endblock %}
 
 {% block site_js %}
   {{ super() }}
-  {{ js('listings') }}
+  <!--[if gt IE 8]> <!-- -->
+    {{ js('listings') }}
+  <!-- <![endif]-->
+  {{ js('listings-ie8') }}
 {% endblock %}
+
+{% block content %}
+
+<section id="listings-intro">
+  <h2 class="listings-intro-head">Careers at Mozilla</h2>
+  <p class="listings-intro-body">
+    Below is our current list of job openings, available internships and contract opportunities. Have a look around and if there’s one that fits you, please apply. If not, keep checking back. Good luck.
+  </p>
+</section>
+
+<section id="listings">
+  <div class="contain">
+    <h2 class="listings-head">Listings</h2>
+
+    <form id="listings-filters">
+      <h3 class="listings-filters-head">Filter by</h3>
+      <div class="listings-filter listings-filter-location">
+        {{ form.location }}
+        <label for="id_location">Location</label>
+      </div>
+      <div class="listings-filter listings-filter-type">
+        {{ form.position_type }}
+        <label for="id_position_type">Position Type</label>
+      </div>
+      <div class="listings-filter listings-filter-name">
+        {{ form.team }}
+        <label for="id_team">Team</label>
+      </div>
+    </form>
+
+    <table id="listings-positions">
+      <thead>
+        <tr>
+          <th class="title" scope="col">Job Title</th>
+          <th class="location" scope="col">Location</th>
+          <th class="type" scope="col">Position</th>
+          <th class="name" scope="col">Team</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for position in positions %}
+        <tr class="position"
+            data-team="{{ position.category.id }}"
+            data-type="{{ position.job_type|readable_job_type }}"
+            data-location="{{ position.location_filter }}">
+          <td class="title"><a href="{{ position.get_absolute_url() }}">{{ position.title }}</a></td>
+          <td class="location">{{ position.location }}</td>
+          <td class="type">{{ position.job_type|readable_job_type }}</td>
+          <td class="name">{{ position.category.name }}</td>
+        </tr>
+      {% endfor %}
+        <tr class="empty-filter-message hidden">
+          <td colspan="4">
+            <p>No jobs found that match the selected filters.</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}
+

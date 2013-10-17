@@ -788,7 +788,6 @@
 .community-box a:focus,
 .community-box a:active {
     color: #4bbde6;
-    text-decoration: none;
 }
 
 .community-modal {
