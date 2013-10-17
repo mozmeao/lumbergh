@@ -81,6 +81,10 @@ MINIFY_BUNDLES = {
         'careers': (
             'js/careers.js',
         ),
+        'smallscreen': (
+            'js/libs/jquery.carouFredSel-6.2.1-packed.js',
+            'js/libs/jquery.touchSwipe.min.js',
+        ),
         'ie8shims': (
             'js/libs/html5shiv-printshiv.js',
         ),

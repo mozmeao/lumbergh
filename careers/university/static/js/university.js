@@ -110,7 +110,7 @@
         $('#know').addClass('caroufredsel');
 
         // add next & prev & pagination
-        $('<div id="know-boxes-pager"></div>').insertBefore('#know-boxes');
+        $('<div id="know-boxes-pager" class="carousel-pager"></div>').insertBefore('#know-boxes');
         $('<button id="know-boxes-prev" class="carousel-button carousel-button-prev">').insertBefore('#know-boxes');
         $('<button id="know-boxes-next" class="carousel-button carousel-button-next">').insertBefore('#know-boxes');
 
