@@ -27,7 +27,7 @@
           </dl>
 
           <div class="apply">
-            <a id="job-apply" href="{{ position.apply_url }}">Apply for this Job</a>
+            <a id="job-apply" class="ga-job-listing-apply" href="{{ position.apply_url }}">Apply for this Job</a>
           </div>
         </div> <!-- /.float -->
       </div> <!-- /#job-meta -->
@@ -41,7 +41,7 @@
             {% for p in positions if p != position %}
               <li>
                 <a href="{{ url('careers.position', p.job_id) }}"
-                   class="{% if position.job_id == p.job_id %}active{% endif %}"
+                   class="{% if position.job_id == p.job_id %}active{% endif %} ga-job-listing-detail"
                    title="{{ p.title }}">{{ p.title }}</a>
               </li>
             {% endfor %}

@@ -1,7 +1,7 @@
 {% set navbar_section = navbar_section|default(None) -%}
 
 <!DOCTYPE html>
-<html lang="{{ LANG }}" dir="{{ DIR }}" class="js-disabled">
+<html lang="{{ LANG }}" dir="{{ DIR }}" class="js-disabled" data-ga-code="{{ settings.GA_ACCOUNT_CODE }}">
   <head>
     {# meta #}
     <meta charset="UTF-8">
@@ -29,6 +29,10 @@
     {# icons #}
     <link rel="shortcut icon" type="image/png" href="{{ static('img/favicon.png') }}"/>
 
+    {% block google_analytics %}
+      {{ js('google_analytics') }}
+    {% endblock %}
+
   </head>
   <body id="{% block body_id %}{% endblock %}"
         {% block body_data %}
@@ -53,13 +57,12 @@
     {# js #}
     {% block site_js %}
       {{ js('jquery') }}
+      {{ js('google_analytics_events') }}
       <!--[if gt IE 8]> <!-- -->
       {{ js('common') }}
       <!-- <![endif]-->
     {% endblock %}
     <script src="//mozorg.cdn.mozilla.net/tabzilla/tabzilla.js"></script>
 
-    <!-- ANALYTICS -->
-    {% include "base/ga.html" %}
   </body>
 </html>
