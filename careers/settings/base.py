@@ -69,6 +69,12 @@ MINIFY_BUNDLES = {
             'js/libs/video-js/video.dev.js',
             'js/base.js',
         ),
+        'google_analytics': (
+            'js/ga.js',
+        ),
+        'google_analytics_events': (
+            'js/ga_event-tracking.js',
+        ),        
         'listings': (
             'js/filters.js',
         ),
@@ -101,6 +107,9 @@ NOSE_ARGS = ['--logging-clear-handlers', '--logging-filter=-factory,-south']
 
 # Careers-specific Settings
 ##############################################################################
+
+# Goolge Analytics Code
+GA_ACCOUNT_CODE = 'UA-36116321-8'
 
 # URI of Jobvite job feed.
 JOBVITE_URI = 'https://www.jobvite.com/CompanyJobs/Xml.aspx?c=qpX9Vfwa&cf=e'
