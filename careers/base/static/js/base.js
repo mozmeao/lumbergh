@@ -91,7 +91,7 @@ Mozilla.Test = (function(w, $) {
 
         // add tray and copy nav there
         $('body').prepend('<div id="nav-tray" tabindex="-1"></div>');
-        $('#nav-main-menu').clone().appendTo('#nav-tray');
+        $('#nav-main-menu').clone().attr('id', '').appendTo('#nav-tray');
 
         // add close button
         $('body').prepend('<button id="nav-tray-close" type="button">Close</button>');
@@ -150,6 +150,23 @@ Mozilla.Test = (function(w, $) {
         trayMenuInit();
     });
 
+
+    /*
+    *  Compensate for header height when direct linking
+    */
+
+    $(function() {
+        var pageHref = window.location.hash;
+        if (pageHref) {
+            if($(pageHref).length > 0) {
+                // scroll a bit to avoid sticky header covering things
+                $('html,body').animate({
+                    scrollTop: $(pageHref).offset().top - $('.masthead').height() + 1
+                }, 1000);
+            }
+        }
+    });
+
     /*
     *  smooth scrolling
     *  http://css-tricks.com/snippets/jquery/smooth-scrolling/
@@ -161,15 +178,18 @@ Mozilla.Test = (function(w, $) {
                 var target = $(this.hash);
                 target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
                 if (target.length) {
+                    // animated scroll to target (+1 to make sure waypoint for anchor is triggered)
                     $('html,body').animate({
-                        scrollTop: target.offset().top - $('.masthead').height()
+                        scrollTop: target.offset().top - $('.masthead').height() + 1
                     }, 1000);
+                    // give target keyboard focus
+                    target.attr('tabindex', -1);
+                    target.focus();
                     return false;
                 }
             }
         });
     });
-
 
 
 })(jQuery);

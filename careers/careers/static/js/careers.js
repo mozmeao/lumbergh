@@ -1,18 +1,6 @@
 (function(w, $) {
     'use strict';
 
-    $(function() {
-        // Highlight correct link in the top navigation based on the url fragment id.
-        var fragment = window.location.hash;
-        if (fragment) {
-            var matchedNavLink = $('#nav-main-menu a[href$="' + fragment + '"]');
-            if (matchedNavLink.length > 0) {
-                $('#nav-main-menu .current').removeClass('current');
-                matchedNavLink.parent('li').addClass('current');
-            }
-        }
-    });
-
     Modernizr.load({
         test: Mozilla.Test.isSmallScreen,
         yep: ['/static/js/libs/jquery.carouFredSel-6.2.1-packed.js','/static/js/libs/jquery.touchSwipe.min.js'],
@@ -22,13 +10,118 @@
 
 
     function animationInit() {
-         teamsInit();
+        teamsInit();
         galleryInit();
         perksInit();
         communityVideoInit();
         locationsInit();
         nextInit();
     }
+
+    /*
+    *  Highlight current navigation menu items
+    *  - when initilaized it adds waypoints to top and bottom of each section which has a menu
+    *    link to fire the highligh and unhighlight functions according to section ID
+    *  - this only works on the careers page, would need to code to determine the "home" page
+    *    if it was expanded to work on other pages, that is hard coded right now
+    *  - nav menu items with in page anchors will only correctly highlight
+    *    if there are no 2 matching ones (ie. can't have a #teams on 2 different pages)
+    *    as the code does not check if you are on the correct page before highlighting
+    *    the associated nav menu, just that the anchor matches
+    *  - waypoints are not triggered in the perfect order, when a user fast scrolls they
+    *    the entrance sometimes fires before the exit
+    *  - the home page link is re-highlighted if no other links are highlighted
+    */
+
+
+    // adds class to identified anchor and removes from home if necissary
+    function menuCurrentHighlight(menuLinkHash) {
+        var matchedNavLink = $('.nav-main-menu a[href$="' + menuLinkHash + '"]');
+        if (matchedNavLink.length > 0) {
+            matchedNavLink.parent('li').addClass('current');
+        }
+        $('.nav-main-home').removeClass('current');
+    }
+
+    /*  remove class from identified anchor and add it back to home if there is not
+    *   an other .current anchor, there could be a second if a new section is moved into
+    *   before an old section is moved out of, as the waypoints don't always fire in
+    *   the ideal order
+    */
+    function menuCurrentUnHighlight(menuLinkHash) {
+        // remove the class from the specified anchor
+        var matchedNavLink = $('.nav-main-menu a[href$="' + menuLinkHash + '"]');
+        if (matchedNavLink.length > 0) {
+            matchedNavLink.parent('li').removeClass('current');
+        }
+
+        // if there is no other current menu item
+        if ($('.nav-main-menu .current').length === 0) {
+            // highlight home
+            $('.nav-main-home').addClass('current');
+        }
+    }
+
+    // adds waypoints to sections according to menu anchors
+    function menuCurrentInit() {
+        // get url
+        var currentHref = window.location.href;
+        var currentPage = currentHref;
+        if (window.location.hash) {
+            currentPage = currentHref.substr(0, currentHref.indexOf('#'));
+        }
+
+        // get anchor and compare to URL
+        $('#nav-main a').each( function() {
+            var menuLinkHref = this.href;
+            var menuLinkPage = menuLinkHref;
+
+            if (this.hash) {
+                menuLinkPage = menuLinkHref.substr(0, menuLinkHref.indexOf('#'));
+            }
+
+            if (menuLinkPage === currentPage) {
+                // check this is a hash and not the home link
+                if (this.hash) {
+                    var menuLinkHash = this.hash;
+                    // get corresponding section on this page
+                    var menuSection = $(menuLinkHash);
+
+                    // add waypoint to this section when scrolling past top
+                    menuSection.waypoint( function(direction) {
+                        if (direction === 'down') {
+                            menuCurrentHighlight(menuLinkHash);
+                        } else if (direction === 'up') {
+                            menuCurrentUnHighlight(menuLinkHash);
+                        }
+                    }, {
+                        offset: function() {
+                            return $('header.masthead').height();
+                        }
+                    });
+
+                    // add waypoint to this section when scrolling past bottom
+                    menuSection.waypoint( function(direction) {
+                        if (direction === 'up') {
+                            menuCurrentHighlight(menuLinkHash);
+                        } else if (direction === 'down') {
+                            menuCurrentUnHighlight(menuLinkHash);
+                        }
+                    }, {
+                        offset: function() {
+                            return (menuSection.outerHeight() * -1) + $('header.masthead').height();
+                        }
+                    });
+                }
+            }
+        });
+    }
+
+    // trigger menu highlighting
+    $(function() {
+        menuCurrentInit();
+    });
+
 
    /*
     *  Teams & Roles
@@ -254,6 +347,7 @@
         secondNav.insertAfter('.teams-head');
     }
 
+
     /*
     *  Locations
     *  - two ways to show details:
@@ -268,7 +362,7 @@
 
     function locationsEscapeWatch(e) {
         // if escape key is pressed, hide all modals
-        if (e.keyCode == 27) {
+        if (e.keyCode === 27) {
             locationsHide(null);
         }
     }
@@ -472,8 +566,11 @@
             galleryClass = 'large';
         }
 
+        // fix parent at correct height
+        $('#life-gallery').addClass('life-blocks-' + galleryClass);
+
         // blocks container
-        var galleryBlocks = $('<div id="life-blocks" class="life-blocks-' + galleryClass + '"></div>');
+        var galleryBlocks = $('<div id="life-blocks"></div>');
         var galleryBlocksContain = $('<div class="life-blocks-contain"></div>');
 
         // blocks buttons
@@ -540,6 +637,7 @@
             if ($(window).width() > 680) {
                 $('.life-perk').trigger('destroy', true);
                 $('.life-perk').css('width', '');
+                $('#life-perks').addClass('perks-nocarousel');
                 $(window).off('resize', perksSwipeResize);
             }
         }
@@ -551,6 +649,8 @@
     function perksInit() {
         if (Mozilla.Test.isSmallScreen) {
             perksSwipe();
+        } else {
+            $('#life-perks').addClass('perks-nocarousel');
         }
     }
 

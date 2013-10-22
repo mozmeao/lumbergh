@@ -1011,6 +1011,7 @@
 }
 
 #life-perks {
+    overflow: hidden; _overflow: visible; zoom: 1; /* clearfix */
     position: relative;
     text-align: center;
 }
@@ -1063,7 +1064,26 @@
          .life-perk-office > h4:after { content: '\e00a'; padding-left: 1px; }
          .life-perk-snacks > h4:after { content: '\e008'; margin-top: 0px; }
 
-@media (min-width: 680px) {
+@media (max-width: 680px) {
+    /* line these up on the same line until carousel loads */
+    .js-enabled .life-perk {
+        margin-right: -670px;
+    }
+
+    /* fix it once carousel is loaded */
+    .caroufredsel_wrapper .life-perk {
+        margin-right: 0;
+        padding-bottom: 0px;
+    }
+
+    /* or if carousel is not initilaized because we're not mobile,
+       incase they resize down to mobile */
+    .perks-nocarousel .life-perk {
+        margin-right: 0;
+    }
+}
+
+@media (min-width: 681px) {
 
     #life {
         padding: 30px 0;
@@ -1092,7 +1112,6 @@
 
     #life-perks-perks {
         margin:0 -20px 0 0;
-
     }
 
     .life-perk {
@@ -1174,23 +1193,34 @@
 }
 @media (min-width:681px) {
     #life-gallery,
-    #life-blocks { height:345; }
+    #life-blocks {
+        height:345;
+    }
 }
 @media (min-width:921px) {
     #life-gallery,
-    #life-blocks { height:460px; }
+    #life-blocks {
+        height:460px;
+    }
 }
 
 @media (min-width:1px) {
-    #life-gallery { display: block; height: auto; }
+    #life-gallery {
+        display: block;
+    }
 
-    #life-blocks.life-blocks-small {
+    #life-gallery.life-blocks-small,
+    .life-blocks-small #life-blocks {
         height: 225px;
     }
-    #life-blocks.life-blocks-medium {
+
+    #life-gallery.life-blocks-medium,
+    .life-blocks-medium #life-blocks {
         height: 345px;
     }
-    #life-blocks.life-blocks-large {
+
+    #life-gallery.life-blocks-large,
+    .life-blocks-large #life-blocks  {
         height: 460px;
     }
 
