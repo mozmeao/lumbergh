@@ -21,36 +21,19 @@
 
     /*
     *  It's Different section
+    *  - list switch (where user toggles visible list) capabilities are initalized at all sizes
+    *  - parallax is loaded only isParallax on page load
+    *    - spacer is made to take the place of the section head
+    *    - section head is position fixed by .pin until there is 750px of section remaining
+    *      - picked to keep bottom list from scrolling out of view
+    *    - at that point section head is absolutely positioned by .pin-past in the section and beings
+    *      to scroll
+    *  - list heads are absolutely positioined to the top of the list container by .pin then position
+    *    fixed until the bottom of the list reaches the bottom of the head and then they are
+    *    absolutly positioned by .pin-past to the bottom of the list container (this involves much maths, which the js handles)
     */
 
-    var different = document.getElementById('different');
-    var bottomInView = $(window).height() - $('#different').outerHeight();
-
-    // bring in coffee cup
-
-    var cupFromTop = parseInt(window.getComputedStyle((different),':before').top, 10);
-    var cupFromBottom = $('#different').outerHeight() - cupFromTop;
-    var seeSomeCup = 100;
-
-    $('#different').waypoint(function() {
-        $('#different').addClass('different-cup');
-    }, { offset: bottomInView + cupFromBottom - seeSomeCup });
-
-    // bring in phone
-
-    var phoneFromBottom = parseInt(window.getComputedStyle((different),':after').height, 10) - 60;
-    var seeSomePhone = 200;
-
-    $('#different').waypoint(function() {
-        $('#different').addClass('different-phone');
-        // if page loads and we are past phone cup doesn't load - load cup
-        $('#different').addClass('different-cup');
-        // we've got them both and can destroy this listener
-        $('#different').waypoint('destroy');
-    }, { offset: function() {return bottomInView + phoneFromBottom - seeSomePhone; } });
-
-    // overlaping list display functions
-
+    // switches between lists when they are in mobile/tablet display
     function differentListSwitch(e) {
         // if it was a click or enter key
         if (e.type === 'click' || e.which === 13) {
@@ -61,6 +44,7 @@
         }
     }
 
+    // adds events to allow headings to trigger switch between lists
     function differentListSwitchInit() {
         // enable click on headings (including adding tab index)
         var differentListHeadings = $('.different-list h3');
@@ -69,20 +53,151 @@
         $(differentListHeadings).on('click keydown', differentListSwitch);
     }
 
-    // scroll in place list display functions
+    // waypoints for cup and phone
+    function differentListPinObjectInit () {
+        var different = $('#different');
+        var differentEl = document.getElementById('different');
+        var bottomInView = $(window).height() - different.outerHeight();
 
-    function differentListScrollInit() {
-        // TODO: parallax functionality being left until other stuff is fixed
+        // adds waypoints to slide cup into view
+
+        var cupFromTop = parseInt(window.getComputedStyle(differentEl,':before').top, 10);
+        var cupFromBottom = different.outerHeight() - cupFromTop;
+        var seeSomeCup = 100;
+
+        different.waypoint(function() {
+            different.addClass('different-cup');
+        }, {
+            offset: bottomInView + cupFromBottom - seeSomeCup,
+            triggerOnce: true
+        });
+
+        // adds waypoints to slide phone into view
+
+        var phoneFromBottom = parseInt(window.getComputedStyle(differentEl,':after').height, 10) - 60;
+        var seeSomePhone = 200;
+
+        different.waypoint(function() {
+            different.addClass('different-phone');
+            // if page loads and we are past phone cup doesn't load - load cup
+            different.addClass('different-cup');
+        }, {
+            offset: function() {return bottomInView + phoneFromBottom - seeSomePhone; },
+            triggerOnce: true
+        });
+    }
+
+    // waypoints to add/remove .pin and .pin-past classes to section head and list heads
+    function differentListPinHeadInit () {
+        var different = $('#different');
+        var mastheadHeight = $('header.masthead').height();
+        var differentListsHeadHeight = $('.different-lists-head').height();
+
+        // create container to hold place of pinned list header
+        var differentListHeadSpacer = $('<div />').attr('id', 'different-list-head-spacer');
+        // set its height
+        differentListHeadSpacer.height(differentListsHeadHeight);
+        // attach
+        differentListHeadSpacer.prependTo('#different');
+
+        /* waypoint to pin and unpin section head and subhead */
+
+        // waypoint toggle for scrolling past top of section
+        different.waypoint( function(direction) {
+            if (direction === 'down') {
+                different.addClass('pin');
+            } else if (direction === 'up') {
+                different.removeClass('pin');
+            }
+        }, {
+            offset: mastheadHeight
+        });
+
+        // waypoint toggle for scrolling to bottom of section
+        // triggered when there is 750px of the section remaining
+        different.waypoint( function(direction) {
+            if (direction === 'down') {
+                different.addClass('pin-past');
+            } else if (direction === 'up') {
+                different.removeClass('pin-past');
+            }
+        }, {
+            offset: function() {
+                return (different.height() - 700) * -1;
+            }
+        });
+
+        /* waypoints to pin and unpin list heads */
+
+        var differentWill = $('#different-will');
+
+        // add/remove pin to will head
+        differentWill.waypoint( function(direction) {
+            if (direction === 'down') {
+                differentWill.addClass('pin');
+            } else if (direction === 'up') {
+                differentWill.removeClass('pin');
+            }
+        }, {
+            offset: function() {
+                return mastheadHeight + differentListsHeadHeight ;
+            }
+        });
+
+        // add/remove past-pin to will head
+        differentWill.waypoint( function(direction) {
+            if (direction === 'down') {
+                differentWill.addClass('pin-past');
+            } else if (direction === 'up') {
+                differentWill.removeClass('pin-past');
+            }
+        }, {
+            offset: function() {
+                // down the height of all the fixed stuff
+                // up the height of the list
+                // down the bottom margin of the list (60px)
+                return mastheadHeight + differentListsHeadHeight + differentWill.find('h3').height() - differentWill.height() + 60;
+            }
+        });
+
+        var differentWillNot = $('#different-not');
+
+        // add/remove pin to will not head
+        differentWillNot.waypoint( function(direction) {
+            if (direction === 'down') {
+                differentWillNot.addClass('pin');
+            } else if (direction === 'up') {
+                differentWillNot.removeClass('pin');
+            }
+        }, {
+            offset: function() {
+                return mastheadHeight + differentListsHeadHeight ;
+            }
+        });
+
+        // add/remove past-pin to will not head
+        differentWillNot.waypoint( function(direction) {
+            if (direction === 'down') {
+                differentWillNot.addClass('pin-past');
+            } else if (direction === 'up') {
+                differentWillNot.removeClass('pin-past');
+            }
+        }, {
+            offset: function() {
+                return mastheadHeight + differentListsHeadHeight + differentWillNot.find('h3').height() - differentWillNot.height() + 60;
+            }
+        });
     }
 
     // init #different section
-
     function differentListInit() {
         if (Mozilla.Test.isParallax) {
-            differentListScrollInit();
+            differentListPinObjectInit();
+            differentListPinHeadInit();
         } else {
-            differentListSwitchInit();
+            $('#different').addClass('different-cup').addClass('different-phone');
         }
+        differentListSwitchInit();
     }
 
 
