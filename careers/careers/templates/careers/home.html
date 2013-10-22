@@ -25,9 +25,9 @@
   <h2 class="splash-head">We’re a global pack of do-gooders, hell-raisers and passionate defenders of the Web.</h2>
   <p class="splash-subhead">Want to join in?</p>
   <div class="cta-strip">
-    <a class="cta ga-career-banner-listings" href="#">View our current openings</a>
-    <a class="cta ga-career-banner-internship" href="#">Apply for an internship</a>
-    <a class="cta ga-career-banner-volunteer" href="http://www.mozilla.org/en-US/contribute/">Become a volunteer</a>
+    <a class="cta ga-career-banner-listings" href="{{ url('careers.listings') }}">View our current openings</a>
+    <a class="cta ga-career-banner-internship" href="{{ url('careers.listings')|urlparams(position_type='Intern') }}">Apply for an internship</a>
+    <a class="cta ga-career-banner-volunteer" href="https://www.mozilla.org/contribute/">Become a volunteer</a>
   </div>
   <div class="splash-credo">
     <div class="contain">
@@ -258,7 +258,7 @@
       <div class="community-box community-interns">
         <h4>Creative interns</h4>
         <p>A recent group of interns re-created our beloved Firefox out of Rubik’s Cubes. Showoffs.</p>
-        <p><a href="#">watch video</a></p>
+        <p><a href="https://videos-cdn.mozilla.net/serv/interns/Interns-It%20can%20be%20you-720p-MPEG-4%282%29.mp4">watch video</a></p>
       </div>
       <div class="community-box community-reps">
         <h4>Mozilla Reps</h4>
