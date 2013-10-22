@@ -97,9 +97,9 @@
     };
 
     $(function() {
-        var inputs = document.getElementById('position-filters').elements;
+        var inputs = document.getElementById('listings-filters').elements;
         var filters = new PositionFilters(inputs.position_type, inputs.team, inputs.location,
-                                          document.getElementById('positions'));
+                                          document.getElementById('listings-positions'));
         filters.bindEvents();
         filters.onFilterChange(); // Trigger sorting on initial load for querystring arguments.
     });

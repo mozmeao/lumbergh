@@ -1,0 +1,24 @@
+#listings-intro {
+    height: 298px;
+    background-image: url(/static/img/listings-banner-920.jpg);
+}
+
+.listings-head {
+    float:left;
+}
+
+#listings-filters {
+    float: right;
+    text-align: right;
+}
+
+.listings-filters-head,
+.listings-filter label {
+    display: none;
+}
+
+.listings-filter {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding-left: 20px;
+}

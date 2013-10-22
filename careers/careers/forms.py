@@ -5,7 +5,7 @@ from django_jobvite.models import Category
 
 class PositionFilterForm(forms.Form):
     team = forms.ModelChoiceField(queryset=Category.objects.order_by('name'),
-                                  empty_label='All Positions',
+                                  empty_label='All Teams',
                                   widget=forms.Select(attrs={'autocomplete': 'off'}))
     position_type = forms.ChoiceField(choices=(
         ('', 'All Positions'),

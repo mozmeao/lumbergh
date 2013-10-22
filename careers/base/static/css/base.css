@@ -160,7 +160,7 @@ a:hover,
 a:focus,
 a:active {
     color: #0073aa;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 figure {
@@ -317,7 +317,6 @@ figure {
     .nav-main a:focus,
     .nav-main nav a:active {
         color: #0096dd;
-        text-decoration: none;
     }
 
 @media (max-width: 680px) {
@@ -418,7 +417,6 @@ figure {
     padding: 15px 20px 12px 20px;
     color: #fff;
     font-size: 14px;
-    text-decoration: none;
     text-transform: uppercase;
 }
 
@@ -524,8 +522,9 @@ figure {
     text-align: center;
 }
 
-a.cta:link,
-a.cta:visited {
+.cta,
+.cta:link,
+.cta:visited {
     box-shadow: inset 0 0 1px 0 rgba(0, 0, 0, 0.3);
     border-top: 1px solid #44a5e1;
     border-bottom: 1px solid #257cc0;
@@ -533,12 +532,11 @@ a.cta:visited {
     background: -webkit-linear-gradient(#44a5e1, #257cc0);
     background:         linear-gradient(#44a5e1, #257cc0);
     color: #fff;
-    text-decoration: none;
 }
 
-a.cta:hover,
-a.cta:focus,
-a.cta:active {
+.cta:hover,
+.cta:focus,
+.cta:active {
     box-shadow: inset 0 0 1px 0 rgba(255, 255, 255, 0.3);
     border-top: 1px solid #3799d8;
     border-bottom: 1px solid #0d55bd;
@@ -581,6 +579,14 @@ a.cta:active {
 
 #apply .cta {
     margin: 10px 0;
+}
+
+.listings-done .cta {
+    width: 100%;
+    border-radius: 0;
+    border: 0;
+    padding: 11px;
+    font-size: 13px;
 }
 
 @media (min-width: 681px) {
@@ -696,6 +702,7 @@ a.cta:active {
     border: 0;
     background: transparent;
     cursor: pointer;
+    font-size: 0;
 }
 
    .carousel-button-next {
