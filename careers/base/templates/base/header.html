@@ -4,9 +4,9 @@
       <nav id="nav-main" class="nav-main" role="navigation">
         <ul id="nav-main-menu">
           <li{% if navbar_section == 'home' %} class="current"{% endif %}>
-            <a href="{{ url('careers.home')|urlparams(hash='teams_and_roles') }}">Teams &amp; Roles</a>
+            <a href="{{ url('careers.home')|urlparams(hash='teams') }}">Teams &amp; Roles</a>
           </li>
-          <li><a href="{{ url('careers.home')|urlparams(hash='life_at_mozilla') }}">Life at Mozilla</a></li>
+          <li><a href="{{ url('careers.home')|urlparams(hash='life') }}">Life at Mozilla</a></li>
           <li><a href="{{ url('careers.home')|urlparams(hash='locations') }}">Locations</a></li>
           <li{% if navbar_section == 'university' %} class="current"{% endif %}>
             <a href="{{ url('university.index') }}">University</a>
