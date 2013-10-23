@@ -147,7 +147,7 @@
     - small screen sizes have title above and list below
     - desktop has title to left list to right
     - mobile does not have cup and phone
-    - without javascript the lists stack one on top of the other and the container expands
+    - without javascript the lists stack vertically
     ------------------------------------------------------------------- */
 
 #different {
@@ -159,6 +159,10 @@
 
 #different > .contain {
     max-width: 500px;
+}
+
+#different-list-head-spacer {
+    display: none;
 }
 
 .different-head {
@@ -304,7 +308,7 @@
         #different:after {
             content: '';
             position: absolute;
-            z-index: 1;
+            z-index: 3;
             display: block;
             height: 260px;
             width: 270px;
@@ -316,7 +320,7 @@
         #different:before {
             top: 150px;
             right: 50%;
-            margin-right: 1300px;
+            margin-right: 200px;
         }
 
         #different:after {
@@ -324,21 +328,8 @@
             bottom: -60px;
             height: 410px;
             width: 320px;
-            margin-left: 1290px;
-            background-position: -275px -15px;
-        }
-
-        #different.different-cup:before,
-        .moz-touch #different:before,
-        .js-disabled #different:before {
-            margin-right: 200px;
-
-        }
-
-        #different.different-phone:after,
-        .moz-touch #different:after,
-        .js-disabled #different:after {
             margin-left: 190px;
+            background-position: -275px -15px;
         }
 
     #different > .contain {
@@ -365,14 +356,16 @@
 
 @media (min-width: 921px) {
      #different {
-        padding-top: 50px;
+        padding-top: 0;
         padding-bottom: 45px;
      }
 
       #different:before,
       #different:after {
+            z-index: 5;
             height: 320px;
             width: 350px;
+            margin-right: 1300px;
             background: url(/static/img/different-sprites-desktop.png);
       }
 
@@ -380,6 +373,8 @@
             bottom: -90px;
             height: 550px;
             width: 400px;
+            margin-right: 0;
+            margin-left: 1290px;
             background-position: -355px -15px;
       }
 
@@ -390,26 +385,59 @@
             margin-right: 320px;
         }
 
+         #different.pin:before {
+            position: fixed;
+            top: 260px;
+         }
+
+         #different.pin.pin-past:before {
+             position: absolute;
+             top: auto;
+             bottom: 167px;
+         }
+
         #different.different-phone:after,
         .moz-touch #different:after,
         .js-disabled #different:after {
             margin-left: 300px;
         }
 
-     #different > .contain {
+    #different > .contain {
         max-width: 940px;
+    }
+
+    #different.pin #different-list-head-spacer {
+        display: block;
+    }
+
+    #different.pin .different-lists-head {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 4;
+        padding-top: 100px;
+        background-color: inherit;
+    }
+
+    #different.pin-past .different-lists-head {
+        position: absolute;
+        top: auto;
+        bottom: 443px;
+        width: 100%;
     }
 
     .different-head {
         max-width: 100%;
+        padding-top: 50px;
         font-family: 'Open Sans',sans-serif;
         font-size: 38px;
      }
 
      .different-subhead {
         margin-top: 20px;
+        margin-bottom: 0;
         padding-right: 170px;
-        padding-bottom: 30px;
+        padding-bottom: 25px;
         font-family: 'Open Sans Light',sans-serif;
         font-size: 26px;
      }
@@ -424,9 +452,16 @@
         max-width: 660px;
     }
 
+    .different-list {
+        position: relative;
+        padding-top: 30px;
+    }
+
     .different-list > h3 {
-        float: left;
+        position: absolute;
+        top: 30px;
         width: 320px;
+        margin: 0;
         padding: 0 20px;
         background-color: transparent;
         color: #d0cfcf;
@@ -439,6 +474,21 @@
         text-transform: uppercase;
     }
 
+        .different-list h3:focus {
+            border: 0;
+        }
+
+        .different-list.pin > h3 {
+            position: fixed;
+            top: 333px;
+        }
+
+        .different-list.pin-past > h3 {
+            position: absolute;
+            top: auto;
+            bottom: 60px;
+        }
+
     .different-list > ul {
         float: right;
         width: 310px;
@@ -447,9 +497,9 @@
         font-size: 18px;
      }
 
-        #different-not > ul {
-            margin-bottom: 0;
-        }
+         .moz-no-touch .different-list > ul { /* parallax only */
+             padding-top:100px;
+         }
 
      .different-list > ul > li:first-child {
          margin-top: 12px;
@@ -591,6 +641,7 @@
 
 @media (min-width:921px) {
     #know {
+        z-index: 2; /* to cover different section until it is unpinned */
         padding: 60px 0;
         font-size: 18px;
     }
@@ -1602,5 +1653,4 @@
         padding: 60px 0;
     }
 }
-
 
