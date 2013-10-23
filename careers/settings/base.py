@@ -46,6 +46,9 @@ MINIFY_BUNDLES = {
             'js/libs/video-js/video-js.css',
             'js/libs/video-js/video-js-sandstone.css',
         ),
+        'print': (
+            'css/print.css',
+        ),
         'careers': (
             'css/careers.css',
         ),

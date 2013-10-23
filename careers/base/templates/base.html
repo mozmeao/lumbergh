@@ -14,6 +14,8 @@
     {% block site_css %}
       {{ css('base') }}
     {% endblock %}
+    {{ css('print', media='print') }}
+
 
     {# js #}
     <!--[if gt IE 8]> <!-- -->
