@@ -17,6 +17,10 @@ $(function() {
     trackClick('.ga-career-banner-internship', ['_trackEvent', 'University', 'Click', 'Career Banner']);
     trackClick('.ga-career-banner-volunteer', ['_trackEvent', 'Volunteer', 'Click', 'Career Banner']);    
 
+    trackClick('.ga-career-banner-listings-bottom', ['_trackEvent', 'Job Listing', 'Click', 'Career Banner Bottom']);
+    trackClick('.ga-career-banner-internship-bottom', ['_trackEvent', 'University', 'Click', 'Career Banner Bottom']);
+    trackClick('.ga-career-banner-volunteer-bottom', ['_trackEvent', 'Volunteer', 'Click', 'Career Banner Bottom']);      
+
     /* University Click Tracking */
     trackClick('.ga-apply-banner', ['_trackEvent', 'Apply Now', 'Click', 'University Banner']);
     trackClick('.ga-want-to-know', ['_trackEvent', 'Apply Now', 'Click', 'University Want To Know']);

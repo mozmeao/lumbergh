@@ -422,12 +422,11 @@
     </div>
   </div>
   <div class="cta-strip">
-    <a class="cta" href="#">View our current openings</a>
-    <a class="cta" href="#">Apply for an internship</a>
-    <a class="cta" href="http://www.mozilla.org/contribute/">Become a volunteer</a>
+    <a class="cta ga-career-banner-listings-bottom" href="{{ url('careers.listings') }}">View our current openings</a>
+    <a class="cta ga-career-banner-internship-bottom" href="{{ url('careers.listings')|urlparams(position_type='Intern') }}">Apply for an internship</a>
+    <a class="cta ga-career-banner-volunteer-bottom" href="https://www.mozilla.org/contribute/">Become a volunteer</a>
   </div>
 </section>
-
 
 {% endblock %}
 
