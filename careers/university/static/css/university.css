@@ -1,4 +1,18 @@
 /*  -------------------------------------------------------------------
+    Elements using font icons
+    ------------------------------------------------------------------- */
+
+.apply-closed:before {
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+}
+/*  -------------------------------------------------------------------
     University Intro
     - big banner with paragraphs and buttons stacked underneath
     - image is actually the h2 tag to responsivly load appropriate image without loading wrong one first
@@ -1534,7 +1548,7 @@
     }
 
      .apply-closed:before {
-        content: '';
+        content: '\e00b';
         position: absolute;
         top: -7px;
         right: 50%;
@@ -1542,7 +1556,9 @@
         height: 46px;
         width: 51px;
         margin-right: -25px;
-        background: url(/static/img/icon-sprites.png) -141px 0;
+        font-size: 46px;
+        line-height: 46px;
+        text-align: center;
     }
 
 #apply p {
