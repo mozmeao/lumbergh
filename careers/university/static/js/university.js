@@ -420,6 +420,10 @@
                 thisVideo = videojs(posterID);
             }
 
+            // move current class on buttons incase they are in mobile and go to larger layout
+            thisVideo.on('click', function() {
+                $('.video-thumb[data-video-id='+posterID+']').trigger('click');
+            });
             // make sure it ques to play again when it finishes
             thisVideo.on('ended', videoEnded);
         });
