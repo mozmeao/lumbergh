@@ -321,17 +321,15 @@
     }
 
     function testimonialsChoose(e) {
-        if (e.type === 'click' || e.which === 13) {
-            var target = e.target;
+        var target = e.target;
 
-            // remove class from others
-            $('.testimonial-current').removeClass('testimonial-current');
+        // remove class from others
+        $('.testimonial-current').removeClass('testimonial-current');
 
-            // add class to this one
-            $(target).closest('.testimonial').addClass('testimonial-current');
+        // add class to this one
+        $(target).closest('.testimonial').addClass('testimonial-current');
 
-            testimonialsMovePointer();
-        }
+        testimonialsMovePointer();
     }
 
     function testimonialsChooseInit() {
@@ -341,11 +339,11 @@
         // add class to parent to remove default styling
         testimonials.addClass('testimonials-choose');
         // attach triggers to pictures
-        testimonialImages.attr('tabindex', 0).on('click keydown', testimonialsChoose);
+        testimonialImages.attr('tabindex', 0).on('mouseenter focus', testimonialsChoose);
         // add pointer
         $('<div class="testimonials-pointer"></div>').appendTo(testimonials);
-        // click on first image to move pointer into place
-        testimonialImages.eq(0).click();
+        // touch first image to move pointer into place
+        testimonialImages.eq(0).trigger('mouseenter');
 
         $(window).on('resize', function() {
             clearTimeout(this.resizeTimeout);
