@@ -81,13 +81,7 @@ Mozilla.Test = (function(w, $) {
     function trayMenuInit() {
         // add toggle button
         $('#nav-main').append('<button id="tray-toggle" aria-controls="nav-tray" tabindex="0" type="button">Menu</button>');
-        $('#tray-toggle').click(function trayMenuToggle() {
-            if ($('body.tray-open').length) {
-                trayMenuClose();
-            } else {
-                trayMenuOpen();
-            }
-        });
+        $('#tray-toggle').on('click touchend' , trayMenuOpen);
 
         // add tray and copy nav there
         $('body').prepend('<div id="nav-tray" tabindex="-1"></div>');
@@ -95,7 +89,7 @@ Mozilla.Test = (function(w, $) {
 
         // add close button
         $('body').prepend('<button id="nav-tray-close" type="button">Close</button>');
-        $('#nav-tray-close').on('click', trayMenuClose);
+        $('#nav-tray-close').on('click touchend', trayMenuClose);
 
         // capture touch on body while tray open
         document.ontouchstart = function trayMenuHandleTouch(e) {
@@ -115,7 +109,13 @@ Mozilla.Test = (function(w, $) {
 
     }
 
-    function trayMenuOpen() {
+    function trayMenuOpen(e) {
+        // iPhone starts to get jumpy when we add touchend, stop the click and the page refresh
+        if(e){
+            e.stopPropagation();
+            e.preventDefault();
+        }
+
         // add class to body to prevent scrolling
         $('body').addClass('freeze');
 
