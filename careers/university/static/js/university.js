@@ -53,20 +53,27 @@
         $(differentListHeadings).on('click keydown', differentListSwitch);
     }
 
-    // waypoints for cup and phone
+    // elements and waypoints for cup and phone
     function differentListPinObjectInit () {
         var different = $('#different');
-        var differentEl = document.getElementById('different');
+
+        // create and attach elements (becuse Safari doesn't do transitions on CSS content)
+        var differentCup = $('<span class="different-object different-object-cup" />');
+        var differentPhone =  $('<span class="different-object different-object-phone" />');
+        different.addClass('different-objects');
+        differentCup.appendTo(different);
+        differentPhone.appendTo(different);
+
         var bottomInView = $(window).height() - different.outerHeight();
 
         // adds waypoints to slide cup into view
 
-        var cupFromTop = parseInt(window.getComputedStyle(differentEl,':before').top, 10);
+        var cupFromTop = parseInt(differentCup.position().top, 10);
         var cupFromBottom = different.outerHeight() - cupFromTop;
         var seeSomeCup = 100;
 
         different.waypoint(function() {
-            different.addClass('different-cup');
+            different.addClass('different-cup-show');
         }, {
             offset: bottomInView + cupFromBottom - seeSomeCup,
             triggerOnce: true
@@ -74,13 +81,13 @@
 
         // adds waypoints to slide phone into view
 
-        var phoneFromBottom = parseInt(window.getComputedStyle(differentEl,':after').height, 10) - 60;
+        var phoneFromBottom = parseInt(differentPhone.height(), 10) - 60;
         var seeSomePhone = 200;
 
         different.waypoint(function() {
-            different.addClass('different-phone');
+            different.addClass('different-phone-show');
             // if page loads and we are past phone cup doesn't load - load cup
-            different.addClass('different-cup');
+            different.addClass('different-cup-show');
         }, {
             offset: function() {return bottomInView + phoneFromBottom - seeSomePhone; },
             triggerOnce: true

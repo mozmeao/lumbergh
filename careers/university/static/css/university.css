@@ -305,7 +305,8 @@
     }
 
         #different:before,
-        #different:after {
+        #different:after,
+        .different-object {
             content: '';
             position: absolute;
             z-index: 3;
@@ -317,19 +318,25 @@
                     transition: margin 1s ease-out;
         }
 
-        #different:before {
+        #different:before,
+        .different-object-cup {
             top: 150px;
             right: 50%;
             margin-right: 200px;
         }
 
-        #different:after {
+        #different:after,
+        .different-object-phone {
             left: 50%;
             bottom: -60px;
             height: 410px;
             width: 320px;
             margin-left: 190px;
             background-position: -275px -15px;
+        }
+
+        .different-object {
+            display: none;
         }
 
     #different > .contain {
@@ -355,51 +362,70 @@
 
 
 @media (min-width: 921px) {
-     #different {
+    #different {
         padding-top: 0;
         padding-bottom: 45px;
-     }
+    }
 
-      #different:before,
-      #different:after {
+        #different:before,
+        #different:after,
+        .different-object {
             z-index: 5;
             height: 320px;
             width: 350px;
-            margin-right: 1300px;
+            margin-right: 320px;
             background: url(/static/img/different-sprites-desktop.png);
-      }
+        }
 
-      #different:after {
+        #different:before,
+        .different-object-cup {
+            top: 160px;
+
+        }
+
+        #different:after,
+        .different-object-phone {
             bottom: -90px;
             height: 550px;
             width: 400px;
             margin-right: 0;
-            margin-left: 1290px;
+            margin-left: 300px;
             background-position: -355px -15px;
-      }
-
-        #different.different-cup:before,
-        .moz-touch #different:before,
-        .js-disabled #different:before {
-            top: 160px;
-            margin-right: 320px;
         }
 
-         #different.pin:before {
+        /* parallax - uses elements added by javascript */
+        #different.different-objects:before,
+        #different.different-objects:after {
+            content: none;
+        }
+
+        .different-object {
+            display: block;
+        }
+
+        .different-object-cup {
+            margin-right: 1300px;
+        }
+            .different-cup-show .different-object-cup {
+                margin-right: 320px;
+            }
+
+        .different-object-phone {
+            margin-left: 1290px;
+        }
+            .different-phone-show .different-object-phone {
+                margin-left: 300px;
+            }
+
+        #different.pin  .different-object-cup {
             position: fixed;
             top: 260px;
-         }
+        }
 
-         #different.pin.pin-past:before {
-             position: absolute;
-             top: auto;
-             bottom: 167px;
-         }
-
-        #different.different-phone:after,
-        .moz-touch #different:after,
-        .js-disabled #different:after {
-            margin-left: 300px;
+        #different.pin.pin-past .different-object-cup {
+            position: absolute;
+            top: auto;
+            bottom: 167px;
         }
 
     #different > .contain {
