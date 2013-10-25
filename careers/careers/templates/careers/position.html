@@ -44,7 +44,7 @@
         <aside class="job-related">
           <h2 class="job-related-head">{{ position.category.name }}: {{ _('Open Positions') }}</h2>
           <ul class="job-related-list">
-            {% for p in positions %}
+            {% for p in positions if p != position %}
               <li>
                 <a href="{{ url('careers.position', p.job_id) }}"
                    class="{% if position.job_id == p.job_id %}active{% endif %} ga-job-listing-detail"
