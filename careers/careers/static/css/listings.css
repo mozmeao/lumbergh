@@ -92,7 +92,7 @@
         padding-left: 0;
     }
 
-.js-enabled #listings-positions a {
+.moz-no-touch #listings-positions a {
     color: #4d4e53;
 }
     .js-enabled #listings-positions a:hover,
