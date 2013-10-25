@@ -396,14 +396,14 @@ figure {
 
 #tray-toggle {
     position: absolute;
-    bottom: 20px;
-    left: 10px;
+    bottom: 14px;
+    left: 4px;
     height: 0;
-    width: 32px;
+    width: 44px;
     overflow: hidden;
     border: 0;
-    padding: 32px 0 0 0;
-    background: transparent url(/static/img/nav-icon.png);
+    padding: 44px 0 0 0;
+    background: transparent url(/static/img/nav-icon.png) center center no-repeat;
 }
 
 #nav-tray-close {
