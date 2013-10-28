@@ -17,21 +17,21 @@
          * Mapping of location filter value -> Locations it matches
          */
         locationsFor: {
-            remote: ['Remote'],
-            berlin: ['Berlin', 'Europe', 'Any Office', 'Remote'],
-            boston: ['Boston', 'US', 'North America', 'Any Office', 'Remote'],
-            london: ['London', 'Europe', 'Any Office', 'Remote'],
-            mountainview: ['Mountain View', 'Bay Area', 'US', 'North America', 'Any Office', 'Remote'],
-            newzealand: ['New Zealand', 'Any Office', 'Remote'],
-            paris: ['Paris', 'Europe', 'Any Office', 'Remote'],
-            portland: ['Portland', 'US', 'North America', 'Any Office', 'Remote'],
-            sanfrancisco: ['San Francisco', 'Bay Area', 'US', 'North America', 'Any Office', 'Remote'],
-            toronto: ['Toronto', 'North America', 'Any Office', 'Remote'],
-            vancouver: ['Vancouver', 'North America', 'Any Office', 'Remote'],
-            bayarea: ['Mountain View', 'San Francisco', 'Bay Area', 'US', 'North America', 'Any Office', 'Remote'],
-            latinamerica: ['Latin America', 'Remote'],
-            northamerica: ['Boston', 'Portland', 'Mountain View', 'San Francisco', 'Toronto', 'Vancouver', 'Bay Area', 'US', 'North America', 'Any Office', 'Remote'],
-            europe: ['Berlin', 'London', 'Paris', 'Europe', 'Any Office', 'Remote']
+            remote: ['Remote', 'All'],
+            berlin: ['Berlin', 'Europe', 'Any Office', 'Remote', 'All'],
+            boston: ['Boston', 'US', 'North America', 'Any Office', 'Remote', 'All'],
+            london: ['London', 'Europe', 'Any Office', 'Remote', 'All'],
+            mountainview: ['Mountain View', 'Bay Area', 'US', 'North America', 'Any Office', 'Remote', 'All'],
+            newzealand: ['New Zealand', 'Any Office', 'Remote', 'All'],
+            paris: ['Paris', 'Europe', 'Any Office', 'Remote', 'All'],
+            portland: ['Portland', 'US', 'North America', 'Any Office', 'Remote', 'All'],
+            sanfrancisco: ['San Francisco', 'Bay Area', 'US', 'North America', 'Any Office', 'Remote', 'All'],
+            toronto: ['Toronto', 'North America', 'Any Office', 'Remote', 'All'],
+            vancouver: ['Vancouver', 'North America', 'Any Office', 'Remote', 'All'],
+            bayarea: ['Mountain View', 'San Francisco', 'Bay Area', 'US', 'North America', 'Any Office', 'Remote', 'All'],
+            latinamerica: ['Latin America', 'Remote', 'All'],
+            northamerica: ['Boston', 'Portland', 'Mountain View', 'San Francisco', 'Toronto', 'Vancouver', 'Bay Area', 'US', 'North America', 'Any Office', 'Remote', 'All'],
+            europe: ['Berlin', 'London', 'Paris', 'Europe', 'Any Office', 'Remote', 'All', 'All']
         },
 
         /**
