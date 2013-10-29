@@ -2104,21 +2104,6 @@
         .locations-remote-nopins {
             display: none;
         }
-
-
-    .locations-tag {
-        display: block;
-        max-width: 500px;
-        margin: 10px auto;
-        padding: 100px 20px;
-        color: #c13832;
-        font-family: 'Open Sans Light',sans-serif;
-        font-size: 55px;
-        line-height: 1.2;
-        text-align: center;
-
-    }
-
 }
 
 @media (min-width: 921px) {
@@ -2163,6 +2148,18 @@
     .locations-remote:before {
         top: -8px;
         left: 50px;
+    }
+
+    .locations-tag {
+        display: block;
+        max-width: 500px;
+        margin: 10px auto;
+        padding: 250px 20px 150px 20px;
+        color: #c13832;
+        font-family: 'Open Sans Light',sans-serif;
+        font-size: 55px;
+        line-height: 1.2;
+        text-align: center;
     }
 }
 
