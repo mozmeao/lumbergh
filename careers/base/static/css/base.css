@@ -125,6 +125,7 @@ sub,sup {
     sup { top: -0.5em; }
     sub { bottom: -0.25em; }
 
+button { background-image: none; }
 
 /*  ===================================================================
     Base - modifications to elements that are not resets
