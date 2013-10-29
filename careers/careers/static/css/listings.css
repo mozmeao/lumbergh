@@ -499,3 +499,15 @@
         }
 
 }
+
+@media (min-width: 1281px) {
+    #listings-intro {
+        background-image: url(/static/img/listings-banner-1680.jpg);
+    }
+}
+
+@media (min-width: 1681px) {
+    #listings-intro {
+        background-image: url(/static/img/listings-banner-2560.jpg);
+    }
+}

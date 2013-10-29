@@ -205,7 +205,11 @@
     #splash { background-image: url(/static/img/careers-banner-1280.jpg); }
 }
 
-@media (min-width: 1281px) {
+@media (min-width: 921px) and (max-width: 1680px) {
+    #splash { background-image: url(/static/img/careers-banner-1680.jpg); }
+}
+
+@media (min-width: 1680px) {
     #splash { background-image: url(/static/img/careers-banner-2560.jpg); }
 }
 
@@ -2179,8 +2183,7 @@
         position: relative;
         display: block;
         height: 540px;
-        background: #292324 url(/static/img/next-920.jpg) top right;
-        background-size: cover;
+        background: #292324 top right;
         color: #fff;
     }
 
@@ -2229,7 +2232,6 @@
 @media (min-width: 921px) {
     #next-teaser {
         height: 640px;
-        background: #292324 url(/static/img/next-1280.jpg) top right;
     }
 
         #next.pin #next-teaser {
@@ -2276,9 +2278,36 @@
 
 }
 
+/* backgrounds */
+
+
+@media (min-width: 681px) {
+    #next-teaser {
+        background-image: url(/static/img/next-920.jpg);
+    }
+}
+
+@media (min-width: 921px) {
+    #next-teaser {
+        background-image: url(/static/img/next-1280.jpg);
+    }
+}
+
 @media (min-width: 1281px) {
     #next-teaser {
-        background: #292324 url(/static/img/next-2560.jpg) top right;
+        background-image: url(/static/img/next-1680.jpg);
+    }
+}
+
+@media (min-width: 1681px) {
+    #next-teaser {
+        background-image: url(/static/img/next-2560.jpg);
+    }
+}
+
+@media (min-width: 2561px) {
+    #next-teaser {
+        background-position: center top;
     }
 }
 
