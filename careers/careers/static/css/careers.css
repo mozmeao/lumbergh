@@ -61,7 +61,7 @@
     overflow: hidden;
     margin: -70px 0 29px 0;
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 600;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
@@ -649,7 +649,7 @@
         background: transparent;
         color: #7f8089;
         font-size: 14px;
-        font-weight: bold;
+        font-weight: 600;
         text-decoration: none;
         cursor: pointer;
     }
@@ -807,7 +807,7 @@
 
     .team-quote > figcaption {
         font-style: normal;
-        font-weight: bold;
+        font-weight: 600;
     }
 
         .team-quote > figcaption:before {
@@ -1011,7 +1011,7 @@
 
 .life-perks-head {
     font-size: 21px;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 #life-perks {
@@ -1031,7 +1031,7 @@
 .life-perk > h4 {
     position: relative;
     padding-top: 85px;
-    font-weight: bold;
+    font-weight: 600;
     text-transform: uppercase;
 }
 
@@ -1525,7 +1525,7 @@
 
 .community-head {
     font-size: 21px;
-    font-weight: bold;
+    font-weight: 600;
     text-align: left;
 }
 
@@ -1574,7 +1574,7 @@
 .community-box > h4 {
     margin: 0.8em 0 0.5em 0;
     font-size: 15px;
-    font-weight: bold;
+    font-weight: 600;
     text-transform: uppercase;
 }
 
@@ -1663,7 +1663,7 @@
     background: none;
     color: #000;
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 600;
     line-height: 18px;
     text-align: center;
     cursor: pointer;
@@ -1811,7 +1811,7 @@
     }
 
 .locations-remote > strong {
-    font-weight: bold;
+    font-weight: 600;
     text-transform: uppercase;
 }
 
@@ -1879,7 +1879,7 @@
     background-color: #c8c6b6;
     color: #fff;
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 600;
 }
     .location-link:link,
     .location-link:visited {
@@ -2076,7 +2076,7 @@
         background: none;
         color: #fff;
         font-size: 20px;
-        font-weight: bold;
+        font-weight: 600;
         line-height: 18px;
         text-align: center;
         cursor: pointer;
@@ -2220,7 +2220,7 @@
      .next-you > em {
          font-size: 65px;
          font-family: 'Open Sans',sans-serif;
-         font-weight: bold;
+         font-weight: 600;
          font-style: normal;
          text-transform: uppercase;
      }

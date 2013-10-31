@@ -84,7 +84,7 @@
         display: block;
         padding: 20px 24px;
         text-transform: uppercase;
-        font-weight: bold;
+        font-weight: 600;
         font-size: 12px;
     }
         .job-back:link,
@@ -205,7 +205,7 @@
         .job-related-head {
             margin-top: 16px;
             font-size: 12px;
-            font-weight: bold;
+            font-weight: 600;
         }
 
         .job-related-list {
@@ -320,7 +320,7 @@
 .why-head {
     margin: 10px 0;
     font-size: 26px;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .why-intro {
@@ -334,7 +334,7 @@
 .why-reason-box > h3 {
     padding-top: 25px;
     background: url(/static/img/bg_stripes.gif) top left repeat-x;
-    font-weight: bold;
+    font-weight: 600;
     text-transform: uppercase;
 }
 

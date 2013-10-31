@@ -49,7 +49,7 @@
          url('/static/fonts/OpenSans-Semibold-webfont.woff') format('woff'),
          url('/static/fonts/OpenSans-Semibold-webfont.ttf') format('truetype'),
          url('/static/fonts/OpenSans-Semibold-webfont.svg#OpenSansSemibold') format('svg');
-    font-weight: bold;
+    font-weight: 600;
     font-style: normal;
 }
 
@@ -197,6 +197,18 @@ figure {
     =================================================================== */
 
 /*  -------------------------------------------------------------------
+    Tabzilla styles inherited on moz.org but not specified in tabzilla.css
+    ------------------------------------------------------------------- */
+
+#tabzilla-panel h2 {
+    letter-spacing: -1px;
+}
+
+#q {
+    font-size: 12px;
+}
+
+/*  -------------------------------------------------------------------
     Layout
     ------------------------------------------------------------------- */
 
@@ -211,7 +223,7 @@ figure {
     Header
     ------------------------------------------------------------------- */
 
-.masthead {
+.masthead-wrapper{
     border-top: 2px solid #fff;
 }
 
