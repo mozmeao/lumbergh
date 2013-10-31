@@ -824,20 +824,20 @@ figure {
         top: 50%;
         left: 20px;
         display: block;
-        height: 45px;
-        width: 45px;
-        margin-top: -23px;
-        color: rgba(255, 255, 255, 0.8);
-        font-size: 40px;
-        line-height: 45px;
+        height: 65px;
+        width: 65px;
+        margin-top: -33px;
+        color: #ffffff;
+        font-size: 60px;
+        line-height: 65px;
         text-align: center;
-        -webkit-transition: color 0.5s;
-                transition: color 0.5s;
+        -webkit-transition: color 0.5s, text-shadow 0.5s;
+                transition: color 0.5s, text-shadow 0.5s;
     }
 
     #life-blocks .carousel-button:focus,
     #life-blocks .carousel-button:hover {
-        background: rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.2);
         outline: none;
     }
 
@@ -847,14 +847,19 @@ figure {
         right: 20px;
     }
 
+    #life-blocks .carousel-button:before {
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    }
+
     #life-blocks .carousel-button:hover:before {
         color: rgba(255, 255, 255, 1);
+        text-shadow: 0 0 10px rgba(0, 0, 0, 1);
     }
 
     #life-blocks .carousel-button:after {
         content: '\e012';
         color: #231f20;
-        font-size: 20px;
+        font-size: 26px;
     }
 
     #life-blocks .carousel-button:hover:after {
