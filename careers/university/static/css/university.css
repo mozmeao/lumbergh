@@ -22,126 +22,133 @@
     - paragraphs float left and right when large enough
     ------------------------------------------------------------------- */
 
+#uintro {
+    overflow: hidden; _overflow: visible; zoom: 1; /* clearfix */
+    position: relative;
+    color: #fff;
+    background-color: #4d4e53;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+}
+
+#uintro h2 {
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+    height: 264px;
+    margin: 0 auto;
+    padding-top: 90px;
+    background-color: #97938c;
+    background-position: center top;
+    background-repeat: no-repeat;
+    font-family: 'Open Sans Light', sans-serif;
+    font-size: 32px;
+    letter-spacing: -1px;
+    text-align: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+#uintro p {
+    margin-bottom: 30px;
+    font-size: 18px;
+    text-align: left;
+}
+
+    #uintro p:first-child {
+        color: #a2a2a9;
+        font-family: 'Open Sans Light', sans-serif;
+        font-size: 26px;
+        line-height: 1.25;
+    }
+
+@media (max-width: 320px) {
+    #uintro h2 {
+        background-image: url(/static/img/university-banner-320.jpg);
+    }
+}
+
+@media (min-width: 321px) and (max-width: 680px) {
+    #uintro h2 {
+        background-image: url(/static/img/university-banner-680.jpg);
+    }
+}
+
+@media (min-width: 681px) {
     #uintro {
-        overflow: hidden; _overflow: visible; zoom: 1; /* clearfix */
-        position: relative;
-        color: #fff;
-        background-color: #4d4e53;
-        -webkit-font-smoothing: antialiased;
-        text-align: center;
+        padding-bottom: 10px;
     }
 
     #uintro h2 {
-        -moz-box-sizing: border-box;
-             box-sizing: border-box;
-        height: 264px;
-        margin: 0 auto;
-        padding-top: 90px;
-        background-color: #97938c;
-        background-position: center top;
-        background-repeat: no-repeat;
-        font-family: 'Open Sans Light', sans-serif;
-        font-size: 32px;
-        letter-spacing: -1px;
-        text-align: center;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        height: 376px;
+        padding-top: 120px;
+        background-image: url(/static/img/university-banner-920.jpg);
+        font-size: 50px;
+        line-height: 1;
     }
 
     #uintro p {
-        margin-bottom: 30px;
-        font-size: 18px;
-        text-align: left;
+        float:right;
+        -moz-box-sizing: border-box;
+             box-sizing: border-box;
+        width: 50%;
+        margin-top: 40px;
+        padding:0 0 0 10px;
+        font-size: 14px;
     }
-
         #uintro p:first-child {
-            color: #a2a2a9;
-            font-family: 'Open Sans Light', sans-serif;
+            float: left;
+            padding:0 10px 0 0;
+            font-size: 20px;
+        }
+
+    #uintro .cta {
+        position: absolute;
+        top: 250px;
+        right: 50.5%;
+    }
+
+     #uintro .cta + .cta {
+         right: auto;
+         left: 50.5%;
+     }
+}
+
+@media (min-width: 921px) {
+    #uintro {
+        padding-bottom: 25px;
+    }
+
+    #uintro h2 {
+        height: 500px;
+        padding-top: 170px;
+        background-image: url(/static/img/university-banner-1280.jpg);
+        font-size: 60px;
+    }
+
+     #uintro p {
+        font-size: 18px;
+    }
+        #uintro p:first-child {
             font-size: 26px;
-            line-height: 1.25;
         }
 
-    @media (max-width: 320px) {
-        #uintro h2 {
-            background-image: url(/static/img/university-banner-320.jpg);
-        }
+
+    #uintro .cta {
+        top: 350px;
     }
+}
 
-    @media (min-width: 321px) and (max-width: 680px) {
-        #uintro h2 {
-            background-image: url(/static/img/university-banner-680.jpg);
-        }
+@media (min-width: 1281px) {
+    #uintro h2 {
+        background-image: url(/static/img/university-banner-1680.jpg);
     }
+}
 
-    @media (min-width: 681px) {
-        #uintro {
-            padding-bottom: 10px;
-        }
-
-        #uintro h2 {
-            height: 376px;
-            padding-top: 120px;
-            background-image: url(/static/img/university-banner-920.jpg);
-            font-size: 50px;
-            line-height: 1;
-        }
-
-        #uintro p {
-            float:right;
-            -moz-box-sizing: border-box;
-                 box-sizing: border-box;
-            width: 50%;
-            margin-top: 40px;
-            padding:0 0 0 10px;
-            font-size: 14px;
-        }
-            #uintro p:first-child {
-                float: left;
-                padding:0 10px 0 0;
-                font-size: 20px;
-            }
-
-        #uintro .cta {
-            position: absolute;
-            top: 250px;
-            right: 50.5%;
-        }
-
-         #uintro .cta + .cta {
-             right: auto;
-             left: 50.5%;
-         }
+@media (min-width: 1681px) {
+    #uintro h2 {
+        background-image: url(/static/img/university-banner-2560.jpg);
     }
+}
 
-    @media (min-width: 921px) {
-        #uintro {
-            padding-bottom: 25px;
-        }
-
-        #uintro h2 {
-            height: 500px;
-            padding-top: 170px;
-            background-image: url(/static/img/university-banner-1280.jpg);
-            font-size: 60px;
-        }
-
-         #uintro p {
-            font-size: 18px;
-        }
-            #uintro p:first-child {
-                font-size: 26px;
-            }
-
-
-        #uintro .cta {
-            top: 350px;
-        }
-    }
-
-    @media (min-width: 1281px) {
-        #uintro h2 {
-            background-image: url(/static/img/university-banner-2560.jpg);
-        }
-    }
 /*  -------------------------------------------------------------------
     It's Different
     - small screen sizes have title above and list below
