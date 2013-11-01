@@ -66,7 +66,7 @@
             data-type="{{ position.job_type|readable_job_type }}"
             data-location="{{ position.location_filter }}">
           <td class="title"><a href="{{ position.get_absolute_url() }}">{{ position.title }}</a></td>
-          <td class="location">{{ position.location }}</td>
+          <td class="location">{{ position.location_filter }}</td>
           <td class="type">{{ position.job_type|readable_job_type }}</td>
           <td class="name">{{ position.category.name }}</td>
         </tr>
