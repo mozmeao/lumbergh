@@ -12,6 +12,31 @@
         });
     }
 
+    // If window.location.hash is set on page load, and the hash matches an
+    // element that's being tracked, we need to disable all scroll events until
+    // that element is reached by the browser. Otherwise, scroll events will be
+    // triggered for every element above the linked one.
+    var ignoreScrollEvents = false;
+    var trackedIds = [];
+    function trackScroll(id, trackEvent) {
+        trackedIds.push(id);
+
+        $(id).waypoint(function () {
+            // Ignore events unless we have reached the correct element.
+            if (ignoreScrollEvents) {
+                if (window.location.hash === id) {
+                    ignoreScrollEvents = false;
+                }
+                return;
+            }
+
+            // Only check for autoscrolling if Mozilla global exists.
+            if (!Mozilla || !Mozilla.autoscrolling) {
+                _gaq.push(trackEvent);
+            }
+        });
+    }
+
     /* Nav
     ***************************************************************************/
     trackClick('.ga-nav-home', ['Top Navigation', 'Click', 'Home']);
@@ -32,6 +57,12 @@
     trackClick('.ga-career-banner-listings-bottom', ['Career Banner Interactions', 'Bottom Banner Click', 'Job Listing']);
     trackClick('.ga-career-banner-internship-bottom', ['Career Banner Interactions', 'Bottom Banner Click', 'University']);
     trackClick('.ga-career-banner-volunteer-bottom', ['Career Banner Interactions', 'Bottom Banner Click', 'Volunteer']);
+
+    trackScroll('#teams', ['_trackEvent', 'Careers Home', 'scroll', 'Teams & Roles']);
+    trackScroll('#life', ['_trackEvent', 'Careers Home', 'scroll', 'Life At Mozilla']);
+    trackScroll('#community', ['_trackEvent', 'Careers Home', 'scroll', 'Community & Culture']);
+    trackScroll('#locations', ['_trackEvent', 'Careers Home', 'scroll', 'Locations']);
+    trackScroll('#next', ['_trackEvent', 'Careers Home', 'scroll', 'Are You Ready To Join']);
 
 
     /* Careers > Teams & Roles
@@ -87,6 +118,13 @@
     trackClick('.ga-apply-now', ['/university/ Interactions', 'Apply Now Clicks', 'Apply Now: Ready to Start']);
     trackClick('.meet-us-on-campus', ['/university/ Interactions', 'Clicks', 'Meet Us On Campus']);
 
+    trackScroll('#different', ['_trackEvent', 'University', 'scroll', 'Its Different']);
+    trackScroll('#know-boxes', ['_trackEvent', 'University', 'scroll', 'Things youll want to know']);
+    trackScroll('#videos', ['_trackEvent', 'University', 'scroll', 'Videos']);
+    trackScroll('#testimonials', ['_trackEvent', 'University', 'scroll', 'Testimonials']);
+    trackScroll('#meetus', ['_trackEvent', 'University', 'scroll', 'Meet Us']);
+    trackScroll('#gallery', ['_trackEvent', 'University', 'scroll', 'Gallery']);
+
 
     /* Listings
     ***************************************************************************/
@@ -98,4 +136,9 @@
         var jobName = $('.job-post-title').text();
         _gaq.push(['_trackEvent', 'Job Description Page Interactions', 'Apply for this Job', jobName]);
     });
+
+
+    // Ignore scroll events if the anchor we want is currently being tracked.
+    // Do not call trackScroll past this line.
+    ignoreScrollEvents = trackedIds.indexOf(window.location.hash) !== -1;
 })(jQuery);
