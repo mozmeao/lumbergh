@@ -173,7 +173,7 @@ Mozilla.Test = (function(w, $) {
     */
 
     $(function() {
-        $('a[href*=#]:not([href=#])').not('.nosmoothscroll').click(function() {
+        $('a[href*=#]:not([href=#])').not('.nosmoothscroll').click(function(e) {
             if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') || location.hostname == this.hostname) {
                 var target = $(this.hash);
                 target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
@@ -185,7 +185,7 @@ Mozilla.Test = (function(w, $) {
                     // give target keyboard focus
                     target.attr('tabindex', -1);
                     target.focus();
-                    return false;
+                    e.preventDefault();
                 }
             }
         });

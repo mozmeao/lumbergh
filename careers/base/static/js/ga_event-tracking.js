@@ -1,41 +1,101 @@
-// All click based event tracking should go here 
-
-$(function() {
+/**
+ * Google Analytics Event Tracking
+ */
+;(function($) {
     'use strict';
 
-    function trackClick(className, trackEvent) {
-        $(className).click(function() {
-            _gaq.push(trackEvent);        
-        }); 
+    var $root = $(':root');
+    function trackClick(selector, trackEventArgs) {
+        trackEventArgs.unshift('_trackEvent');
+        $root.on('click', selector, function() {
+            _gaq.push(trackEventArgs);
+        });
     }
 
-    /* Nav */
-    trackClick('.ga-nav-home', ['_trackEvent', 'Top Navigation', 'Click', 'Home']);  
-    trackClick('.ga-nav-home-logo', ['_trackEvent', 'Top Navigation', 'Click', 'Home Logo']);      
-    trackClick('.ga-nav-team', ['_trackEvent', 'Top Navigation', 'Click', 'Teams Roles']); 
-    trackClick('.ga-nav-life', ['_trackEvent', 'Top Navigation', 'Click', 'Life At Mozilla']);          
-    trackClick('.ga-nav-locations', ['_trackEvent', 'Top Navigation', 'Click', 'Locations']);   
-    trackClick('.ga-nav-university', ['_trackEvent', 'Top Navigation', 'Click', 'University']);                     
-    trackClick('.ga-nav-listing', ['_trackEvent', 'Top Navigation', 'Click', 'Job Listing']);
+    /* Nav
+    ***************************************************************************/
+    trackClick('.ga-nav-home', ['Top Navigation', 'Click', 'Home']);
+    trackClick('.ga-nav-home-logo', ['Top Navigation', 'Click', 'Home Logo']);
+    trackClick('.ga-nav-team', ['Top Navigation', 'Click', 'Teams Roles']);
+    trackClick('.ga-nav-life', ['Top Navigation', 'Click', 'Life At Mozilla']);
+    trackClick('.ga-nav-locations', ['Top Navigation', 'Click', 'Locations']);
+    trackClick('.ga-nav-university', ['Top Navigation', 'Click', 'University']);
+    trackClick('.ga-nav-listing', ['Top Navigation', 'Click', 'Job Listing']);
 
-    /* Careers Click Tracking */
-    trackClick('.ga-career-banner-listings', ['_trackEvent', 'Career Banner', 'Click', 'Job Listing']);
-    trackClick('.ga-career-banner-internship', ['_trackEvent', 'Career Banner', 'Click', 'University']);
-    trackClick('.ga-career-banner-volunteer', ['_trackEvent', 'Career Banner', 'Click', 'Volunteer']);    
 
-    trackClick('.ga-career-banner-listings-bottom', ['_trackEvent', 'Career Banner Bottom', 'Click', 'Job Listing']);
-    trackClick('.ga-career-banner-internship-bottom', ['_trackEvent', 'Career Banner Bottom', 'Click', 'University']);
-    trackClick('.ga-career-banner-volunteer-bottom', ['_trackEvent', 'Career Banner Bottom', 'Click', 'Volunteer']);      
+    /* Careers
+    ***************************************************************************/
+    trackClick('.ga-career-banner-listings', ['Career Banner Interactions', 'Top Banner Click', 'Job Listing']);
+    trackClick('.ga-career-banner-internship', ['Career Banner Interactions', 'Top Banner Click', 'University']);
+    trackClick('.ga-career-banner-volunteer', ['Career Banner Interactions', 'Top Banner Click', 'Volunteer']);
 
-    /* University Click Tracking */
-    trackClick('.ga-apply-banner', ['_trackEvent', 'University Banner', 'Click', 'Apply Now']);
-    trackClick('.ga-want-to-know', ['_trackEvent', 'University Want To Know', 'Click', 'Apply Now']);
-    trackClick('.ga-apply-now', ['_trackEvent', 'University Apply Now', 'Click', 'Apply Now']);
+    trackClick('.ga-career-banner-listings-bottom', ['Career Banner Interactions', 'Bottom Banner Click', 'Job Listing']);
+    trackClick('.ga-career-banner-internship-bottom', ['Career Banner Interactions', 'Bottom Banner Click', 'University']);
+    trackClick('.ga-career-banner-volunteer-bottom', ['Career Banner Interactions', 'Bottom Banner Click', 'Volunteer']);
 
-    
-    /* Listings Click Tracking */
-    trackClick('.ga-job-listing', ['_trackEvent', 'Job List', 'Click', 'Job Detail']);
-    trackClick('.ga-job-listing-detail', ['_trackEvent', 'Job Detail', 'Click', 'Job Detail']);
-    trackClick('.ga-job-listing-apply', ['_trackEvent', 'Jobvite Apply Now', 'Click', 'Job Apply']);
 
-});
+    /* Careers > Teams & Roles
+    ***************************************************************************/
+    // Primary hex navigation
+    $root.on('click', '#teams-intro .teams-nav a', function() {
+        var name = $(this).find('strong').text();
+        _gaq.push(['_trackEvent', 'Teams & Roles Interactions', 'Primary Nav Click', name]);
+    });
+
+    // Secondary hex navigation
+    $root.on('click', '#teams-nav-second a', function() {
+        var name = $(this).find('strong').text();
+        _gaq.push(['_trackEvent', 'Teams & Roles Interactions', 'Secondary Left Side Nav Click', name]);
+    });
+
+    // View Open Position buttons
+    $root.on('click', '.teams-team a.cta', function() {
+        var name = $(this).siblings('.team-head').text();
+        _gaq.push(['_trackEvent', 'Teams & Roles Interactions', 'View Open Positions', name]);
+    });
+
+    // Secondary hex nav menu button
+    trackClick('.teams-back', ['Teams & Roles Interactions', 'Menu Back Button']);
+
+
+    /* Careers > Community & Culture
+    ***************************************************************************/
+    $root.on('click', '.community-box a', function() {
+        var href = $(this).attr('href');
+        _gaq.push(['_trackEvent', 'Community & Culture Interactions', 'Link Click', href]);
+    });
+
+
+    /* Careers > Locations
+    ***************************************************************************/
+    $root.on('click', 'a.location-link', function() {
+        var city = $(this).text();
+        _gaq.push(['_trackEvent', 'Mozilla Location Map Interactions', 'Click', city]);
+    });
+
+
+    /* Careers > Life Gallery
+    ***************************************************************************/
+    trackClick('#life-blocks-prev', ['What Makes Us Interactions', 'Left Carousel Click']);
+    trackClick('#life-blocks-next', ['What Makes Us Interactions', 'Right Carousel Click']);
+
+
+    /* University
+    ***************************************************************************/
+    trackClick('.ga-apply-banner', ['/university/ Interactions', 'Apply Now Clicks', 'Apply Now: Once a Mozillian']);
+    trackClick('.ga-want-to-know', ['/university/ Interactions', 'Apply Now Clicks', 'Apply Now: Things You\'ll Want to Know']);
+    trackClick('.ga-apply-now', ['/university/ Interactions', 'Apply Now Clicks', 'Apply Now: Ready to Start']);
+    trackClick('.meet-us-on-campus', ['/university/ Interactions', 'Clicks', 'Meet Us On Campus']);
+
+
+    /* Listings
+    ***************************************************************************/
+    trackClick('.ga-job-listing', ['Job List', 'Click', 'Job Detail']);
+    trackClick('.ga-job-listing-detail', ['Job Detail', 'Click', 'Job Detail']);
+
+    // Apply for this job button
+    $root.on('click', '.ga-job-listing-apply', function() {
+        var jobName = $('.job-post-title').text();
+        _gaq.push(['_trackEvent', 'Job Description Page Interactions', 'Apply for this Job', jobName]);
+    });
+})(jQuery);

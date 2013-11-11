@@ -8,9 +8,12 @@
     // updates spans that appear instead of select box or labels on larger secreens
     function filtersMaskUpdate(e) {
         var filterSelect = $(e.target);
+        var filterName = filterSelect.siblings('label').text();
         var filterText = filterSelect.find('option:selected').text();
         var filterMask = filterSelect.siblings('.listings-filter-mask');
         filterMask.text(filterText);
+
+        _gaq.push(['_trackEvent', 'Listings Filter', filterName, filterText]);
     }
 
     // hides or shows filters on mobile

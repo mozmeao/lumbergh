@@ -17,7 +17,7 @@
 {% block content %}
 <section id="job">
 
-    <article id="job-post" class="job-post">
+    <article id="job-post" class="job-post" data-location-filter="{{ position.location_filter }}">
       <div class="job-post-head">
         <div class="contain">
           <a href="{{ url('careers.listings') }}" class="job-back">Back</a>
