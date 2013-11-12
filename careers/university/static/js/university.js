@@ -380,6 +380,12 @@
         this.pause();
     }
 
+    function videoEvent(videoName, state) {
+        return function() {
+            _gaq.push(['_trackEvent', 'Intern Video Interactions', state, videoName]);
+        };
+    }
+
     // change the video to the one matching the thumbnail that was clicked
     function videoFadeTo(e) {
         var videoTarget = $(e.target);
@@ -394,19 +400,26 @@
                 videojs(videoOldID).pause();
 
                 // move the current class on the videos
+                var $newVideo = $('#' + videoNewID);
                 $('.video-current').removeClass('video-current');
-                $('#' + videoNewID).closest('figure').addClass('video-current');
+                $newVideo.closest('figure').addClass('video-current');
 
                 // move the current class on the buttons
                 $('.video-thumb-current').removeClass('video-thumb-current');
                 videoTarget.addClass('video-thumb-current');
+
+                // Track that a new video was opened.
+                var videoName = $newVideo.siblings('figcaption').text();
+                _gaq.push(['_trackEvent', 'Intern Video Interactions', 'Open', videoName]);
             }
         }
     }
 
     function videoInit() {
         $('.video-js').each( function(index) {
-            var posterID = $(this).attr('id');
+            var $video = $(this);
+            var posterID = $video.attr('id');
+            var videoName = $video.siblings('figcaption').text();
 
             // attach an appropriate poster image
             var windowWidth = $(window).width();
@@ -417,7 +430,7 @@
                 posterSize = 700;
             }
             var posterName = posterID.slice(6);
-            $(this).attr('poster','/static/img/video-thumbs/' + posterName + '-' + posterSize + '.jpg');
+            $video.attr('poster','/static/img/video-thumbs/' + posterName + '-' + posterSize + '.jpg');
 
             // initialize video.js
             var thisVideo;
@@ -433,6 +446,11 @@
             });
             // make sure it ques to play again when it finishes
             thisVideo.on('ended', videoEnded);
+
+            // Event tracking
+            thisVideo.on('play', videoEvent(videoName, 'Play'));
+            thisVideo.on('pause', videoEvent(videoName, 'Pause'));
+            thisVideo.on('ended', videoEvent(videoName, 'Finish'));
         });
 
         // wire buttons up
