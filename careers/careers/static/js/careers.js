@@ -590,9 +590,9 @@
             videoWrapper.appendTo(videoModal);
 
             // create video sources
-            var videoInternsSrcMp4 = '<source src="//videos-cdn.mozilla.net/serv/interns/Interns-It%20can%20be%20you-720p-MPEG-4%282%29.mp4" type="video/mp4" />';
-            var videoInternsSrcWebm = '<source src="//videos-cdn.mozilla.net/serv/interns/Interns-It%20can%20be%20you-720p-MPEG-4.webm" type="video/webm" />';
-            var videoInternsSrcOgv = '<source src="//videos-cdn.mozilla.net/serv/interns/Interns-It%20can%20be%20you-720p-MPEG-4.theora.ogv" type="video/ogg" />';
+            var videoInternsSrcMp4 = '<source src="//videos-cdn.mozilla.net/serv/hr/rubic-cube.mp4" type="video/mp4" />';
+            var videoInternsSrcWebm = '<source src="//videos-cdn.mozilla.net/serv/hr/rubic-cube.webm" type="video/webm" />';
+            var videoInternsSrcOgv = '<source src="//videos-cdn.mozilla.net/serv/hr/rubic-cube.ogv" type="video/ogg" />';
 
             // create and attach video element
             // IE9 had issues when I appended the source to the video
