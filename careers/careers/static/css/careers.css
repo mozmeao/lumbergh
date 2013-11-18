@@ -2012,8 +2012,8 @@
             #auckland .location-link:before { left: auto; right: -23px; }
         #beijing .location-link { top: 26%; left: auto; right: 20.5%; }
             #beijing .location-link:before { left: auto; right: -23px; }
-        #berlin .location-link { top: 19%; left: 49.5%; }           
-        #boston .location-link { top: 25.5%; left: 27%; }                        
+        #berlin .location-link { top: 19%; left: 49.5%; }
+        #boston .location-link { top: 25.5%; left: 27%; }
         #london .location-link { top: 18%; left: auto; right: 57%; }
             #london .location-link:before { left: auto; right: -23px; }
         #paris .location-link { top: 23%; left: auto; right: 56%; }
@@ -2310,3 +2310,12 @@
     }
 }
 
+/*  Error Pages 404 & 500 */
+
+#error {
+    padding-bottom: 50px;
+}
+
+    #error h1 {
+        font-size: 38px;
+    }
