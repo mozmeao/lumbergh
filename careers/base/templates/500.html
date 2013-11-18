@@ -1,19 +1,27 @@
 {% extends "base.html" %}
-{% from "careers/macros.html" import breadcrumbs, position_listing with context %}
 
 {% block page_title %}Mozilla Jobs &mdash; Error{% endblock %}
 
-{% block content %}
-  {{ breadcrumbs(last='Careers') }}
+{% block site_css %}
+  {{ super() }}
+  {{ css('careers') }}
+{% endblock %}
 
-  <div class="wrapper">
-    <h1 class="home-header">Sorry, but something went wrong!</h1>
+{% block site_ie8 %}
+  {{ super() }}
+  {{ css('careers-ie8') }}
+{% endblock %}
+
+{% block content %}
+<section id="error" class="contain">
+    <h1>Sorry, but something went wrong!</h1>
 
     <p>
       Sorry, but something went wrong on our end and we couldn't process
       your request. You can reload the page to try again, or
-      <a href="{{ url('careers.home') }}">check out all the listings</a> for all
+      <a href="{{ url('careers.listings') }}">check out all the listings</a> for all
       careers at Mozilla.
     </p>
-  </div>
+</section>
 {% endblock %}
+
