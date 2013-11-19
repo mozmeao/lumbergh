@@ -178,10 +178,14 @@ Mozilla.Test = (function(w, $) {
                 var target = $(this.hash);
                 target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
                 if (target.length) {
+                    Mozilla.autoscrolling = true;
+
                     // animated scroll to target (+1 to make sure waypoint for anchor is triggered)
                     $('html,body').animate({
                         scrollTop: target.offset().top - $('.masthead').height() + 1
-                    }, 1000);
+                    }, 1000, function() {
+                        Mozilla.autoscrolling = false;
+                    });
                     // give target keyboard focus
                     target.attr('tabindex', -1);
                     target.focus();

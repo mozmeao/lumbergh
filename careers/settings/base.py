@@ -74,10 +74,10 @@ MINIFY_BUNDLES = {
     'js': {
         'jquery': (
             'js/libs/jquery-1.7.1.min.js',
+            'js/libs/waypoints.min.js',
         ),
         'common': (
             'js/libs/modernizr.custom.05289.js',
-            'js/libs/waypoints.min.js',
             'js/libs/video-js/video.dev.js',
             'js/base.js',
         ),
