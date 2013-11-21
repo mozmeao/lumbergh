@@ -31,7 +31,7 @@
             }
 
             // Only check for autoscrolling if Mozilla global exists.
-            if (!Mozilla || !Mozilla.autoscrolling) {
+            if (!window.Mozilla || !window.Mozilla.autoscrolling) {
                 _gaq.push(trackEvent);
             }
         });
@@ -41,7 +41,7 @@
     ***************************************************************************/
     trackClick('.ga-nav-home', ['Top Navigation', 'Click', 'Home']);
     trackClick('.ga-nav-home-logo', ['Top Navigation', 'Click', 'Home Logo']);
-    trackClick('.ga-nav-team', ['Top Navigation', 'Click', 'Teams Roles']);
+    trackClick('.ga-nav-team', ['Top Navigation', 'Click', 'Teams & Roles']);
     trackClick('.ga-nav-life', ['Top Navigation', 'Click', 'Life At Mozilla']);
     trackClick('.ga-nav-locations', ['Top Navigation', 'Click', 'Locations']);
     trackClick('.ga-nav-university', ['Top Navigation', 'Click', 'University']);
@@ -67,6 +67,9 @@
 
     /* Careers > Teams & Roles
     ***************************************************************************/
+    trackClick('.teams-volunteer', ['Teams & Roles Interactions', 'link click', 'Looking to Volunteer']);
+    trackClick('.teams-back', ['Teams & Roles Interactions', 'Menu Back Button']);
+
     // Primary hex navigation
     $root.on('click', '#teams-intro .teams-nav a', function() {
         var name = $(this).find('strong').text();
@@ -84,9 +87,6 @@
         var name = $(this).siblings('.team-head').text();
         _gaq.push(['_trackEvent', 'Teams & Roles Interactions', 'View Open Positions', name]);
     });
-
-    // Secondary hex nav menu button
-    trackClick('.teams-back', ['Teams & Roles Interactions', 'Menu Back Button']);
 
 
     /* Careers > Community & Culture
