@@ -52,19 +52,45 @@
          * When a filter changes, refresh the position list.
          */
         onFilterChange: function() {
+            var filters = {
+                'position_type': this.$typeInput.val(),
+                'team': this.$teamInput.val(),
+                'location': this.$locationInput.val()
+            }
+
             // Hide table and show all positions.
             this.$positionTable.hide();
             this.$emptyFilterMessage.hide();
             this.$positionTable.find('.position').removeClass('hidden').show();
 
             // Hide positions that don't match the current filters.
-            this.filterPositions('type', this.$typeInput.val());
-            this.filterPositions('team', this.$teamInput.val());
-            this.filterPositionsByLocation(this.$locationInput.val());
+            this.filterPositions('type', filters['position_type']);
+            this.filterPositions('team', filters['team']);
+            this.filterPositionsByLocation(filters['loc']);
 
             // If there aren't any positions being shown, show the no-results message.
             if (this.$positionTable.find('.position:not(.hidden)').length < 1) {
                 this.$emptyFilterMessage.show();
+            }
+
+            // Save filter state in browser history.
+            if (Modernizr.history) {
+
+                // Get rid of unset filters.
+                for (var k in filters) {
+                    if (filters.hasOwnProperty(k) && !filters[k]) {
+                        delete filters[k];
+                    }
+                }
+
+                // Build a querystring from populated filters.
+                var querystring = $.param(filters)
+                if (!$.isEmptyObject(filters)) {
+                    querystring = "?" + querystring;
+                }
+
+                // Replace history state with this filtered state.
+                window.history.replaceState(filters, 'Filtered', location.pathname + querystring);
             }
 
             this.$positionTable.show();
