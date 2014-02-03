@@ -16,9 +16,9 @@
 {% block site_js %}
   {{ super() }}
   <!--[if gt IE 8]> <!-- -->
-    {{ js('listings') }}
+    {{ js('listings-not-ie8') }}
   <!-- <![endif]-->
-  {{ js('listings-ie8') }}
+  {{ js('listings') }}
 {% endblock %}
 
 {% block content %}

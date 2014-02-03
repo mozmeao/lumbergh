@@ -77,7 +77,7 @@ MINIFY_BUNDLES = {
             'js/libs/waypoints.min.js',
         ),
         'common': (
-            'js/libs/modernizr.custom.05289.js',
+            'js/libs/modernizr.custom.96716.js',
             'js/libs/video-js/video.dev.js',
             'js/base.js',
         ),
@@ -90,11 +90,10 @@ MINIFY_BUNDLES = {
         'careers': (
             'js/careers.js',
         ),
-        'listings': (
+        'listings-not-ie8': (
             'js/listings.js',
-            'js/filters.js',
         ),
-        'listings-ie8': (
+        'listings': (
             'js/filters.js',
         ),
         'university': (
