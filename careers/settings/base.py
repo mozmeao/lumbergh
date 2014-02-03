@@ -90,11 +90,10 @@ MINIFY_BUNDLES = {
         'careers': (
             'js/careers.js',
         ),
-        'listings': (
+        'listings-not-ie8': (
             'js/listings.js',
-            'js/filters.js',
         ),
-        'listings-ie8': (
+        'listings': (
             'js/filters.js',
         ),
         'university': (
