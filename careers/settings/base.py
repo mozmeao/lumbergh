@@ -92,9 +92,8 @@ MINIFY_BUNDLES = {
         ),
         'listings': (
             'js/listings.js',
-            'js/filters.js',
         ),
-        'listings-ie8': (
+        'filters': (
             'js/filters.js',
         ),
         'university': (
