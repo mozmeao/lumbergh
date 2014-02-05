@@ -1,20 +1,4 @@
 /*  -------------------------------------------------------------------
-    Elements using font icons
-    ------------------------------------------------------------------- */
-
-.job-back:before,
-.job-back:after {
-    font-family: 'icomoon';
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-}
-
-/*  -------------------------------------------------------------------
     Position
     ------------------------------------------------------------------- */
 
@@ -23,10 +7,6 @@
     padding: 100px 0 0 0;
     background: #fff url(/static/img/position-strip-mobile.jpg) repeat-x;
     font-size: 15px;
-}
-
-.job-back {
-    display: none;
 }
 
 #job-post-head-spacer { display: none; }
@@ -72,52 +52,12 @@
 
     #job {
         background-image: url(/static/img/position-strip-tablet.jpg);
-        padding-top: 165px;
+        padding-top: 190px;
     }
 
     #job .contain {
         position: relative;
     }
-
-    .job-back {
-        position: relative;
-        display: block;
-        padding: 20px 24px;
-        text-transform: uppercase;
-        font-weight: 600;
-        font-size: 12px;
-    }
-        .job-back:link,
-        .job-back:visited {
-            color: #7f8089;
-        }
-
-        .job-back:hover,
-        .job-back:focus,
-        .job-back:active {
-            color: #0073aa;
-            text-decoration: none;
-        }
-
-        .job-back:before,
-        .job-back:after {
-            position: absolute;
-            top: 18px;
-            left: 0;
-        }
-
-        .job-back:before {
-            content: '\e005';
-            font-size: 18px;
-        }
-
-        .job-back:after {
-            content: '\e012';
-            top: 22px;
-            left: 3px;
-            color: #fff;
-            font-size: 11px;
-        }
 
     .job-post-head {
         position: relative;
@@ -227,20 +167,8 @@
 
     #job {
         background-image: url(/static/img/position-strip-desktop.jpg);
-        padding-top: 235px;
+        padding-top: 260px;
     }
-
-    .job-back {
-        padding: 25px 25px 30px 25px;
-        font-size: 14px;
-        letter-spacing: 2px;
-    }
-        .job-back:after {
-            top: 30px;
-        }
-        .job-back:before {
-            top: 26px;
-        }
 
       #job-post.pin #job-post-head-spacer {
           display: block;
