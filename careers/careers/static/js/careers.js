@@ -13,7 +13,7 @@
         teamsInit();
         galleryInit();
         perksInit();
-        communityVideoInit();
+        videosInit();
         locationsInit();
         nextInit();
     }
@@ -535,98 +535,118 @@
     *  - modal can be closed by close button or by escape key
     */
 
-    function communityEscapeWatch(e) {
+    function videoEscapeWatch(e, videoModal, video) {
         // if escape key is pressed, hide all modals
         if (e.keyCode === 27) {
-            communityVideoHide(null);
+            videoHide(videoModal, video);
         }
     }
 
-    function communityVideoHide() {
+    function videoHide(videoModal, video) {
         // stop video
-        videojs('#video-interns').pause();
+        video.pause();
 
         // hide modal
-        $('#community-interns-modal').removeClass('community-current');
+        $(videoModal).removeClass('video-play');
 
         // removeescape listener
-        $(document).off('keyup', communityEscapeWatch);
+        $(document).off('keyup', videoEscapeWatch);
 
     }
 
-    function communityVideoShow() {
+    function videoShow(videoModal, video, videoPlayer) {
         // show modal
-        $('#community-interns-modal').addClass('community-current');
+        $(videoModal).addClass('video-play');
 
         // start video
-        videojs('#video-interns').play();
+        video.play();
 
         // add listener for escape key
-        $(document).on('keyup', communityEscapeWatch);
+        $(document).on('keyup', function(e){
+            videoEscapeWatch(e, videoModal, video);
+        });;
 
         // Track video opening.
-        _gaq.push(['_trackEvent', 'Community & Culture Interactions', 'Open', 'Creative Interns Video']);
+        _gaq.push(['_trackEvent', videoPlayer.gaInteraction, 'Open', videoPlayer.gaLabel]);
     }
 
-    function videoEvent(state) {
+    function videoEvent(state, videoPlayer) {
         return function() {
-            _gaq.push(['_trackEvent', 'Community & Culture Interactions', state, 'Creative Interns Video']);
+            _gaq.push(['_trackEvent', videoPlayer.gaInteraction, state, videoPlayer.gaLabel]);
         };
     }
 
-    function communityVideoInit() {
-        if(!Mozilla.Test.isSmallScreen) {
-
-            // create modal
-            var videoModal = $('<div id="community-interns-modal" class="community-modal"></div>');
-
-            // create and attach close/stop button
-            var videoModalClose = $('<button class="community-modal-close" type="button">&times;</button>');
-            videoModalClose.on('click', communityVideoHide);
-            videoModalClose.appendTo(videoModal);
-
-            // create and attach video wrapper
-            var videoWrapper = $('<div class="community-video-wrapper"></div>');
-            videoWrapper.appendTo(videoModal);
-
-            // create video sources
-            var videoInternsSrcMp4 = '<source src="//videos-cdn.mozilla.net/serv/hr/rubic-cube.mp4" type="video/mp4" />';
-            var videoInternsSrcWebm = '<source src="//videos-cdn.mozilla.net/serv/hr/rubic-cube.webm" type="video/webm" />';
-            var videoInternsSrcOgv = '<source src="//videos-cdn.mozilla.net/serv/hr/rubic-cube.ogv" type="video/ogg" />';
-
-            // create and attach video element
-            // IE9 had issues when I appended the source to the video
-            var videoInterns = $('<video id="video-interns" class="video-js vjs-sandstone-skin" controls preload="none" width="auto" height="auto">' +
-                                videoInternsSrcMp4 +
-                                videoInternsSrcWebm +
-                                videoInternsSrcOgv +
-                                '</video>');
-            videoInterns.appendTo(videoWrapper);
-
-            // append modal
-            videoModal.appendTo('#community');
-
-            // initialize video
-            var video = videojs('#video-interns');
-
-            // create button to open modal & begin playing video
-            var videoModalOpen = $('<button class="community-modal-open" type="button"></button>');
-            videoModalOpen.on('click', communityVideoShow);
-            videoModalOpen.appendTo('.community-box.community-interns');
-
-            // make link a trigger as well
-            var videoModalLink = $('.community-box.community-interns a');
-            videoModalLink.on('click', function(e){
-                e.preventDefault();
-                communityVideoShow();
-            });
-
-            // Event Tracking
-            video.on('play', videoEvent('Play'));
-            video.on('pause', videoEvent('Pause'));
-            video.on('ended', videoEvent('Finish'));
+    function attachVideoModal(player) {
+        // Object for all attributes that need to be passed around
+        var videoPlayer = {
+            domObject: player,
+            fileName: $(player).data('video-file-name'),
+            domId: ('#' + $(player).data('video-file-name')).toString(),
+            domParent:  $(player).parents(".contain")[0],
+            modalLink: $(player).find('a'),
+            gaInteraction: $(player).data('video-ga-interaction'),
+            gaLabel: $(player).data('video-ga-name')
         }
 
+        // Create all HTML Elements - We need these as variables to attach events
+        var videoModal = $('<div class="video-modal"></div>');
+        var videoModalClose = $('<button class="video-modal-close" type="button">&times;</button>');
+        var videoWrapper = $('<div class="video-wrapper"></div>');
+        var videoModalOpen = $('<button class="video-modal-open" type="button"></button>');
+
+        var videoInternsSrcMp4 =  '<source src="//videos-cdn.mozilla.net/serv/hr/' + videoPlayer.fileName + '.mp4" type="video/mp4" />';
+        var videoInternsSrcWebm = '<source src="//videos-cdn.mozilla.net/serv/hr/' + videoPlayer.fileName + '.webm" type="video/webm" />';
+        var videoInternsSrcOgv =  '<source src="//videos-cdn.mozilla.net/serv/hr/' + videoPlayer.fileName + '.ogv" type="video/ogg" />';
+
+
+        // Append HTML Elements
+        videoModalClose.appendTo(videoModal);
+        videoWrapper.appendTo(videoModal);
+        videoModal.appendTo(videoPlayer.domParent);
+        videoModalOpen.appendTo(player);
+
+        // create and attach video element
+        // IE9 had issues when I appended the source to the video
+        $('<video id="' + videoPlayer.fileName + '" class="video-js vjs-sandstone-skin" controls preload="none" width="auto" height="auto">' +
+            videoInternsSrcMp4 +
+            videoInternsSrcWebm +
+            videoInternsSrcOgv +
+            '</video>')
+            .appendTo(videoWrapper);
+
+        // initialize video with video js - note selectors do not appear to work so we need a unique ID
+        var video = videojs(videoPlayer.domId);
+
+        /* Attach Events */
+        videoPlayer.modalLink.on('click', function(e){
+            e.preventDefault();
+            videoShow(videoModal, video, videoPlayer);
+        });
+
+        videoModalOpen.on('click', function(e){
+            e.preventDefault();
+            videoShow(videoModal, video, videoPlayer);
+        });
+
+        videoModalClose.on('click', function(e){
+            e.preventDefault();
+            videoHide(videoModal,video);
+        });
+
+        /* GA Event Tracking */
+        video.on('play', videoEvent('Play', videoPlayer));
+        video.on('pause', videoEvent('Pause', videoPlayer));
+        video.on('ended', videoEvent('Finish', videoPlayer));
+    }
+
+
+    function videosInit() {
+        if(!Mozilla.Test.isSmallScreen) {
+            // for each video found initialize player
+            $('.video-player').each(function (index, player) {
+                attachVideoModal(player);
+            })
+        }
     }
 
 
