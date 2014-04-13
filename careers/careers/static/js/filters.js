@@ -66,7 +66,7 @@
             // Hide positions that don't match the current filters.
             this.filterPositions('type', filters['position_type']);
             this.filterPositions('team', filters['team']);
-            this.filterPositionsByLocation(filters['loc']);
+            this.filterPositionsByLocation(filters['location']);
 
             // If there aren't any positions being shown, show the no-results message.
             if (this.$positionTable.find('.position:not(.hidden)').length < 1) {
