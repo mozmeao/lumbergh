@@ -19,7 +19,7 @@ you don't have `pip` installed, you can install it with `easy_install pip`.
    $ git clone --recursive git@github.com:mozilla/lumbergh.git
    $ cd lumbergh
    ```
-   Note you may want to fork and clone the repo as described in the 
+   Note you may want to fork and clone the repo as described in the
    [github docs][git-clone] if you are doing active development.
 
 2. Create a virtualenv for Lumbergh. Skip the first step if you already have
@@ -35,7 +35,7 @@ you don't have `pip` installed, you can install it with `easy_install pip`.
 
    ```sh
    $ pip install -r requirements/compiled.txt
-   ```   
+   ```
 
 4. Set up a local MySQL database. The [MySQL Installation Documentation][mysql]
    explains how to do this. Make sure your DB is utf8.
@@ -48,7 +48,7 @@ you don't have `pip` installed, you can install it with `easy_install pip`.
    ```
 
    The file is commented to explain what each setting does and how to customize
-   them.   
+   them.
 
    If you wish to have jobs appear locally make sure JOBVITE_URI is set.
 
@@ -57,7 +57,7 @@ you don't have `pip` installed, you can install it with `easy_install pip`.
    ```sh
    $ python manage.py syncdb
    $ python manage.py migrate
-   ```  
+   ```
 
 Running the Development Server
 ------------------------------
@@ -89,4 +89,3 @@ This software is licensed under the [New BSD License][BSD]. For more
 information, read the file ``LICENSE``.
 
 [BSD]: http://creativecommons.org/licenses/BSD/
-
