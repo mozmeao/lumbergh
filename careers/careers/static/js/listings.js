@@ -70,8 +70,8 @@
             filterMask.appendTo(filter);
         });
 
-        // make entire listing table row clickable
-        $('#listings-positions tbody tr').on('click', listingGoToPosition);
+        // make valid listings in the table clickable
+        $('#listings-positions tbody tr.position').on('click', listingGoToPosition);
     }
 
     // init listings
