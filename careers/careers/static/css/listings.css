@@ -100,12 +100,12 @@
     .js-enabled #listings-positions a:active  {
         color: #0096dd;
     }
-.js-enabled #listings-positions tbody tr:hover,
-.js-enabled #listings-positions tbody tr:focus,
-.js-enabled #listings-positions tbody tr:active,
-.js-enabled #listings-positions tbody tr:hover a,
-.js-enabled #listings-positions tbody tr:focus a,
-.js-enabled #listings-positions tbody tr:active a {
+.js-enabled #listings-positions tbody tr.position:hover,
+.js-enabled #listings-positions tbody tr.position:focus,
+.js-enabled #listings-positions tbody tr.position:active,
+.js-enabled #listings-positions tbody tr.position:hover a,
+.js-enabled #listings-positions tbody tr.position:focus a,
+.js-enabled #listings-positions tbody tr.position:active a {
     color: #0096dd;
     cursor: pointer;
 }
