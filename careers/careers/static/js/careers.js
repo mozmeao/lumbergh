@@ -564,15 +564,15 @@
         // add listener for escape key
         $(document).on('keyup', function(e){
             videoEscapeWatch(e, videoModal, video);
-        });;
+        });
 
         // Track video opening.
-        _gaq.push(['_trackEvent', videoPlayer.gaInteraction, 'Open', videoPlayer.gaLabel]);
+        ga('careersSnippetGA.send', 'event', videoPlayer.gaInteraction, 'Open', videoPlayer.gaLabel);
     }
 
     function videoEvent(state, videoPlayer) {
         return function() {
-            _gaq.push(['_trackEvent', videoPlayer.gaInteraction, state, videoPlayer.gaLabel]);
+            ga('careersSnippetGA.send', 'event', videoPlayer.gaInteraction, state, videoPlayer.gaLabel);
         };
     }
 
@@ -586,7 +586,7 @@
             modalLink: $(player).find('a'),
             gaInteraction: $(player).data('video-ga-interaction'),
             gaLabel: $(player).data('video-ga-name')
-        }
+        };
 
         // Create all HTML Elements - We need these as variables to attach events
         var videoModal = $('<div class="video-modal"></div>');
@@ -645,7 +645,7 @@
             // for each video found initialize player
             $('.video-player').each(function (index, player) {
                 attachVideoModal(player);
-            })
+            });
         }
     }
 

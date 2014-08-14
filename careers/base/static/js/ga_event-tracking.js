@@ -6,9 +6,9 @@
 
     var $root = $(':root');
     function trackClick(selector, trackEventArgs) {
-        trackEventArgs.unshift('_trackEvent');
+        trackEventArgs.unshift('careersSnippetGA.send', 'event');
         $root.on('click', selector, function() {
-            _gaq.push(trackEventArgs);
+            ga.apply(ga, trackEventArgs);
         });
     }
 
@@ -20,6 +20,7 @@
     var trackedIds = [];
     function trackScroll(id, trackEvent) {
         trackedIds.push(id);
+        trackEvent.unshift('careersSnippetGA.send', 'event');
 
         $(id).waypoint(function () {
             // Ignore events unless we have reached the correct element.
@@ -32,7 +33,7 @@
 
             // Only check for autoscrolling if Mozilla global exists.
             if (!window.Mozilla || !window.Mozilla.autoscrolling) {
-                _gaq.push(trackEvent);
+                ga.apply(ga, trackEvent);
             }
         });
     }
@@ -58,11 +59,11 @@
     trackClick('.ga-career-banner-internship-bottom', ['Career Banner Interactions', 'Bottom Banner Click', 'University']);
     trackClick('.ga-career-banner-volunteer-bottom', ['Career Banner Interactions', 'Bottom Banner Click', 'Volunteer']);
 
-    trackScroll('#teams', ['_trackEvent', 'Careers Home', 'scroll', 'Teams & Roles']);
-    trackScroll('#life', ['_trackEvent', 'Careers Home', 'scroll', 'Life At Mozilla']);
-    trackScroll('#community', ['_trackEvent', 'Careers Home', 'scroll', 'Community & Culture']);
-    trackScroll('#locations', ['_trackEvent', 'Careers Home', 'scroll', 'Locations']);
-    trackScroll('#next', ['_trackEvent', 'Careers Home', 'scroll', 'Are You Ready To Join']);
+    trackScroll('#teams', ['Careers Home', 'scroll', 'Teams & Roles']);
+    trackScroll('#life', ['Careers Home', 'scroll', 'Life At Mozilla']);
+    trackScroll('#community', ['Careers Home', 'scroll', 'Community & Culture']);
+    trackScroll('#locations', ['Careers Home', 'scroll', 'Locations']);
+    trackScroll('#next', ['Careers Home', 'scroll', 'Are You Ready To Join']);
 
 
     /* Careers > Teams & Roles
@@ -73,19 +74,19 @@
     // Primary hex navigation
     $root.on('click', '#teams-intro .teams-nav a', function() {
         var name = $(this).find('strong').text();
-        _gaq.push(['_trackEvent', 'Teams & Roles Interactions', 'Primary Nav Click', name]);
+        ga('careersSnippetGA.send', 'event', 'Teams & Roles Interactions', 'Primary Nav Click', name);
     });
 
     // Secondary hex navigation
     $root.on('click', '#teams-nav-second a', function() {
         var name = $(this).find('strong').text();
-        _gaq.push(['_trackEvent', 'Teams & Roles Interactions', 'Secondary Left Side Nav Click', name]);
+        ga('careersSnippetGA.send', 'event', 'Teams & Roles Interactions', 'Secondary Left Side Nav Click', name);
     });
 
     // View Open Position buttons
     $root.on('click', '.teams-team a.cta', function() {
         var name = $(this).siblings('.team-head').text();
-        _gaq.push(['_trackEvent', 'Teams & Roles Interactions', 'View Open Positions', name]);
+        ga('careersSnippetGA.send', 'event', 'Teams & Roles Interactions', 'View Open Positions', name);
     });
 
 
@@ -93,7 +94,7 @@
     ***************************************************************************/
     $root.on('click', '.community-box a', function() {
         var href = $(this).attr('href');
-        _gaq.push(['_trackEvent', 'Community & Culture Interactions', 'Link Click', href]);
+        ga('careersSnippetGA.send', 'event', 'Community & Culture Interactions', 'Link Click', href);
     });
 
 
@@ -101,7 +102,7 @@
     ***************************************************************************/
     $root.on('click', 'a.location-link', function() {
         var city = $(this).text();
-        _gaq.push(['_trackEvent', 'Mozilla Location Map Interactions', 'Click', city]);
+        ga('careersSnippetGA.send', 'event', 'Mozilla Location Map Interactions', 'Click', city);
     });
 
 
@@ -118,12 +119,12 @@
     trackClick('.ga-apply-now', ['/university/ Interactions', 'Apply Now Clicks', 'Apply Now: Ready to Start']);
     trackClick('.meet-us-on-campus', ['/university/ Interactions', 'Clicks', 'Meet Us On Campus']);
 
-    trackScroll('#different', ['_trackEvent', 'University', 'scroll', 'Its Different']);
-    trackScroll('#know-boxes', ['_trackEvent', 'University', 'scroll', 'Things youll want to know']);
-    trackScroll('#videos', ['_trackEvent', 'University', 'scroll', 'Videos']);
-    trackScroll('#testimonials', ['_trackEvent', 'University', 'scroll', 'Testimonials']);
-    trackScroll('#meetus', ['_trackEvent', 'University', 'scroll', 'Meet Us']);
-    trackScroll('#gallery', ['_trackEvent', 'University', 'scroll', 'Gallery']);
+    trackScroll('#different', ['University', 'scroll', 'Its Different']);
+    trackScroll('#know-boxes', ['University', 'scroll', 'Things youll want to know']);
+    trackScroll('#videos', ['University', 'scroll', 'Videos']);
+    trackScroll('#testimonials', ['University', 'scroll', 'Testimonials']);
+    trackScroll('#meetus', ['University', 'scroll', 'Meet Us']);
+    trackScroll('#gallery', ['University', 'scroll', 'Gallery']);
 
 
     /* Listings
@@ -134,7 +135,7 @@
     // Apply for this job button
     $root.on('click', '.ga-job-listing-apply', function() {
         var jobName = $('.job-post-title').text();
-        _gaq.push(['_trackEvent', 'Job Description Page Interactions', 'Apply for this Job', jobName]);
+        ga('careersSnippetGA.send', 'event', 'Job Description Page Interactions', 'Apply for this Job', jobName);
     });
 
 

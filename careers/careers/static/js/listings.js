@@ -13,7 +13,7 @@
         var filterMask = filterSelect.siblings('.listings-filter-mask');
         filterMask.text(filterText);
 
-        _gaq.push(['_trackEvent', 'Listings Filter', filterName, filterText]);
+        ga('careersSnippetGA.send', 'event', 'Listings Filter', filterName, filterText);
     }
 
     // hides or shows filters on mobile

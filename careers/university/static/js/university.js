@@ -382,7 +382,7 @@
 
     function videoEvent(videoName, state) {
         return function() {
-            _gaq.push(['_trackEvent', 'Intern Video Interactions', state, videoName]);
+            ga('careersSnippetGA.send', 'event', 'Intern Video Interactions', state, videoName);
         };
     }
 
@@ -410,7 +410,7 @@
 
                 // Track that a new video was opened.
                 var videoName = $newVideo.siblings('figcaption').text();
-                _gaq.push(['_trackEvent', 'Intern Video Interactions', 'Open', videoName]);
+                ga('careersSnippetGA.send', 'event', 'Intern Video Interactions', 'Open', videoName);
             }
         }
     }

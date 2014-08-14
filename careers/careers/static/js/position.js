@@ -3,9 +3,9 @@
 
     $(function() {
         // Create custom tracking vars for the current position being viewed.
-        _gaq.push(['_setCustomVar', 1, 'Team', $('.job-post-team').text(), 3]);
-        _gaq.push(['_setCustomVar', 2, 'Location of Job', $('#job-post').data('locationFilter'), 3]);
-        _gaq.push(['_trackEvent', 'CV Dummy', 'on load', undefined, undefined, true]);
+        ga('careersSnippetGA.set', 'dimension1', $('.job-post-team').text());
+        ga('careersSnippetGA.set', 'dimension2', $('#job-post').data('locationFilter'));
+        ga('careersSnippetGA.send', 'event', 'CV Dummy', 'on load', undefined, undefined, true);
     });
 
 })(window, window.jQuery);
