@@ -6,6 +6,7 @@ that displays open jobs.
 
 [gh-playdoh]: https://github.com/mozilla/playdoh
 
+
 Setup
 -----
 These instructions assume you have [git][], [python][], and `pip` installed. If
