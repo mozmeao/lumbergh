@@ -102,9 +102,6 @@ MINIFY_BUNDLES = {
         'university_links': (
             'js/university_links.js',
         ),
-        'position': (
-            'js/position.js',
-        ),
         'smallscreen': (
             'js/libs/jquery.carouFredSel-6.2.1-packed.js',
             'js/libs/jquery.touchSwipe.min.js',

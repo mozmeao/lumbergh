@@ -7,13 +7,6 @@
   {{ css('position') }}
 {% endblock %}
 
-{% block site_js %}
-  {{ super() }}
-  <!--[if gt IE 8]> <!-- -->
-    {{ js('position') }}
-  <!-- <![endif]-->
-{% endblock %}
-
 {% block content %}
 <section id="job">
 
