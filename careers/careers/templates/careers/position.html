@@ -14,7 +14,7 @@
       <div class="job-post-head">
         <div class="contain">
           <h1 class="job-post-title">{{ position.title }}</h1>
-          <a class="cta job-post-head-apply ga-job-listing-apply" href="{{ position.apply_url }}">Apply for this job</a>
+          <a class="cta job-post-head-apply ga-job-listing-apply" href="{{ position.apply_url|urlparams(utm_source='careers.mozilla.org', utm_medium='referral') }}">Apply for this job</a>
           <dl class="job-post-details">
             <dt class="job-post-team-head">Team:</dt>
             <dd class="job-post-team">{{ position.category.name }}</dd>
@@ -48,7 +48,7 @@
       </div>
     </article>
   </div>
-  <a id="job-post-apply" class="cta ga-job-listing-apply" href="{{ position.apply_url }}">Apply for this job</a>
+  <a id="job-post-apply" class="cta ga-job-listing-apply" href="{{ position.apply_url|urlparams(utm_source='careers.mozilla.org', utm_medium='referral') }}">Apply for this job</a>
 </section>
 
 <section id="why">
