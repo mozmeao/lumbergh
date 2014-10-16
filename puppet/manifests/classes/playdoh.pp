@@ -3,16 +3,16 @@
 
 # TODO: Make this rely on things that are not straight-up exec.
 class playdoh {
-    file { "$PROJ_DIR/settings/local.py":
+    file { "$PROJ_DIR/careers/settings/local.py":
         ensure => file,
-        source => "$PROJ_DIR/settings/local.py-dist",
+        source => "$PROJ_DIR/careers/settings/local.py-dist",
         replace => false;
     }
 
     exec { "create_mysql_database":
         command => "mysqladmin -uroot create $DB_NAME",
         unless  => "mysql -uroot -B --skip-column-names -e 'show databases' | /bin/grep '$DB_NAME'",
-        require => File["$PROJ_DIR/settings/local.py"]
+        require => File["$PROJ_DIR/careers/settings/local.py"]
     }
 
     exec { "grant_mysql_database":
@@ -32,7 +32,7 @@ class playdoh {
         command => "python ./manage.py migrate",
         require => [
             Service["mysql"],
-            Package["python2.6-dev", "libapache2-mod-wsgi", "python-wsgi-intercept" ],
+            Package["python2.7-dev", "libapache2-mod-wsgi", "python-wsgi-intercept" ],
             Exec["syncdb"]
         ];
     }
