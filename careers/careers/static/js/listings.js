@@ -36,10 +36,12 @@
 
     // go to the position details page for the job position clicked
     function listingGoToPosition(e) {
-        var listingsTarget = $(e.target);
-        var listingsRow = listingsTarget.closest('.position');
-        var listingsLocation = listingsRow.find('.title a').prop('href');
-        window.location = listingsLocation;
+        if(e.target.nodeName !== 'A') {
+            var listingsTarget = $(e.target);
+            var listingsRow = listingsTarget.closest('.position');
+            var listingsLocation = listingsRow.find('.title a').prop('href');
+            window.location = listingsLocation;
+        }
     }
 
     // create elements and add event listners for listings page
