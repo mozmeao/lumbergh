@@ -36,7 +36,7 @@
 
     // go to the position details page for the job position clicked
     function listingGoToPosition(e) {
-        if(e.target.nodeName !== 'A') {
+        if (e.target.tagName !== 'A') {
             var listingsTarget = $(e.target);
             var listingsRow = listingsTarget.closest('.position');
             var listingsLocation = listingsRow.find('.title a').prop('href');
