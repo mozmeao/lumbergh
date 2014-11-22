@@ -185,4 +185,83 @@ Mozilla.Test = (function(w, $) {
     });
 
 
+
+    /*
+    *  Gradually reduce the header as the user scrolls by.
+    *  ---
+    *  Bug 983973 - Top header bar might become smaller while scrolling 
+    *  https://bugzilla.mozilla.org/show_bug.cgi?id=983973
+    */
+
+    function initReducedHeaderScrollSpy() {
+        var ticking = false;
+        var initializedBefore = false;
+        var $window = $(window);
+
+        if (initializedBefore) { return; }
+
+        initializedBefore = true;
+
+        var $logo = $('.masthead-logo');
+
+        var spanLength = 100;
+
+        function reducedHeaderScrollSpy() {
+            ticking = false;
+            if (isSmallScreen()) { return; }
+
+            var scrollTop = $window.scrollTop();
+            var ratio = scrollTop/spanLength;
+
+            var $logoExpanded = $logo.hasClass('expanded');
+
+            if (ratio < 1 && !$logoExpanded) {
+                $logo.addClass('expanded');
+            } else if (ratio < 1) {
+                $logo[0].style.paddingTop = 25 - (20 * ratio) + 'px';
+            } else if (ratio > 1 && ($logoExpanded || $logo.attr('style'))) {
+                $logo.removeAttr('style').removeClass('expanded');
+            }
+        };
+
+        function isSmallScreen() {
+            return $window.width() <= 680;
+        }
+
+        function handleResize() {
+            ticking = false;
+            if (!initializedBefore) {
+                initReducedHeaderScrollSpy();
+            } else {
+                /* Big screen and scrollspy already initialized
+                * Just run reducedHeaderScrollSpy once
+                * To update masthead / container
+                * in accordance to current scroll position
+                */
+                reducedHeaderScrollSpy();
+            }
+        }
+
+        function requestTick(fn) {
+            if(!ticking) {
+                requestAnimationFrame(fn);
+            }
+            ticking = true;
+        }
+
+        $window
+            .on('scroll', function onScroll() {
+                requestTick(reducedHeaderScrollSpy)
+            })
+            .on('resize', function onResize() {
+                requestTick(handleResize);
+            });
+
+        requestTick(reducedHeaderScrollSpy);
+    };
+
+
+    $(function() {
+        initReducedHeaderScrollSpy();
+    });
 })(jQuery);
