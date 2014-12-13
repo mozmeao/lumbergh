@@ -35,7 +35,7 @@ JINGO_EXCLUDE_APPS = [
 ]
 
 # Accepted locales
-PROD_LANGUAGES = ('de', 'en-US', 'es', 'fr',)
+PROD_LANGUAGES = ('en-US')
 
 # Bundles is a dictionary of two dictionaries, css and js, which list css files
 # and js files that can be bundled together by the minify app.
