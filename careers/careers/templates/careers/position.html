@@ -19,7 +19,7 @@
             <dt class="job-post-team-head">Team:</dt>
             <dd class="job-post-team">{{ position.category.name }}</dd>
             <dt class="job-post-location-head">Locations:</dt>
-            <dd class="job-post-location">{{ position.location|default('All', True) }}</dd>
+            <dd class="job-post-location">{{ position.location_filter|default('All', True) }}</dd>
           </dl>
         </div>
       </div>
