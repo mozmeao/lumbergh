@@ -28,15 +28,13 @@ def update_code(ctx, tag):
 
 @task
 def update_info(ctx):
-    """Write info about the current state to a publicly visible file."""
+    """Output repository's current status."""
     with ctx.lcd(settings.SRC_DIR):
         ctx.local('date')
         ctx.local('git branch')
         ctx.local('git log -3')
         ctx.local('git status')
         ctx.local('git submodule status')
-
-        ctx.local('git rev-parse HEAD > static/revision')
 
 
 @task
@@ -52,6 +50,7 @@ def update_assets(ctx):
         ctx.local('python2.6 manage.py collectstatic --noinput --clear')
         # LANG=en_US.UTF-8 is sometimes necessary for the YUICompressor.
         ctx.local('LANG=en_US.UTF8 python2.6 manage.py compress_assets')
+        ctx.local('git rev-parse HEAD > static/revision')
 
 
 @task
