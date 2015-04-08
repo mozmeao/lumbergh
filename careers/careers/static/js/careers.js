@@ -245,18 +245,14 @@
             var currentTeam = $('.team-current');
 
             if (currentTeam.length) {
-                var requestingCurrent = false;
                 // if there is a current team(s) hide it
                 currentTeam.each( function(){
                     var currentTeamId = this.id;
                     teamHide(currentTeamId);
-                    if (currentTeamId === newTeamId) {
-                        requestingCurrent = true;
-                    }
                 });
 
                 // if we're requesting the intro or the current team...
-                if (newTeamId === 'teams-intro' || requestingCurrent) {
+                if (newTeamId === 'teams-intro') {
                     // show the intro again
                     teamsIntroToggle('show');
                 } else {
