@@ -251,7 +251,7 @@
                     teamHide(currentTeamId);
                 });
 
-                // if we're requesting the intro or the current team...
+                // if we're requesting the intro.
                 if (newTeamId === 'teams-intro') {
                     // show the intro again
                     teamsIntroToggle('show');
