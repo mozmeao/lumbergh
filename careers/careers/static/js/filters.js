@@ -84,9 +84,21 @@
                 }
 
                 // Build a querystring from populated filters.
-                var querystring = $.param(filters)
-                if (!$.isEmptyObject(filters)) {
-                    querystring = "?" + querystring;
+                var querystring = $.param(filters);
+
+                // Preserve Google Analytics parameters.
+                var ga_parameters = window.location.search.substr(1).split('&').filter(
+                    function(parameter) {
+                        return parameter.indexOf('utm_') === 0;
+                    }
+                );
+                if (querystring.length && ga_parameters.length) {
+                    querystring += '&';
+                }
+                querystring += ga_parameters.join('&');
+
+                if (querystring.length) {
+                    querystring = '?' + querystring;
                 }
 
                 // Replace history state with this filtered state.
