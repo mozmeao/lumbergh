@@ -2,7 +2,8 @@ from nose.tools import eq_
 
 from careers.base.tests import TestCase
 from careers.careers.forms import PositionFilterForm
-from careers.careers.tests import PositionFactory
+from careers.careers.tests import PositionFactory as JobvitePositionFactory
+from careers.django_workable.tests import PositionFactory as WorkablePositionFactory
 
 
 class PositionFilterFormTests(TestCase):
@@ -11,11 +12,11 @@ class PositionFilterFormTests(TestCase):
         The choices for the position_type field should be dynamically
         generated from the available values in the database.
         """
-        PositionFactory.create(job_type='Foo')
-        PositionFactory.create(job_type='Bar')
-        PositionFactory.create(job_type='Baz')
-        PositionFactory.create(job_type='Foo')
-        PositionFactory.create(job_type='Biff')
+        JobvitePositionFactory.create(job_type='Foo')
+        JobvitePositionFactory.create(job_type='Bar')
+        JobvitePositionFactory.create(job_type='Baz')
+        JobvitePositionFactory.create(job_type='Foo')
+        WorkablePositionFactory.create(job_type='Biff')
 
         form = PositionFilterForm()
         eq_(form.fields['position_type'].choices, [

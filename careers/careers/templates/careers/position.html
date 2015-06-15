@@ -38,8 +38,8 @@
           <ul class="job-related-list">
             {% for p in positions if p != position %}
               <li>
-                <a href="{{ url('careers.position', p.job_id) }}"
-                   class="{% if position.job_id == p.job_id %}active{% endif %} ga-job-listing-detail"
+                <a href="{{ p.get_absolute_url() }}"
+                   class="ga-job-listing-detail"
                    title="{{ p.title }}">{{ p.title }}</a>
               </li>
             {% endfor %}

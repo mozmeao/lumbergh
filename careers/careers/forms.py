@@ -1,12 +1,13 @@
 from django import forms
 
-from django_jobvite.models import Category, Position
+from django_jobvite import models as jobvite_models
+
+import utils
+from careers.django_workable import models as workable_models
 
 
 class PositionFilterForm(forms.Form):
-    team = forms.ModelChoiceField(queryset=Category.objects.order_by('name'),
-                                  empty_label='All Categories',
-                                  widget=forms.Select(attrs={'autocomplete': 'off'}))
+    team = forms.ChoiceField(widget=forms.Select(attrs={'autocomplete': 'off'}))
     position_type = forms.ChoiceField(widget=forms.Select(attrs={'autocomplete': 'off'}))
     location = forms.ChoiceField(choices=(
         ('', 'All Locations'),
@@ -37,5 +38,8 @@ class PositionFilterForm(forms.Form):
         super(PositionFilterForm, self).__init__(*args, **kwargs)
 
         # Populate position type choices dynamically.
-        types = Position.objects.values_list('job_type', flat=True).distinct().order_by('job_type')
+        types = utils.get_all_position_types()
         self.fields['position_type'].choices = [('', 'All Positions')] + [(k, k) for k in types]
+
+        categories = utils.get_all_categories()
+        self.fields['team'].choices = [('', 'All Categories')] + [(k, k) for k in categories]

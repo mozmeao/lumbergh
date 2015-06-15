@@ -15,6 +15,7 @@ INSTALLED_APPS = list(INSTALLED_APPS) + [
     'careers.base',
     'careers.careers',
     'careers.university',
+    'careers.django_workable',
 
     'django.contrib.admin',
 

@@ -1,38 +1,32 @@
 from datetime import date
 
 import factory
-from django_jobvite import models as jobvite_models
 from factory import fuzzy
 
-
-class FuzzyDateString(fuzzy.FuzzyDate):
-    def fuzz(self):
-        date = super(FuzzyDateString, self).fuzz()
-        return date.strftime('%m/%d/%Y')
+from .. import models
 
 
 class CategoryFactory(factory.DjangoModelFactory):
-    FACTORY_FOR = jobvite_models.Category
+    FACTORY_FOR = models.Category
     name = factory.Sequence(lambda n: 'category {0}'.format(n))
     slug = factory.Sequence(lambda n: 'category-{0}'.format(n))
 
 
 class PositionFactory(factory.DjangoModelFactory):
-    FACTORY_FOR = jobvite_models.Position
+    FACTORY_FOR = models.Position
+    shortcode = factory.Sequence(lambda n: 'shortcode{0}'.format(n))
     category = factory.SubFactory(CategoryFactory)
-    job_id = factory.Sequence(lambda n: 'jobid{0}'.format(n))
     title = factory.Sequence(lambda n: 'Job Title {0}'.format(n))
     job_type = fuzzy.FuzzyChoice(['Full-Time', 'Part-Time', 'Contractor', 'Intern'])
-    requisition_id = fuzzy.FuzzyInteger(0)
     location = fuzzy.FuzzyChoice(['Mountain View', 'San Francisco', 'Remote', 'Toronto'])
-    date = FuzzyDateString(date(2010, 1, 1))
     description = factory.Sequence(lambda n: 'Job Description {0}'.format(n))
 
     @factory.lazy_attribute
     def apply_url(self):
-        url = 'http://hire.jobvite.com/CompanyJobs/Apply.aspx?c=qpX9Vfwaj&j={0}'
-        return url.format(self.job_id)
+        url = 'https://mofo.workable.com/jobs/{0}/candidates/new'
+        return url.format(self.shortcode)
 
     @factory.lazy_attribute
     def detail_url(self):
-        return 'http://hire.jobvite.com/CompanyJobs/Job.aspx?c=qpX9Vfwaj&j={0}'.format(self.job_id)
+        url = 'https://mofo.workable.com/j/{0}'
+        return url.format(self.shortcode)
