@@ -1,4 +1,4 @@
-Lumbergh
+Lumbergh [![Build Status](https://travis-ci.org/mozilla/lumbergh.svg?branch=master)](https://travis-ci.org/mozilla/lumbergh)
 =======
 
 Lumbergh is the Mozilla careers website. It is a [playdoh][gh-playdoh]-based site
