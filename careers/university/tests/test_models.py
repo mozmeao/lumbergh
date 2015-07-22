@@ -35,12 +35,11 @@ class EventTests(TestCase):
         ValidationError.
         """
         event = EventFactory.build(start_date=date(2011, 1, 1), end_date=date(2010, 1, 1))
-        with assert_raises(ValidationError):
-            event.clean()
+        assert_raises(ValidationError, event.clean)
 
         event = EventFactory.build(start_date=date(2010, 1, 1), end_date=date(2010, 1, 1))
-        with assert_raises(ValidationError):
-            event.clean()
+        assert_raises(ValidationError, event.clean)
+
 
     def test_clean_valid_end_date(self):
         """
