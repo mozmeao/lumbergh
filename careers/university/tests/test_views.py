@@ -7,7 +7,7 @@ from mock import patch
 from nose.tools import eq_, ok_
 
 from careers.base.tests import TestCase
-from careers.careers.tests import PositionFactory
+from careers.careers.tests import PositionFactory as JobvitePositionFactory
 from careers.university import views
 from careers.university.tests import EventFactory
 
@@ -48,7 +48,7 @@ class IndexTests(TestCase):
         If there are positions in the Intern category,
         open_for_applications should be True.
         """
-        PositionFactory.create(job_type='Intern')
+        JobvitePositionFactory.create(job_type='Intern')
         response, context = self._index()
         ok_(context['open_for_applications'])
 
@@ -77,6 +77,6 @@ class IndexTests(TestCase):
         open_for_applications should be False, even if there are intern
         positions.
         """
-        PositionFactory.create(job_type='Intern')
+        JobvitePositionFactory.create(job_type='Intern')
         response, context = self._index(open_for_applications='false')
         ok_(not context['open_for_applications'])

@@ -62,7 +62,7 @@
       <tbody>
       {% for position in positions %}
         <tr class="position"
-            data-team="{{ position.category.id }}"
+            data-team="{{ position.category.name }}"
             data-type="{{ position.job_type }}"
             data-location="{{ position.location_filter }}">
           <td class="title"><a href="{{ position.get_absolute_url() }}">{{ position.title }}</a></td>
@@ -81,4 +81,3 @@
   </div>
 </section>
 {% endblock %}
-
