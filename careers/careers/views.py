@@ -16,7 +16,7 @@ def home(request):
 def listings(request):
     return render(request, 'careers/listings.html', {
         'positions': utils.get_all_positions(
-            order_by=lambda x: '{0} {1}'.format(x.category.name, x.title)),
+            order_by=lambda x: u'{0} {1}'.format(x.category.name, x.title)),
         'form': PositionFilterForm(request.GET or None),
     })
 
