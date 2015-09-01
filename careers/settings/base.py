@@ -80,6 +80,7 @@ MINIFY_BUNDLES = {
         ),
         'common': (
             'js/libs/video-js/video.dev.js',
+            'js/libs/requestAnimationFrame.min.js',
             'js/base.js',
         ),
         'google_analytics': (

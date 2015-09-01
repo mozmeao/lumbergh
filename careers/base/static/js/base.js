@@ -189,7 +189,7 @@ Mozilla.Test = (function(w, $) {
     /*
     *  Gradually reduce the header as the user scrolls by.
     *  ---
-    *  Bug 983973 - Top header bar might become smaller while scrolling 
+    *  Bug 983973 - Top header bar might become smaller while scrolling
     *  https://bugzilla.mozilla.org/show_bug.cgi?id=983973
     */
 
