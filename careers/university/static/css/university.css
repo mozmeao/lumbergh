@@ -1380,11 +1380,11 @@
             background-size: 100%;
         }
 
-            .video-thumb-mike:before {
+            .video-thumb-birunthan:before {
                 background-position: 0 50%;
             }
 
-            .video-thumb-james:before {
+            .video-thumb-alexis:before {
                 background-position: 0 100%;
             }
 
@@ -1686,4 +1686,3 @@
         padding: 60px 0;
     }
 }
-
