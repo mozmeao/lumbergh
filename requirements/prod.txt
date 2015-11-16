@@ -1,7 +1,0 @@
--r ../vendor/src/funfactory/funfactory/requirements/prod.txt
-
-# Jobvite integration
--e git://github.com/mozilla/django-jobvite#egg=django_jobvite
-
-# South
-south

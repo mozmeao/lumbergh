@@ -1,0 +1,26 @@
+{% extends "base.jinja" %}
+
+{% block page_title %}Mozilla Jobs &mdash; Error{% endblock %}
+
+{% block site_css %}
+  {{ super() }}
+  <link href="{{ static('css/careers.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block site_ie8 %}
+  {{ super() }}
+  <link href="{{ static('css/careers-ie8.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+<section id="error" class="contain">
+    <h1>Sorry, but something went wrong!</h1>
+
+    <p>
+      Sorry, but something went wrong on our end and we couldn't process
+      your request. You can reload the page to try again, or
+      <a href="{{ url('careers.listings') }}">check out all the listings</a> for all
+      careers at Mozilla.
+    </p>
+</section>
+{% endblock %}

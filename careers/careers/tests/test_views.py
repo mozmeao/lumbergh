@@ -1,5 +1,4 @@
-from funfactory.urlresolvers import reverse
-from nose.tools import eq_
+from django.core.urlresolvers import reverse
 
 from careers.base.tests import TestCase
 from careers.careers.tests import PositionFactory as JobvitePositionFactory
@@ -20,13 +19,13 @@ class PositionTests(TestCase):
 
         url = reverse('careers.position', kwargs={'job_id': job_id_1})
         response = self.client.get(url, follow=True)
-        eq_(response.status_code, 200)
-        eq_(response.context['position'].job_id, job_id_1)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.context_data['position'].job_id, job_id_1)
 
         url = reverse('careers.position', kwargs={'job_id': job_id_2})
         response = self.client.get(url, follow=True)
-        eq_(response.status_code, 200)
-        eq_(response.context['position'].job_id, job_id_2)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.context_data['position'].job_id, job_id_2)
 
 
 class WorkablePositionDetailViewTests(TestCase):
@@ -35,5 +34,5 @@ class WorkablePositionDetailViewTests(TestCase):
         position_2 = WorkablePositionFactory.create(category=position_1.category, title='aaa')
         status = self.client.get(reverse('careers.workable_position',
                                          kwargs={'shortcode': position_1.shortcode}))
-        eq_(status.context['positions'], [position_2, position_1])
-        eq_(status.context['position'], position_1)
+        self.assertEqual(status.context_data['positions'], [position_2, position_1])
+        self.assertEqual(status.context_data['position'], position_1)

@@ -86,7 +86,6 @@ class Command(BaseCommand):
         stats['removed_categories'] = Category.objects.filter(position__isnull=True).count()
         Category.objects.filter(position__isnull=True).delete()
 
-
         print ' -> Added:                        {0}'.format(stats['new_positions'])
         print ' -> Updated:                      {0}'.format(stats['updated_positions'])
         print ' -> Removed:                      {0}'.format(stats['removed_positions'])

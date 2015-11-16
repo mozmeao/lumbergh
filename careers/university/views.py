@@ -13,12 +13,14 @@ def index(request):
     date_filter = Q(start_date__gte=today) | Q(end_date__isnull=False, end_date__gte=today)
 
     param = request.GET.get('open_for_applications')
+    open_for_applications = 'true'
+
     if param:
         open_for_applications = param == 'true'
     else:
         open_for_applications = Position.objects.filter(job_type='Intern').exists()
 
-    return render(request, 'university/index.html', {
+    return render(request, 'university/index.jinja', {
         'events': Event.objects.filter(date_filter).order_by('start_date'),
         'open_for_applications': open_for_applications,
     })

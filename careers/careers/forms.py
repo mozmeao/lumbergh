@@ -1,9 +1,6 @@
 from django import forms
 
-from django_jobvite import models as jobvite_models
-
 import utils
-from careers.django_workable import models as workable_models
 
 
 class PositionFilterForm(forms.Form):
