@@ -4,7 +4,6 @@ from django.test.client import RequestFactory
 
 from django_jobvite.models import Position
 from mock import patch
-from nose.tools import eq_, ok_
 
 from careers.base.tests import TestCase
 from careers.careers.tests import PositionFactory as JobvitePositionFactory
@@ -41,7 +40,7 @@ class IndexTests(TestCase):
             mock_date.today.return_value = date(2010, 1, 6)
             response, context = self._index()
 
-        eq_(list(context['events']), [event4, event3, event1, event2])
+        self.assertEqual(list(context['events']), [event4, event3, event1, event2])
 
     def test_open_for_applications(self):
         """
@@ -50,16 +49,16 @@ class IndexTests(TestCase):
         """
         JobvitePositionFactory.create(job_type='Intern')
         response, context = self._index()
-        ok_(context['open_for_applications'])
+        self.assertTrue(context['open_for_applications'])
 
     def test_closed_for_applications(self):
         """
         If there aren't any positions in the Intern category,
         open_for_applications should be False.
         """
-        eq_(Position.objects.count(), 0)
+        self.assertEqual(Position.objects.count(), 0)
         response, context = self._index()
-        ok_(not context['open_for_applications'])
+        self.assertTrue(not context['open_for_applications'])
 
     def test_open_for_applications_param(self):
         """
@@ -67,9 +66,9 @@ class IndexTests(TestCase):
         open_for_applications should be True, even if there are no
         intern positions.
         """
-        eq_(Position.objects.count(), 0)
+        self.assertEqual(Position.objects.count(), 0)
         response, context = self._index(open_for_applications='true')
-        ok_(context['open_for_applications'])
+        self.assertTrue(context['open_for_applications'])
 
     def test_closed_for_applications_param(self):
         """
@@ -79,4 +78,4 @@ class IndexTests(TestCase):
         """
         JobvitePositionFactory.create(job_type='Intern')
         response, context = self._index(open_for_applications='false')
-        ok_(not context['open_for_applications'])
+        self.assertTrue(not context['open_for_applications'])

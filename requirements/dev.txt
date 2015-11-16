@@ -1,5 +1,0 @@
--r compiled.txt
--r prod.txt
-
-mock==1.0.1
-factory_boy==2.1.2

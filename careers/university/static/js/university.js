@@ -1,17 +1,6 @@
 (function(w, $) {
     'use strict';
 
-    /*
-    *  let's get this party started
-    *  check for touch support, load js libraries, and activate page interactions
-    */
-
-    Modernizr.load({
-        test: Mozilla.Test.isSmallScreen,
-        yep: $('body').data('js-smallscreen'),
-        complete: animationInit
-    });
-
     function animationInit() {
         differentListInit();
         knowBoxInit();
@@ -593,5 +582,5 @@
 
     }
 
-
+  animationInit();
 })(window, jQuery);

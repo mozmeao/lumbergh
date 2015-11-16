@@ -1,5 +1,5 @@
-import test_utils
+from django.test import TransactionTestCase
 
 
-class TestCase(test_utils.TestCase):
+class TestCase(TransactionTestCase):
     pass  # For future expansion if needed.
