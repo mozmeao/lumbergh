@@ -1,30 +1,22 @@
-========================================
-Welcome to this project's documentation!
-========================================
+.. lumbergh documentation master file, created by
+   sphinx-quickstart on Thu Nov  6 19:39:08 2014.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
 
-This is a documentation template for a **web application based on Playdoh**.
-Feel free to change this to your liking.
+Welcome to lumbergh's documentation!
+======================================
 
-
-About playdoh
--------------
-
-This project is based on **playdoh**. Mozilla's Playdoh is an open source
-web application template based on `Django <http://www.djangoproject.com/>`_.
-
-To learn more about it, step by the `playdoh project page
-<https://github.com/mozilla/playdoh>`_.
-
-Contents
---------
+Contents:
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
+
 
 
 Indices and tables
-------------------
+==================
 
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+

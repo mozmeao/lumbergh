@@ -1,14 +1,6 @@
 (function(w, $) {
     'use strict';
 
-    Modernizr.load({
-        test: Mozilla.Test.isSmallScreen,
-        yep: ['/static/js/libs/jquery.carouFredSel-6.2.1-packed.js','/static/js/libs/jquery.touchSwipe.min.js'],
-        load: $('body').data('js-smallscreen'),
-        complete: animationInit
-    });
-
-
     function animationInit() {
         teamsInit();
         galleryInit();
@@ -874,6 +866,5 @@
         }
     }
 
-
-
+  animationInit();
 })(window, window.jQuery);

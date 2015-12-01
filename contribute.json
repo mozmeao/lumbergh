@@ -1,6 +1,6 @@
 {
     "name": "Mozilla Careers",
-    "description": "Lumbergh is the Mozilla careers website. It is a playdoh-based site that displays open jobs.",
+    "description": "Lumbergh is the Mozilla careers website. It is a sugardough-based site that displays open jobs.",
     "repository": {
         "url": "https://github.com/mozilla/lumbergh",
         "license": "BSD 3-Clause"
@@ -9,7 +9,7 @@
         "home": "https://github.com/mozilla/lumbergh",
         "docs": "https://github.com/mozilla/lumbergh#setup",
         "irc": "irc://irc.mozilla.org/#careersweb",
-        "irc-contacts": ["bensternthal"]
+        "irc-contacts": ["bensternthal", "giorgos"]
     },
     "bugs": {
         "list": "https://bugzilla.mozilla.org/buglist.cgi?product=Websites&component=careers.mozilla.org&resolution=---",
@@ -24,7 +24,6 @@
     "keywords": [
         "django",
         "jquery",
-        "mysql",
         "python"
     ]
 }

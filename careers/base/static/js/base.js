@@ -263,5 +263,6 @@ Mozilla.Test = (function(w, $) {
 
     $(function() {
         initReducedHeaderScrollSpy();
+
     });
 })(jQuery);

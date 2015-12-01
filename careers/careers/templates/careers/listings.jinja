@@ -1,0 +1,83 @@
+{% extends "base.jinja" %}
+
+{% set navbar_section = 'listings' %}
+{% block page_title %}Listings{% endblock %}
+
+{% block site_css %}
+  {{ super() }}
+  <link href="{{ static('css/listings.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block site_ie8 %}
+  {{ super() }}
+  <link href="{{ static('css/listings-ie8.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block site_js %}
+  {{ super() }}
+  <!--[if gt IE 8]> <!-- -->
+    <script src="{{ static('js/listings.js') }}"></script>
+  <!-- <![endif]-->
+  <script src="{{ static('js/filters.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+
+<section id="listings-intro">
+  <h2 class="listings-intro-head">Careers at Mozilla</h2>
+  <p class="listings-intro-body">
+    Below is our current list of job openings, available internships and contract opportunities. Have a look around and if there’s one that fits you, please apply. If not, keep checking back. Good luck.
+  </p>
+</section>
+
+<section id="listings">
+  <div class="contain">
+    <h2 class="listings-head">Listings</h2>
+
+    <form id="listings-filters">
+      <h3 class="listings-filters-head">Filter by</h3>
+      <div class="listings-filter listings-filter-location">
+        {{ form.location }}
+        <label for="id_location">Location</label>
+      </div>
+      <div class="listings-filter listings-filter-type">
+        {{ form.position_type }}
+        <label for="id_position_type">Position Type</label>
+      </div>
+      <div class="listings-filter listings-filter-name">
+        {{ form.team }}
+        <label for="id_team">Team</label>
+      </div>
+    </form>
+
+    <table id="listings-positions">
+      <thead>
+        <tr>
+          <th class="title" scope="col">Job Title</th>
+          <th class="location" scope="col">Location</th>
+          <th class="type" scope="col">Position</th>
+          <th class="name" scope="col">Team</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for position in positions %}
+        <tr class="position"
+            data-team="{{ position.category.name }}"
+            data-type="{{ position.job_type }}"
+            data-location="{{ position.location_filter }}">
+          <td class="title"><a href="{{ position.get_absolute_url() }}">{{ position.title }}</a></td>
+          <td class="location">{{ position.location_filter }}</td>
+          <td class="type">{{ position.job_type }}</td>
+          <td class="name">{{ position.category.name }}</td>
+        </tr>
+      {% endfor %}
+        <tr class="empty-filter-message hidden">
+          <td colspan="4">
+            <p>No jobs found that match the selected filters.</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}
