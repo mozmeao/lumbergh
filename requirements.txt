@@ -134,3 +134,13 @@ html5lib==0.9999999
 # sha256: -s_gx8zq_Uno9-RyERKUVmYF_f3cIwEdoGzDpGAcn30
 # sha256: BHu7ukG6w3xETHXd_fBXPdbi8fvYJOYke7Jvp9j6ODA
 six==1.8.0
+
+# sha256: sLOVxVffrYQVsISLuKUNBidXX0S9a1d8j-lts60wdo0
+# sha256: i5s54QKtKgA_uCmfMGrcIl5_EGKvjqgZu2GhzYyFUtI
+apscheduler==3.0.4
+
+# sha256: Q48SLWhMlRsiy5iuzID9uWG4TmlUK_h4xrmpQZ3gmos
+tzlocal==1.2
+# sha256: BK-ioGq33MqdgXF7Qgp6FIJgYemyYUpcd90kx1zPl-Q
+# sha256: L-I0K7T-i44hfw0htZIcvlQIv5Ztn5ICXnB-iBsZi-0
+futures==3.0.3
