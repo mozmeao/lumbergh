@@ -16,3 +16,16 @@ script:
   - tox -e $TOX_ENV
 after_success:
   - coveralls
+deploy:
+  - provider: script
+    script: bin/deploy-travis.sh stage
+    on:
+      branch: master
+      repo: mozilla/lumbergh
+      condition: $TOX_ENV = tests
+  - provider: script
+    script: bin/deploy-travis.sh prod
+    on:
+      tags: true
+      repo: mozilla/lumbergh
+      condition: $TOX_ENV = tests
