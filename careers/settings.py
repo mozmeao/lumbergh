@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # Third party apps
     'django_jinja',
     'django_jobvite',
+    'django_extensions',
 
     # Django apps
     'django.contrib.admin',
@@ -190,3 +191,5 @@ GTM_ACCOUNT_CODE = config('GTM_ACCOUNT_CODE', default='GTM-MLM3DH')
 JOBVITE_URI = config(
     'JOBVITE_URI',
     default='https://www.jobvite.com/CompanyJobs/Xml.aspx?c=qpX9Vfwa&cf=e')
+
+DEAD_MANS_SNITCH_URL = config('DEAD_MANS_SNITCH', default=None)

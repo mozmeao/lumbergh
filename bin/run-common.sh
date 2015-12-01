@@ -1,3 +1,3 @@
 #!/bin/bash
 
-./manage.py migrate
+python manage.py migrate --noinput
