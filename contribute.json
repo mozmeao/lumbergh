@@ -3,7 +3,7 @@
     "description": "Lumbergh is the Mozilla careers website. It is a sugardough-based site that displays open jobs.",
     "repository": {
         "url": "https://github.com/mozilla/lumbergh",
-        "license": "BSD 3-Clause"
+        "license": "MPL 2.0"
     },
     "participate": {
         "home": "https://github.com/mozilla/lumbergh",
