@@ -1,6 +1,8 @@
 lumbergh
 ==========
 
+[![Requirements Status](https://img.shields.io/requires/github/mozilla/lumbergh.svg)](https://requires.io/github/mozilla/lumbergh/requirements/?branch=master)
+
 [![Build Status](https://img.shields.io/travis/mozilla/lumbergh/master.svg)](https://travis-ci.org/mozilla/lumbergh)
 
 [![Coverage status](https://img.shields.io/coveralls/mozilla/lumbergh/master.svg)](https://coveralls.io/r/mozilla/lumbergh)
