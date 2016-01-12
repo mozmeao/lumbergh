@@ -58,6 +58,7 @@ for app in config('EXTRA_APPS', default='', cast=Csv()):
 
 
 MIDDLEWARE_CLASSES = (
+    'sslify.middleware.SSLifyMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -193,3 +194,7 @@ JOBVITE_URI = config(
     default='https://www.jobvite.com/CompanyJobs/Xml.aspx?c=qpX9Vfwa&cf=e')
 
 DEAD_MANS_SNITCH_URL = config('DEAD_MANS_SNITCH', default=None)
+
+SSLIFY_DISABLE = config('DISABLE_SSL', default=DEBUG, cast=bool)
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+USE_X_FORWARDED_HOST = True

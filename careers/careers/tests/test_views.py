@@ -32,7 +32,8 @@ class WorkablePositionDetailViewTests(TestCase):
     def test_base(self):
         position_1 = WorkablePositionFactory.create(title='bbb')
         position_2 = WorkablePositionFactory.create(category=position_1.category, title='aaa')
-        status = self.client.get(reverse('careers.workable_position',
-                                         kwargs={'shortcode': position_1.shortcode}))
+        status = self.client.get(
+            reverse('careers.workable_position', kwargs={'shortcode': position_1.shortcode}),
+            follow=True)
         self.assertEqual(status.context_data['positions'], [position_2, position_1])
         self.assertEqual(status.context_data['position'], position_1)

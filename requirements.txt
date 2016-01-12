@@ -149,3 +149,6 @@ futures==3.0.3
 # sha256: R5lTTzXrocB8tvmFmqW7cZiGdp9dNdKjjnSQzpDAzmk
 # sha256: -Y-ZHSsDkDOsX6pjjA0a-ycgq_TZ14FXPDWS1omUgKE
 django-extensions==1.6.1
+
+# sha256: gBjyNk71se4SXu2IoYpjXFyxztkdeyNDU9igfe8yxhM
+django-sslify==0.2.5
