@@ -9,7 +9,9 @@ def get_all_positions(filters=None, order_by=None):
         filters = {}
 
     if not order_by:
-        order_by = lambda x: x.title  # noqa
+        def order_by_function(x):
+            return x.title
+        order_by = order_by_function
 
     return (
         sorted(set(
