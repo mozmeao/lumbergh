@@ -38,6 +38,15 @@ Docker for development
 0. Make sure you have [docker](https://docker.io) and [docker-compose](https://github.com/docker/compose)
 1. docker-compose up
 
+### Sync With Jobvite
+If you want to populate your local instance with jobs you will need to connect to your
+web container and run a sync command:
+
+0. `docker exec -it {your_web_container_id} bash`
+1. `./manage.py syncjobvite`
+2. `exit`
+
+
 
 Docker for deploying to production
 -----------------------------------
