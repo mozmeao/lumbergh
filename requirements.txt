@@ -1,0 +1,154 @@
+# Adding peep so we can track it on requires.io. For packages
+# installation we use peep.py shipped in ./bin
+# sha256: KoBM4H9Zz1WtVFuy4WMSwRNkuU0_k4bW4SFFsuOOXBw
+peep==2.4.1
+
+# sha256: c1CauJkYk_5byimUihn9wtv5xN1KDpiqnFgDvveKsiY
+# sha256: zpqSSG7aW_PZ5Ah_gCSSsVtxsGuJTWgM-Wb1wnlD5TI
+# sha256: m7S7kSEJqteivOjiKGp9mgnrzKrv5Br4VYZrZgcVkGA
+peepin==0.11
+
+# sha256: BYFpY8u63RMbzuj7UGnYaVeW4l0IHsJO_2K8H8jtiRo
+# sha256: glUkL6DZ4L8zElmmvbgTZJM6y-iGMpFmFVj_2y_J7XA
+Django==1.8.8
+
+# sha256: 8uJz7TSsu1YJYtXPEpF5NtjfAil98JvTCJuFRtRYQTg
+# sha256: ygF2j97N4TQwHzFwdDIm9g7f9cOTXxJDc3jr2RFQY1M
+dj-database-url==0.3.0
+
+# sha256: as-au751fvddwuzZ2RunSVR5Qauv--af8ghqnjfUkEw
+psycopg2==2.6.1
+
+# sha256: mYNMn_fOXFsvShi8CIB1PlTqOqq8PPsWlhqS1QRmZd8
+python-decouple==3.0
+
+# sha256: LiSsXQBNtXFJdqBKwOgMbfbkfpjDVMssDYL4h51Pj9s
+Jinja2==2.7.3
+
+# sha256: pOwa_1m5WhS0XrLiN2GgF56YMZ2lp-t2tW6ozce4ccM
+MarkupSafe==0.23
+
+# sha256: pRec3pItK04EXuWxHocyPud9NjrkApT8glLyXWoOrwY
+# sha256: i8g1CCiCrZoBLNeQxGABHk2WvzUS2YoE09q75FOToIk
+gunicorn==19.3.0
+
+# sha256: HCXe64vZm2Kwo-ODYV_ohOwRTOTDu-udw53RQU7cKU0
+# sha256: fQHFIMGnwEIEv1KHtts8Zz47l6s6jlzBovzFnYahRAw
+whitenoise==2.0.4
+
+# sha256: 0yV2uq13_dnmhZvpfCtqPBem9IQ2Q4nbcx8Gl7ehlmE
+django-csp==2.0.3
+
+# sha256: Or5qbT_C-75MYBRCEfRdou2-MYKm9lEa9ru6BZix-ZI
+# sha256: k575weEiTZgEBWial__PeCjFbRUXsx1zRkNWwfK3dp4
+# sha256: 6tSu-nAHJJ4F5RsBCVcZ1ajdlXYAifVzCqxWmLGTKRg
+# sha256: PMoN8IvQ7ZhDI5BJTOPe0AP15mGqRgvnpzS__jWYNgU
+# sha256: Pt5HDT0XujwHY436DRBFK8G25a0yYSemW6d-aq6xG-w
+# sha256: aMR5ZPcYbuwwaxNilidyK5B5zURH7Z5eyuzU6shMpzQ
+# sha256: 3V05kZUKrkCmyB3hV4lC5z1imAjO_FHRLNFXmA5s_Bg
+# sha256: p3xSBiwH63x7MFRdvHPjKZW34Rfup1Axe1y1x6RhjxQ
+# sha256: ga-a7EvJYKmgEnxIjxh3La5GNGiSM_BvZUQ-exHr61E
+# sha256: 4Hmx2txcBiRswbtv4bI6ULHRFz8u3VEE79QLtzoo9AY
+# sha256: -9JnRncsJMuTyLl8va1cueRshrvbG52KdD7gDi-x_F0
+# sha256: mSZu8wo35Dky3uwrfKc-g8jbw7n_cD7HPsprHa5r7-o
+# sha256: i2zhyZOQl4O8luC0806iI7_3pN8skL25xODxrJKGieM
+pytz==2015.7
+
+# sha256: tYAUqlZA40Vup9vzPxUaHEud9HKJdocwwKAwYaRxOGU
+newrelic==2.56.0.42
+
+# sha256: sVjy_R5it9Jdvj4JGfyXeYcZ9ypgcr2y-bDh0C_CsD8
+# sha256: ghbIxu4JKuk9UfibyRBFZIyIzZvnfWDPR998om7k-Iw
+flake8==2.5.0
+
+# sha256: SqEp342QB7GSv4IBP0FVM5lGUtfKqTDQAmh-tCpsKkE
+# sha256: uLfjVjC1U54moZffxgBb6eHpoTVJazd3I6jrwBuby_8
+pep8==1.6.2
+
+# sha256: Bx0SHp57MwWKobpd57zpuXv6MUnP4ay7ZYfCH8HI7aE
+# sha256: 854zpMA77q2HdPAFvT7PDD8vJk-gIB3pZfzgr_HTQmM
+pyflakes==1.0.0
+
+# sha256: vWwID7NyrrywzhnjXdrHRPKr9ae--iB9stEJfUjv5jo
+# sha256: X36m-zqpr-FG0H_W1c7feIdH2LDCnkRzJFPCstsePRY
+mccabe==0.3.1
+
+# sha256: lUHOZ55R670NvTImy0NMw6yTIbUvA7ra0pdfYNbJ8Lo
+# sha256: VsBHyYmu7GaF7iqLJcB-zcoEKiN0nm6iPPsZSEThV7w
+# sha256: L9J2xAf7Cynl1IhKcCmiwn_vCgb9ejSSTM5pt8xD9No
+# sha256: WnlMdzRJTPhTamfVCc8UQ_TlSIg3onwsWzSNhAWRR8E
+ipython==4.0.0
+
+# sha256: F2PRVkET9euJ33eHmo0yEyc8TX_5Pcs3owcM3ww0_Xw
+ipdb==0.8.1
+
+# sha256: Ld8Y2jsGIfpD_uS3KQ2grnibRvuJkniorMzaGVxJeac
+# sha256: Gm5RMMK0LS3jAWk8KZ94zEvTUB54thDAjkXvxw4rURQ
+Sphinx==1.3.1
+
+# sha256: PDjQN3E714BDSG7qW_dx1x7Wl-wlwJ4W9J5EiH9_4YQ
+# sha256: RsLKi0grA5i5Yhu1qOx8nFxyJpJuU2PhjXRPXw05148
+# sha256: JzhG-KrKwyv5VCNlpZO0lbaNgDXC44LJzO3Kw4fJoKE
+sphinx_rtd_theme==0.1.9
+
+# sha256: Egr4uJMGHscr5KqRuTRV5tDUqAF1wHpTgZkQxNiXSDA
+# sha256: CMxlW-wlusPmYKstHFFHHUUy7zk_xA-vvSUBQCY1Frs
+sphinx-autobuild==0.5.2
+
+# sha256: 3OvUkoESYxYm9MTQ31l4fHSEBOZt2pUhEAMOqIPTuM0
+# sha256: x9txeBCraWX2bIzwOYqYydjfmC2jm0zX8WKRHriVlvo
+docutils==0.12
+
+# sha256: CjoiZeHvsN76ci0fQpcw3J35da3DxgrH0rQyvfA8BB0
+# sha256: Xe0vqQlP19_rPakmNkCf1wKg0H1gYoNQTX7gRAHO5cs
+# sha256: cyCRkITm2sj0VAY4pGRHo71zD8oXKvwX0sA-7SLPT1E
+Pygments==2.0.2
+
+# sha256: YhmkKp5GUQl5etDb_giV_m0_fdfMSh4lm4eFxh-XeaM
+https://github.com/niwinz/django-jinja/archive/6c441325daef41c1c484af606f6bdb67774cfda4.tar.gz#egg=django_jinja
+
+# sha256: RORjnsBXprap3duGnU46SBj8knjsSQzOOa7whEBZKpM
+django-session-csrf==0.5
+
+# sha256: uDndLZwRfHAUMMFJlWkYpCOphjtIsJyQ4wpgE-fS9E8
+# sha256: j4MIDaoknQNsvM-4rlzG_wB7iNbZN1ITca-r57Gbrbw
+mock==1.0.1
+
+# sha256: Vh2Zhunb9376DjxJB9RVjJXsCSoERZx5RQrXGPulO4A
+factory_boy==2.1.2
+
+# sha256: vJArO8jYzLZPEPJz1gEzaFbZw4mujsKhMdR6ZcSQ6os
+https://github.com/mozilla/django-jobvite/archive/fb7dbb053605dd459213e1fc39e4e1b27f35b4df.tar.gz#egg=django_jobvite
+
+# sha256: ifGx8l3Ne2j1FOjTQaWy60ZvlgrnVoIuqrSAo8GoHCg
+# sha256: hP6NW_Tc3MSQAkRsR6FG0XrBD6zwDZCGZZBkrEO2wls
+requests==2.8.1
+
+# sha256: WKLBU8C1RQaVw0zi7dwj-z7kdrMah45qXCTHX9HtTYk
+# sha256: VgGKF9FIjrGh4Y583dyuok08ezcEFy41b2kWxXf0_Z4
+bleach==1.4.2
+
+# sha256: JhKhkajVhCv6BX5BulC7udy3IkGdJAjHjP9HWNB1SGg
+html5lib==0.9999999
+
+# sha256: -s_gx8zq_Uno9-RyERKUVmYF_f3cIwEdoGzDpGAcn30
+# sha256: BHu7ukG6w3xETHXd_fBXPdbi8fvYJOYke7Jvp9j6ODA
+six==1.8.0
+
+# sha256: sLOVxVffrYQVsISLuKUNBidXX0S9a1d8j-lts60wdo0
+# sha256: i5s54QKtKgA_uCmfMGrcIl5_EGKvjqgZu2GhzYyFUtI
+apscheduler==3.0.4
+
+# sha256: Q48SLWhMlRsiy5iuzID9uWG4TmlUK_h4xrmpQZ3gmos
+tzlocal==1.2
+
+# sha256: BK-ioGq33MqdgXF7Qgp6FIJgYemyYUpcd90kx1zPl-Q
+# sha256: L-I0K7T-i44hfw0htZIcvlQIv5Ztn5ICXnB-iBsZi-0
+futures==3.0.3
+
+# sha256: R5lTTzXrocB8tvmFmqW7cZiGdp9dNdKjjnSQzpDAzmk
+# sha256: -Y-ZHSsDkDOsX6pjjA0a-ycgq_TZ14FXPDWS1omUgKE
+django-extensions==1.6.1
+
+# sha256: gBjyNk71se4SXu2IoYpjXFyxztkdeyNDU9igfe8yxhM
+django-sslify==0.2.5

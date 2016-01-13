@@ -1,91 +1,68 @@
-Lumbergh [![Build Status](https://travis-ci.org/mozilla/lumbergh.svg?branch=master)](https://travis-ci.org/mozilla/lumbergh)
-=======
+lumbergh
+==========
 
-Lumbergh is the Mozilla careers website. It is a [playdoh][gh-playdoh]-based site
-that displays open jobs.
+[![Requirements Status](https://img.shields.io/requires/github/mozilla/lumbergh.svg)](https://requires.io/github/mozilla/lumbergh/requirements/?branch=master)
 
-[gh-playdoh]: https://github.com/mozilla/playdoh
+[![Build Status](https://img.shields.io/travis/mozilla/lumbergh/master.svg)](https://travis-ci.org/mozilla/lumbergh)
 
+[![Coverage status](https://img.shields.io/coveralls/mozilla/lumbergh/master.svg)](https://coveralls.io/r/mozilla/lumbergh)
 
-Setup
------
-These instructions assume you have [git][], [python][], and `pip` installed. If
-you don't have `pip` installed, you can install it with `easy_install pip`.
+Run the tests
+-------------
 
+There's a sample test in `lumbergh/base/tests.py` for your convenience, that
+you can run using the following command:
 
-1. Start by getting the source:
+    python manage.py test
 
-   ```sh
-   $ git clone --recursive git@github.com:mozilla/lumbergh.git
-   $ cd lumbergh
-   ```
-   Note you may want to fork and clone the repo as described in the
-   [github docs][git-clone] if you are doing active development.
+If you want to run the full suite, with flake8 and coverage, you may use
+[tox](https://testrun.org/tox/latest/). This will run the tests the same way
+they are run by [travis](https://travis-ci.org)):
 
-2. Create a virtualenv for Lumbergh. Skip the first step if you already have
-   `virtualenv` installed.
+    pip install tox
+    tox
 
-   ```sh
-   $ pip install virtualenv
-   $ virtualenv venv
-   $ source venv/bin/activate
-   ```
+The `.travis.yml` file will also run [coveralls](https://coveralls.io) by
+default.
 
-3. Install the compiled requirements:
+If you want to benefit from Travis and Coveralls, you will need to activate
+them both for your project.
 
-   ```sh
-   $ pip install -r requirements/compiled.txt
-   ```
-
-4. Set up a local MySQL database. The [MySQL Installation Documentation][mysql]
-   explains how to do this. Make sure your DB is utf8.
-
-5. Configure your local settings by copying `careers/settings/local.py-dist` to
-   `careers/settings/local.py` and customizing the settings in it:
-
-   ```sh
-   $ cp settings/local.py-dist settings/local.py
-   ```
-
-   The file is commented to explain what each setting does and how to customize
-   them.
-
-   If you wish to have jobs appear locally make sure JOBVITE_URI is set.
-
-6. Initialize your database structure:
-
-   ```sh
-   $ python manage.py syncdb
-   $ python manage.py migrate
-   ```
-
-Running the Development Server
-------------------------------
-You can launch the development server like so:
-
-```sh
-$ python manage.py runserver
-```
-
-Updating Jobs
-------------------------------
-You can update jobs so they appear locally by running:
-
-```sh
-$ python manage.py syncjobvite
-```
+Oh, and you might want to change the "Build Status" and "Coverage Status" links
+at the top of this file to point to your own travis and coveralls accounts.
 
 
-[git]: http://git-scm.com/
-[git-clone]: https://help.github.com/articles/fork-a-repo
-[python]: http://www.python.org/
-[mysql]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
-[gh-playdoh]: https://github.com/mozilla/playdoh
+Docker for development
+----------------------
+
+0. Make sure you have [docker](https://docker.io) and [docker-compose](https://github.com/docker/compose)
+1. docker-compose up
 
 
-License
--------
-This software is licensed under the [New BSD License][BSD]. For more
-information, read the file ``LICENSE``.
+Docker for deploying to production
+-----------------------------------
 
-[BSD]: http://creativecommons.org/licenses/BSD/
+1. Add your project in [Docker Registry](https://registry.hub.docker.com/) as [Automated Build](http://docs.docker.com/docker-hub/builds/)
+2. Prepare a 'env' file with all the variables needed by dev, stage or production.
+3. Run the image:
+
+    docker run --env-file env -p 80:8000 mozilla/lumbergh
+
+Heroku
+------
+1. heroku create
+2. heroku config:set DEBUG=False ALLOWED_HOSTS=<foobar>.herokuapp.com, SECRET_KEY=something_secret
+   DATABASE_URL gets populated by heroku once you setup a database.
+3. git push heroku master
+
+
+NewRelic Monitoring
+-------------------
+
+A newrelic.ini file is already included. To enable NewRelic monitoring
+add two enviroment variables:
+
+ - NEW_RELIC_LICENSE_KEY
+ - NEW_RELIC_APP_NAME
+
+See the [full list of supported environment variables](https://docs.newrelic.com/docs/agents/python-agent/installation-configuration/python-agent-configuration#environment-variables).

@@ -1,0 +1,97 @@
+{% extends "base.jinja" %}
+
+{% block page_title %}{{ position.title }} &mdash; Mozilla Jobs &mdash; Open Positions{% endblock %}
+
+{% block site_css %}
+  {{ super() }}
+  <link href="{{ static('css/position.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+<section id="job">
+
+    <article id="job-post" class="job-post" data-location-filter="{{ position.location_filter }}">
+      <div class="job-post-head">
+        <div class="contain">
+          <h1 class="job-post-title">{{ position.title }}</h1>
+          <a class="cta job-post-head-apply ga-job-listing-apply" href="{{ position.apply_url|urlparams(utm_source='careers.mozilla.org', utm_medium='referral') }}">Apply for this job</a>
+          <dl class="job-post-details">
+            <dt class="job-post-team-head">Team:</dt>
+            <dd class="job-post-team">{{ position.category.name }}</dd>
+            <dt class="job-post-location-head">Locations:</dt>
+            <dd class="job-post-location">{{ position.location_filter|default('All', True) }}</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="contain">
+        <div class="job-post-description">
+          {#
+            Description is bleached through
+            django-jobvite so it will be
+            happy here.
+          #}
+          {{ position.description|safe }}
+        </div>
+        <aside class="job-related">
+          <h2 class="job-related-head">{{ position.category.name }}: {{ _('Open Positions') }}</h2>
+          <ul class="job-related-list">
+            {% for p in positions if p != position %}
+              <li>
+                <a href="{{ p.get_absolute_url() }}"
+                   class="ga-job-listing-detail"
+                   title="{{ p.title }}">{{ p.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </aside>
+      </div>
+    </article>
+  </div>
+  <a id="job-post-apply" class="cta ga-job-listing-apply" href="{{ position.apply_url|urlparams(utm_source='careers.mozilla.org', utm_medium='referral') }}">Apply for this job</a>
+</section>
+
+<section id="why">
+  <div class="contain">
+    <h2 class="why-head">Why Mozilla?</h2>
+    <div class="why-intro">
+      <p>
+        Mozilla is a thriving global community of technologists, thinkers and builders working collaboratively and openly to keep the Internet alive and accessible for all. When you work at Mozilla, you give yourself a chance to make a difference in the lives of Web users everywhere. And you give us a chance to make a difference in your life every day. Join our team today and together we’ll make a better Web for tomorrow.
+      </p>
+    </div>
+
+    <div class="why-reasons">
+      <div class="why-reason-box">
+        <h3>We Are Global</h3>
+        <ul>
+          <li>500+ paid staff from over 30 countries</li>
+          <li>Thousands of active contributors across six continents</li>
+          <li>13 global offices: Mountain View, San Francisco, Portland, Boston, Vancouver, Toronto, Auckland, Paris, London, Berlin, Beijing, Tokyo, and Taipei</li>
+          <li>Hundreds of home offices and remote workers around the world</li>
+        </ul>
+      </div>
+      <div class="why-reason-box">
+        <h3>And so are our benefits...</h3>
+        <ul>
+          <li>Competitive pay</li>
+          <li>Top-notch medical</li>
+          <li>Travel and conference budgets</li>
+          <li>Ability to work using the latest hardware and software of your choice</li>
+          <li>Dozens of technical Lunch and Learns and invited speakers each month</li>
+        </ul>
+      </div>
+      <div class="why-reason-box">
+        <h3>Because we love what we do!</h3>
+        <ul>
+          <li>We take bold technical leaps</li>
+          <li>We code and ship in the open</li>
+          <li>We directly impact hundreds of millions of users</li>
+          <li>We build technology for the benefit of the Web’s users and creators</li>
+          <li>We work in a culture defined by principles over profits</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

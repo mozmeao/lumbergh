@@ -1,8 +1,8 @@
-from django.conf.urls.defaults import patterns, url
+from django.conf.urls import url
 
 from careers.university import views
 
 
-urlpatterns = patterns('',
+urlpatterns = [
     url('^university/$', views.index, name='university.index'),
-)
+]

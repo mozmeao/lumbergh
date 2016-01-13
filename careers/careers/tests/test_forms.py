@@ -1,5 +1,3 @@
-from nose.tools import eq_
-
 from careers.base.tests import TestCase
 from careers.careers.forms import PositionFilterForm
 from careers.careers.tests import PositionFactory as JobvitePositionFactory
@@ -19,7 +17,7 @@ class PositionFilterFormTests(TestCase):
         WorkablePositionFactory.create(job_type='Biff')
 
         form = PositionFilterForm()
-        eq_(form.fields['position_type'].choices, [
+        self.assertEqual(form.fields['position_type'].choices, [
             ('', 'All Positions'),
             ('Bar', 'Bar'),  # Alphabetical order
             ('Baz', 'Baz'),

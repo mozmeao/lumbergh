@@ -1,0 +1,5 @@
+[run]
+source = careers
+
+[report]
+omit = */migrations/*
