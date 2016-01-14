@@ -21,7 +21,7 @@ class GetAllPositionsTests(TestCase):
         workable_1 = WorkablePositionFactory.create(title='aaa')
 
         positions = utils.get_all_positions(filters={'title__contains': 'aaa'})
-        self.assertEqual(positions, [jobvite_1, workable_1])
+        self.assertEqual(set(positions), set([jobvite_1, workable_1]))
 
     def test_orderby(self):
         jobvite_1 = JobvitePositionFactory.create(title='aaa', location='b')

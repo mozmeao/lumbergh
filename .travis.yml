@@ -1,31 +1,46 @@
-sudo: false
+sudo: required
+services:
+  - docker
 language: python
-python:
-  - "2.7"
-addons:
-  postgresql: "9.4"
-before_script:
-  - createdb lumbergh_db
-install:
-  - pip install tox coveralls
 env:
-  - TOX_ENV=flake8
-  - TOX_ENV=docs
-  - TOX_ENV=tests
+  global:
+    # NewRelic
+    - NEWRELIC_STAGE_APPLICATION=careers-stage-us-west
+    - NEWRELIC_PROD_APPLICATION=careers-prod-us-west
+    # Deis
+    - DEIS_STAGE_APPLICATION=careers-stage
+    - DEIS_PROD_APPLICATION=careers-stage
+    - DEIS_USERNAME=travis
+    - DEIS_CONTROLLER=https://deis.us-west.moz.works
+    # Docker
+    - DOCKER_REPOSITORY=mozorg/lumbergh
+    - DOCKER_EMAIL="foo@example.com"
+    - DOCKER_USERNAME="mozjenkins"
+    # Django
+    - DEBUG=False
+    - ALLOWED_HOSTS=*
+    - SECRET_KEY=foo
+    - DATABASE_URL=postgres://postgres@db/postgres
+install:
+  - docker pull ${DOCKER_REPOSITORY}:last_successful_build || true
+  - docker pull ${DOCKER_REPOSITORY}:${TRAVIS_COMMIT} || true
+  - docker build -t ${DOCKER_REPOSITORY}:${TRAVIS_COMMIT} --pull=true .
+before_script:
+  - env > .env
 script:
-  - tox -e $TOX_ENV
-after_success:
-  - coveralls
+  - docker run -d --name pgsql postgres:9.4
+  - docker run ${DOCKER_REPOSITORY}:${TRAVIS_COMMIT} flake8 careers
+  # Give time to pgsql to initialize.
+  - sleep 5s;
+  - docker run --env-file .env --link pgsql:db ${DOCKER_REPOSITORY}:${TRAVIS_COMMIT} ./manage.py test
 deploy:
   - provider: script
-    script: bin/deploy-travis.sh stage
+    script: bin/deploy-travis.sh $DEIS_STAGE_APPLICATION $NEWRELIC_STAGE_APPLICATION
     on:
       branch: master
       repo: mozilla/lumbergh
-      condition: $TOX_ENV = tests
   - provider: script
-    script: bin/deploy-travis.sh prod
+    script: bin/deploy-travis.sh $DEIS_PROD_APPLICATION $NEWRELIC_PROD_APPLICATION
     on:
       tags: true
       repo: mozilla/lumbergh
-      condition: $TOX_ENV = tests
