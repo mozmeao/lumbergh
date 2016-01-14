@@ -59,6 +59,7 @@ for app in config('EXTRA_APPS', default='', cast=Csv()):
 
 MIDDLEWARE_CLASSES = (
     'sslify.middleware.SSLifyMiddleware',
+    'careers.base.middleware.LocaleRedirectionMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
