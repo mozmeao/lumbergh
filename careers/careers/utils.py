@@ -14,10 +14,10 @@ def get_all_positions(filters=None, order_by=None):
         order_by = order_by_function
 
     return (
-        sorted(set(
+        sorted(
             chain(workable_models.Position.objects.filter(**filters),
-                  jobvite_models.Position.objects.filter(**filters))),
-               key=order_by))
+                  jobvite_models.Position.objects.filter(**filters)),
+            key=order_by))
 
 
 def get_all_categories():
