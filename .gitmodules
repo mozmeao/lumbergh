@@ -1,6 +1,0 @@
-[submodule "vendor-local/src/django-jobvite"]
-  path = vendor-local/src/django-jobvite
-  url = https://github.com/mozilla/django-jobvite.git
-[submodule "vendor-local/src/django"]
-	path = vendor-local/src/django
-	url = https://github.com/django/django.git
