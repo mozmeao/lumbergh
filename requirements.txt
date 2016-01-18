@@ -152,3 +152,16 @@ django-extensions==1.6.1
 
 # sha256: gBjyNk71se4SXu2IoYpjXFyxztkdeyNDU9igfe8yxhM
 django-sslify==0.2.5
+
+# sha256: cVBsEnq6Vmqxubd78JzNMRmjh663bfGzTyVBzkdkkBw
+# sha256: NYPKHJtDsIudxxRjpcAv2ubr697oEqZxmOKn5CnFQhA
+django-cache-url==1.0.0
+
+# sha256: pPs3sChg9rFhf2RpSHRx_Qht0tOLvOZAwgVYYrnEAZw
+redis==2.10.3
+
+# sha256: mtaymUWPfmv676iQX1JWABc2nYL7j7DtS0GtwEjb8Rw
+django-redis==4.2.0
+
+# sha256: v8xYHJ278HzC-VG68wwySaV-INy9YPfm_8Q6s8xhR5Q
+msgpack-python==0.4.6
