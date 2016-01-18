@@ -1,20 +1,17 @@
 #!/bin/bash
 set -e
 
-function setup_ssh_bin() {
-  echo '#!/bin/sh' >> ssh-bin
-  echo 'exec ssh -o StrictHostKeychecking=no -o CheckHostIP=no -o UserKnownHostsFile=/dev/null "$@"' >> ssh-bin
-  chmod 740 ssh-bin
-  export GIT_SSH="`pwd`/ssh-bin"
-}
+docker login -e "$DOCKER_EMAIL" -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+docker push ${DOCKER_REPOSITORY}:${TRAVIS_COMMIT}
+docker tag -f ${DOCKER_REPOSITORY}:${TRAVIS_COMMIT} ${DOCKER_REPOSITORY}:last_successful_build
+docker push ${DOCKER_REPOSITORY}:last_successful_build
 
-setup_ssh_bin
-
-eval "$(ssh-agent -s)"
-openssl aes-256-cbc -K $encrypted_83630750896a_key -iv $encrypted_83630750896a_iv -in .travis/id_rsa.enc -out .travis/id_rsa -d
-chmod 600 .travis/id_rsa
-ssh-add .travis/id_rsa
-
-git remote add deis-$1 ssh://git@deis.us-west.moz.works:2222/careers-$1.git
-git checkout -b travis-deploy-$1
-git push -f deis-$1 travis-deploy-$1:master
+# Install deis client
+curl -sSL http://deis.io/deis-cli/install.sh | sh
+./deis login $DEIS_CONTROLLER  --username $DEIS_USERNAME --password $DEIS_PASSWORD
+./deis pull ${DOCKER_REPOSITORY}:${TRAVIS_COMMIT} -a $1
+curl -H "x-api-key:$NEWRELIC_API_KEY" \
+     -d "deployment[app_name]=$2" \
+     -d "deployment[revision]=$TRAVIS_COMMIT" \
+     -d "deployment[user]=Travis" \
+     https://api.newrelic.com/deployments.xml
