@@ -23,6 +23,7 @@ env:
     - DATABASE_URL=postgres://postgres@db/postgres
 before_install:
   - docker --version
+  - echo "ENV GIT_SHA ${TRAVIS_COMMIT}" >> Dockerfile
 install:
   # Take advantage of docker caching by pulling previously built images.
   - docker pull ${DOCKER_REPOSITORY}:last_successful_build || true
