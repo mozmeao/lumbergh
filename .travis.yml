@@ -34,8 +34,8 @@ before_script:
 script:
   - docker run -d --name pgsql postgres:9.4
   - docker run ${DOCKER_REPOSITORY}:${TRAVIS_COMMIT} flake8 careers
-  # Give time to pgsql to initialize.
-  - sleep 5s;
+  # Wait pgsql to initialize.
+  - docker run --link pgsql:db -e CHECK_PORT=5432 -e CHECK_HOST=db giorgos/takis
   - docker run --env-file .env --link pgsql:db ${DOCKER_REPOSITORY}:${TRAVIS_COMMIT} ./manage.py test
 deploy:
   - provider: script
