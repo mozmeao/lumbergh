@@ -24,6 +24,7 @@ env:
 before_install:
   - docker --version
   - echo "ENV GIT_SHA ${TRAVIS_COMMIT}" >> Dockerfile
+  - pip install codecov
 install:
   # Take advantage of docker caching by pulling previously built images.
   - docker pull ${DOCKER_REPOSITORY}:last_successful_build || true
@@ -37,6 +38,8 @@ script:
   # Wait pgsql to initialize.
   - docker run --link pgsql:db -e CHECK_PORT=5432 -e CHECK_HOST=db giorgos/takis
   - docker run --env-file .env --link pgsql:db ${DOCKER_REPOSITORY}:${TRAVIS_COMMIT} ./manage.py test
+after_sucess:
+  - codecov
 deploy:
   - provider: script
     script: bin/deploy-travis.sh $DEIS_STAGE_APPLICATION $NEWRELIC_STAGE_APPLICATION
