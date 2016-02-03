@@ -5,7 +5,7 @@ lumbergh
 
 [![Build Status](https://img.shields.io/travis/mozilla/lumbergh/master.svg)](https://travis-ci.org/mozilla/lumbergh)
 
-[![Coverage status](https://img.shields.io/codecov/mozilla/lumbergh/master.svg)](https://coveralls.io/r/mozilla/lumbergh)
+[![codecov.io](https://codecov.io/github/mozilla/lumbergh/coverage.svg?branch=master)](https://codecov.io/github/mozilla/lumbergh?branch=master)
 
 Run the tests
 -------------
