@@ -2,4 +2,8 @@
 source = careers
 
 [report]
-omit = */migrations/*
+omit =
+     */migrations/*
+     */tests/*
+     wsgi.py
+     settings.py
