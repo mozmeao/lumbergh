@@ -40,6 +40,7 @@ script:
 after_success:
   - sudo docker cp `docker ps -a -q | head -n 1`:/app /
   - sudo chown travis /app
+  - cd /app
   - pip install codecov
   - codecov
 deploy:
