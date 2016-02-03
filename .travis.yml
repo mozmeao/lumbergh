@@ -21,8 +21,6 @@ env:
     - ALLOWED_HOSTS=*
     - SECRET_KEY=foo
     - DATABASE_URL=postgres://postgres@db/postgres
-    # Coverage
-    - COVERAGE_FILE=/tmp/coverage.xml
 before_install:
   - docker --version
   - echo "ENV GIT_SHA ${TRAVIS_COMMIT}" >> Dockerfile
@@ -38,10 +36,12 @@ script:
   - docker run ${DOCKER_REPOSITORY}:${TRAVIS_COMMIT} flake8 careers
   # Wait pgsql to initialize.
   - docker run --link pgsql:db -e CHECK_PORT=5432 -e CHECK_HOST=db giorgos/takis
-  - docker run -v /tmp:/tmp --env-file .env --link pgsql:db ${DOCKER_REPOSITORY}:${TRAVIS_COMMIT} coverage run ./manage.py test
+  - docker run --env-file .env --link pgsql:db ${DOCKER_REPOSITORY}:${TRAVIS_COMMIT} coverage run ./manage.py test
 after_success:
+  - sudo docker cp `docker ps -a -q | head -n 1`:/app /
+  - sudo chown travis /app
   - pip install codecov
-  - codecov -f /tmp/coverage.xml
+  - codecov
 deploy:
   - provider: script
     script: bin/deploy-travis.sh $DEIS_STAGE_APPLICATION $NEWRELIC_STAGE_APPLICATION
