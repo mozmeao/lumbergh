@@ -1,5 +1,7 @@
 from __future__ import print_function
 import datetime
+import os
+import sys
 
 from django.core.management import call_command
 from django.conf import settings
@@ -36,7 +38,10 @@ class scheduled_job(object):
             self.log('finished successfully')
 
     def log(self, message):
-        print('Clock job {0}: {1}'.format(self.name, message))
+        msg = '[{}] Clock job {}@{}: {}'.format(
+            datetime.datetime.utcnow(), self.name,
+            os.getenv('DEIS_APP', 'default_app'), message)
+        print(msg, file=sys.stderr)
 
 
 def ping_dms(function):
@@ -47,6 +52,7 @@ def ping_dms(function):
             utcnow = datetime.datetime.utcnow()
             payload = {'m': 'Run {} on {}'.format(function.__name__, utcnow.isoformat())}
             requests.get(settings.DEAD_MANS_SNITCH_URL, params=payload)
+    _ping.__name__ = function.__name__
     return _ping
 
 
