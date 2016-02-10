@@ -56,7 +56,7 @@ def ping_dms(function):
     return _ping
 
 
-@scheduled_job('interval', minutes=3)
+@scheduled_job('interval', minutes=10, max_instances=1, coalesce=True)
 @ping_dms
 def job_syncjobvite():
     call_command('syncjobvite')
