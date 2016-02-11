@@ -21,6 +21,7 @@ env:
     - ALLOWED_HOSTS=*
     - SECRET_KEY=foo
     - DATABASE_URL=postgres://postgres@db/postgres
+    - DISABLE_SSL=True
 before_install:
   - docker --version
   - echo "ENV GIT_SHA ${TRAVIS_COMMIT}" >> Dockerfile
