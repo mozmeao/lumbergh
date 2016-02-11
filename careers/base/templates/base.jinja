@@ -34,6 +34,10 @@
     {# icons #}
     <link rel="shortcut icon" type="image/png" href="{{ static('img/favicon.ico') }}"/>
 
+    {# feeds #}
+    <link rel="alternate" type="application/rss+xml"
+          href="{{ url('careers.feed') }}" title="Current Mozilla job openings" />
+
     {% block google_analytics %}
       {# Google Analytics #}
       {% if settings.GA_ACCOUNT_CODE %}
