@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'careers.careers',
     'careers.university',
     'careers.django_workable',
+    'careers.saml',
 
     # Third party apps
     'django_jinja',
@@ -56,7 +57,6 @@ INSTALLED_APPS = [
 
 for app in config('EXTRA_APPS', default='', cast=Csv()):
     INSTALLED_APPS.append(app)
-
 
 MIDDLEWARE_CLASSES = (
     'sslify.middleware.SSLifyMiddleware',
@@ -137,6 +137,7 @@ TEMPLATES = [
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
                 'session_csrf.context_processor',
+                'careers.base.context_processors.settings',
             ],
         }
     },
@@ -206,3 +207,7 @@ USE_X_FORWARDED_HOST = True
 CACHES = {
     'default': config('CACHE_URL', default='locmem://', cast=django_cache_url.parse),
 }
+
+SAML_ENABLE = config('SAML_ENABLE', default=False, cast=bool)
+if SAML_ENABLE:
+    from saml.settings import *  # noqa

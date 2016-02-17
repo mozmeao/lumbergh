@@ -4,7 +4,6 @@ from django.contrib import admin
 
 from base import views
 
-
 urlpatterns = [
     url(r'', include('careers.university.urls')),
     url(r'', include('careers.careers.urls')),
@@ -18,3 +17,11 @@ urlpatterns = [
     # Generate a robots.txt
     url(r'^robots\.txt$', views.robots, name='robots'),
 ]
+
+if settings.SAML_ENABLE:
+    urlpatterns += [
+        url(r'^saml2/', include('careers.saml.urls'))
+    ]
+
+admin.site.site_header = 'Careers Administration'
+admin.site.site_title = 'Mozilla Careers'
