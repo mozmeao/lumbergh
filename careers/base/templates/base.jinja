@@ -12,7 +12,6 @@
     <title>{% block page_title %}mozilla.org{% endblock %}</title>
 
     {# css #}
-    <link href="//mozorg.cdn.mozilla.net/media/css/tabzilla-min.css" rel="stylesheet" />
     {% block site_css %}
       <link href="{{ static('css/base.css') }}" rel="stylesheet" />
       <link href="{{ static('js/libs/video-js/video-js.css') }}" rel="stylesheet" />
@@ -88,7 +87,6 @@
         <script src="{{ static('js/base.js') }}"></script>
       <!-- <![endif]-->
     {% endblock %}
-    <script src="//mozorg.cdn.mozilla.net/tabzilla/tabzilla.js"></script>
 
   </body>
 </html>

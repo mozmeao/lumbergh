@@ -196,16 +196,48 @@ figure {
     =================================================================== */
 
 /*  -------------------------------------------------------------------
-    Tabzilla styles inherited on moz.org but not specified in tabzilla.css
+    Tabzilla
     ------------------------------------------------------------------- */
-
-#tabzilla-panel h2 {
-    letter-spacing: -1px;
-    line-height: 100%;
+#tabzilla {
+    float: right;
+    position: relative;
 }
 
-#q {
-    font-size: 12px;
+#tabzilla a {
+    text-indent: 120%;
+    white-space: nowrap;
+    overflow: hidden;
+    background-image: url(/static/img/tabzilla-static.png);
+    background-repeat: no-repeat;
+    display: block;
+    height: 37px;
+    position: relative;
+    width: 147px;
+    z-index: 2;
+}
+
+@media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
+    #tabzilla a {
+        background-image: url(/static/img/tabzilla-static-high-res.png);
+        -webkit-background-size: 147px 37px;
+                background-size: 147px 37px;
+    }
+}
+
+#tabzilla:before {
+    background-color: transparent;
+    content: '';
+    display: block;
+    height: 26px;
+    left: 28px;
+    position: absolute;
+    top: 0;
+    width: 88px;
+    z-index: 1;
+}
+
+html[dir='rtl'] #tabzilla {
+    float: left;
 }
 
 /*  -------------------------------------------------------------------
