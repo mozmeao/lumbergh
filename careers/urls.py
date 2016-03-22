@@ -8,8 +8,6 @@ urlpatterns = [
     url(r'', include('careers.university.urls')),
     url(r'', include('careers.careers.urls')),
 
-    url(r'^admin/', include(admin.site.urls)),
-
     # contribute.json url
     url(r'^(?P<path>contribute\.json)$', 'django.views.static.serve',
         {'document_root': settings.ROOT}),
@@ -18,10 +16,16 @@ urlpatterns = [
     url(r'^robots\.txt$', views.robots, name='robots'),
 ]
 
+
 if settings.SAML_ENABLE:
     urlpatterns += [
         url(r'^saml2/', include('careers.saml.urls'))
     ]
 
-admin.site.site_header = 'Careers Administration'
-admin.site.site_title = 'Mozilla Careers'
+
+if settings.ENABLE_ADMIN:
+    urlpatterns += [
+        url(r'^admin/', include(admin.site.urls)),
+    ]
+    admin.site.site_header = 'Careers Administration'
+    admin.site.site_title = 'Mozilla Careers'

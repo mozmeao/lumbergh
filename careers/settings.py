@@ -208,6 +208,8 @@ CACHES = {
     'default': config('CACHE_URL', default='locmem://', cast=django_cache_url.parse),
 }
 
+ENABLE_ADMIN = config('ENABLE_ADMIN', default=True, cast=bool)
+
 SAML_ENABLE = config('SAML_ENABLE', default=False, cast=bool)
 if SAML_ENABLE:
     from saml.settings import *  # noqa
