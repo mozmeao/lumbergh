@@ -7,7 +7,7 @@ env:
     # NewRelic
     - NEWRELIC_US_WEST_STAGE_APPLICATION=careers-stage-us-west
     - NEWRELIC_US_WEST_PROD_APPLICATION=careers-prod-us-west
-    - NEWRELIC_EU_WEST_PROD_APPLICATION=careers-prod-us-west
+    - NEWRELIC_EU_WEST_PROD_APPLICATION=careers-prod-eu-west
     # Deis
     - DEIS_STAGE_APPLICATION=careers-stage
     - DEIS_PROD_APPLICATION=careers-prod
