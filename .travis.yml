@@ -20,7 +20,7 @@ env:
     - DEBUG=False
     - ALLOWED_HOSTS=*
     - SECRET_KEY=foo
-    - DATABASE_URL=postgres://postgres@db/postgres
+    - DATABASE_URL=mysql://root@db/careers
     - DISABLE_SSL=True
 before_install:
   - docker --version
@@ -33,11 +33,11 @@ install:
 before_script:
   - env > .env
 script:
-  - docker run -d --name pgsql postgres:9.4
+  - docker run -d --name mariadb -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -e MYSQL_DATABASE=careers mariadb --character-set-server=utf8mb4 --collation-server=utf8mb4_bin
   - docker run ${DOCKER_REPOSITORY}:${TRAVIS_COMMIT} flake8 careers
   # Wait pgsql to initialize.
-  - docker run --link pgsql:db -e CHECK_PORT=5432 -e CHECK_HOST=db giorgos/takis
-  - docker run --env-file .env --link pgsql:db ${DOCKER_REPOSITORY}:${TRAVIS_COMMIT} coverage run ./manage.py test
+  - docker run --link mariadb:db -e CHECK_PORT=3306 -e CHECK_HOST=db giorgos/takis
+  - docker run --env-file .env --link mariadb:db ${DOCKER_REPOSITORY}:${TRAVIS_COMMIT} coverage run ./manage.py test
 after_success:
   - sudo docker cp `docker ps -a -q | head -n 1`:/app /
   - sudo chown travis /app

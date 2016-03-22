@@ -7,7 +7,7 @@ RUN adduser --uid 1000 --disabled-password --gecos '' --no-create-home webdev
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends build-essential python python-dev python-pip \
-                                               libpq-dev postgresql-client gettext xmlsec1 libffi-dev && \
+                                               libmysqlclient-dev gettext xmlsec1 libffi-dev libssl-dev && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
@@ -18,7 +18,6 @@ RUN ./bin/pipstrap.py
 
 # First copy requirements.txt and peep so we can take advantage of
 # docker caching.
-COPY requirements requirements
 COPY requirements.txt requirements.txt
 RUN pip install --require-hashes --no-cache-dir -r requirements.txt
 
