@@ -5,6 +5,7 @@ import sys
 
 from django.core.management import call_command
 from django.conf import settings
+from django.db import connections
 
 import requests
 from apscheduler.schedulers.blocking import BlockingScheduler
@@ -60,7 +61,9 @@ def ping_dms(function):
 @ping_dms
 def job_syncjobvite():
     call_command('syncjobvite')
-
+    # Django won't close db connections after call_command. Close them manually
+    # to prevent errors in case the DB goes away, e.g. during a failover event.
+    connections.close_all()
 
 def run():
     try:
