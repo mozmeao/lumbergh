@@ -4,8 +4,6 @@ from . import views
 from .feeds import LatestPositionsFeed
 
 urlpatterns = [
-    url(r'^position/wa/(?P<shortcode>[\w]+)$', views.WorkablePositionDetailView.as_view(),
-        name='careers.workable_position'),
     url(r'^position/(?P<job_id>[\w]+)$', views.JobvitePositionDetailView.as_view(),
         name='careers.position'),
     url(r'^position/(?P<job_id>[\w]+)$', views.JobvitePositionDetailView.as_view(),

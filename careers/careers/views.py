@@ -5,7 +5,6 @@ from django_jobvite import models as jobvite_models
 
 import utils
 from careers.careers.forms import PositionFilterForm
-from careers.django_workable import models as workable_models
 
 
 def home(request):
@@ -33,21 +32,6 @@ class JobvitePositionDetailView(DetailView):
         # Add applicant source param for jobvite
         context['position'].apply_url += '&s=PDN'
 
-        context['positions'] = utils.get_all_positions(
-            filters={'category__name': context['position'].category.name},
-            order_by=lambda x: x.title)
-        return context
-
-
-class WorkablePositionDetailView(DetailView):
-    context_object_name = 'position'
-    model = workable_models.Position
-    template_name = 'careers/position.jinja'
-    slug_field = 'shortcode'
-    slug_url_kwarg = 'shortcode'
-
-    def get_context_data(self, **kwargs):
-        context = super(WorkablePositionDetailView, self).get_context_data(**kwargs)
         context['positions'] = utils.get_all_positions(
             filters={'category__name': context['position'].category.name},
             order_by=lambda x: x.title)
