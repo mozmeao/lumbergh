@@ -1,6 +1,6 @@
 from careers.base.tests import TestCase
 from careers.careers.forms import PositionFilterForm
-from careers.careers.tests import PositionFactory as JobvitePositionFactory
+from careers.careers.tests import PositionFactory
 
 
 class PositionFilterFormTests(TestCase):
@@ -9,10 +9,10 @@ class PositionFilterFormTests(TestCase):
         The choices for the position_type field should be dynamically
         generated from the available values in the database.
         """
-        JobvitePositionFactory.create(job_type='Foo')
-        JobvitePositionFactory.create(job_type='Bar')
-        JobvitePositionFactory.create(job_type='Baz')
-        JobvitePositionFactory.create(job_type='Foo')
+        PositionFactory.create(position_type='Foo')
+        PositionFactory.create(position_type='Bar')
+        PositionFactory.create(position_type='Baz')
+        PositionFactory.create(position_type='Foo')
 
         form = PositionFilterForm()
         self.assertEqual(form.fields['position_type'].choices, [

@@ -17,26 +17,22 @@
           <a class="cta job-post-head-apply ga-job-listing-apply" href="{{ position.apply_url|urlparams(utm_source='careers.mozilla.org', utm_medium='referral') }}">Apply for this job</a>
           <dl class="job-post-details">
             <dt class="job-post-team-head">Team:</dt>
-            <dd class="job-post-team">{{ position.category.name }}</dd>
+            <dd class="job-post-team">{{ position.department }}</dd>
             <dt class="job-post-location-head">Locations:</dt>
-            <dd class="job-post-location">{{ position.location_filter|default('All', True) }}</dd>
+            <dd class="job-post-location">{{ position.location_list|join(", ") }}</dd>
           </dl>
         </div>
       </div>
 
       <div class="contain">
         <div class="job-post-description">
-          {#
-            Description is bleached through
-            django-jobvite so it will be
-            happy here.
-          #}
+          {# Description is bleached through sync jobs so it will be happy here. #}
           {{ position.description|safe }}
         </div>
         <aside class="job-related">
-          <h2 class="job-related-head">{{ position.category.name }}: {{ _('Open Positions') }}</h2>
+          <h2 class="job-related-head">{{ position.department }}: {{ _('Open Positions') }}</h2>
           <ul class="job-related-list">
-            {% for p in positions if p != position %}
+            {% for p in related_positions %}
               <li>
                 <a href="{{ p.get_absolute_url() }}"
                    class="ga-job-listing-detail"

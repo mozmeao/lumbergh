@@ -42,7 +42,6 @@ INSTALLED_APPS = [
 
     # Third party apps
     'django_jinja',
-    'django_jobvite',
     'django_extensions',
     'raven.contrib.django.raven_compat',
 
@@ -218,3 +217,5 @@ RAVEN_CONFIG = {
     'dsn': config('SENTRY_DSN', None),
     'release': config('GIT_SHA', None),
 }
+
+GREENHOUSE_BOARD_TOKEN = config('GREENHOUST_BOARD_TOKEN', default='mozilla')

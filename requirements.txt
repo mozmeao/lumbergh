@@ -55,8 +55,6 @@ mock==1.0.1 \
     --hash=sha256:b839dd2d9c117c701430c149956918a423a9863b48b09c90e30a6013e7d2f44f \
     --hash=sha256:8f83080daa249d036cbccfb8ae5cc6ff007b88d6d937521371afabe7b19badbc
 factory-boy==2.1.2 --hash=sha256:561d9986e9dbf77efa0e3c4907d4558c95ec092a04459c79450ad718fba53b80
-https://github.com/mozilla/django-jobvite/archive/fb7dbb053605dd459213e1fc39e4e1b27f35b4df.tar.gz#egg=django_jobvite \
-    --hash=sha256:bc902b3bc8d8ccb64f10f273d601336856d9c389ae8ec2a131d47a65c490ea8b
 requests==2.8.1 \
     --hash=sha256:89f1b1f25dcd7b68f514e8d341a5b2eb466f960ae756822eaab480a3c1a81c28 \
     --hash=sha256:84fe8d5bf4dcdcc49002446c47a146d17ac10facf00d9086659064ac43b6c25b

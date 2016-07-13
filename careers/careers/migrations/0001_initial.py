@@ -21,6 +21,10 @@ class Migration(migrations.Migration):
                 ('description', models.TextField()),
                 ('apply_url', models.URLField()),
                 ('source', models.CharField(max_length=100)),
+                ('position_type', models.CharField(max_length=100)),
             ],
+            options={
+                'ordering': ('department', 'title'),
+            },
         ),
     ]

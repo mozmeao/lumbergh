@@ -3,8 +3,8 @@ from datetime import date
 from django.db.models import Q
 from django.shortcuts import render
 
-from django_jobvite.models import Position
 
+from careers.careers.models import Position
 from careers.university.models import Event
 
 
@@ -18,7 +18,7 @@ def index(request):
     if param:
         open_for_applications = param == 'true'
     else:
-        open_for_applications = Position.objects.filter(job_type='Intern').exists()
+        open_for_applications = Position.objects.filter(position_type='Intern').exists()
 
     return render(request, 'university/index.jinja', {
         'events': Event.objects.filter(date_filter).order_by('start_date'),

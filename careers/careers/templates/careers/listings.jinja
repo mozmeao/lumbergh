@@ -62,13 +62,13 @@
       <tbody>
       {% for position in positions %}
         <tr class="position"
-            data-team="{{ position.category.name }}"
-            data-type="{{ position.job_type }}"
-            data-location="{{ position.location_filter }}">
+            data-team="{{ position.department }},"
+            data-type="{{ position.position_type }},"
+            data-location="{{ position.location }},">
           <td class="title"><a href="{{ position.get_absolute_url() }}">{{ position.title }}</a></td>
-          <td class="location">{{ position.location_filter }}</td>
-          <td class="type">{{ position.job_type }}</td>
-          <td class="name">{{ position.category.name }}</td>
+          <td class="location">{{ position.location_list|join(", ") }}</td>
+          <td class="type">{{ position.position_type }}</td>
+          <td class="name">{{ position.department }}</td>
         </tr>
       {% endfor %}
         <tr class="empty-filter-message hidden">

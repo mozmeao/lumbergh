@@ -59,8 +59,8 @@ def ping_dms(function):
 
 @scheduled_job('interval', minutes=10, max_instances=1, coalesce=True)
 @ping_dms
-def job_syncjobvite():
-    call_command('syncjobvite')
+def job_syncgreenhouse():
+    call_command('sync_greenhouse')
     # Django won't close db connections after call_command. Close them manually
     # to prevent errors in case the DB goes away, e.g. during a failover event.
     connections.close_all()

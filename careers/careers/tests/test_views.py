@@ -1,7 +1,7 @@
 from django.core.urlresolvers import reverse
 
 from careers.base.tests import TestCase
-from careers.careers.tests import PositionFactory as JobvitePositionFactory
+from careers.careers.tests import PositionFactory
 
 
 class PositionTests(TestCase):
@@ -13,15 +13,15 @@ class PositionTests(TestCase):
         """
         job_id_1 = 'oflWVfwb'
         job_id_2 = 'oFlWVfwB'
-        JobvitePositionFactory.create(job_id=job_id_1)
-        JobvitePositionFactory.create(job_id=job_id_2)
+        PositionFactory.create(job_id=job_id_1)
+        PositionFactory.create(job_id=job_id_2)
 
-        url = reverse('careers.position', kwargs={'job_id': job_id_1})
+        url = reverse('careers.position', kwargs={'job_id': job_id_1, 'source': 'gh'})
         response = self.client.get(url, follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context_data['position'].job_id, job_id_1)
 
-        url = reverse('careers.position', kwargs={'job_id': job_id_2})
+        url = reverse('careers.position', kwargs={'job_id': job_id_2, 'source': 'gh'})
         response = self.client.get(url, follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context_data['position'].job_id, job_id_2)

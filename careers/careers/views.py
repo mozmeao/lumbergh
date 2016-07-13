@@ -1,38 +1,39 @@
-from django.shortcuts import render
-from django.views.generic import DetailView
+from django.views.generic import DetailView, ListView, TemplateView
+from django.shortcuts import get_object_or_404
 
-from django_jobvite import models as jobvite_models
-
-import utils
 from careers.careers.forms import PositionFilterForm
+from careers.careers.models import Position
 
 
-def home(request):
-    return render(request, 'careers/home.jinja')
+class HomeView(TemplateView):
+    template_name = 'careers/home.jinja'
 
 
-def listings(request):
-    return render(request, 'careers/listings.jinja', {
-        'positions': utils.get_all_positions(
-            order_by=lambda x: u'{0} {1}'.format(x.category.name, x.title)),
-        'form': PositionFilterForm(request.GET or None),
-    })
-
-
-class JobvitePositionDetailView(DetailView):
-    context_object_name = 'position'
-    model = jobvite_models.Position
-    template_name = 'careers/position.jinja'
-    slug_field = 'job_id'
-    slug_url_kwarg = 'job_id'
+class PositionListView(ListView):
+    model = Position
+    template_name = 'careers/listings.jinja'
+    context_object_name = 'positions'
 
     def get_context_data(self, **kwargs):
-        context = super(JobvitePositionDetailView, self).get_context_data(**kwargs)
+        context = super(PositionListView, self).get_context_data(**kwargs)
+        context['form'] = PositionFilterForm(self.request.GET or None)
+        return context
 
-        # Add applicant source param for jobvite
-        context['position'].apply_url += '&s=PDN'
 
-        context['positions'] = utils.get_all_positions(
-            filters={'category__name': context['position'].category.name},
-            order_by=lambda x: x.title)
+class PositionDetailView(DetailView):
+    model = Position
+    context_object_name = 'position'
+    template_name = 'careers/position.jinja'
+
+    def get_object(self, queryset=None):
+        if queryset is None:
+            queryset = self.get_queryset()
+        return get_object_or_404(queryset, **self.kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super(PositionDetailView, self).get_context_data(**kwargs)
+        position = context['position']
+        related_positions = (
+            Position.objects.filter(department=position.department).exclude(id=position.id))
+        context['related_positions'] = related_positions
         return context

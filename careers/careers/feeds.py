@@ -5,7 +5,7 @@ from django.contrib.syndication.views import Feed
 from django.core.urlresolvers import reverse
 from django.utils import feedgenerator
 
-from .utils import get_all_categories, get_all_positions
+from careers.careers.models import Position
 
 
 class LatestPositionsFeed(Feed):
@@ -24,10 +24,10 @@ class LatestPositionsFeed(Feed):
         return reverse('careers.feed')
 
     def categories(self):
-        return get_all_categories()
+        return Position.categories()
 
     def items(self):
-        return get_all_positions()
+        return Position.objects.all()
 
     def item_title(self, item):
         return item.title
@@ -37,12 +37,8 @@ class LatestPositionsFeed(Feed):
 
     def item_categories(self, item):
         categories = []
-        if item.category:
-            categories.append(item.category.name)
-        if item.location_filter:
-            if item.location_filter == 'All':
-                location = 'Worldwide'
-            else:
-                location = item.location_filter
-            categories.append(location)
+        categories.append(item.department)
+        categories += item.location_list
+        if 'Remote' in item.location_list:
+            categories.append('Worldwide')
         return categories
