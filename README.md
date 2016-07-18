@@ -1,11 +1,11 @@
 lumbergh
 ==========
 
-[![Requirements Status](https://img.shields.io/requires/github/mozilla/lumbergh.svg)](https://requires.io/github/mozilla/lumbergh/requirements/?branch=master)
+[![Requirements Status](https://img.shields.io/requires/github/mozmar/lumbergh.svg)](https://requires.io/github/mozmar/lumbergh/requirements/?branch=master)
 
-[![Build Status](https://img.shields.io/travis/mozilla/lumbergh/master.svg)](https://travis-ci.org/mozilla/lumbergh)
+[![Build Status](https://img.shields.io/travis/mozmar/lumbergh/master.svg)](https://travis-ci.org/mozmar/lumbergh)
 
-[![codecov.io](https://codecov.io/github/mozilla/lumbergh/coverage.svg?branch=master)](https://codecov.io/github/mozilla/lumbergh?branch=master)
+[![codecov.io](https://codecov.io/github/mozmar/lumbergh/coverage.svg?branch=master)](https://codecov.io/github/mozmar/lumbergh?branch=master)
 
 Run the tests
 -------------
@@ -53,7 +53,7 @@ Docker for deploying to production
 2. Prepare a 'env' file with all the variables needed by dev, stage or production.
 3. Run the image:
 
-    docker run --env-file env -p 80:8000 mozilla/lumbergh
+    docker run --env-file env -p 80:8000 mozmar/lumbergh
 
 Heroku
 ------
