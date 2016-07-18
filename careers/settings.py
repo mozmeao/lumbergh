@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django_jinja',
     'django_jobvite',
     'django_extensions',
+    'raven.contrib.django.raven_compat',
 
     # Django apps
     'django.contrib.admin',
@@ -212,3 +213,8 @@ ENABLE_ADMIN = config('ENABLE_ADMIN', default=True, cast=bool)
 SAML_ENABLE = config('SAML_ENABLE', default=False, cast=bool)
 if SAML_ENABLE:
     from saml.settings import *  # noqa
+
+RAVEN_CONFIG = {
+    'dsn': config('SENTRY_DSN', None),
+    'release': config('GIT_SHA', None),
+}
