@@ -146,7 +146,7 @@ TEMPLATES = [
 # Django-CSP
 CSP_DEFAULT_SRC = (
     "'self'",
-    'videos.cdn.mozilla.net',
+    '*.cdn.mozilla.net',
 )
 CSP_FONT_SRC = (
     "'self'",
