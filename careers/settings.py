@@ -167,6 +167,7 @@ CSP_IMG_SRC = (
 )
 CSP_SCRIPT_SRC = (
     "'self'",
+    "data:",
     'http://*.mozilla.org',
     'https://*.mozilla.org',
     'http://*.mozilla.net',
