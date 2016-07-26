@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 from django.core.urlresolvers import reverse
 from careers.base.tests import TestCase
-from careers.careers.tests import PositionFactory as JobvitePositionFactory
+from careers.careers.tests import PositionFactory
 
 
 class FeedTests(TestCase):
     def test_career_feed(self):
         job_id_1 = 'oflWVfwb'
         job_id_2 = 'oFlWVfwB'
-        job_1 = JobvitePositionFactory.create(job_id=job_id_1)
-        job_2 = JobvitePositionFactory.create(job_id=job_id_2)
+        job_1 = PositionFactory.create(job_id=job_id_1)
+        job_2 = PositionFactory.create(job_id=job_id_2)
 
         url = reverse('careers.feed')
         response = self.client.get(url)
@@ -24,5 +24,5 @@ class FeedTests(TestCase):
         for job in [job_1, job_2]:
             self.assertIn(job.title, content)
             self.assertIn(job.description, content)
-            self.assertIn(job.category.name, content)
+            self.assertIn(job.department, content)
             self.assertIn(job.get_absolute_url(), content)

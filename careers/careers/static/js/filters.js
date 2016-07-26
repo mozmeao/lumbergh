@@ -56,7 +56,7 @@
                 'position_type': this.$typeInput.val(),
                 'team': this.$teamInput.val(),
                 'location': this.$locationInput.val()
-            }
+            };
 
             // Hide table and show all positions.
             this.$positionTable.hide();
@@ -66,7 +66,8 @@
             // Hide positions that don't match the current filters.
             this.filterPositions('type', filters['position_type']);
             this.filterPositions('team', filters['team']);
-            this.filterPositionsByLocation(filters['location']);
+            this.filterPositions('location', filters['location']);
+
 
             // If there aren't any positions being shown, show the no-results message.
             if (this.$positionTable.find('.position:not(.hidden)').length < 1) {
@@ -112,25 +113,13 @@
          * Hide any positions that do have the correct value for the given field.
          */
         filterPositions: function(field, value) {
-            if (value !== '') {
-                var selector = '.position:not([data-' + field + '="' + value + '"])';
-                this.$positionTable.find(selector).addClass('hidden').hide();
-            }
-        },
-
-        /**
-         * Hide any positions that are not located in a location matching the given filter value.
-         */
-        filterPositionsByLocation: function(filterValue) {
-            if (filterValue !== '' && this.locationsFor.hasOwnProperty(filterValue)) {
-                var validLocations = this.locationsFor[filterValue];
-                var positions = this.$positionTable.find('.position');
-                for (var k = 0; k < validLocations.length; k++) {
-                    positions = positions.not('[data-location*="' + validLocations[k] + '"]');
+            this.$positionTable.find('tr.position').each(function(index, element) {
+                if (!value)
+                    return;
+                if (element.dataset[field].indexOf(value + ',') === -1) {
+                    element.classList.add('hidden');
                 }
-
-                positions.addClass('hidden').hide();
-            }
+            });
         }
     };
 
