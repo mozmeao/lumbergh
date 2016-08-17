@@ -34,7 +34,7 @@ class Command(BaseCommand):
 
             departments = job.get('departments', '')
             if departments:
-                department = departments[0]['name']
+                department = departments[0]['name'] or ''
             else:
                 department = ''
 
@@ -51,10 +51,10 @@ class Command(BaseCommand):
 
             for metadata in job.get('metadata', []):
                 if metadata.get('name', '') == 'Employment Type':
-                    position_type = metadata['value']
+                    position_type = metadata['value'] or ''
                     break
             else:
-                position_type = '',
+                position_type = ''
 
             object_data = {
                 'title': job['title'],
