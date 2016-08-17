@@ -219,4 +219,4 @@ RAVEN_CONFIG = {
     'release': config('GIT_SHA', None),
 }
 
-GREENHOUSE_BOARD_TOKEN = config('GREENHOUST_BOARD_TOKEN', default='mozilla')
+GREENHOUSE_BOARD_TOKEN = config('GREENHOUSE_BOARD_TOKEN', default='mozilla')
