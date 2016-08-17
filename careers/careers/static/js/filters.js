@@ -66,7 +66,7 @@
             // Hide positions that don't match the current filters.
             this.filterPositions('type', filters['position_type']);
             this.filterPositions('team', filters['team']);
-            this.filterPositions('location', filters['location']);
+            this.filterLocations(filters['location']);
 
 
             // If there aren't any positions being shown, show the no-results message.
@@ -113,10 +113,32 @@
          * Hide any positions that do have the correct value for the given field.
          */
         filterPositions: function(field, value) {
+            if (!value)
+                return;
+
             this.$positionTable.find('tr.position').each(function(index, element) {
-                if (!value)
-                    return;
-                if (element.dataset[field].indexOf(value + ',') === -1) {
+                var data = element.dataset[field];
+                if (data.indexOf(value + ',') === -1) {
+                    element.classList.add('hidden');
+                }
+            });
+        },
+        filterLocations: function(value) {
+            if (!value)
+                return;
+
+            this.$positionTable.find('tr.position').each(function(index, element) {
+                var data = element.dataset.location;
+
+                // When user selects 'Remote' only list jobs explicitly marked
+                // Remote otherwise list jobs matching value (which is a mozilla
+                // office) and those marked as 'All Offices'
+                if (value === 'Remote') {
+                    if (data.indexOf(value + ',') === -1) {
+                        element.classList.add('hidden');
+                    }
+                }
+                else if (data.indexOf(value + ',') === -1 && data.indexOf('All Offices,') === -1) {
                     element.classList.add('hidden');
                 }
             });
