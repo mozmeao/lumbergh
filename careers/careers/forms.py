@@ -13,6 +13,9 @@ class PositionFilterForm(forms.Form):
 
         # Populate position type choices dynamically.
         locations = Position.locations()
+        if 'All Offices' in locations:
+            locations.remove('All Offices')
+
         self.fields['location'].choices = (
             [('', 'All Locations')] + [(l, l) for l in locations])
 
