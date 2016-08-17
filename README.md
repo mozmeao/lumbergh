@@ -1,11 +1,11 @@
 lumbergh
 ==========
 
-[![Requirements Status](https://img.shields.io/requires/github/mozmar/lumbergh.svg)](https://requires.io/github/mozmar/lumbergh/requirements/?branch=master)
-
 [![Build Status](https://img.shields.io/travis/mozmar/lumbergh/master.svg)](https://travis-ci.org/mozmar/lumbergh)
 
 [![codecov.io](https://codecov.io/github/mozmar/lumbergh/coverage.svg?branch=master)](https://codecov.io/github/mozmar/lumbergh?branch=master)
+
+[What's Deployed](https://whatsdeployed.io/s-k9W)
 
 Run the tests
 -------------
