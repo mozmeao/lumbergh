@@ -2,6 +2,7 @@ import HTMLParser
 
 from django.conf import settings
 from django.core.management.base import BaseCommand
+from django.db import transaction
 
 import bleach
 import requests
@@ -16,6 +17,7 @@ class Command(BaseCommand):
     args = '(no args)'
     help = 'Sync jobs from Greenhouse'
 
+    @transaction.atomic
     def handle(self, *args, **options):
         jobs_added = 0
         jobs_updated = 0
