@@ -5,7 +5,7 @@ DEIS=$1
 APP=$2
 NRAPP=$3
 
-docker login -e "$DOCKER_EMAIL" -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
 docker push ${DOCKER_REPOSITORY}:${TRAVIS_COMMIT}
 docker tag ${DOCKER_REPOSITORY}:${TRAVIS_COMMIT} ${DOCKER_REPOSITORY}:last_successful_build
 docker push ${DOCKER_REPOSITORY}:last_successful_build
