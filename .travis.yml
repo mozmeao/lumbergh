@@ -25,7 +25,7 @@ env:
     - ALLOWED_HOSTS=*
     - SECRET_KEY=foo
     - DATABASE_URL=mysql://root@db/careers
-    - DISABLE_SSL=True
+    - SECURE_SSL_REDIRECT=False
 cache:
   directories:
     - /home/travis/docker/

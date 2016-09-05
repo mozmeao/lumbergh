@@ -58,7 +58,7 @@ for app in config('EXTRA_APPS', default='', cast=Csv()):
     INSTALLED_APPS.append(app)
 
 MIDDLEWARE_CLASSES = (
-    'sslify.middleware.SSLifyMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'careers.base.middleware.LocaleRedirectionMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -200,9 +200,13 @@ JOBVITE_URI = config(
 
 DEAD_MANS_SNITCH_URL = config('DEAD_MANS_SNITCH', default=None)
 
-SSLIFY_DISABLE = config('DISABLE_SSL', default=DEBUG, cast=bool)
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 USE_X_FORWARDED_HOST = True
+SECURE_SSL_REDIRECT = config('SECURE_SSL_REDIRECT', default=not DEBUG, cast=bool)
+SECURE_HSTS_SECONDS = config('SECURE_HSTS_SECONDS', default='0', cast=int)
+SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+SECURE_BROWSER_XSS_FILTER = config('SECURE_BROWSER_XSS_FILTER', default=False, cast=bool)
+SECURE_CONTENT_TYPE_NOSNIFF = config('SECURE_CONTENT_TYPE_NOSNIFF', default=False, cast=bool)
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 CACHES = {
     'default': config('CACHE_URL', default='locmem://', cast=django_cache_url.parse),
