@@ -75,7 +75,6 @@ futures==3.0.3 \
 django-extensions==1.6.1 \
     --hash=sha256:4799534f35eba1c07cb6f9859aa5bb719886769f5d35d2a38e7490ce90c0ce69 \
     --hash=sha256:f98f991d2b039033ac5faa638c0d1afb2720abf4d9d781573c3592d6899480a1
-django-sslify==0.2.5 --hash=sha256:8018f2364ef5b1ee125eed88a18a635c5cb1ced91d7b234353d8a07def32c613
 django-cache-url==1.0.0 \
     --hash=sha256:71506c127aba566ab1b9b77bf09ccd3119a387aeb76df1b34f2541ce4764901c \
     --hash=sha256:3583ca1c9b43b08b9dc71463a5c02fdae6ebebdee812a67198e2a7e429c54210
