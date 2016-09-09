@@ -38,11 +38,11 @@ Docker for development
 0. Make sure you have [docker](https://docker.io) and [docker-compose](https://github.com/docker/compose)
 1. docker-compose up
 
-### Sync With Jobvite
+### Sync With Greehouse
 If you want to populate your local instance with jobs you will need to connect to your
 web container and run a sync command:
 
-0. `docker-compose run web ./manage.py syncjobvite`
+0. `docker-compose run web ./manage.py sync_greenhouse`
 
 
 

@@ -193,11 +193,6 @@ ENGAGE_ROBOTS = config('ENGAGE_ROBOTS', default=not DEBUG, cast=bool)
 GA_ACCOUNT_CODE = config('GA_ACCOUNT_CODE', default='UA-36116321-8')
 GTM_ACCOUNT_CODE = config('GTM_ACCOUNT_CODE', default='GTM-MLM3DH')
 
-# URI of Jobvite job feed.
-JOBVITE_URI = config(
-    'JOBVITE_URI',
-    default='https://www.jobvite.com/CompanyJobs/Xml.aspx?c=qpX9Vfwa&cf=e')
-
 DEAD_MANS_SNITCH_URL = config('DEAD_MANS_SNITCH', default=None)
 
 USE_X_FORWARDED_HOST = True
