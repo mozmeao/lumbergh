@@ -184,6 +184,11 @@ CSP_STYLE_SRC = (
     'http://*.mozilla.net',
     'https://*.mozilla.net',
 )
+CSP_REPORT_ONLY = config('CSP_REPORT_ONLY', default=False, cast=bool)
+CSP_REPORT_ENABLE = config('CSP_REPORT_ENABLE', default=True, cast=bool)
+
+if CSP_REPORT_ENABLE:
+    CSP_REPORT_URI = config('CSP_REPORT_URI', default='/csp-violation-capture')
 
 ANON_ALWAYS = True
 
