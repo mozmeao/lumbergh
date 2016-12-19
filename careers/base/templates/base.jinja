@@ -39,16 +39,14 @@
 
     {% block google_analytics %}
       {# Google Analytics #}
-      {% if settings.GA_ACCOUNT_CODE %}
-        <script src="{{ static('js/ga.js') }}"></script>
-      {% endif %}
-
       {% if settings.GTM_ACCOUNT_CODE %}
         <noscript>
-          <iframe src="//www.googletagmanager.com/ns.html?id=GTM-MLM3DH"
+          <iframe src="//www.googletagmanager.com/ns.html?id={{ settings. GTM_ACCOUNT_CODE }}"
                   height="0" width="0" style="display:none;visibility:hidden"></iframe>
         </noscript>
         <script src="{{ static('js/gtm.js') }}"></script>
+      {% elif settings.GA_ACCOUNT_CODE %}
+        <script src="{{ static('js/ga.js') }}"></script>
       {% endif %}
     {% endblock %}
 

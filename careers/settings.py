@@ -195,7 +195,7 @@ ANON_ALWAYS = True
 ENGAGE_ROBOTS = config('ENGAGE_ROBOTS', default=not DEBUG, cast=bool)
 
 # Goolge Analytics Code
-GA_ACCOUNT_CODE = config('GA_ACCOUNT_CODE', default='UA-36116321-8')
+GA_ACCOUNT_CODE = config('GA_ACCOUNT_CODE', default=None)
 GTM_ACCOUNT_CODE = config('GTM_ACCOUNT_CODE', default='GTM-MLM3DH')
 
 DEAD_MANS_SNITCH_URL = config('DEAD_MANS_SNITCH', default=None)
