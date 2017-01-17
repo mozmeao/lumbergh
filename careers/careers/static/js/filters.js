@@ -14,27 +14,6 @@
 
     PositionFilters.prototype = {
         /**
-         * Mapping of location filter value -> Locations it matches
-         */
-        locationsFor: {
-            remote: ['Remote', 'All'],
-            berlin: ['Berlin', 'Europe', 'Any Office', 'Remote', 'All'],
-            boston: ['Boston', 'US', 'North America', 'Any Office', 'Remote', 'All'],
-            london: ['London', 'Europe', 'Any Office', 'Remote', 'All'],
-            mountainview: ['Mountain View', 'Bay Area', 'US', 'North America', 'Any Office', 'Remote', 'All'],
-            newzealand: ['New Zealand', 'Any Office', 'Remote', 'All'],
-            paris: ['Paris', 'Europe', 'Any Office', 'Remote', 'All'],
-            portland: ['Portland', 'US', 'North America', 'Any Office', 'Remote', 'All'],
-            sanfrancisco: ['San Francisco', 'Bay Area', 'US', 'North America', 'Any Office', 'Remote', 'All'],
-            toronto: ['Toronto', 'North America', 'Any Office', 'Remote', 'All'],
-            vancouver: ['Vancouver', 'North America', 'Any Office', 'Remote', 'All'],
-            bayarea: ['Mountain View', 'San Francisco', 'Bay Area', 'US', 'North America', 'Any Office', 'Remote', 'All'],
-            latinamerica: ['Latin America', 'Remote', 'All'],
-            northamerica: ['Boston', 'Portland', 'Mountain View', 'San Francisco', 'Toronto', 'Vancouver', 'Bay Area', 'US', 'North America', 'Any Office', 'Remote', 'All'],
-            europe: ['Berlin', 'London', 'Paris', 'Europe', 'Any Office', 'Remote', 'All', 'All']
-        },
-
-        /**
          * Bind onFilterChange to the change events for each input.
          */
         bindEvents: function() {
