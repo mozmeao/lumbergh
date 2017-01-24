@@ -37,7 +37,8 @@ install:
   # Take advantage of docker caching by pulling previously built images.
   - docker build -t ${DOCKER_REPOSITORY}:${TRAVIS_COMMIT} --pull=true .
 before_script:
-  - env > .env
+  # Replace all spaces with _
+  - env | sed 's/ /_/' > .env
 script:
   - docker run -d --name mariadb -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -e MYSQL_DATABASE=careers mariadb:10.0 --character-set-server=utf8mb4 --collation-server=utf8mb4_bin
   - docker run ${DOCKER_REPOSITORY}:${TRAVIS_COMMIT} flake8 careers
