@@ -4,6 +4,9 @@
 ;(function($) {
     'use strict';
 
+    var noopfn = function() {};
+    window.ga = window.ga || noopfn;
+
     var $root = $(':root');
     function trackClick(selector, trackEventArgs) {
         trackEventArgs.unshift('careersSnippetGA.send', 'event');
