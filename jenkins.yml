@@ -1,0 +1,15 @@
+project:
+  name: lumbergh
+  docker_name: mozorg/lumbergh
+  deis_credentials: jenkins-deis
+  deis_stage_app: careers-stage
+  deis_prod_app: careers-prod
+  deis_euw: "https://deis.eu-west.moz.works"
+  deis_usw: "https://deis.us-west.moz.works"
+notifications:
+  irc:
+    server: irc.mozilla.org:6697
+    channel: "#careersweb"
+    nickname: mozmeao-jenkins-careers
+    on_success: always
+    on_failure: change
