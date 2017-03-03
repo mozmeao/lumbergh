@@ -1,4 +1,4 @@
-@Library('github.com/mozmar/jenkins-pipeline@20170206.1')
+@Library('github.com/mozmar/jenkins-pipeline@20170303.1')
 def stage_deployed = false
 def config
 def docker_image
@@ -89,38 +89,31 @@ conduit {
   }
 
   if (deployStage) {
-    node {
-      stage("Stage") {
-        lock("Stage") {
-          deisLogin("https://deis.us-west.moz.works", config.project.deis_credentials) {
-            deisPull(config.project.deis_stage_app, docker_image)
+    for (deploy in config.deploy.stage) {
+      node {
+        stage ("Deploying to ${deploy.name}") {
+          lock("push to ${deploy.name}") {
+            deisLogin(deploy.url, deploy.credentials) {
+              deisPull(deploy.app, docker_image)
+            }
+            newRelicDeployment(deploy.newrelic_app, env.GIT_COMMIT_SHORT,
+                               "jenkins", "newrelic-api-key")
           }
         }
       }
-      stage_deployed = true
     }
   }
   if (deployProd) {
-    timeout(time: 10, unit: 'MINUTES') {
-      input("Push to Production on Deis US-West?")
-    }
-    node {
-      stage ("Production Push (US-West)") {
-        lock("Production Push (US-West)") {
-          deisLogin(config.project.deis_usw, config.project.deis_credentials) {
-            deisPull(config.project.deis_prod_app, docker_image)
-          }
-        }
-      }
-    }
-    timeout(time: 10, unit: 'MINUTES') {
-      input("Push to Production on Deis EU-West?")
-    }
-    node {
-      stage ("Production Push (EU-West)") {
-        lock("Production Push (EU-West)") {
-          deisLogin(config.project.deis_euw, config.project.deis_credentials) {
-            deisPull(config.project.deis_prod_app, docker_image)
+    for (deploy in config.deploy.prod) {
+      node {
+        stage ("Deploying to ${deploy.name}") {
+          lock("push to ${deploy.name}") {
+            deisLogin(deploy.url, deploy.credentials) {
+              deisPull(deploy.app, docker_image)
+            }
+            newRelicDeployment(deploy.newrelic_app, env.GIT_COMMIT_SHORT,
+                               "jenkins", "newrelic-api-key")
+
           }
         }
       }
