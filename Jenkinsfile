@@ -26,6 +26,7 @@ conduit {
 
     stage("Build") {
       if (!dockerImageExists(docker_image)) {
+        sh "echo 'ENV GIT_SHA ${GIT_COMMIT}' >> Dockerfile"
         dockerImageBuild(docker_image, ["pull": true])
       }
       else {
