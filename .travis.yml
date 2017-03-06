@@ -4,21 +4,8 @@ services:
 language: python
 env:
   global:
-    # NewRelic
-    - NEWRELIC_US_WEST_STAGE_APPLICATION=careers-stage-us-west
-    - NEWRELIC_US_WEST_PROD_APPLICATION=careers-prod-us-west
-    - NEWRELIC_EU_WEST_PROD_APPLICATION=careers-prod-eu-west
-    # Deis
-    - DEIS_STAGE_APPLICATION=careers-stage
-    - DEIS_PROD_APPLICATION=careers-prod
-    - DEIS_USERNAME=travis
-    - DEIS_CONTROLLER_US_WEST=https://deis.us-west.moz.works
-    - DEIS_CONTROLLER_EU_WEST=https://deis.eu-west.moz.works
-
     # Docker
     - DOCKER_REPOSITORY=mozorg/lumbergh
-    - DOCKER_USERNAME="mozjenkins"
-    - DOCKER_CACHE_FILE=/home/travis/docker/cache.tar.gz
 
     # Django
     - DEBUG=False
@@ -26,13 +13,9 @@ env:
     - SECRET_KEY=foo
     - DATABASE_URL=mysql://root@db/careers
     - SECURE_SSL_REDIRECT=False
-cache:
-  directories:
-    - /home/travis/docker/
 before_install:
   - docker --version
   - echo "ENV GIT_SHA ${TRAVIS_COMMIT}" >> Dockerfile
-  - if [ -f ${DOCKER_CACHE_FILE} ]; then gunzip -c ${DOCKER_CACHE_FILE} | docker load; fi
 install:
   # Take advantage of docker caching by pulling previously built images.
   - docker build -t ${DOCKER_REPOSITORY}:${TRAVIS_COMMIT} --pull=true .
@@ -45,27 +28,3 @@ script:
   # Wait database to initialize.
   - docker run --link mariadb:db -e CHECK_PORT=3306 -e CHECK_HOST=db giorgos/takis
   - docker run --env-file .env --link mariadb:db ${DOCKER_REPOSITORY}:${TRAVIS_COMMIT} coverage run ./manage.py test
-  # Save built images to Travis cache directory
-  - if [[ ${TRAVIS_BRANCH} == "master" ]] && [[ ${TRAVIS_PULL_REQUEST} == "false" ]]; then mkdir -p $(dirname ${DOCKER_CACHE_FILE}); docker save $(docker history -q ${DOCKER_REPOSITORY}:${TRAVIS_COMMIT} | grep -v '<missing>') | gzip > ${DOCKER_CACHE_FILE}; fi
-after_success:
-  - sudo docker cp `docker ps -a -q | head -n 1`:/app /
-  - sudo chown travis /app
-  - cd /app
-  - pip install codecov
-  - codecov
-deploy:
-  - provider: script
-    script: bin/deploy-travis.sh $DEIS_CONTROLLER_US_WEST $DEIS_STAGE_APPLICATION $NEWRELIC_US_WEST_STAGE_APPLICATION
-    on:
-      branch: master
-      repo: mozmar/lumbergh
-  - provider: script
-    script: bin/deploy-travis.sh $DEIS_CONTROLLER_US_WEST $DEIS_PROD_APPLICATION $NEWRELIC_US_WEST_PROD_APPLICATION
-    on:
-      tags: true
-      repo: mozmar/lumbergh
-  - provider: script
-    script: bin/deploy-travis.sh $DEIS_CONTROLLER_EU_WEST $DEIS_PROD_APPLICATION $NEWRELIC_EU_WEST_PROD_APPLICATION
-    on:
-      tags: true
-      repo: mozmar/lumbergh
