@@ -20,12 +20,6 @@ urlpatterns = [
 ]
 
 
-if settings.SAML_ENABLE:
-    urlpatterns += [
-        url(r'^saml2/', include('careers.saml.urls'))
-    ]
-
-
 if settings.ENABLE_ADMIN:
     urlpatterns += [
         url(r'^admin/', include(admin.site.urls)),

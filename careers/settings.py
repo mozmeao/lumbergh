@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'careers.base',
     'careers.careers',
     'careers.university',
-    'careers.saml',
 
     # Third party apps
     'django_jinja',
@@ -213,10 +212,6 @@ CACHES = {
 }
 
 ENABLE_ADMIN = config('ENABLE_ADMIN', default=True, cast=bool)
-
-SAML_ENABLE = config('SAML_ENABLE', default=False, cast=bool)
-if SAML_ENABLE:
-    from saml.settings import *  # noqa
 
 RAVEN_CONFIG = {
     'dsn': config('SENTRY_DSN', None),
