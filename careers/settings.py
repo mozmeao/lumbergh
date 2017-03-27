@@ -201,3 +201,5 @@ RAVEN_CONFIG = {
 }
 
 GREENHOUSE_BOARD_TOKEN = config('GREENHOUSE_BOARD_TOKEN', default='mozilla')
+
+EVENTS_FILE = os.path.join(ROOT, 'university_events.yml')

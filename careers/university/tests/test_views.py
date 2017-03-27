@@ -8,7 +8,6 @@ from careers.base.tests import TestCase
 from careers.careers.models import Position
 from careers.careers.tests import PositionFactory
 from careers.university import views
-from careers.university.tests import EventFactory
 
 
 class IndexTests(TestCase):
@@ -27,20 +26,30 @@ class IndexTests(TestCase):
         events occurring on or after the current date, and should be
         ordered by start date.
         """
-        event1 = EventFactory.create(start_date=date(2010, 1, 6))
-        event2 = EventFactory.create(start_date=date(2010, 2, 4))
-        event3 = EventFactory.create(start_date=date(2010, 1, 3), end_date=date(2010, 1, 8))
-        event4 = EventFactory.create(start_date=date(2010, 1, 2), end_date=date(2010, 1, 6))
+        event1 = {'name': '1', 'location': 'example',
+                  'start_date': date(2010, 1, 2), 'end_date': date(2010, 1, 6)}
+        event2 = {'name': '2', 'location': 'example',
+                  'start_date': date(2010, 1, 3), 'end_date': date(2010, 1, 8)}
+        event3 = {'name': '3', 'location': 'example',
+                  'start_date': date(2010, 1, 6), 'end_date': date(2010, 1, 6)}
+        event4 = {'name': '4', 'location': 'example',
+                  'start_date': date(2010, 2, 4), 'end_date': date(2010, 2, 4)}
 
-        # Events that shouldn't be included.
-        EventFactory.create(start_date=date(2010, 1, 2))
-        EventFactory.create(start_date=date(2010, 1, 2), end_date=date(2010, 1, 5))
+        with patch('careers.university.views.EVENTS', new_callable=list) as events:
+            events.extend([
+                event1, event2, event3, event4,
+                # Events that shouldn't be included in page.
+                {'name': '5', 'location': 'example',
+                 'start_date': date(2010, 1, 2), 'end_date': date(2010, 1, 2)},
+                {'name': '6', 'location': 'example',
+                 'start_date': date(2010, 1, 2), 'end_date': date(2010, 1, 5)}
+            ])
 
-        with patch('careers.university.views.date') as mock_date:
-            mock_date.today.return_value = date(2010, 1, 6)
-            response, context = self._index()
+            with patch('careers.university.views.date') as mock_date:
+                mock_date.today.return_value = date(2010, 1, 6)
+                response, context = self._index()
 
-        self.assertEqual(list(context['events']), [event4, event3, event1, event2])
+        self.assertEqual(list(context['events']), [event1,  event2, event3, event4])
 
     def test_open_for_applications(self):
         """

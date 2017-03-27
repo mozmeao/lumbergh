@@ -1,0 +1,5 @@
+# Store university events here. All fields are required.
+- name: Example
+  location: Imaginary place
+  start_date: 2017-01-20
+  end_date: 2017-01-22
