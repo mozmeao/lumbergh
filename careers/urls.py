@@ -1,6 +1,5 @@
 from django.conf import settings
 from django.conf.urls import include, url
-from django.contrib import admin
 
 from base import views
 
@@ -18,11 +17,3 @@ urlpatterns = [
     url(r'^csp-violation-capture$', views.csp_violation_capture,
         name='csp-violation-capture'),
 ]
-
-
-if settings.ENABLE_ADMIN:
-    urlpatterns += [
-        url(r'^admin/', include(admin.site.urls)),
-    ]
-    admin.site.site_header = 'Careers Administration'
-    admin.site.site_title = 'Mozilla Careers'
