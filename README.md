@@ -1,75 +1,28 @@
-lumbergh
-==========
+# lumbergh
 
-[![Build Status](https://img.shields.io/travis/mozmar/lumbergh/master.svg)](https://travis-ci.org/mozmar/lumbergh)
-
-[![codecov.io](https://codecov.io/github/mozmar/lumbergh/coverage.svg?branch=master)](https://codecov.io/github/mozmar/lumbergh?branch=master)
+[![Build Status](https://ci.us-west.moz.works/buildStatus/icon?job=Careers/master)](https://ci.us-west.moz.works/job/Careers/master)
 
 [What's Deployed](https://whatsdeployed.io/s-k9W)
 
-Run the tests
--------------
+## Commands
 
-There's a sample test in `lumbergh/base/tests.py` for your convenience, that
-you can run using the following command:
+### Run the tests
 
-    python manage.py test
+```shell
+./manage.py test
+```
 
-If you want to run the full suite, with flake8 and coverage, you may use
-[tox](https://testrun.org/tox/latest/). This will run the tests the same way
-they are run by [travis](https://travis-ci.org)):
+### Sync with Greenhouse
 
-    pip install tox
-    tox
+```shell
+./manage.py sync_greenhouse
+```
 
-The `.travis.yml` file will also run [coveralls](https://coveralls.io) by
-default.
+## University Events
 
-If you want to benefit from Travis and Coveralls, you will need to activate
-them both for your project.
+To add, edit or delete university events from
+the [University page](https://careers.mozilla.org/university)
+edit [university_events.yml](university_events.yml) file and follow the deploy
+instructions as described in Mana.
 
-Oh, and you might want to change the "Build Status" and "Coverage Status" links
-at the top of this file to point to your own travis and coveralls accounts.
-
-
-Docker for development
-----------------------
-
-0. Make sure you have [docker](https://docker.io) and [docker-compose](https://github.com/docker/compose)
-1. docker-compose up
-
-### Sync With Greehouse
-If you want to populate your local instance with jobs you will need to connect to your
-web container and run a sync command:
-
-0. `docker-compose run web ./manage.py sync_greenhouse`
-
-
-
-Docker for deploying to production
------------------------------------
-
-1. Add your project in [Docker Registry](https://registry.hub.docker.com/) as [Automated Build](http://docs.docker.com/docker-hub/builds/)
-2. Prepare a 'env' file with all the variables needed by dev, stage or production.
-3. Run the image:
-
-    docker run --env-file env -p 80:8000 mozmar/lumbergh
-
-Heroku
-------
-1. heroku create
-2. heroku config:set DEBUG=False ALLOWED_HOSTS=<foobar>.herokuapp.com, SECRET_KEY=something_secret
-   DATABASE_URL gets populated by heroku once you setup a database.
-3. git push heroku master
-
-
-NewRelic Monitoring
--------------------
-
-A newrelic.ini file is already included. To enable NewRelic monitoring
-add two enviroment variables:
-
- - NEW_RELIC_LICENSE_KEY
- - NEW_RELIC_APP_NAME
-
-See the [full list of supported environment variables](https://docs.newrelic.com/docs/agents/python-agent/installation-configuration/python-agent-configuration#environment-variables).
+Only events with end date equal or bigger to UTC today are shown.
