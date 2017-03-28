@@ -1,6 +1,6 @@
 # lumbergh
 
-[![Build Status](https://ci.us-west.moz.works/buildStatus/icon?job=Careers/master)](https://ci.us-west.moz.works/job/Careers/master)
+[![Build Status](https://ci.us-west.moz.works/buildStatus/icon?job=Careers/master)](https://ci.us-west.moz.works/blue/organizations/jenkins/Careers/branches/)
 
 [What's Deployed](https://whatsdeployed.io/s-k9W)
 
