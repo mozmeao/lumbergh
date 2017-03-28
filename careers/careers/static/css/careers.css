@@ -2042,7 +2042,7 @@
                  color: #4d4e53;
              }
 
-        #mountian-view .location-link { top: 35%; left: 12%; }
+        #mountain-view .location-link { top: 35%; left: 12%; }
         #auckland .location-link { top: 86%; left: auto; right: 5%; }
             #auckland .location-link:before { left: auto; right: -23px; }
         #beijing .location-link { top: 26%; left: auto; right: 20.5%; }
