@@ -1,4 +1,4 @@
-@Library('github.com/mozmar/jenkins-pipeline@20170303.1')
+@Library('github.com/mozmar/jenkins-pipeline@20170315.1')
 def stage_deployed = false
 def config
 def docker_image
@@ -91,11 +91,12 @@ conduit {
 
   if (deployStage) {
     for (deploy in config.deploy.stage) {
-      node {
-        stage ("Deploying to ${deploy.name}") {
+      stage ("Deploying to ${deploy.name}") {
+        node {
           lock("push to ${deploy.name}") {
-            deisLogin(deploy.url, deploy.credentials) {
-              deisPull(deploy.app, docker_image)
+            deis_executable = deploy.deis_executable ?: "deis"
+            deisLogin(deploy.url, deploy.credentials, deis_executable) {
+              deisPull(deploy.app, docker_image, null, deis_executable)
             }
             newRelicDeployment(deploy.newrelic_app, env.GIT_COMMIT_SHORT,
                                "jenkins", "newrelic-api-key")
@@ -106,15 +107,15 @@ conduit {
   }
   if (deployProd) {
     for (deploy in config.deploy.prod) {
-      node {
-        stage ("Deploying to ${deploy.name}") {
+      stage ("Deploying to ${deploy.name}") {
+        node {
           lock("push to ${deploy.name}") {
-            deisLogin(deploy.url, deploy.credentials) {
-              deisPull(deploy.app, docker_image)
+            deis_executable = deploy.deis_executable ?: "deis"
+            deisLogin(deploy.url, deploy.credentials, deis_executable) {
+              deisPull(deploy.app, docker_image, null, deis_executable)
             }
             newRelicDeployment(deploy.newrelic_app, env.GIT_COMMIT_SHORT,
                                "jenkins", "newrelic-api-key")
-
           }
         }
       }

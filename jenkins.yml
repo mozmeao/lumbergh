@@ -1,11 +1,6 @@
 project:
   name: lumbergh
   docker_name: mozorg/lumbergh
-  deis_credentials: jenkins-deis
-  deis_stage_app: careers-stage
-  deis_prod_app: careers-prod
-  deis_euw: "https://deis.eu-west.moz.works"
-  deis_usw: "https://deis.us-west.moz.works"
 notifications:
   irc:
     server: irc.mozilla.org:6697
@@ -31,3 +26,15 @@ deploy:
       credentials: jenkins-deis
       app: "careers-prod"
       newrelic_app: "careers-prod-eu-west"
+    - name: "Virginia Prod"
+      url: "https://deis.virginia.moz.works"
+      credentials: jenkins-deis-2
+      app: "careers-prod"
+      newrelic_app: "careers-prod-virginia"
+      deis_executable: "deis2"
+    - name: "Tokyo Prod"
+      url: "https://deis.tokyo.moz.works"
+      credentials: jenkins-deis-2
+      app: "careers-prod"
+      newrelic_app: "careers-prod-tokyo"
+      deis_executable: "deis2"
