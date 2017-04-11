@@ -65,9 +65,10 @@ DEIS_APP = config('DEIS_APP', default=None)
 DEIS_DOMAIN = config('DEIS_DOMAIN', default=None)
 ENABLE_HOSTNAME_MIDDLEWARE = config('ENABLE_HOSTNAME_MIDDLEWARE',
                                     default=bool(DEIS_APP), cast=bool)
+
 if ENABLE_HOSTNAME_MIDDLEWARE:
     MIDDLEWARE_CLASSES = (
-        ('snippets.base.middleware.HostnameMiddleware',) +
+        ('careers.base.middleware.HostnameMiddleware',) +
         MIDDLEWARE_CLASSES)
 
 
