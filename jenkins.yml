@@ -14,27 +14,32 @@ deploy:
       url: "https://deis.us-west.moz.works"
       credentials: jenkins-deis
       app: "careers-stage"
+      app_url: "https://careers-stage.us-west.moz.works"
       newrelic_app: "careers-stage-us-west"
   prod:
     - name: "US-West Prod"
       url: "https://deis.us-west.moz.works"
       credentials: jenkins-deis
       app: "careers-prod"
+      app_url: "https://careers-prod.us-west.moz.works"
       newrelic_app: "careers-prod-us-west"
     - name: "EU-West Prod"
       url: "https://deis.eu-west.moz.works"
       credentials: jenkins-deis
       app: "careers-prod"
+      app_url: "https://careers-prod.eu-west.moz.works"
       newrelic_app: "careers-prod-eu-west"
     - name: "Virginia Prod"
       url: "https://deis.virginia.moz.works"
       credentials: jenkins-deis-2
       app: "careers-prod"
+      app_url: "https://careers-prod.virginia.moz.works"
       newrelic_app: "careers-prod-virginia"
       deis_executable: "deis2"
     - name: "Tokyo Prod"
       url: "https://deis.tokyo.moz.works"
       credentials: jenkins-deis-2
       app: "careers-prod"
+      app_url: "https://careers-prod.tokyo.moz.works"
       newrelic_app: "careers-prod-tokyo"
       deis_executable: "deis2"
