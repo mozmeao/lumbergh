@@ -103,6 +103,13 @@ conduit {
           }
         }
       }
+      stage ("Acceptance tests against ${deploy.name}") {
+        node {
+          lock("push to ${deploy.name}") {
+            sh "tests/acceptance_tests.sh ${deploy.app_url}"
+          }
+        }
+      }
     }
   }
   if (deployProd) {
@@ -116,6 +123,13 @@ conduit {
             }
             newRelicDeployment(deploy.newrelic_app, env.GIT_COMMIT_SHORT,
                                "jenkins", "newrelic-api-key")
+          }
+        }
+      }
+      stage ("Acceptance tests against ${deploy.name}") {
+        node {
+          lock("push to ${deploy.name}") {
+            sh "tests/acceptance_tests.sh ${deploy.app_url}"
           }
         }
       }
