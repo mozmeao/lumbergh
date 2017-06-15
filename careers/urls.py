@@ -13,6 +13,10 @@ urlpatterns = [
 
     # Generate a robots.txt
     url(r'^robots\.txt$', views.robots, name='robots'),
+
+    # healthz
+    url(r'^healthz/$', views.healthz, name='healthz'),
+
     # Generate a robots.txt
     url(r'^csp-violation-capture$', views.csp_violation_capture,
         name='csp-violation-capture'),
