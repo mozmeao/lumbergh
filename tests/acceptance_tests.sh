@@ -6,6 +6,7 @@ URLS=(
     "/listings/"
     "/feed/"
     "/university/"
+    "/healthz/"
     "/robots.txt"
     "/contribute.json"
 )
