@@ -91,21 +91,19 @@ conduit {
 
   if (deployStage) {
     for (deploy in config.deploy.stage) {
-      stage ("Deploying to ${deploy.name}") {
-        node {
-          lock("push to ${deploy.name}") {
+      lock("push to ${deploy.name}") {
+        stage ("Deploying to ${deploy.name}") {
+          node {
             deis_executable = deploy.deis_executable ?: "deis"
             deisLogin(deploy.url, deploy.credentials, deis_executable) {
-              deisPull(deploy.app, docker_image, null, deis_executable)
+                deisPull(deploy.app, docker_image, null, deis_executable)
             }
             newRelicDeployment(deploy.newrelic_app, env.GIT_COMMIT_SHORT,
                                "jenkins", "newrelic-api-key")
           }
         }
-      }
-      stage ("Acceptance tests against ${deploy.name}") {
-        node {
-          lock("push to ${deploy.name}") {
+        stage ("Acceptance tests against ${deploy.name}") {
+          node {
             sh "tests/acceptance_tests.sh ${deploy.app_url}"
           }
         }
