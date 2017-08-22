@@ -23,12 +23,6 @@ deploy:
       app: "careers-prod"
       app_url: "https://careers-prod.us-west.moz.works"
       newrelic_app: "careers-prod-us-west"
-    - name: "EU-West Prod"
-      url: "https://deis.eu-west.moz.works"
-      credentials: jenkins-deis
-      app: "careers-prod"
-      app_url: "https://careers-prod.eu-west.moz.works"
-      newrelic_app: "careers-prod-eu-west"
     - name: "Tokyo Prod"
       url: "https://deis.tokyo.moz.works"
       credentials: jenkins-deis-2
