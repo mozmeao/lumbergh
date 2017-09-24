@@ -2043,8 +2043,6 @@
              }
 
         #mountain-view .location-link { top: 35%; left: 12%; }
-        #auckland .location-link { top: 86%; left: auto; right: 5%; }
-            #auckland .location-link:before { left: auto; right: -23px; }
         #beijing .location-link { top: 26%; left: auto; right: 20.5%; }
             #beijing .location-link:before { left: auto; right: -23px; }
         #berlin .location-link { top: 19%; left: 49.5%; }
@@ -2057,7 +2055,6 @@
             #portland .location-link:before { left: auto; right: -23px; }
         #san-francisco .location-link { top: 30%; left: 11%; }
         #taipei .location-link { top: 37%; left: 87%; }
-        #tokyo .location-link { top: 29%; left: 90%; }
         #toronto .location-link { top: 21%; left: 25.5%; }
         #vancouver .location-link { top: 16%; left: 12.5%; }
             #vancouver .location-link:before { left: -18px; top: 8px; }
