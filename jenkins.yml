@@ -12,17 +12,19 @@ deploy:
   stage:
     - name: "Portland Stage"
       url: "https://deis.portland.moz.works"
-      credentials: jenkins-deis
+      credentials: jenkins-deis-2
       app: "careers-stage"
       app_url: "https://careers-stage.portland.moz.works"
       newrelic_app: "careers-stage-portland"
+      deis_executable: "deis2"
   prod:
     - name: "Portland Prod"
       url: "https://deis.portland.moz.works"
-      credentials: jenkins-deis
+      credentials: jenkins-deis-2
       app: "careers-prod"
       app_url: "https://careers-prod.portland.moz.works"
       newrelic_app: "careers-prod-portland"
+      deis_executable: "deis2"
     - name: "Tokyo Prod"
       url: "https://deis.tokyo.moz.works"
       credentials: jenkins-deis-2
