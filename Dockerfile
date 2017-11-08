@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM python:2.7-slim-stretch
 
 EXPOSE 8000
 CMD ["./bin/run-prod.sh"]
@@ -6,8 +6,7 @@ CMD ["./bin/run-prod.sh"]
 RUN adduser --uid 1000 --disabled-password --gecos '' --no-create-home webdev
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends build-essential python python-dev python-pip \
-                                               libmysqlclient-dev gettext libssl-dev libffi-dev && \
+    apt-get install -y --no-install-recommends build-essential libmariadbclient-dev gettext libssl-dev libffi-dev && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
