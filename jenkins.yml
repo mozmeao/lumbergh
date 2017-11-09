@@ -10,20 +10,20 @@ notifications:
     on_failure: change
 deploy:
   stage:
-    - name: "Portland Stage"
-      url: "https://deis.portland.moz.works"
+    - name: "Us-West Stage"
+      url: "https://deis.us-west.moz.works"
       credentials: jenkins-deis-2
       app: "careers-stage"
-      app_url: "https://careers-stage.portland.moz.works"
-      newrelic_app: "careers-stage-portland"
-      deis_executable: "deis2"
+      app_url: "https://careers-stage.us-west.moz.works"
+      newrelic_app: "careers-stage-us-west"
+      deis_executable: "deis"
   prod:
-    - name: "Portland Prod"
-      url: "https://deis.portland.moz.works"
+    - name: "Us-West Prod"
+      url: "https://deis.us-west.moz.works"
       credentials: jenkins-deis-2
       app: "careers-prod"
-      app_url: "https://careers-prod.portland.moz.works"
-      newrelic_app: "careers-prod-portland"
+      app_url: "https://careers-prod.us-west.moz.works"
+      newrelic_app: "careers-prod-us-west"
       deis_executable: "deis2"
     - name: "Tokyo Prod"
       url: "https://deis.tokyo.moz.works"
