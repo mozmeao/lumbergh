@@ -12,7 +12,7 @@ deploy:
   stage:
     - name: "Us-West Stage"
       url: "https://deis.us-west.moz.works"
-      credentials: jenkins-deis-2
+      credentials: jenkins-deis
       app: "careers-stage"
       app_url: "https://careers-stage.us-west.moz.works"
       newrelic_app: "careers-stage-us-west"
@@ -20,11 +20,11 @@ deploy:
   prod:
     - name: "Us-West Prod"
       url: "https://deis.us-west.moz.works"
-      credentials: jenkins-deis-2
+      credentials: jenkins-deis
       app: "careers-prod"
       app_url: "https://careers-prod.us-west.moz.works"
       newrelic_app: "careers-prod-us-west"
-      deis_executable: "deis2"
+      deis_executable: "deis"
     - name: "Tokyo Prod"
       url: "https://deis.tokyo.moz.works"
       credentials: jenkins-deis-2
