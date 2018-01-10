@@ -6,6 +6,7 @@ from django.db import transaction
 
 import bleach
 import requests
+from raven.contrib.django.models import client
 
 from careers.careers.models import Position
 
@@ -29,6 +30,14 @@ class Command(BaseCommand):
 
         data = response.json()
         for job in data['jobs']:
+            # Maybe GH sometimes includes jobs with the same ID multiple times
+            # in the json. Capture the event in Sentry and look the other way.
+            if job['id'] in job_ids:
+                client.captureMessage(
+                        message='[GH Sync] Job {} twice in the same json'.format(job['id']),
+                        data={'extra': {'jobs': data['jobs']}})
+                continue
+
             job_ids.append(job['id'])
 
             job_object, created = (Position.objects
