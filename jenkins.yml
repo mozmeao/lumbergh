@@ -17,6 +17,13 @@ deploy:
       app_url: "https://careers-stage.us-west.moz.works"
       newrelic_app: "careers-stage-us-west"
       deis_executable: "deis"
+    - name: "Oregon-B Stage"
+      url: "https://deis.oregon-b.moz.works"
+      credentials: jenkins-deis-2
+      app: "careers-stage"
+      app_url: "https://careers-stage.oregon-b.moz.works"
+      newrelic_app: "careers-stage-oregon-b"
+      deis_executable: "deis2"
   prod:
     - name: "Us-West Prod"
       url: "https://deis.us-west.moz.works"
@@ -25,6 +32,13 @@ deploy:
       app_url: "https://careers-prod.us-west.moz.works"
       newrelic_app: "careers-prod-us-west"
       deis_executable: "deis"
+    - name: "Oregon-B Prod"
+      url: "https://deis.oregon-b.moz.works"
+      credentials: jenkins-deis-2
+      app: "careers-prod"
+      app_url: "https://careers-prod.oregon-b.moz.works"
+      newrelic_app: "careers-prod-oregon-b"
+      deis_executable: "deis2"
     - name: "Tokyo Prod"
       url: "https://deis.tokyo.moz.works"
       credentials: jenkins-deis-2
