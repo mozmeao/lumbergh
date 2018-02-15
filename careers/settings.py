@@ -204,6 +204,9 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = False
 SECURE_BROWSER_XSS_FILTER = config('SECURE_BROWSER_XSS_FILTER', default=False, cast=bool)
 SECURE_CONTENT_TYPE_NOSNIFF = config('SECURE_CONTENT_TYPE_NOSNIFF', default=False, cast=bool)
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_REDIRECT_EXEMPT = [
+    r'^healthz/$',
+]
 
 CACHES = {
     'default': config('CACHE_URL', default='locmem://', cast=django_cache_url.parse),
