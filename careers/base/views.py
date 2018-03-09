@@ -8,18 +8,10 @@ from django.views.decorators.http import require_POST
 
 from raven.contrib.django.models import client
 
-from careers.careers.models import Position
-
 
 def robots(request):
     action = 'Allow' if settings.ENGAGE_ROBOTS else 'Disallow'
     return HttpResponse('User-agent: *\n{}: /'.format(action), content_type='text/plain')
-
-
-def healthz(request):
-    """For use with Healthchecks."""
-    assert Position.objects.exists(), "No positions exist"
-    return HttpResponse('OK')
 
 
 @csrf_exempt
