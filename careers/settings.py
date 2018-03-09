@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django_jinja',
     'django_extensions',
     'raven.contrib.django.raven_compat',
+    'watchman',
 
     # Django apps
     'django.contrib.staticfiles',
@@ -208,7 +209,15 @@ SECURE_CONTENT_TYPE_NOSNIFF = config('SECURE_CONTENT_TYPE_NOSNIFF', default=Fals
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SECURE_REDIRECT_EXEMPT = [
     r'^healthz/$',
+    r'^readiness/$',
 ]
+
+# watchman
+WATCHMAN_DISABLE_APM = True
+WATCHMAN_CHECKS = (
+    'watchman.checks.caches',
+    'watchman.checks.databases',
+)
 
 CACHES = {
     'default': config('CACHE_URL', default='locmem://', cast=django_cache_url.parse),
