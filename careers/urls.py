@@ -18,8 +18,8 @@ urlpatterns = [
     url(r'^robots\.txt$', views.robots, name='robots'),
 
     # healthz
-    url(r'^healthz/$', watchman_views.ping, name="watchman.ping"),
-    url(r'^readiness/$', watchman_views.status, name="watchman.status"),
+    url(r'^healthz/$', watchman_views.ping, name='watchman.ping'),
+    url(r'^readiness/$', watchman_views.status, name='watchman.status'),
 
     # Generate a robots.txt
     url(r'^csp-violation-capture$', views.csp_violation_capture,
