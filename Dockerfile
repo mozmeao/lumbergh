@@ -1,5 +1,9 @@
 FROM python:2.7-slim-stretch
 
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ENV PIP_DISABLE_PIP_VERSION_CHECK=1
+
 EXPOSE 8000
 CMD ["./bin/run-prod.sh"]
 
@@ -10,10 +14,6 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
-
-# Get pip8
-COPY bin/pipstrap.py bin/pipstrap.py
-RUN ./bin/pipstrap.py
 
 # First copy requirements.txt and peep so we can take advantage of
 # docker caching.
