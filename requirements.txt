@@ -66,9 +66,9 @@ tzlocal==1.5.1 \
 futures==3.2.0 \
     --hash=sha256:ec0a6cb848cc212002b9828c3e34c675e0c9ff6741dc445cab6fdd4e1085d1f1 \
     --hash=sha256:9ec02aa7d674acb8618afb127e27fde7fc68994c0437ad759fa094a574adb265
-django-extensions==1.8.1 \
-    --hash=sha256:c8b39b1c929785286a5ec5f38f9c90f7481fbe51a036161d1b622e7a6abaa1d6 \
-    --hash=sha256:b29373cc2dd087d978166c2183f272db77a0dace565ba6393bbffed7ce7344aa
+django-extensions==2.0.7 \
+    --hash=sha256:3be3debf53c77ca795bdf713726c923aa3c3f895e1a42e2e31a68c1a562346a4 \
+    --hash=sha256:94bfac99eb262c5ac27e53eda96925e2e53fe0b331af7dde37012d07639a649c
 django-cache-url==2.0.0 \
     --hash=sha256:d7e7d3f3fadaa38ab7c655afafc85c2a1b06a3ddc0002af4ae021c1948307f8b \
     --hash=sha256:f0009452c4d63468714c7ff59266085947f3f3cc0947b3b2e87121bb27538d6c
