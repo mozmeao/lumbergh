@@ -259,7 +259,9 @@ pycparser==2.18 \
 APScheduler==3.3.1 \
     --hash=sha256:bc9f96e498adb362beb5f1d3715a2570d100183add4ace5227c1a7d5dbaac900 \
     --hash=sha256:f68874dff1bdffcc6ce3adb7840c1e4d162c609a3e3f831351df30b75732767b
-factory-boy==2.1.2 --hash=sha256:561d9986e9dbf77efa0e3c4907d4558c95ec092a04459c79450ad718fba53b80
+factory-boy==2.11.1 \
+    --hash=sha256:d552cb872b310ae78bd7429bf318e42e1e903b1a109e899a523293dfa762ea4f \
+    --hash=sha256:6f25cc4761ac109efd503f096e2ad99421b1159f01a29dbb917359dcd68e08ca
 configparser==3.5.0 \
     --hash=sha256:5308b47021bc2340965c371f0f058cc6971a04502638d4244225c49d80db273a
 pycodestyle==2.3.1 \
