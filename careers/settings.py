@@ -12,7 +12,6 @@ import os
 import platform
 
 import dj_database_url
-import django_cache_url
 from decouple import Csv, config
 
 
@@ -218,10 +217,6 @@ WATCHMAN_CHECKS = (
     'watchman.checks.caches',
     'watchman.checks.databases',
 )
-
-CACHES = {
-    'default': config('CACHE_URL', default='locmem://', cast=django_cache_url.parse),
-}
 
 RAVEN_CONFIG = {
     'dsn': config('SENTRY_DSN', None),

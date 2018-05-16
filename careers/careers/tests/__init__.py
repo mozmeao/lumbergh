@@ -7,7 +7,6 @@ from careers.careers.models import Position
 
 
 class PositionFactory(factory.DjangoModelFactory):
-    FACTORY_FOR = Position
     job_id = factory.Sequence(lambda n: 'jobid{0}'.format(n))
     title = factory.Sequence(lambda n: 'Job Title {0}'.format(n))
     department = fuzzy.FuzzyChoice(['Data Analytics', 'Engineering'])
@@ -15,6 +14,9 @@ class PositionFactory(factory.DjangoModelFactory):
     description = factory.Sequence(lambda n: 'Job Description {0}'.format(n))
     source = 'gh'
     position_type = fuzzy.FuzzyChoice(['Full-Time', 'Part-Time', 'Contractor', 'Intern'])
+
+    class Meta:
+        model = Position
 
     @factory.lazy_attribute
     def apply_url(self):
