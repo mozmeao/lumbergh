@@ -1,4 +1,6 @@
+# -*- coding: utf-8 -*-
 import HTMLParser
+import re
 
 from django.conf import settings
 from django.core.management.base import BaseCommand
@@ -6,6 +8,7 @@ from django.db import transaction
 
 import bleach
 import requests
+from html5lib.filters.base import Filter
 from raven.contrib.django.models import client
 
 from careers.careers.models import Position
@@ -15,8 +18,20 @@ H = HTMLParser.HTMLParser()
 
 ALLOWED_TAGS = [
     u'a', u'abbr', u'acronym', u'b', u'blockquote', u'code', u'em',
-    u'i', u'li', u'ol', u'ul', u'p', u'br', 'h4',
+    u'i', u'li', u'ol', u'ul', u'p', u'br', 'h1', 'h2', 'h3', 'h4',
 ]
+
+
+class HeaderConverterFilter(Filter):
+    def __iter__(self):
+        for token in Filter.__iter__(self):
+            if (token['type'] in ['StartTag', 'EndTag']):
+                if token['name'] in ['h1', 'h2', 'h3']:
+                    token['name'] = 'h4'
+            yield token
+
+
+cleaner = bleach.sanitizer.Cleaner(tags=ALLOWED_TAGS, strip=True, filters=[HeaderConverterFilter])
 
 
 class Command(BaseCommand):
@@ -61,9 +76,10 @@ class Command(BaseCommand):
                 location = ''
 
             description = H.unescape(job.get('content', ''))
-            description = bleach.clean(description,
-                                       tags=ALLOWED_TAGS,
-                                       strip=True)
+            description = cleaner.clean(description)
+            # Remove empty paragraphs and h4s and paragraphs with \xa0
+            # (no-brake space). I ♥ regex
+            description = re.sub(r'<(p|h4)>([ ]*|(\xa0)+)</(p|h4)>', '', description)
 
             for metadata in job.get('metadata', []):
                 if metadata.get('name', '') == 'Employment Type':
