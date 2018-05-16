@@ -13,6 +13,11 @@ from careers.careers.models import Position
 GREENHOUSE_URL = 'https://api.greenhouse.io/v1/boards/{}/jobs/?content=true'
 H = HTMLParser.HTMLParser()
 
+ALLOWED_TAGS = [
+    u'a', u'abbr', u'acronym', u'b', u'blockquote', u'code', u'em',
+    u'i', u'li', u'ol', u'ul', u'p', u'br', 'h4',
+]
+
 
 class Command(BaseCommand):
     args = '(no args)'
@@ -57,7 +62,7 @@ class Command(BaseCommand):
 
             description = H.unescape(job.get('content', ''))
             description = bleach.clean(description,
-                                       tags=bleach.ALLOWED_TAGS + ['p', 'br'],
+                                       tags=ALLOWED_TAGS,
                                        strip=True)
 
             for metadata in job.get('metadata', []):
