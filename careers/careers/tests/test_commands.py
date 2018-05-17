@@ -23,7 +23,7 @@ class SyncGreenhouseTests(TestCase):
                     'title': 'Web Fox',
                     'updated_at': '2016-07-25T14:45:57-04:00',
                     'absolute_url': 'http://example.com/foo',
-                    'content': '&lt;strong&gt;foo&lt;/strong&gt; bar',
+                    'content': '&lt;h2&gt;foo&lt;/h2&gt; bar',
                     "metadata": [
                         {
                             "id": 69450,
@@ -67,7 +67,7 @@ class SyncGreenhouseTests(TestCase):
         self.assertEqual(position.apply_url, 'http://example.com/foo')
         self.assertEqual(position.source, 'gh')
         self.assertEqual(position.position_type, 'Full-time')
-        self.assertEqual(position.description, '<strong>foo</strong> bar')
+        self.assertEqual(position.description, '<h4>foo</h4> bar')
 
     def test_job_removal(self):
         PositionFactory.create(job_id='xxx')

@@ -27,22 +27,30 @@
     padding: 10px 0 0 0;
 }
 
-    .job-post-details > dt {
-        font-family: 'Open Sans Light',sans-serif;
-        font-size: 13px;
-        line-height: 18px;
-        text-transform: uppercase;
-    }
+.job-post-details > dt {
+    font-family: 'Open Sans Light',sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    text-transform: uppercase;
+}
 
-    .job-post-details > dd {
-        margin-left: 0;
-        margin-bottom: 10px;
-        line-height: 18px;
-    }
+.job-post-details > dd {
+    margin-left: 0;
+    margin-bottom: 10px;
+    line-height: 18px;
+}
 
 .job-post-description {
     margin: 20px 0;
 }
+
+
+.job-post-description h4 {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
 
 .job-related {
     display: none;
