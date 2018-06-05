@@ -35,6 +35,7 @@
 
 .listings-head {
     margin-top: 0;
+    font-family: 'Zilla', serif;
     font-size: 26px;
 }
 
@@ -51,10 +52,10 @@
     .listings-intro-head {
         margin: 0 0 20px 0;
         padding-top: 70px;
-        font-family: 'Open Sans Light', sans-serif;
+        font-family: 'Zilla', serif;
         font-size: 32px;
-        letter-spacing: -1px;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        font-weight: bold;
+        text-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
     }
 
     .listings-intro-body {
@@ -75,17 +76,15 @@
 
 #listings-positions th {
     padding-bottom: 5px;
-    font-family: 'Open Sans Light', sans-serif;
-    font-size: 14px;
-    font-weight: normal;
+    font-family: 'Zilla', serif;
+    font-size: 18px;
+    font-weight: bold;
     text-align: left;
-    text-transform: uppercase;
 }
 
 #listings-positions th,
 #listings-positions td {
     padding-left: 20px;
-    font-size: 15px;
 }
     #listings-positions th:first-child
     #listings-positions td:first-child {
@@ -261,7 +260,6 @@
 
     .listings-intro-head {
         font-size: 51px;
-        letter-spacing: -2px;
     }
 
     .listings-intro-body {
@@ -430,7 +428,6 @@
     .listings-intro-head {
         padding-top: 90px;
         font-size: 68px;
-        letter-spacing: -3px;
     }
 
      #listings {
