@@ -1,21 +1,25 @@
-db:
-  image: mariadb:10.0
-  environment:
-   - MYSQL_ALLOW_EMPTY_PASSWORD=yes
-   - MYSQL_DATABASE=careers
-web:
-  build: .
-  ports:
-    - "8000:8000"
-  volumes:
-    - .:/app
-  links:
-    - db
-  environment:
-    - PYTHONDONTWRITEBYTECODE=1
-    - DATABASE_URL=mysql://root@db/careers
-    - DEBUG=True
-    - ALLOWED_HOSTS=localhost,127.0.0.1,
-    - SECRET_KEY=59114b6a-2858-4caf-8878-482a24ee9542
-  command:
-    ./bin/run-dev.sh
+version: '3.4'
+services:
+  mysql:
+    image: mariadb:10.0
+    environment:
+     - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+     - MYSQL_DATABASE=careers
+  web:
+    build: .
+    user: ${UID:-webdev}
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      - mysql
+    environment:
+      - PYTHONDONTWRITEBYTECODE=1
+      - DATABASE_URL=mysql://root@mysql/careers
+      - DEBUG=True
+      - ENABLE_ADMIN=True
+      - ALLOWED_HOSTS=localhost,127.0.0.1,
+      - SECRET_KEY=59114b6a-2858-4caf-8878-482a24ee9542
+    command:
+      ./bin/run-dev.sh

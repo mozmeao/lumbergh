@@ -4,19 +4,42 @@
 
 [What's Deployed](https://whatsdeployed.io/s-t6K)
 
+## Setup your environment for development
+
+1. Get Docker and Docker Compose
+2. Run Build command
+3. Run the website
+
 ## Commands
+
+### Build
+
+```shell
+docker-compose build
+```
+
+### Run the website locally
+```shell
+docker-compose up
+```
 
 ### Run the tests
 
 ```shell
-./manage.py test
+docker-compose run web ./manage.py test
 ```
 
 ### Sync with Greenhouse
 
 ```shell
-./manage.py sync_greenhouse
+docker-compose run web ./manage.py sync_greenhouse
 ```
+
+### Close everything
+```shell
+docker-compose stop
+```
+
 
 ## University Events
 
