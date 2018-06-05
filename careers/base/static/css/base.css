@@ -196,51 +196,6 @@ figure {
     =================================================================== */
 
 /*  -------------------------------------------------------------------
-    Tabzilla
-    ------------------------------------------------------------------- */
-#tabzilla {
-    float: right;
-    position: relative;
-}
-
-#tabzilla a {
-    text-indent: 120%;
-    white-space: nowrap;
-    overflow: hidden;
-    background-image: url(/static/img/tabzilla-static.png);
-    background-repeat: no-repeat;
-    display: block;
-    height: 37px;
-    position: relative;
-    width: 147px;
-    z-index: 2;
-}
-
-@media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
-    #tabzilla a {
-        background-image: url(/static/img/tabzilla-static-high-res.png);
-        -webkit-background-size: 147px 37px;
-                background-size: 147px 37px;
-    }
-}
-
-#tabzilla:before {
-    background-color: transparent;
-    content: '';
-    display: block;
-    height: 26px;
-    left: 28px;
-    position: absolute;
-    top: 0;
-    width: 88px;
-    z-index: 1;
-}
-
-html[dir='rtl'] #tabzilla {
-    float: left;
-}
-
-/*  -------------------------------------------------------------------
     Layout
     ------------------------------------------------------------------- */
 
@@ -294,7 +249,8 @@ html[dir='rtl'] #tabzilla {
     }
 
     .masthead-logo {
-        display: none;
+        float: right;
+        margin-top: 8px;
     }
 
 }
@@ -324,16 +280,14 @@ html[dir='rtl'] #tabzilla {
        height: auto;
        overflow: hidden;
     }
-
-    .masthead-logo {
-        display: none;
-    }
 }
 
 @media (min-width: 940px) {
    .masthead-logo {
         display: block;
+        float: none;
         padding-top: 5px;
+        margin-top: 0;
     }
 
     .masthead-logo.expanded {
@@ -400,21 +354,17 @@ html[dir='rtl'] #tabzilla {
     .nav-main {
         position: absolute;
         top: 0;
-        right: 150px;
+        right: 0;
      }
 
     .nav-main ul {
         text-align: right;
     }
 
-
-}
-
-@media (min-width: 940px) {
-
     li.nav-main-home {display: none;}
 
 }
+
 
 
 /*  ------------------------------------
@@ -439,7 +389,7 @@ html[dir='rtl'] #tabzilla {
 #tray-toggle {
     position: absolute;
     bottom: 14px;
-    left: 4px;
+    left: 13px;
     height: 0;
     width: 44px;
     overflow: hidden;
