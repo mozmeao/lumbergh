@@ -40,11 +40,11 @@
     background-color: #97938c;
     background-position: center top;
     background-repeat: no-repeat;
-    font-family: 'Open Sans Light', sans-serif;
+    font-family: 'Zilla', serif;
     font-size: 32px;
-    letter-spacing: -1px;
+    font-weight: bold;
     text-align: center;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
 }
 
 #uintro p {
@@ -175,7 +175,7 @@
 .different-head {
     max-width: 400px; /* to cause line break at period */
     margin: 0 0 15px 0;
-    font-family: 'Open Sans Light',sans-serif;
+    font-family: 'Zilla', serif;
     font-size: 38px;
 }
 
@@ -232,6 +232,7 @@
         padding: 6px 9px;
         background-color: #d6d4ce;
         color: inherit;
+        font-family: 'Zilla', serif;
         font-size: 18px;
         text-align: center;
         text-shadow: none;
@@ -352,13 +353,11 @@
 
      .different-head {
         max-width: 620px;
-        font-family: 'Open Sans', sans-serif;
         font-size: 28px;
      }
 
      .different-subhead {
         padding-right: 20px;
-        font-family: 'Open Sans Light', sans-serif;
         font-size: 26px;
      }
 
@@ -462,7 +461,6 @@
     .different-head {
         max-width: 100%;
         padding-top: 50px;
-        font-family: 'Open Sans',sans-serif;
         font-size: 38px;
      }
 
@@ -563,7 +561,8 @@
 .know-head {
     max-width: 200px;
     margin: 0 auto;
-    font-size: 26px;
+    font-family: 'Zilla', serif;
+    font-size: 38px;
 }
 
 .know-box {
@@ -591,7 +590,7 @@
     .know-box > h3 > strong {
         display: block;
         color: #c13832;
-        font-family: 'Open Sans Light',sans-serif;
+        font-family: 'Zilla', serif;
         font-size: 42px;
         font-weight: normal;
         line-height: 1;
@@ -985,6 +984,7 @@
 
 .events-head {
     margin: 0 0 20px 0;
+    font-family: 'Zilla', serif;
     font-size: 26px;
 }
 
@@ -1202,6 +1202,7 @@
 
 .videos-head {
     margin: 0 0 30px 0;
+    font-family: 'Zilla', serif;
     font-size: 26px;
 }
 
@@ -1621,7 +1622,7 @@
     position: relative;
     margin-top: 0;
     color: #fff;
-    font-family: 'Open Sans Light', sans-serif;
+    font-family: 'Zilla', serif;
     font-size: 23px;
     -webkit-font-smoothing: antialiased;
 }
@@ -1686,4 +1687,3 @@
         padding: 60px 0;
     }
 }
-

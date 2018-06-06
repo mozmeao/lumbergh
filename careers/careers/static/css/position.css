@@ -13,6 +13,7 @@
 
 .job-post-title {
     margin: 0;
+    font-family: 'Zilla', serif;
     font-size: 26px;
 }
 
@@ -255,6 +256,7 @@
 
 .why-head {
     margin: 10px 0;
+    font-family: 'Zilla', serif;
     font-size: 26px;
     font-weight: 600;
 }
@@ -270,8 +272,8 @@
 .why-reason-box > h3 {
     padding-top: 25px;
     background: url(/static/img/bg_stripes.gif) top left repeat-x;
-    font-weight: 600;
-    text-transform: uppercase;
+    font-family: 'Zilla', serif;
+    font-size: 20px;
 }
 
 .why-reason-box > ul {
