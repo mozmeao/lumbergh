@@ -53,28 +53,6 @@ Mozilla.Test = (function(w, $) {
     }
 
     /*
-    *   move tabzilla into the header so it plays nice with our sticky menu
-    */
-
-    function moveTabzilla() {
-        // check if tabzilla has been initlialized
-        if ($('#tabzilla-panel').length) {
-            // move into .masthead
-            $('.masthead').prepend($('#tabzilla-panel'));
-            // remove link from tab so that iOS doesn't pull down address bar when link is clicked, can't remove href altogether or keyboard loses access
-            $('#tabzilla').attr('href', '#');
-        } else {
-            // try again in 1/10th of a second
-             window.setTimeout(moveTabzilla, 100);
-        }
-    }
-
-    $(function() {
-        moveTabzilla();
-    });
-
-
-    /*
     *  tray/mobile menu
     */
 

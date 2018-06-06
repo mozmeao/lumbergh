@@ -211,13 +211,6 @@ figure {
     =================================================================== */
 
 /*  -------------------------------------------------------------------
-    Tabzilla
-    ------------------------------------------------------------------- */
-#tabzilla {
-    display: none;
-}
-
-/*  -------------------------------------------------------------------
     Layout
     ------------------------------------------------------------------- */
 
@@ -271,7 +264,8 @@ figure {
     }
 
     .masthead-logo {
-        display: none;
+        float: right;
+        margin-top: 8px;
     }
 
 }
@@ -301,16 +295,14 @@ figure {
        height: auto;
        overflow: hidden;
     }
-
-    .masthead-logo {
-        display: none;
-    }
 }
 
 @media (min-width: 940px) {
    .masthead-logo {
         display: block;
+        float: none;
         padding-top: 5px;
+        margin-top: 0;
     }
 
     .masthead-logo.expanded {
@@ -383,14 +375,10 @@ figure {
         text-align: right;
     }
 
-
-}
-
-@media (min-width: 940px) {
-
     li.nav-main-home {display: none;}
 
 }
+
 
 
 /*  ------------------------------------
@@ -415,7 +403,7 @@ figure {
 #tray-toggle {
     position: absolute;
     bottom: 14px;
-    left: 4px;
+    left: 13px;
     height: 0;
     width: 44px;
     overflow: hidden;
