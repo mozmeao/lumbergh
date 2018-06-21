@@ -1,5 +1,9 @@
-#uintro h2 {
+#uintro {
     background-image: url(/static/img/university-banner-920.jpg);
+}
+
+#uintro h2 {
+    height: 400px;
 }
 
 .video-js {

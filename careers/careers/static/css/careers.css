@@ -41,14 +41,13 @@
     background-repeat: no-repeat;
     background-position: top center;
     color: #fff;
-    text-align: center;
 }
 
 .splash-head {
     -moz-box-sizing: border-box;
          box-sizing: border-box;
     height: 382px;
-    max-width: 510px;
+    max-width: 980px;
     margin: 0 auto;
     padding: 40px 20px 80px 20px;
     font-family: 'Zilla', serif;
@@ -57,10 +56,18 @@
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
 }
 
+.splash-head-inner {
+    max-width: 470px;
+}
+
 .splash-subhead {
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
     height: 40px;
+    max-width: 980px;
     overflow: hidden;
-    margin: -70px 0 29px 0;
+    margin: -70px auto 29px auto;
+    padding: 0 20px;
     font-size: 18px;
     font-family: 'Zilla', serif;
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
@@ -127,8 +134,8 @@
     .splash-head {
         display: -webkit-flex;
         display:         flex;
-        -webkit-justify-content: center;
-                justify-content: center;
+        -webkit-justify-content: flex-start;
+                justify-content: flex-start;
         -webkit-align-items: center;
                 align-items: center;
     }
@@ -144,7 +151,7 @@
     }
 
     .splash-subhead {
-        margin: -85px 0 44px 0;
+        margin: -85px auto 44px auto;
         font-size: 14px;
     }
 
@@ -172,13 +179,16 @@
 @media (min-width: 921px) {
     .splash-head {
         height: 502px;
-        max-width: 660px;
         padding-top: 100px;
         font-size: 55px;
     }
 
+    .splash-head-inner {
+        max-width: 670px;
+    }
+
     .splash-subhead {
-        margin: -115px 0 74px 0;
+        margin: -115px auto 74px auto;
         font-size: 21px;
     }
 
@@ -223,11 +233,11 @@
     #splash { background-image: url(/static/img/careers-banner-1280.jpg); }
 }
 
-@media (min-width: 921px) and (max-width: 1680px) {
+@media (min-width: 1281px) and (max-width: 1680px) {
     #splash { background-image: url(/static/img/careers-banner-1680.jpg); }
 }
 
-@media (min-width: 1680px) {
+@media (min-width: 1681px) {
     #splash { background-image: url(/static/img/careers-banner-2560.jpg); }
 }
 

@@ -15,8 +15,7 @@
 /*  -------------------------------------------------------------------
     University Intro
     - big banner with paragraphs and buttons stacked underneath
-    - image is actually the h2 tag to responsivly load appropriate image without loading wrong one first
-        - all background-image definitions should be inside media queries
+    - all background-image definitions should be inside media queries
         - see: http://timkadlec.com/2012/04/media-query-asset-downloading-results/
     - buttons become absolute positioned and display over banner at big enough sizes
     - paragraphs float left and right when large enough
@@ -27,23 +26,23 @@
     position: relative;
     color: #fff;
     background-color: #4d4e53;
+    background-position: top center;
+    background-repeat: no-repeat;
     -webkit-font-smoothing: antialiased;
-    text-align: center;
 }
 
-#uintro h2 {
+.uintro-head-inner {
     -moz-box-sizing: border-box;
          box-sizing: border-box;
+    max-width: 980px;
     height: 264px;
     margin: 0 auto;
-    padding-top: 90px;
-    background-color: #97938c;
+    padding: 90px 20px 0 20px;
     background-position: center top;
     background-repeat: no-repeat;
     font-family: 'Zilla', serif;
     font-size: 32px;
     font-weight: bold;
-    text-align: center;
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
 }
 
@@ -61,13 +60,13 @@
     }
 
 @media (max-width: 320px) {
-    #uintro h2 {
+    #uintro {
         background-image: url(/static/img/university-banner-320.jpg);
     }
 }
 
 @media (min-width: 321px) and (max-width: 680px) {
-    #uintro h2 {
+    #uintro {
         background-image: url(/static/img/university-banner-680.jpg);
     }
 }
@@ -75,12 +74,12 @@
 @media (min-width: 681px) {
     #uintro {
         padding-bottom: 10px;
+        background-image: url(/static/img/university-banner-920.jpg);
     }
 
-    #uintro h2 {
+    .uintro-head-inner {
         height: 376px;
         padding-top: 120px;
-        background-image: url(/static/img/university-banner-920.jpg);
         font-size: 50px;
         line-height: 1;
     }
@@ -102,25 +101,24 @@
 
     #uintro .cta {
         position: absolute;
-        top: 250px;
-        right: 50.5%;
+        top: 268px;
+        left: 20px;
     }
 
      #uintro .cta + .cta {
-         right: auto;
-         left: 50.5%;
+         left: 255px;
      }
 }
 
 @media (min-width: 921px) {
     #uintro {
         padding-bottom: 25px;
+        background-image: url(/static/img/university-banner-1280.jpg);
     }
 
-    #uintro h2 {
+    .uintro-head-inner {
         height: 500px;
         padding-top: 170px;
-        background-image: url(/static/img/university-banner-1280.jpg);
         font-size: 60px;
     }
 
@@ -131,20 +129,29 @@
             font-size: 26px;
         }
 
-
     #uintro .cta {
         top: 350px;
     }
 }
 
+@media (min-width: 980px) {
+    #uintro .cta {
+        left: calc(50% - 469px);
+    }
+
+     #uintro .cta + .cta {
+         left: calc(50% - 234px);
+     }
+ }
+
 @media (min-width: 1281px) {
-    #uintro h2 {
+    #uintro {
         background-image: url(/static/img/university-banner-1680.jpg);
     }
 }
 
 @media (min-width: 1681px) {
-    #uintro h2 {
+    #uintro {
         background-image: url(/static/img/university-banner-2560.jpg);
     }
 }
