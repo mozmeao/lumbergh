@@ -45,13 +45,13 @@
     color: #fff;
     font-size: 15px;
     font-weight: 600;
-    text-align: center;
     -webkit-font-smoothing: antialiased;
 }
 
     .listings-intro-head {
-        margin: 0 0 20px 0;
-        padding-top: 70px;
+        max-width: 940px;
+        margin: 0 auto 20px auto;
+        padding: 70px 20px 0 20px;
         font-family: 'Zilla', serif;
         font-size: 32px;
         font-weight: bold;
@@ -59,9 +59,12 @@
     }
 
     .listings-intro-body {
+        max-width: 940px;
         margin: 0 auto;
         padding: 0 20px;
-        max-width: 480px;
+        font-family: 'Zilla', serif;
+        font-size: 18px;
+        font-weight: normal;
     }
 
 #listings {
@@ -262,10 +265,6 @@
         font-size: 51px;
     }
 
-    .listings-intro-body {
-        width: 54.2%;
-    }
-
     #listings {
         padding-bottom: 145px;
         background: url(/static/img/listings-bg-tablet.jpg) bottom center no-repeat;
@@ -428,6 +427,10 @@
     .listings-intro-head {
         padding-top: 90px;
         font-size: 68px;
+    }
+
+    .listings-intro-body {
+        font-size: 21px;
     }
 
      #listings {
