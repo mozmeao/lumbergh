@@ -4,7 +4,7 @@ from . import views
 from .feeds import LatestPositionsFeed
 
 urlpatterns = [
-    url(r'^position/(?P<source>[\w]+)/(?P<job_id>[\w]+)$', views.PositionDetailView.as_view(),
+    url(r'^position/(?P<source>[\w]+)/(?P<job_id>[\w]+)/$', views.PositionDetailView.as_view(),
         name='careers.position'),
     url(r'^$', views.HomeView.as_view(), name='careers.home'),
     url(r'^feed/$', LatestPositionsFeed(), name='careers.feed'),
