@@ -4,7 +4,7 @@ from django.views.static import serve as servestatic
 
 from watchman import views as watchman_views
 
-from base import views
+from .base import views
 
 urlpatterns = [
     url(r'', include('careers.university.urls')),

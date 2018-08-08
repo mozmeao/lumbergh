@@ -1,24 +1,18 @@
 from datetime import date
 
-from django.test.client import RequestFactory
-
+from django.urls import reverse
 from mock import patch
 
 from careers.base.tests import TestCase
 from careers.careers.models import Position
 from careers.careers.tests import PositionFactory
-from careers.university import views
 
 
 class IndexTests(TestCase):
-    def setUp(self):
-        self.factory = RequestFactory()
-
-    def _index(self, **kwargs):
-        with patch('careers.university.views.render') as render:
-            response = views.index(self.factory.get('/', kwargs))
-            context = render.call_args[0][2]
-        return response, context
+    def _index(self, params={}):
+        url = reverse('university.index')
+        response = self.client.get(url, params, follow=True)
+        return response, response.context_data
 
     def test_event_filter(self):
         """
@@ -76,7 +70,7 @@ class IndexTests(TestCase):
         intern positions.
         """
         self.assertEqual(Position.objects.count(), 0)
-        response, context = self._index(open_for_applications='true')
+        response, context = self._index({'open_for_applications': 'true'})
         self.assertTrue(context['open_for_applications'])
 
     def test_closed_for_applications_param(self):
@@ -86,5 +80,5 @@ class IndexTests(TestCase):
         positions.
         """
         PositionFactory.create(position_type='Intern')
-        response, context = self._index(open_for_applications='false')
+        response, context = self._index({'open_for_applications': 'false'})
         self.assertTrue(not context['open_for_applications'])

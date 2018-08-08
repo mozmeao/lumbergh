@@ -4,5 +4,5 @@ from careers.university import views
 
 
 urlpatterns = [
-    url('^university/$', views.index, name='university.index'),
+    url('^university/$', views.IndexView.as_view(), name='university.index'),
 ]

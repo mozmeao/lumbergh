@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import HTMLParser
+import html.parser
 import re
 
 from django.conf import settings
@@ -14,11 +14,11 @@ from raven.contrib.django.models import client
 from careers.careers.models import Position
 
 GREENHOUSE_URL = 'https://api.greenhouse.io/v1/boards/{}/jobs/?content=true'
-H = HTMLParser.HTMLParser()
+H = html.parser.HTMLParser()
 
 ALLOWED_TAGS = [
-    u'a', u'abbr', u'acronym', u'b', u'blockquote', u'code', u'em',
-    u'i', u'li', u'ol', u'ul', u'p', u'br', 'h1', 'h2', 'h3', 'h4',
+    'a', 'abbr', 'acronym', 'b', 'blockquote', 'code', 'em',
+    'i', 'li', 'ol', 'ul', 'p', 'br', 'h1', 'h2', 'h3', 'h4',
 ]
 
 
