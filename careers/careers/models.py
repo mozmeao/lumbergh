@@ -1,5 +1,7 @@
 from itertools import chain
 
+from django.urls import reverse
+
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 
@@ -25,12 +27,9 @@ class Position(models.Model):
     def location_list(self):
         return sorted(self.location.split(','))
 
-    @models.permalink
     def get_absolute_url(self):
-        return ('careers.position', (), {
-            'source': self.source,
-            'job_id': self.job_id,
-        })
+        return reverse('careers.position',
+                       kwargs={'source': self.source, 'job_id': self.job_id})
 
     @classmethod
     def position_types(cls):

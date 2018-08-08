@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from django.core.urlresolvers import reverse
+from django.urls import reverse
+
 from careers.base.tests import TestCase
 from careers.careers.tests import PositionFactory
 
