@@ -53,7 +53,7 @@ INSTALLED_APPS = [
 for app in config('EXTRA_APPS', default='', cast=Csv()):
     INSTALLED_APPS.append(app)
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
     'allow_cidr.middleware.AllowCIDRMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -70,9 +70,9 @@ ENABLE_HOSTNAME_MIDDLEWARE = config('ENABLE_HOSTNAME_MIDDLEWARE',
                                     default=bool(DEIS_APP), cast=bool)
 
 if ENABLE_HOSTNAME_MIDDLEWARE:
-    MIDDLEWARE_CLASSES = (
+    MIDDLEWARE = (
         ('careers.base.middleware.HostnameMiddleware',) +
-        MIDDLEWARE_CLASSES)
+        MIDDLEWARE)
 
 
 ROOT_URLCONF = 'careers.urls'
