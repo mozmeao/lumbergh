@@ -12,20 +12,24 @@ class LocaleRedirectionMiddleware(object):
     them.
 
     """
+    def __init__(self, get_response):
+        self.get_response = get_response
 
-    def process_request(self, request):
+    def __call__(self, request):
         if not request.path.startswith('/en-US/'):
-            return
+            return self.get_response(request)
 
         url = request.get_full_path()[6:]
         return HttpResponseRedirect(url)
 
 
 class HostnameMiddleware(object):
-    def __init__(self):
+    def __init__(self, get_response):
         values = [getattr(settings, x) for x in ['HOSTNAME', 'DEIS_APP', 'DEIS_DOMAIN']]
         self.backend_server = '.'.join(x for x in values if x)
+        self.get_response = get_response
 
-    def process_response(self, request, response):
+    def __call__(self, request):
+        response = self.get_response(request)
         response['X-Backend-Server'] = self.backend_server
         return response
