@@ -1,10 +1,12 @@
 version: '3.4'
 services:
-  mysql:
+  db:
     image: mariadb:10.0
     environment:
      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
      - MYSQL_DATABASE=careers
+    command:
+      --character-set-server=utf8mb4  --collation-server=utf8mb4_bin
   web:
     build: .
     user: ${UID:-webdev}
@@ -13,10 +15,10 @@ services:
     volumes:
       - .:/app
     depends_on:
-      - mysql
+      - db
     environment:
       - PYTHONDONTWRITEBYTECODE=1
-      - DATABASE_URL=mysql://root@mysql/careers
+      - DATABASE_URL=mysql://root@db/careers
       - DEBUG=True
       - ENABLE_ADMIN=True
       - ALLOWED_HOSTS=localhost,127.0.0.1,
