@@ -4,7 +4,7 @@ from django.conf import settings
 
 
 def load_events():
-    with open(settings.EVENTS_FILE, 'a+') as fp:
+    with open(settings.EVENTS_FILE, 'r') as fp:
         events = yaml.load(fp.read()) or []
 
     # Drop invalid events.

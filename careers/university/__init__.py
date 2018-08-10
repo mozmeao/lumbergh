@@ -1,4 +1,3 @@
-import utils
-
+from . import utils
 
 EVENTS = utils.load_events()

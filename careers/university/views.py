@@ -1,23 +1,29 @@
 from datetime import date
 
-from django.shortcuts import render
+from django.views.generic import TemplateView
 
 from careers.careers.models import Position
 from careers.university import EVENTS, utils
 
 
-def index(request):
-    today = date.today()
+class IndexView(TemplateView):
+    template_name = 'university/index.jinja'
 
-    param = request.GET.get('open_for_applications')
-    open_for_applications = 'true'
+    def get_context_data(self, **kwargs):
+        context = super(IndexView, self).get_context_data(**kwargs)
 
-    if param:
-        open_for_applications = param == 'true'
-    else:
-        open_for_applications = Position.objects.filter(position_type='Intern').exists()
+        today = date.today()
+        open_for_applications = True
 
-    return render(request, 'university/index.jinja', {
-        'events': utils.filter_events(EVENTS, today),
-        'open_for_applications': open_for_applications,
-    })
+        param = context['view'].request.GET.get('open_for_applications')
+        if param:
+            open_for_applications = param == 'true'
+        else:
+            open_for_applications = Position.objects.filter(position_type='Intern').exists()
+
+        context.update({
+            'events': utils.filter_events(EVENTS, today),
+            'open_for_applications': open_for_applications,
+        })
+
+        return context
