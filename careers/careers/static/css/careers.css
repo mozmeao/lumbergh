@@ -441,16 +441,6 @@
                 border-bottom: 0;
             }
 
-        #teams-intro:before {
-            content: url(/static/img/teams/intro.jpg);
-            position: absolute;
-            bottom: -100px;
-            left: 50%;
-            z-index: -1;
-            margin-left: 22%;
-            display: block;
-        }
-
         #teams-intro.teams-intro-hidden {
             right: 100%;
         }
@@ -777,19 +767,6 @@
             display: block;
             z-index: -1;
         }
-
-        .js-disabled .team-building:before,
-        .team-bg.team-building:before { content: url(/static/img/teams/building.jpg); }
-        .js-disabled .team-operations:before,
-        .team-bg.team-operations:before { content: url(/static/img/teams/operations.jpg); }
-        .js-disabled .team-people:before,
-        .team-bg.team-people:before { content: url(/static/img/teams/people.jpg); }
-        .js-disabled .team-business:before,
-        .team-bg.team-business:before { content: url(/static/img/teams/business.jpg); }
-        .js-disabled .team-marketing:before,
-        .team-bg.team-marketing:before { content: url(/static/img/teams/marketing.jpg); }
-        .js-disabled .team-internships:before,
-        .team-bg.team-internships:before { content: url(/static/img/teams/internships.jpg); }
 
     .team-contain {
         width: 45%;
