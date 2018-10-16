@@ -145,6 +145,7 @@ TEMPLATES = [
 CSP_DEFAULT_SRC = (
     "'self'",
     '*.cdn.mozilla.net',
+    'assets.mozilla.net',
 )
 CSP_FONT_SRC = (
     "'self'",

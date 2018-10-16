@@ -582,9 +582,8 @@
         var videoWrapper = $('<div class="video-wrapper"></div>');
         var videoModalOpen = $('<button class="video-modal-open" type="button"></button>');
 
-        var videoInternsSrcMp4 =  '<source src="//videos.cdn.mozilla.net/uploads/hr/' + videoPlayer.fileName + '.mp4" type="video/mp4" />';
-        var videoInternsSrcWebm = '<source src="//videos.cdn.mozilla.net/uploads/hr/' + videoPlayer.fileName + '.webm" type="video/webm" />';
-        var videoInternsSrcOgv =  '<source src="//videos.cdn.mozilla.net/uploads/hr/' + videoPlayer.fileName + '.ogv" type="video/ogg" />';
+        var videoInternsSrcMp4 =  '<source src="//assets.mozilla.net/video/careers/' + videoPlayer.fileName + '.mp4" type="video/mp4" />';
+        var videoInternsSrcWebm = '<source src="//assets.mozilla.net/video/careers/' + videoPlayer.fileName + '.webm" type="video/webm" />';
 
 
         // Append HTML Elements
@@ -598,7 +597,6 @@
         $('<video id="' + videoPlayer.fileName + '" class="video-js vjs-sandstone-skin" controls preload="none" width="auto" height="auto">' +
             videoInternsSrcMp4 +
             videoInternsSrcWebm +
-            videoInternsSrcOgv +
             '</video>')
             .appendTo(videoWrapper);
 

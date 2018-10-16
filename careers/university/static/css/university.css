@@ -180,21 +180,15 @@
 }
 
 .different-head {
-    max-width: 400px; /* to cause line break at period */
-    margin: 0 0 15px 0;
-    font-family: 'Zilla', serif;
-    font-size: 38px;
-}
-
-.different-subhead {
     margin-bottom: 20px;
     padding-bottom: 20px;
-    color: #7f8089;
-    font-size: 15px;
+    font-size: 18px;
     line-height: 1.2;
+    font-family: 'Zilla', serif;
+    font-weight: normal;
 }
 
-    .different-subhead:after {
+    .different-head:after {
         content: '';
         position: relative;
         top: 20px;
@@ -445,46 +439,17 @@
         max-width: 940px;
     }
 
-    #different.pin #different-list-head-spacer {
-        display: block;
-    }
-
-    #different.pin .different-lists-head {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 4;
-        padding-top: 100px;
-        background-color: inherit;
-    }
-
-    #different.pin-past .different-lists-head {
-        position: absolute;
-        top: auto;
-        bottom: 443px;
-        width: 100%;
-    }
-
     .different-head {
-        max-width: 100%;
-        padding-top: 50px;
-        font-size: 38px;
-     }
-
-     .different-subhead {
-        margin-top: 20px;
-        margin-bottom: 0;
-        padding-right: 170px;
-        padding-bottom: 25px;
-        font-family: 'Open Sans Light',sans-serif;
         font-size: 26px;
-     }
+        margin: 0;
+        padding: 50px 170px 25px 0;
+    }
 
-         .different-subhead:after {
-             top: 25px;
-             left: 0;
-             margin-left: 0;
-         }
+        .different-head:after {
+            top: 25px;
+            left: 0;
+            margin-left: 0;
+        }
 
     #different-lists {
         max-width: 660px;
@@ -514,17 +479,6 @@
 
         .different-list h3:focus {
             border: 0;
-        }
-
-        .different-list.pin > h3 {
-            position: fixed;
-            top: 333px;
-        }
-
-        .different-list.pin-past > h3 {
-            position: absolute;
-            top: auto;
-            bottom: 60px;
         }
 
     .different-list > ul {
@@ -607,6 +561,17 @@
 .know-box > p {
     padding-left: 10px;
     padding-right: 10px;
+}
+
+.know-box a:link,
+.know-box a:visited {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.know-box a:hover,
+.know-box a:focus {
+    color: #ccc;
 }
 
 .js-enabled .know-box > h3 {
@@ -1271,45 +1236,6 @@
          padding: 60px 0;
      }
 
-         #videos:before,
-         #videos:after {
-            content: '';
-            position: absolute;
-            bottom: 190px;
-            left: -80px;
-            display: block;
-            height: 165px;
-            width: 235px;
-            background: url(/static/img/videos-sticker-sprites.png);
-         }
-
-         #videos:after {
-            bottom: 50%;
-            right: -60px;
-            left: auto;
-            display: block;
-            height: 320px;
-            width: 180px;
-            margin-bottom: -380px;
-            background-position: -235px -25px;
-         }
-
-
-         #videos .contain {
-             position: relative;
-             z-index: 1;
-         }
-
-             #videos .contain:before {
-                content: '';
-                position: absolute;
-                top: -100px;
-                right: 60px;
-                height: 165px;
-                width: 165px;
-                background: url(/static/img/videos-sticker-sprites.png) -20px -165px;
-             }
-
      .videos-head {
          max-width: 420px;
          margin: 0 0 40px 0;
@@ -1388,11 +1314,11 @@
             background-size: 100%;
         }
 
-            .video-thumb-mike:before {
+            .video-thumb-harry:before {
                 background-position: 0 50%;
             }
 
-            .video-thumb-james:before {
+            .video-thumb-samantha:before {
                 background-position: 0 100%;
             }
 
