@@ -8,8 +8,8 @@
 .teams-hex a:after,
 .teams-back:before,
 .teams-back:after,
-.life-perk > h4:before,
-.life-perk > h4:after,
+.life-people-desc p:before,
+.life-people-desc p:after,
 #life-blocks-next:before,
 #life-blocks-next:after,
 #life-blocks-prev:before,
@@ -1018,82 +1018,59 @@
     height: 226px;
 }
 
-.life-perks-head {
+.life-people-head {
+    font-family: 'Zilla', serif;
     font-size: 21px;
-    font-family: 'Zilla', serif;
 }
 
-#life-perks {
-    overflow: hidden; _overflow: visible; zoom: 1; /* clearfix */
+.life-people-desc {
     position: relative;
+}
+
+.life-people-desc p {
+    padding-top: 90px;
+}
+
+.life-people-desc p:before,
+.life-people-desc p:after {
+    height: 70px;
+    width: 80px;
+    position: absolute;
+    top: 0;
+    left: -6px;
+    line-height: 70px;
     text-align: center;
 }
 
-.life-perk {
-    width: 100%;
-    float: left;
-    padding: 0 0 20px 0;
-    text-align: center;
-    vertical-align: top;
+.life-people-desc p:before {
+    content: '\e005';
+    color: #2e3a42;
+    font-size: 74px;
 }
 
-.life-perk > h4 {
-    position: relative;
-    padding-top: 85px;
-    font-family: 'Zilla', serif;
-    font-size: 24px;
+.life-people-desc p:after {
+    content: '\e001';
+    color: #4a5966;
+    font-size: 40px;
+    margin-top: 2px;
 }
 
-    .life-perk > h4:before,
-    .life-perk > h4:after {
-        content: '\e005';
-        position: absolute;
-        top: 0;
-        left: 50%;
-        display: block;
-        height: 70px;
-        width: 80px;
-        margin-left: -40px;
-        font-size: 74px;
-        line-height: 70px;
-        text-align: center;
-    }
+.life-people-cta:after {
+    content: '\00A0\203A'; /* nbsp lsaquo; */
+    white-space: nowrap;
+}
 
-    .life-perk > h4:before {
-        color: #2e3a42;
+.life-people-cta:link,
+.life-people-cta:visited {
+    color: #fff;
+    font-weight: bold;
+}
 
-    }
-    .life-perk > h4:after {
-        content: '';
-        margin-top: -2px;
-        color: #4a5966;
-        font-size: 40px;
-    }
-
-         .life-perk-medical > h4:after { content: '\e001'; margin-top: 2px; }
-         .life-perk-quarterly > h4:after { content: '\e00d'; margin-top: -2px; }
-         .life-perk-remote > h4:after { content: '\e004'; padding-left: 1px; font-size: 30px; }
-         .life-perk-personal > h4:after { content: '\e007'; margin-top: 0px; }
-         .life-perk-office > h4:after { content: '\e00a'; padding-left: 1px; }
-         .life-perk-snacks > h4:after { content: '\e008'; margin-top: 0px; }
-
-@media (max-width: 680px) {
-    /* line these up on the same line until carousel loads */
-    .js-enabled .life-perk {
-        margin-right: -670px;
-    }
-
-    /* fix it once carousel is loaded */
-    .caroufredsel_wrapper .life-perk {
-        margin-right: 0;
-        padding-bottom: 0px;
-    }
-
-    /* or if carousel is not initilaized because we're not mobile,
-       incase they resize down to mobile */
-    .perks-nocarousel .life-perk {
-        margin-right: 0;
-    }
+.life-people-cta:hover,
+.life-people-cta:active,
+.life-people-cta:focus {
+    color: #fff;
+    text-decoration: underline;
 }
 
 @media (min-width: 681px) {
@@ -1122,31 +1099,6 @@
         margin: 50px 0;
         height: 345px;
     }
-
-    #life-perks-perks {
-        margin:0 -20px 0 0;
-    }
-
-    .life-perk {
-        display: inline-block;
-        -moz-box-sizing: border-box;
-             box-sizing: border-box;
-        width: 33.3%;
-        float: left;
-        padding-right: 20px;
-        text-align: left;
-        vertical-align: top;
-    }
-
-    .life-perk:nth-child(3n+1) {
-        clear: both;
-    }
-
-    .life-perk > h4:before,
-    .life-perk > h4:after {
-        left: 0;
-        margin-left: -6px;
-    }
 }
 
 @media (min-width: 921px) {
@@ -1169,11 +1121,25 @@
         margin: 60px 0;
     }
 
-    .life-perks-head {
-        font-size: 38px;
+    .life-people-desc {
+        margin: 0 auto;
+        max-width: 38em;
     }
 
+    .life-people-desc p {
+        padding-top: 100px;
+    }
 
+    .life-people-desc p:before,
+    .life-people-desc p:after {
+        left: 50%;
+        margin-left: -40px;
+    }
+
+    .life-people-head {
+        font-size: 38px;
+        text-align: center;
+    }
 }
 
 
