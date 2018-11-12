@@ -4,7 +4,6 @@
     function animationInit() {
         teamsInit();
         galleryInit();
-        perksInit();
         videosInit();
         locationsInit();
         nextInit();
@@ -457,62 +456,6 @@
     function galleryInit() {
         galleryElements();
         galleryCarouselInit();
-    }
-
-    /*
-    *  Perks
-    */
-
-    // swipe boxes
-    function perksSwipe() {
-
-        // add next & prev & pagination
-        $('<div id="life-perks-pager" class="carousel-pager"></div>').insertBefore('#life-perks-perks');
-        $('<button id="life-perks-prev" class="carousel-button carousel-button-prev" type="button">Previous</button>').insertBefore('#life-perks-perks');
-        $('<button id="life-perks-next" class="carousel-button carousel-button-next" type="button">Next</button>').insertBefore('#life-perks-perks');
-
-        // init carousel
-        var perksWidth = $('.life-perks-head').width();
-        $('.life-perk').width(perksWidth);
-        $('#life-perks-perks').carouFredSel({
-            responsive: true,
-            width: perksWidth,
-            height: 'auto',
-            align: 'center',
-            prev: '#life-perks-prev',
-            next: '#life-perks-next',
-            pagination: '#life-perks-pager',
-            scroll: 1,
-            swipe: {
-                onTouch: true
-            },
-            items: {
-                width: perksWidth,
-                visible: 1
-            },
-            auto: false
-        });
-
-        // remove if we go past break point
-        function perksSwipeResize() {
-            if ($(window).width() > 680) {
-                $('.life-perk').trigger('destroy', true);
-                $('.life-perk').css('width', '');
-                $('#life-perks').addClass('perks-nocarousel');
-                $(window).off('resize', perksSwipeResize);
-            }
-        }
-
-        $(window).resize(perksSwipeResize);
-    }
-
-    // init perks section
-    function perksInit() {
-        if (Mozilla.Test.isSmallScreen) {
-            perksSwipe();
-        } else {
-            $('#life-perks').addClass('perks-nocarousel');
-        }
     }
 
     /*

@@ -93,6 +93,11 @@
     });
 
 
+    /* Careers > People
+    ***************************************************************************/
+    trackClick('.life-people-cta', ['How We Take Care of Our People Interaction', 'link click', 'Learn more']);
+
+
     /* Careers > Community & Culture
     ***************************************************************************/
     $root.on('click', '.community-box a', function() {
