@@ -1049,10 +1049,10 @@
 }
 
 .life-people-desc p:after {
-    content: '\e001';
+    content: '\e00d';
     color: #4a5966;
     font-size: 40px;
-    margin-top: 2px;
+    margin-top: -2px;
 }
 
 .life-people-cta:after {
@@ -1124,6 +1124,7 @@
     .life-people-desc {
         margin: 0 auto;
         max-width: 38em;
+        text-align: center;
     }
 
     .life-people-desc p {

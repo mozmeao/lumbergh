@@ -95,7 +95,7 @@
 
     /* Careers > People
     ***************************************************************************/
-    trackClick('.life-people-cta', ['How We Take Care of Our People', 'link click', 'Learn more']);
+    trackClick('.life-people-cta', ['How We Take Care of Our People Interaction', 'link click', 'Learn more']);
 
 
     /* Careers > Community & Culture
