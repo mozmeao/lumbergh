@@ -297,9 +297,9 @@ factory_boy==2.11.1 \
     --hash=sha256:d552cb872b310ae78bd7429bf318e42e1e903b1a109e899a523293dfa762ea4f
 msgpack-python==0.5.6 \
     --hash=sha256:378cc8a6d3545b532dfd149da715abae4fda2a3adb6d74e525d0d5e51f46909b
-redis==2.10.6 \
-    --hash=sha256:8a1900a9f2a0a44ecf6e8b5eb3e967a9909dfed219ad66df094f27f7d6f330fb \
-    --hash=sha256:a22ca993cea2962dbb588f9f30d0015ac4afcc45bee27d3978c0dbe9e97c6c0f
+redis==3.0.1 \
+    --hash=sha256:8e0bdd2de02e829b6225b25646f9fb9daffea99a252610d040409a6738541f0a \
+    --hash=sha256:2100750629beff143b6a200a2ea8e719fcf26420adabb81402895e144c5083cf
 django_csp==3.4 \
     --hash=sha256:04c0ccd4e1339e8f6af48c55c3347dc996fde2d22d79e8bf2f6b7a920412e408 \
     --hash=sha256:096b634430d8ea81c3d9f216f87be890f3a975c17bb9a4631f6a1619ac09c91e
