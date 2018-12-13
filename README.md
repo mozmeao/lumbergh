@@ -2,7 +2,7 @@
 
 [![Build Status](https://ci.us-west.moz.works/buildStatus/icon?job=Careers/master)](https://ci.us-west.moz.works/blue/organizations/jenkins/Careers/branches/)
 
-[What's Deployed](https://whatsdeployed.io/s-t6K)
+[What's Deployed](https://whatsdeployed.io/s-c4g)
 
 ## Setup your environment for development
 
