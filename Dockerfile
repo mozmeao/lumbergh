@@ -5,12 +5,12 @@ ENV PYTHONUNBUFFERED=1
 ENV PIP_DISABLE_PIP_VERSION_CHECK=1
 
 EXPOSE 8000
-CMD ["./bin/run-prod.sh"]
 
 RUN adduser --uid 1000 --disabled-password --gecos '' --no-create-home webdev
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends build-essential libmariadbclient-dev gettext libssl-dev libffi-dev && \
+    apt-get install -y --no-install-recommends \
+    build-essential wget curl sed && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app

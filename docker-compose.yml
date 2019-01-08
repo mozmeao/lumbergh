@@ -1,12 +1,5 @@
 version: '3.4'
 services:
-  db:
-    image: mariadb:10.0
-    environment:
-     - MYSQL_ALLOW_EMPTY_PASSWORD=yes
-     - MYSQL_DATABASE=careers
-    command:
-      --character-set-server=utf8mb4  --collation-server=utf8mb4_bin
   web:
     build: .
     user: ${UID:-webdev}
@@ -14,14 +7,11 @@ services:
       - "8000:8000"
     volumes:
       - .:/app
-    depends_on:
-      - db
     environment:
       - PYTHONDONTWRITEBYTECODE=1
-      - DATABASE_URL=mysql://root@db/careers
+      - DATABASE_URL=sqlite:///database.sqlite
       - DEBUG=True
-      - ENABLE_ADMIN=True
-      - ALLOWED_HOSTS=localhost,127.0.0.1,
+      - ALLOWED_HOSTS=*
       - SECRET_KEY=59114b6a-2858-4caf-8878-482a24ee9542
     command:
       ./bin/run-dev.sh
