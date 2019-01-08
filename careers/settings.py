@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     # Third party apps
     'django_jinja',
     'django_extensions',
-    'raven.contrib.django.raven_compat',
     'watchman',
 
     # Django apps
@@ -218,16 +217,6 @@ WATCHMAN_CHECKS = (
     'watchman.checks.caches',
     'watchman.checks.databases',
 )
-
-RAVEN_CONFIG = {
-    'dsn': config('SENTRY_DSN', None),
-    'release': config('GIT_SHA', None),
-    'tags': {
-        'server_full_name': '.'.join(x for x in [HOSTNAME, DEIS_APP, DEIS_DOMAIN] if x),
-        'environment': config('SENTRY_ENVIRONMENT', ''),
-        'site': '.'.join(x for x in [DEIS_APP, DEIS_DOMAIN] if x),
-    }
-}
 
 GREENHOUSE_BOARD_TOKEN = config('GREENHOUSE_BOARD_TOKEN', default='mozilla')
 
