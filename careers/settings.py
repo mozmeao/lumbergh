@@ -43,8 +43,6 @@ INSTALLED_APPS = [
     # Third party apps
     'django_jinja',
     'django_extensions',
-    'watchman',
-
     # Django apps
     'django.contrib.staticfiles',
 ]
@@ -210,13 +208,6 @@ SECURE_REDIRECT_EXEMPT = [
     r'^healthz/$',
     r'^readiness/$',
 ]
-
-# watchman
-WATCHMAN_DISABLE_APM = True
-WATCHMAN_CHECKS = (
-    'watchman.checks.caches',
-    'watchman.checks.databases',
-)
 
 GREENHOUSE_BOARD_TOKEN = config('GREENHOUSE_BOARD_TOKEN', default='mozilla')
 
