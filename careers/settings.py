@@ -53,7 +53,6 @@ MIDDLEWARE = (
     'careers.base.middleware.LocaleRedirectionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'csp.middleware.CSPMiddleware',
 )
 
 HOSTNAME = platform.node()
@@ -133,57 +132,6 @@ TEMPLATES = [
         }
     },
 ]
-
-# Django-CSP
-CSP_DEFAULT_SRC = (
-    "'self'",
-    '*.cdn.mozilla.net',
-    'assets.mozilla.net',
-)
-CSP_FONT_SRC = (
-    "'self'",
-    'http://*.mozilla.net',
-    'https://*.mozilla.net',
-    'http://*.mozilla.org',
-    'https://*.mozilla.org',
-)
-CSP_IMG_SRC = (
-    "'self'",
-    "data:",
-    'http://*.mozilla.net',
-    'https://*.mozilla.net',
-    'http://*.mozilla.org',
-    'https://*.mozilla.org',
-    'http://www.google-analytics.com',
-    'https://www.google-analytics.com',
-)
-CSP_SCRIPT_SRC = (
-    "'self'",
-    "data:",
-    'http://*.mozilla.org',
-    'https://*.mozilla.org',
-    'http://*.mozilla.net',
-    'https://*.mozilla.net',
-    'http://www.google-analytics.com',
-    'https://www.google-analytics.com',
-    'http://www.googletagmanager.com',
-    'https://www.googletagmanager.com',
-)
-CSP_STYLE_SRC = (
-    "'self'",
-    "'unsafe-inline'",
-    'http://*.mozilla.org',
-    'https://*.mozilla.org',
-    'http://*.mozilla.net',
-    'https://*.mozilla.net',
-)
-CSP_REPORT_ONLY = config('CSP_REPORT_ONLY', default=False, cast=bool)
-CSP_REPORT_ENABLE = config('CSP_REPORT_ENABLE', default=True, cast=bool)
-
-if CSP_REPORT_ENABLE:
-    CSP_REPORT_URI = config('CSP_REPORT_URI', default='/csp-violation-capture')
-
-ANON_ALWAYS = True
 
 ENGAGE_ROBOTS = config('ENGAGE_ROBOTS', default=not DEBUG, cast=bool)
 
