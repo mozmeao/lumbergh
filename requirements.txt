@@ -67,9 +67,6 @@ Pygments==2.3.1 \
 django-jinja==2.4.1 \
     --hash=sha256:8a49d73de616a12075eee14c6d3bbab936261a463457d40348d8b8e2995cfbed \
     --hash=sha256:ceaa0eeebc4d91a5800967e50f4f087f0b6457503e3c2af85dc199bed8732a9a
-mock==2.0.0 \
-    --hash=sha256:5ce3c71c5545b472da17b72268978914d0252980348636840bd34a00b5cc96c1 \
-    --hash=sha256:b158b6df76edd239b8208d481dc46b6afd45a846b7812ff0ce58971cf5bc8bba
 bleach==3.0.2 \
     --hash=sha256:73d26f018af5d5adcdabf5c1c974add4361a9c76af215fe32fdec8a6fc5fb9b9 \
     --hash=sha256:48d39675b80a75f6d1c3bdbffec791cf0bbbab665cf01e20da701c77de278718
