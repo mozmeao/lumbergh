@@ -48,11 +48,8 @@ for app in config('EXTRA_APPS', default='', cast=Csv()):
     INSTALLED_APPS.append(app)
 
 MIDDLEWARE = (
-    'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    'careers.base.middleware.LocaleRedirectionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
 HOSTNAME = platform.node()
@@ -140,18 +137,6 @@ GA_ACCOUNT_CODE = config('GA_ACCOUNT_CODE', default=None)
 GTM_ACCOUNT_CODE = config('GTM_ACCOUNT_CODE', default='GTM-MLM3DH')
 
 DEAD_MANS_SNITCH_URL = config('DEAD_MANS_SNITCH', default=None)
-
-USE_X_FORWARDED_HOST = True
-SECURE_SSL_REDIRECT = config('SECURE_SSL_REDIRECT', default=not DEBUG, cast=bool)
-SECURE_HSTS_SECONDS = config('SECURE_HSTS_SECONDS', default='0', cast=int)
-SECURE_HSTS_INCLUDE_SUBDOMAINS = False
-SECURE_BROWSER_XSS_FILTER = config('SECURE_BROWSER_XSS_FILTER', default=False, cast=bool)
-SECURE_CONTENT_TYPE_NOSNIFF = config('SECURE_CONTENT_TYPE_NOSNIFF', default=False, cast=bool)
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_REDIRECT_EXEMPT = [
-    r'^healthz/$',
-    r'^readiness/$',
-]
 
 GREENHOUSE_BOARD_TOKEN = config('GREENHOUSE_BOARD_TOKEN', default='mozilla')
 
