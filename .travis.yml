@@ -11,7 +11,7 @@ env:
     - DEBUG=False
     - ALLOWED_HOSTS=*
     - SECRET_KEY=foo
-    - DATABASE_URL=mysql://root@db/careers
+    - DATABASE_URL=sqlite://
     - SECURE_SSL_REDIRECT=False
 before_install:
   - docker --version
@@ -23,8 +23,6 @@ before_script:
   # Replace all spaces with _
   - env | sed 's/ /_/' > .env
 script:
-  - docker run -d --name mariadb -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -e MYSQL_DATABASE=careers mariadb:10.0 --character-set-server=utf8mb4 --collation-server=utf8mb4_bin
   - docker run ${DOCKER_REPOSITORY}:${TRAVIS_COMMIT} flake8 careers
   # Wait database to initialize.
-  - docker run --link mariadb:db -e CHECK_PORT=3306 -e CHECK_HOST=db giorgos/takis
-  - docker run --env-file .env --link mariadb:db ${DOCKER_REPOSITORY}:${TRAVIS_COMMIT} coverage run ./manage.py test
+  - docker run --env-file .env ${DOCKER_REPOSITORY}:${TRAVIS_COMMIT} coverage run ./manage.py test
