@@ -35,4 +35,6 @@ find . -name \*.html -exec sed -i -e 's/index.html//'  {} \;
 # Add state
 echo "$COMMIT_REF" > static/revision.txt
 
-echo "Mirroring complete"
+.$(dirname "$0")/build-acceptance-tests.sh
+
+echo "Generation complete"
