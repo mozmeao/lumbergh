@@ -14,13 +14,13 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
+RUN chown webdev /app
 
 # First copy requirements.txt and peep so we can take advantage of
 # docker caching.
 COPY requirements.txt requirements.txt
 RUN pip install --require-hashes --no-cache-dir -r requirements.txt
 
-COPY . /app
-RUN DEBUG=False SECRET_KEY=foo ALLOWED_HOSTS=localhost, DATABASE_URL=sqlite:/// ./manage.py collectstatic --noinput -c
-RUN chown webdev.webdev -R .
+COPY --chown=webdev . /app
 USER webdev
+RUN DEBUG=False SECRET_KEY=foo ALLOWED_HOSTS=localhost, DATABASE_URL=sqlite:/// ./manage.py collectstatic --noinput -c
