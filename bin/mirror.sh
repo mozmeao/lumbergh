@@ -35,6 +35,10 @@ find . -name \*.html -exec sed -i -e 's/index.html//'  {} \;
 # Add state
 echo "$COMMIT_REF" > static/revision.txt
 
+# Add custom headers
+cp ../netlify-headers ./_headers
+
+# Run build acceptance tests
 .$(dirname "$0")/build-acceptance-tests.sh
 
 echo "Generation complete"
