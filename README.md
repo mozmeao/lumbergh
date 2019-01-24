@@ -39,13 +39,3 @@ docker-compose run web ./manage.py sync_greenhouse
 ```shell
 docker-compose stop
 ```
-
-
-## University Events
-
-To add, edit or delete university events from
-the [University page](https://careers.mozilla.org/university)
-edit [university_events.yml](university_events.yml) file and follow the deploy
-instructions as described in Mana.
-
-Only events with end date equal or bigger to UTC today are shown.
