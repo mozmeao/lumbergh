@@ -1,4 +1,4 @@
-from mock import mock_open, patch
+from unittest.mock import mock_open, patch
 
 from careers.base.tests import TestCase
 from careers.university import utils

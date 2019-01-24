@@ -1,4 +1,4 @@
-from mock import Mock
+from unittest.mock import Mock
 
 from django.http import HttpResponseRedirect
 from django.test import RequestFactory

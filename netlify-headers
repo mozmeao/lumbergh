@@ -1,0 +1,8 @@
+/*
+  X-Frame-Options: DENY
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  Content-Security-Policy: font-src 'self' http://*.mozilla.net https://*.mozilla.net http://*.mozilla.org https://*.mozilla.org; img-src 'self' data: http://*.mozilla.net https://*.mozilla.net http://*.mozilla.org https://*.mozilla.org http://www.google-analytics.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' http://*.mozilla.org https://*.mozilla.org http://*.mozilla.net https://*.mozilla.net; script-src 'self' data: http://*.mozilla.org https://*.mozilla.org http://*.mozilla.net https://*.mozilla.net http://www.google-analytics.com https://www.google-analytics.com http://www.googletagmanager.com https://www.googletagmanager.com; default-src 'self' *.cdn.mozilla.net assets.mozilla.net
+
+/feed/index.html
+  Content-Type: application/rss+xml

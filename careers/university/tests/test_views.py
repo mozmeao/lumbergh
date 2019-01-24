@@ -1,7 +1,7 @@
 from datetime import date
 
 from django.urls import reverse
-from mock import patch
+from unittest.mock import patch
 
 from careers.base.tests import TestCase
 from careers.careers.models import Position
