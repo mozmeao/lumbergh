@@ -29,9 +29,6 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
-ALLOWED_CIDR_NETS = config('ALLOWED_CIDR_NETS', default='', cast=Csv())
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -43,9 +40,6 @@ INSTALLED_APPS = [
     # Third party apps
     'django_jinja',
     'django_extensions',
-    'raven.contrib.django.raven_compat',
-    'watchman',
-
     # Django apps
     'django.contrib.staticfiles',
 ]
@@ -54,13 +48,8 @@ for app in config('EXTRA_APPS', default='', cast=Csv()):
     INSTALLED_APPS.append(app)
 
 MIDDLEWARE = (
-    'allow_cidr.middleware.AllowCIDRMiddleware',
-    'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    'careers.base.middleware.LocaleRedirectionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'csp.middleware.CSPMiddleware',
 )
 
 HOSTNAME = platform.node()
@@ -141,57 +130,6 @@ TEMPLATES = [
     },
 ]
 
-# Django-CSP
-CSP_DEFAULT_SRC = (
-    "'self'",
-    '*.cdn.mozilla.net',
-    'assets.mozilla.net',
-)
-CSP_FONT_SRC = (
-    "'self'",
-    'http://*.mozilla.net',
-    'https://*.mozilla.net',
-    'http://*.mozilla.org',
-    'https://*.mozilla.org',
-)
-CSP_IMG_SRC = (
-    "'self'",
-    "data:",
-    'http://*.mozilla.net',
-    'https://*.mozilla.net',
-    'http://*.mozilla.org',
-    'https://*.mozilla.org',
-    'http://www.google-analytics.com',
-    'https://www.google-analytics.com',
-)
-CSP_SCRIPT_SRC = (
-    "'self'",
-    "data:",
-    'http://*.mozilla.org',
-    'https://*.mozilla.org',
-    'http://*.mozilla.net',
-    'https://*.mozilla.net',
-    'http://www.google-analytics.com',
-    'https://www.google-analytics.com',
-    'http://www.googletagmanager.com',
-    'https://www.googletagmanager.com',
-)
-CSP_STYLE_SRC = (
-    "'self'",
-    "'unsafe-inline'",
-    'http://*.mozilla.org',
-    'https://*.mozilla.org',
-    'http://*.mozilla.net',
-    'https://*.mozilla.net',
-)
-CSP_REPORT_ONLY = config('CSP_REPORT_ONLY', default=False, cast=bool)
-CSP_REPORT_ENABLE = config('CSP_REPORT_ENABLE', default=True, cast=bool)
-
-if CSP_REPORT_ENABLE:
-    CSP_REPORT_URI = config('CSP_REPORT_URI', default='/csp-violation-capture')
-
-ANON_ALWAYS = True
-
 ENGAGE_ROBOTS = config('ENGAGE_ROBOTS', default=not DEBUG, cast=bool)
 
 # Goolge Analytics Code
@@ -199,35 +137,6 @@ GA_ACCOUNT_CODE = config('GA_ACCOUNT_CODE', default=None)
 GTM_ACCOUNT_CODE = config('GTM_ACCOUNT_CODE', default='GTM-MLM3DH')
 
 DEAD_MANS_SNITCH_URL = config('DEAD_MANS_SNITCH', default=None)
-
-USE_X_FORWARDED_HOST = True
-SECURE_SSL_REDIRECT = config('SECURE_SSL_REDIRECT', default=not DEBUG, cast=bool)
-SECURE_HSTS_SECONDS = config('SECURE_HSTS_SECONDS', default='0', cast=int)
-SECURE_HSTS_INCLUDE_SUBDOMAINS = False
-SECURE_BROWSER_XSS_FILTER = config('SECURE_BROWSER_XSS_FILTER', default=False, cast=bool)
-SECURE_CONTENT_TYPE_NOSNIFF = config('SECURE_CONTENT_TYPE_NOSNIFF', default=False, cast=bool)
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_REDIRECT_EXEMPT = [
-    r'^healthz/$',
-    r'^readiness/$',
-]
-
-# watchman
-WATCHMAN_DISABLE_APM = True
-WATCHMAN_CHECKS = (
-    'watchman.checks.caches',
-    'watchman.checks.databases',
-)
-
-RAVEN_CONFIG = {
-    'dsn': config('SENTRY_DSN', None),
-    'release': config('GIT_SHA', None),
-    'tags': {
-        'server_full_name': '.'.join(x for x in [HOSTNAME, DEIS_APP, DEIS_DOMAIN] if x),
-        'environment': config('SENTRY_ENVIRONMENT', ''),
-        'site': '.'.join(x for x in [DEIS_APP, DEIS_DOMAIN] if x),
-    }
-}
 
 GREENHOUSE_BOARD_TOKEN = config('GREENHOUSE_BOARD_TOKEN', default='mozilla')
 

@@ -1,5 +1,5 @@
 #!/bin/sh
 
 urlwait
-./bin/run-common.sh
+python manage.py migrate --noinput
 ./manage.py runserver 0.0.0.0:8000

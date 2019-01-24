@@ -9,17 +9,15 @@
         "home": "https://github.com/mozilla/lumbergh",
         "docs": "https://github.com/mozilla/lumbergh#setup",
         "irc": "irc://irc.mozilla.org/#careersweb",
-        "irc-contacts": ["bensternthal", "giorgos"]
+        "irc-contacts": ["#meao", "giorgos", "metadave"]
     },
     "bugs": {
-        "list": "https://bugzilla.mozilla.org/buglist.cgi?product=Websites&component=careers.mozilla.org&resolution=---",
-        "report": "https://bugzilla.mozilla.org/enter_bug.cgi?product=Websites&component=careers.mozilla.org",
-        "mentored": "https://bugzilla.mozilla.org/buglist.cgi?product=Websites&component=careers.mozilla.org&resolution=---&f1=bug_mentor&list_id=12047338&o1=isnotempty"
+        "list": "https://github.com/mozmeao/lumbergh/issues",
+        "report": "https://github.com/mozmeao/lumbergh/issues/new"
     },
     "urls": {
         "prod": "https://careers.mozilla.org/",
-        "stage": "https://careers.allizom.org/",
-        "dev": "https://careers-dev.allizom.org/"
+        "stage": "https://careers.allizom.org/"
     },
     "keywords": [
         "django",
