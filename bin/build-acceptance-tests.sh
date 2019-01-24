@@ -18,11 +18,19 @@ for file in index.html robots.txt contribute.json feed/index.html listings/index
     fi
 done
 
-JOB_COUNT=$(grep -c 'class="position"' listings/index.html)
+LISTED_JOB_COUNT=$(grep -c 'class="position"' listings/index.html)
 
-if [ $JOB_COUNT -eq 0 ];
+if [ $LISTED_JOB_COUNT -eq 0 ];
 then
     echo "Error: No jobs posted!";
+    exit 1;
+fi
+
+INCLUDED_JOB_COUNT=$(find position/gh/ -type d -not -path position/gh/  | wc -l)
+
+if [ ${LISTED_JOB_COUNT} -ne ${INCLUDED_JOB_COUNT} ];
+then
+    echo "Error: Number of listed jobs (${LISTED_JOB_COUNT}) doesn't much number of included jobs (${INCLUDED_JOB_COUNT})!";
     exit 1;
 fi
 
