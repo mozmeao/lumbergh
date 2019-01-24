@@ -2,7 +2,7 @@ from django.core.management import call_command
 from django.test.utils import override_settings
 from django.utils.six import StringIO
 
-from mock import patch
+from unittest.mock import patch
 
 from careers.base.tests import TestCase
 from careers.careers.models import Position
