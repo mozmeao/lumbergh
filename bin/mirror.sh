@@ -17,12 +17,25 @@ CHECK_PORT=8000 CHECK_HOST=0.0.0.0 ./bin/takis
 mkdir -vp _site
 pushd _site
 
-wget --header "Host: ${CAREERS_HOST:-careers.mozilla.org}" \
-     --reject-regex "(.*)\?(.*)|static/(.*)" \
+# --reject-regex: Don't mirror URLs that include `?` i.e. with URL parameters or
+#                 URLs that contain with /static/ (which we will directly copy
+#                 from the ./static/ folder later)
+#
+# --mirror: Turn on options suitable for mirroring: recursion and time-stamping,
+#           sets infinite recursion depth
+#
+# -nH: Don't create host directories. If not included the final directory
+#      structure would be _site/0.0.0.0:8000/..
+#
+# -p: This option causes Wget to download all the files that are necessary to
+#     properly display a given HTML page. This includes such things as inlined
+#     images, sounds, and referenced stylesheets.
+#
+wget --reject-regex "(.*)\?(.*)|/static/(.*)" \
      --mirror \
-     -nH -p -E http://0.0.0.0:8000/ http://0.0.0.0:8000/contribute.json
+     -nH -p  http://0.0.0.0:8000/ http://0.0.0.0:8000/contribute.json
 
-# Copy all static directory
+# Copy static directory
 cp -rp ../static .
 
 # Convert all absolute links to relative. Wget's `-k` option won't operate on
@@ -30,7 +43,7 @@ cp -rp ../static .
 find . -name \*.html | xargs sed -i 's/http:\/\/0.0.0.0:8000//'
 
 # Remove references to index.html
-find . -name \*.html -exec sed -i -e 's/index.html//'  {} \;
+find . -name \*.html -exec sed -i -e 's/index.html//' {} \;
 
 # Add state
 echo "$COMMIT_REF" > static/revision.txt
