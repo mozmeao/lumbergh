@@ -42,7 +42,6 @@
       </p>
     </div>
     <a class="cta listings-link ga-apply-banner" href="{{ url('careers.listings')|urlparams(position_type='Intern') }}">Apply Now</a>
-    <a class="cta meet-us-on-campus" href="#meetus">Meet us on Campus</a>
   </section>
   <section id="different">
     <div class="different-lists-head">
@@ -164,34 +163,6 @@
       <img src="/static/img/christina-320.jpg" alt="">
       <figcaption><strong>Christina Choi</strong> &mdash; Mentor</figcaption>
     </figure>
-  </div>
-</section>
-
-<section id="meetus">
-  <div class="contain">
-    <h2 class="events-head">Come meet us in person</h2>
-    {% if events %}
-    <table id="events-table">
-      <thead>
-        <tr>
-          <th scope="col">Date</th>
-          <th scope="col">Event</th>
-          <th scope="col">Location</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for event in events %}
-          <tr>
-            <td class="event-date">{{ format_event_date(event) }}</td>
-            <td class="event-name">{{ event.name }}</td>
-            <td class="event-location">{{ event.location }}</td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-    {% else %}
-      <p>There are no upcoming events at this time.</p>
-    {% endif %}
   </div>
 </section>
 
