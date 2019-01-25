@@ -714,6 +714,7 @@
     ------------------------------------------------------------------- */
 
 #testimonials {
+    border-bottom: 40px solid #4d4e53;
     overflow: hidden; _overflow: visible; zoom: 1; /* clearfix */
     position: relative;
 }
@@ -919,7 +920,7 @@
 @media (min-width:921px) {
      .js-enabled .testimonials {
         height: 191px;
-        padding-bottom: 213px;
+        padding-bottom: 212px;
      }
 
     .js-enabled .testimonials:before {
