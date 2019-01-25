@@ -131,7 +131,6 @@
     trackScroll('#know-boxes', ['University', 'scroll', 'Things youll want to know']);
     trackScroll('#videos', ['University', 'scroll', 'Videos']);
     trackScroll('#testimonials', ['University', 'scroll', 'Testimonials']);
-    trackScroll('#meetus', ['University', 'scroll', 'Meet Us']);
     trackScroll('#gallery', ['University', 'scroll', 'Gallery']);
 
 
