@@ -5,6 +5,42 @@
     *  Listings
     */
 
+    /**
+     * Take filter values in querystring and propogate to select inputs
+    */
+    function propogateQueryParamsToSelects() {
+        var i;
+        var keyVal;
+        var keyVals;
+        var qs = window.location.search;
+        var $select;
+        var val;
+
+        if (qs) {
+            // drop the '?'
+            qs = qs.slice(1);
+
+            // split the querystring into key=val strings
+            keyVals = qs.split('&');
+
+            // for each key/value pair, update the associated select box
+            for (i = 0; i < keyVals.length; i++) {
+                keyVal = keyVals[i].split('=');
+
+                // first index is the key, which, with an 'id_' prefix, matches the field id
+                $select = $('#id_' + keyVal[0]);
+
+                // make sure the key is valid, then update the associated select box
+                if ($select) {
+                    // undo the jQuery param string augmentation
+                    // (decodeURIComponent does not change '+' to ' ', hence the replace call)
+                    val = decodeURIComponent(keyVal[1]).replace(/\+/gi, ' ');
+                    $select.val(val);
+                }
+            }
+        }
+    }
+
     // updates spans that appear instead of select box or labels on larger secreens
     function filtersMaskUpdate(e) {
         var filterSelect = $(e.target);
@@ -46,6 +82,9 @@
 
     // create elements and add event listners for listings page
     function listingsInit() {
+        // make sure select boxes match values in the querystring (for direct linking)
+        propogateQueryParamsToSelects();
+
         // turn filter heading into a button to hide and show filters on mobile
         var filterHeadButton = $('<button type="button">Filters</button>');
         filterHeadButton.click(filtersToggle);

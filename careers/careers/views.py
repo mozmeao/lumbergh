@@ -16,7 +16,7 @@ class PositionListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(PositionListView, self).get_context_data(**kwargs)
-        context['form'] = PositionFilterForm(self.request.GET or None)
+        context['form'] = PositionFilterForm()
         return context
 
 
