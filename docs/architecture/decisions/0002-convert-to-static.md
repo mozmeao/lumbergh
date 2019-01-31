@@ -89,6 +89,8 @@ We agreed to:
    Django project.
  - Setup a webhook from Greenhouse to Netlify to update the site whenever a Job
    Post gets updated.
+ - Setup a webhook to trigger a daily site rebuild in addition to the Greenhouse
+   webook. Monitor with Dead Man's Snitch.
 
 ## Consequences
 
