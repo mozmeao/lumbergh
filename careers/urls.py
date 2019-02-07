@@ -14,4 +14,7 @@ urlpatterns = [
 
     # Generate a robots.txt
     url(r'^robots\.txt$', views.robots, name='robots'),
+    url(r'^404\.html$', views.custom_404, name='404'),
 ]
+
+handler404 = 'careers.base.views.custom_404'

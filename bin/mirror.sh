@@ -33,7 +33,7 @@ pushd _site
 #
 wget --reject-regex "(.*)\?(.*)|/static/(.*)" \
      --mirror \
-     -nH -p  http://0.0.0.0:8000/ http://0.0.0.0:8000/contribute.json
+     -nH -p  http://0.0.0.0:8000/ http://0.0.0.0:8000/contribute.json http://0.0.0.0:8000/404.html
 
 # Copy static directory
 cp -rp ../static .
