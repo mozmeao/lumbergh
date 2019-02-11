@@ -318,3 +318,6 @@ mysqlclient==1.4.1 \
     --hash=sha256:6883a4dd98903bad375c859ead1a480e1245ea3a8d9b038ea2c091c1865ba673 \
     --hash=sha256:e1b9f3a8928ddb4985ca3e3c9f2aa81b19e831bbf6fabf5681ee356738dbbbb2 \
     --hash=sha256:a62220410e26ce2d2ff94dd0138c3ecfb91db634464a9afb4c8e6b50f0a67e00
+entrypoints==0.3 \
+    --hash=sha256:589f874b313739ad35be6e0cd7efde2a4e9b6fea91edcc34e58ecbb8dbe56d19 \
+    --hash=sha256:c70dd71abe5a8c85e55e12c19bd91ccfeec11a6e99044204511f9ed547d48451
