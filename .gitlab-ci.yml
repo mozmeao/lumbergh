@@ -1,0 +1,6 @@
+staging:
+  type: deploy
+  script:
+    - curl -X POST -d {} https://api.netlify.com/build_hooks/5c62d415e1a94eed212825c5
+  only:
+    - master
