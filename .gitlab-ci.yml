@@ -1,6 +1,9 @@
-staging:
+netlify:
   type: deploy
   script:
-    - curl -X POST -d {} https://api.netlify.com/build_hooks/5c62d415e1a94eed212825c5
+    # Stage
+    - curl -X POST -d {} https://api.netlify.com/build_hooks/5c640383f9a5a50176403765
+    # Dead Man's Snitch Ping
+    - curl https://nosnch.in/d216258591
   only:
-    - master
+    - schedules
