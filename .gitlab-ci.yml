@@ -3,6 +3,8 @@ netlify:
   script:
     # Stage
     - curl -X POST -d {} https://api.netlify.com/build_hooks/5c640383f9a5a50176403765
+    # Prod
+    - curl -X POST -d {} https://api.netlify.com/build_hooks/5c640acae9f7e0bcf74057cc
     # Dead Man's Snitch Ping
     - curl https://nosnch.in/d216258591
   only:
