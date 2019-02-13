@@ -81,7 +81,7 @@ conduit {
   def deployProd = false
 
   node {
-    onBranch("master") {
+    onBranch("pre-static") {
       deployStage = true
     }
     onTag(/\d{4}\d{2}\d{2}.\d{1,2}/) {
