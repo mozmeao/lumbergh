@@ -5,6 +5,14 @@ GREENHOUSE_URL="https://api.greenhouse.io/v1/boards/mozilla/jobs/?content=true"
 
 cp env-build .env
 
+# Allow search engine crawling in production only
+if [[ ${BRANCH} == "production" ]];
+then
+    echo "ENGAGE_ROBOTS=True" >> .env
+else
+    echo "ENGAGE_ROBOTS=False" >> .env
+fi
+
 python manage.py collectstatic --noinput
 python manage.py migrate --noinput
 python manage.py sync_greenhouse
@@ -24,6 +32,10 @@ pushd _site
 # --mirror: Turn on options suitable for mirroring: recursion and time-stamping,
 #           sets infinite recursion depth
 #
+# -e robots=off: Causes it to ignore robots.txt for that domain
+#
+# --quiet: Turn off output. Helps with Netlify's limited build log.
+#
 # -nH: Don't create host directories. If not included the final directory
 #      structure would be _site/0.0.0.0:8000/..
 #
@@ -33,7 +45,9 @@ pushd _site
 #
 wget --reject-regex "(.*)\?(.*)|/static/(.*)" \
      --mirror \
-     -nH -p  http://0.0.0.0:8000/ http://0.0.0.0:8000/contribute.json http://0.0.0.0:8000/404.html
+     -e robots=off \
+     --quiet \
+     -nH -p  http://0.0.0.0:8000/ http://0.0.0.0:8000/contribute.json http://0.0.0.0:8000/404.html http://0.0.0.0:8000/robots.txt
 
 # Copy static directory
 cp -rp ../static .
