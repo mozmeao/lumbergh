@@ -51,6 +51,9 @@ echo "$COMMIT_REF" > static/revision.txt
 # Add custom headers
 cp ../netlify-headers ./_headers
 
+# Add custom redirects
+cp ../netlify-redirects ./_redirects
+
 # Run build acceptance tests
 .$(dirname "$0")/build-acceptance-tests.sh
 
