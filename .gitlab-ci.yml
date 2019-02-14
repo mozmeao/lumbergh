@@ -6,6 +6,6 @@ netlify:
     # Prod
     - curl -X POST -d {} ${WEBHOOK_PROD}
     # Dead Man's Snitch Ping
-    - curl https://nosnch.in/d216258591
+    - curl ${DMS}
   only:
     - schedules
