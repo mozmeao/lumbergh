@@ -503,6 +503,16 @@ figure {
     background-color: #fff;
 }
 
+.fast-company-images {
+    display: block;
+    clear: both;
+    width: 420px;
+}
+
+.fast-company-images img {
+    padding: 8px 8px 0 0;
+}
+
 .colophon-logo {
     display: block;
     float: left;
