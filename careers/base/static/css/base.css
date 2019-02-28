@@ -511,6 +511,8 @@ figure {
 
 .fast-company-images img {
     padding: 8px 8px 0 0;
+    width: 170px;
+    height: 262px;
 }
 
 .colophon-logo {
