@@ -80,9 +80,9 @@ html5lib==1.0b10 \
     # pyup: < 1.0
 tzlocal==1.5.1 \
     --hash=sha256:4ebeb848845ac898da6519b9b31879cf13b6626f7184c496037b818e238f2c4e
-django-extensions==2.1.5 \
-    --hash=sha256:6fcedb2ea660c9dbf9ac59441721ffdd4ab5b753fbd6159c3e28f391a65bab46 \
-    --hash=sha256:a607459e5fa8c579a672131b63366fa52fab80adb2a862d362f5fb48cd2d2cac
+django-extensions==2.1.6 \
+    --hash=sha256:109004f80b6f45ad1f56addaa59debca91d94aa0dc1cb19678b9364b4fe9b6f4 \
+    --hash=sha256:307766e5e6c1caffe76c5d99239d8115d14ae3f7cab2cd991fcffd763dad904b
 coverage==4.5.2 \
     --hash=sha256:a5c58664b23b248b16b96253880b2868fb34358911400a7ba39d7f6399935389 \
     --hash=sha256:b3b0c8f660fae65eac74fbf003f3103769b90012ae7a460863010539bb7a80da \
