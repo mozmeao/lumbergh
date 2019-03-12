@@ -1,11 +1,16 @@
-netlify:
-  type: deploy
+image: python:3-slim-stretch
+stages:
+  - deploy
+
+build and push:
+  stage: deploy
+  before_script:
+     - apt-get update -qq && apt-get install -y -qq wget curl
   script:
-    # Stage
-    - curl -X POST -d {} ${WEBHOOK_STAGE}
-    # Prod
-    - curl -X POST -d {} ${WEBHOOK_PROD}
-    # Dead Man's Snitch Ping
-    - curl ${DMS}
-  only:
-    - schedules
+     - pip install awscli
+     - pip install --require-hashes --no-cache-dir -r requirements.txt    
+     - ./bin/mirror.sh
+     - aws s3 sync ./_site ${STAGE_BUCKET_PATH} --acl public-read --delete
+     - aws s3 sync ./_site ${PROD_BUCKET_PATH} --acl public-read --delete
+     - curl ${DMS}
+
