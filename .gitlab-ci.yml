@@ -5,6 +5,7 @@ deploy stage:
   only:
     refs:
     - master
+    - dp_gitlab_ci
   script: ./bin/ci-mirror.sh
 
 deploy prod:
