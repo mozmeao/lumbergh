@@ -34,7 +34,7 @@ pushd _site
 #
 # -e robots=off: Causes it to ignore robots.txt for that domain
 #
-# --quiet: Turn off output. Helps with Netlify's limited build log.
+# --quiet: Turn off output. 
 #
 # -nH: Don't create host directories. If not included the final directory
 #      structure would be _site/0.0.0.0:8000/..
@@ -61,12 +61,6 @@ find . -name \*.html -exec sed -i -e 's/index.html//' {} \;
 
 # Add state
 echo "$COMMIT_REF" > static/revision.txt
-
-# Add custom headers
-cp ../netlify-headers ./_headers
-
-# Add custom redirects
-cp ../netlify-redirects ./_redirects
 
 # Run build acceptance tests
 .$(dirname "$0")/build-acceptance-tests.sh

@@ -1,5 +1,0 @@
-# [Stage] Redirect default Netlify subdomain to primary domain
-https://mozilla-careers-stage.netlify.com/* https://careers.allizom.org/:splat 301!
-
-# [Prod] Redirect default Netlify subdomain to primary domain
-http://mozilla-careers.netlify.com/* http://careers.mozilla.org/:splat 301!

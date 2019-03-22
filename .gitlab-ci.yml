@@ -1,11 +1,15 @@
-netlify:
-  type: deploy
-  script:
-    # Stage
-    - curl -X POST -d {} ${WEBHOOK_STAGE}
-    # Prod
-    - curl -X POST -d {} ${WEBHOOK_PROD}
-    # Dead Man's Snitch Ping
-    - curl ${DMS}
+stage:
+  variables:
+    BUCKET_PATH: ${STAGE_BUCKET_PATH}
   only:
-    - schedules
+    refs:
+    - master
+  script: ./bin/ci-mirror.sh
+
+prod:
+  variables:
+    BUCKET_PATH: ${PROD_BUCKET_PATH}
+  only:
+    refs:
+    - production
+  script: ./bin/ci-mirror.sh
