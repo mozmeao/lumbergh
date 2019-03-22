@@ -2,3 +2,4 @@
 Jenkinsfile
 venv
 _site
+Dockerfile.static
