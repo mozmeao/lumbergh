@@ -8,4 +8,3 @@ docker run \
       -e BUCKET_PATH="${BUCKET_PATH}" \
       -e DMS="${DMS}" \
       ${IMAGE} 
-echo "Done"
