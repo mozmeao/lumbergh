@@ -1,10 +1,8 @@
-#!/bin/bash
-
-# https://docs.gitlab.com/ce/ci/variables/README.html
-cd ${CI_PROJECT_DIR}
+#!/bin/bash -e
 
 export IMAGE=mozmeao/lumbergh-deploy:`git rev-parse --short HEAD`
 docker build -f ./bin/Dockerfile . -t ${IMAGE}
+asd
 docker run \
       -e AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID}" \
       -e AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY}" \
