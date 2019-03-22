@@ -1,3 +1,11 @@
+# This depends on the following env vars to be set in Gitlab:
+#   https://gitlab.com/mozmeao/lumbergh/settings/ci_cd
+# AWS_ACCESS_KEY_ID
+# AWS_SECRET_ACCESS_KEY
+# DMS DeadMansSnitch URL
+# PROD_BUCKET_PATH (w/ s3:// prefix)
+# STAGE_BUCKET_PATH (ex: s3://mozilla-careers-stage)
+
 deploy stage:
   stage: deploy
   tags: 
