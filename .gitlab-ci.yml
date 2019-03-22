@@ -1,5 +1,7 @@
 deploy stage:
   stage: deploy
+  tags: 
+  - meao
   variables:
     BUCKET_PATH: ${STAGE_BUCKET_PATH}
   only:
@@ -10,6 +12,8 @@ deploy stage:
 
 deploy prod:
   stage: deploy
+  tags: 
+  - meao
   variables:
     BUCKET_PATH: ${PROD_BUCKET_PATH}
   only:
