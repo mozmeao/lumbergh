@@ -1,11 +1,30 @@
-netlify:
-  type: deploy
-  script:
-    # Stage
-    - curl -X POST -d {} ${WEBHOOK_STAGE}
-    # Prod
-    - curl -X POST -d {} ${WEBHOOK_PROD}
-    # Dead Man's Snitch Ping
-    - curl ${DMS}
+# This depends on the following env vars to be set in Gitlab:
+#   https://gitlab.com/mozmeao/lumbergh/settings/ci_cd
+# AWS_ACCESS_KEY_ID
+# AWS_SECRET_ACCESS_KEY
+# DMS DeadMansSnitch URL
+
+variables:
+  STAGE_BUCKET_PATH: s3://mozilla-careers-stage
+  PROD_BUCKET_PATH: s3://mozilla-careers
+deploy stage:
+  stage: deploy
+  tags: 
+  - meao
+  variables:
+    BUCKET_PATH: ${STAGE_BUCKET_PATH}
   only:
-    - schedules
+    refs:
+    - master
+  script: ./bin/ci-mirror.sh
+
+deploy prod:
+  stage: deploy
+  tags: 
+  - meao
+  variables:
+    BUCKET_PATH: ${PROD_BUCKET_PATH}
+  only:
+    refs:
+    - production
+  script: ./bin/ci-mirror.sh
