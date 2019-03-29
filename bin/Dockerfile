@@ -24,4 +24,4 @@ RUN pip install awscli
 
 COPY --chown=webdev . /app
 USER webdev
-CMD ./bin/mirror.sh && aws s3 sync ./_site ${BUCKET_PATH} --acl public-read --delete && curl ${DMS}
+CMD ./bin/mirror-to-s3.sh
