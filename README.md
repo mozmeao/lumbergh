@@ -4,7 +4,7 @@
 
 ## Setup your environment for development
 
-1. Get Docker and Docker Compose
+1. Get [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/)
 2. Run Build command
 3. Run the website
 
