@@ -10,4 +10,5 @@ docker run \
       -e AWS_SECRET_ACCESS_KEY \
       -e BUCKET_PATH \
       -e DMS \
-      ${IMAGE} 
+      -e CI_COMMIT_SHA \
+      ${IMAGE}
