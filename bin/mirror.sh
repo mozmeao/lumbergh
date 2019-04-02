@@ -60,7 +60,7 @@ find . -name \*.html | xargs sed -i 's/http:\/\/0.0.0.0:8000//'
 find . -name \*.html -exec sed -i -e 's/index.html//' {} \;
 
 # Add state
-echo "$COMMIT_REF" > static/revision.txt
+echo "$CI_COMMIT_SHA" > static/revision.txt
 
 # Run build acceptance tests
 .$(dirname "$0")/build-acceptance-tests.sh
