@@ -1,6 +1,6 @@
 # lumbergh
 
-[What's Deployed](https://whatsdeployed.io/s-c4g)
+[What's Deployed](https://whatsdeployed.io/s/PLb)
 
 ## Setup your environment for development
 
