@@ -1,5 +1,5 @@
 #!/bin/bash -e
-echo $(PWD)
+
 ./bin/mirror.sh 
 
 aws s3 sync ./_site ${BUCKET_PATH} \
