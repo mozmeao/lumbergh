@@ -16,7 +16,7 @@ deploy stage:
   only:
     refs:
     - master
-    - dp_cache_tweak
+    - dp_set_cache_control
   script: ./bin/ci-mirror.sh
 
 deploy prod:
