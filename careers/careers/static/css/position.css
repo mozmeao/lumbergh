@@ -78,7 +78,7 @@
 
     .cta.job-post-head-apply {
         position: absolute;
-        bottom: 51px;
+        top: 0;
         right: 20px;
         display: block;
         -moz-box-sizing: border-box;
@@ -199,8 +199,8 @@
     }
 
      .cta.job-post-head-apply {
-        bottom: 69px;
         font-size: 18px;
+        top: 3px;
      }
 
     .job-post-details {
