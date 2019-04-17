@@ -1,6 +1,17 @@
 # lumbergh
 
-[What's Deployed](https://whatsdeployed.io/s/PLb)
+[What's Deployed](https://whatsdeployed.io/s/Bcs)
+
+Lumbergh is a Django based App for https://careers.mozilla.org. Follow the
+[Setup your environment for
+development](#setup-your-environment-for-development) instructions to improve
+the website and fix errors.
+
+Careers.mozilla.org website is a **static** website which is automatically
+generated from its Django counterpart. If you're interested to learn how what
+works and how to debug potential issues visit the [Career's Mana
+Page](https://mana.mozilla.org/wiki/display/EN/careers.mozilla.org)
+
 
 ## Setup your environment for development
 
