@@ -10,7 +10,7 @@ RUN adduser --uid 1000 --disabled-password --gecos '' --no-create-home webdev
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-    build-essential wget curl sed && \
+    build-essential wget curl sed jq && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
@@ -24,4 +24,4 @@ RUN pip install awscli
 
 COPY --chown=webdev . /app
 USER webdev
-CMD ./bin/mirror.sh && aws s3 sync ./_site ${BUCKET_PATH} --acl public-read --delete && curl ${DMS}
+CMD ./bin/mirror.sh && ./bin/sync.sh && curl ${DMS}
