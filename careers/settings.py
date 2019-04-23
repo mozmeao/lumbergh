@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 
 import os
-import platform
 
 import dj_database_url
 from decouple import Csv, config
@@ -51,17 +50,6 @@ MIDDLEWARE = (
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
 )
-
-HOSTNAME = platform.node()
-DEIS_APP = config('DEIS_APP', default=None)
-DEIS_DOMAIN = config('DEIS_DOMAIN', default=None)
-ENABLE_HOSTNAME_MIDDLEWARE = config('ENABLE_HOSTNAME_MIDDLEWARE',
-                                    default=bool(DEIS_APP), cast=bool)
-
-if ENABLE_HOSTNAME_MIDDLEWARE:
-    MIDDLEWARE = (
-        ('careers.base.middleware.HostnameMiddleware',) +
-        MIDDLEWARE)
 
 
 ROOT_URLCONF = 'careers.urls'
@@ -136,8 +124,4 @@ ENGAGE_ROBOTS = config('ENGAGE_ROBOTS', default=not DEBUG, cast=bool)
 GA_ACCOUNT_CODE = config('GA_ACCOUNT_CODE', default=None)
 GTM_ACCOUNT_CODE = config('GTM_ACCOUNT_CODE', default='GTM-MLM3DH')
 
-DEAD_MANS_SNITCH_URL = config('DEAD_MANS_SNITCH', default=None)
-
 GREENHOUSE_BOARD_TOKEN = config('GREENHOUSE_BOARD_TOKEN', default='mozilla')
-
-EVENTS_FILE = os.path.join(ROOT, 'university_events.yml')
