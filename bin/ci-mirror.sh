@@ -9,6 +9,7 @@ docker run \
       -e AWS_ACCESS_KEY_ID \
       -e AWS_SECRET_ACCESS_KEY \
       -e BUCKET_PATH \
+      -e ESCAPED_SITE_URL \
       -e DMS \
       -e CI_COMMIT_SHA \
       ${IMAGE}
