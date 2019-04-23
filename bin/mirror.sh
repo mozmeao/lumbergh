@@ -5,6 +5,8 @@ GREENHOUSE_URL="https://api.greenhouse.io/v1/boards/mozilla/jobs/?content=true"
 
 cp env-build .env
 
+ESCAPED_SITE_URL=${ESCAPED_SITE_URL:-"http:\/\/localhost:8000"}
+
 # Allow search engine crawling in production only
 if [[ ${BRANCH} == "production" ]];
 then
@@ -34,7 +36,7 @@ pushd _site
 #
 # -e robots=off: Causes it to ignore robots.txt for that domain
 #
-# --quiet: Turn off output. 
+# --quiet: Turn off output.
 #
 # -nH: Don't create host directories. If not included the final directory
 #      structure would be _site/0.0.0.0:8000/..
@@ -52,12 +54,15 @@ wget --reject-regex "(.*)\?(.*)|/static/(.*)" \
 # Copy static directory
 cp -rp ../static .
 
+# Set correct site url for RSS feed.
+sed -i "s/http:\/\/0.0.0.0:8000/${ESCAPED_SITE_URL}/g" feed/index.html
+
 # Convert all absolute links to relative. Wget's `-k` option won't operate on
 # non-downloaded files and we exclude `/static` URLs.
-find . -name \*.html | xargs sed -i 's/http:\/\/0.0.0.0:8000//'
+find . -name \*.html | xargs sed -i 's/http:\/\/0.0.0.0:8000//g'
 
 # Remove references to index.html
-find . -name \*.html -exec sed -i -e 's/index.html//' {} \;
+find . -name \*.html -exec sed -i -e 's/index.html//g' {} \;
 
 # Add state
 echo "$CI_COMMIT_SHA" > static/revision.txt
