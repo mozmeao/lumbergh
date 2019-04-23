@@ -6,13 +6,16 @@
 
 variables:
   STAGE_BUCKET_PATH: s3://mozilla-careers-stage
+  STAGE_ESCAPED_SITE_URL: https:\/\/careers.allizom.org
   PROD_BUCKET_PATH: s3://mozilla-careers
+  PROD_ESCAPED_SITE_URL: https:\/\/careers.mozilla.org
 deploy stage:
   stage: deploy
-  tags: 
+  tags:
   - meao
   variables:
     BUCKET_PATH: ${STAGE_BUCKET_PATH}
+    ESCAPED_SITE_URL: ${STAGE_ESCAPED_SITE_URL}
   only:
     refs:
     - master
@@ -20,10 +23,11 @@ deploy stage:
 
 deploy prod:
   stage: deploy
-  tags: 
+  tags:
   - meao
   variables:
     BUCKET_PATH: ${PROD_BUCKET_PATH}
+    ESCAPED_SITE_URL: ${PROD_ESCAPED_SITE_URL}
   only:
     refs:
     - production
