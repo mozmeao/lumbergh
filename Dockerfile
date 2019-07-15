@@ -1,4 +1,4 @@
-FROM python:3-slim-stretch
+FROM python:3-slim-buster
 
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
