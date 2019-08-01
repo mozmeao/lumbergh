@@ -53,37 +53,33 @@
                 this.$emptyFilterMessage.show();
             }
 
-            // Save filter state in browser history.
-            if (Modernizr.history) {
-
-                // Get rid of unset filters.
-                for (var k in filters) {
-                    if (filters.hasOwnProperty(k) && !filters[k]) {
-                        delete filters[k];
-                    }
+            // Get rid of unset filters.
+            for (var k in filters) {
+                if (filters.hasOwnProperty(k) && !filters[k]) {
+                    delete filters[k];
                 }
-
-                // Build a querystring from populated filters.
-                var querystring = $.param(filters);
-
-                // Preserve Google Analytics parameters.
-                var ga_parameters = window.location.search.substr(1).split('&').filter(
-                    function(parameter) {
-                        return parameter.indexOf('utm_') === 0;
-                    }
-                );
-                if (querystring.length && ga_parameters.length) {
-                    querystring += '&';
-                }
-                querystring += ga_parameters.join('&');
-
-                if (querystring.length) {
-                    querystring = '?' + querystring;
-                }
-
-                // Replace history state with this filtered state.
-                window.history.replaceState(filters, 'Filtered', location.pathname + querystring);
             }
+
+            // Build a querystring from populated filters.
+            var querystring = $.param(filters);
+
+            // Preserve Google Analytics parameters.
+            var ga_parameters = window.location.search.substr(1).split('&').filter(
+                function(parameter) {
+                    return parameter.indexOf('utm_') === 0;
+                }
+            );
+            if (querystring.length && ga_parameters.length) {
+                querystring += '&';
+            }
+            querystring += ga_parameters.join('&');
+
+            if (querystring.length) {
+                querystring = '?' + querystring;
+            }
+
+            // Replace history state with this filtered state.
+            window.history.replaceState(filters, 'Filtered', location.pathname + querystring);
 
             this.$positionTable.show();
         },

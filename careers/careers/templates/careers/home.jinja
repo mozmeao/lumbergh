@@ -3,367 +3,369 @@
 {% set navbar_section = 'home' %}
 {% block page_title %}Mozilla Jobs &mdash; Open Positions{% endblock %}
 
-{% block site_css %}
-  {{ super() }}
-  <link href="{{ static('css/careers.css') }}" rel="stylesheet" />
-{% endblock %}
-
-{% block site_ie8 %}
-  {{ super() }}
-  <link href="{{ static('css/careers-ie8.css') }}" rel="stylesheet" />
-{% endblock %}
-
 {% block site_js %}
   {{ super() }}
-  <!--[if gt IE 8]> <!-- -->
-    <script src="{{ static('js/careers.js') }}"></script>
-  <!-- <![endif]-->
+  <!--<script src="{{ static('js/careers.js') }}"></script>-->
 {% endblock %}
 
 {% block content %}
-<!-- Monitoring validation string: Want to join in? -->
 
-<section id="splash">
-  <h2 class="splash-head"><div class="splash-head-inner"><span class="highlight">We’re a global pack of do-gooders, rabble-rousers and passionate defenders of the Web.</span></div></h2>
-  <p class="splash-subhead"><span class="highlight">Want to join in?</span></p>
-  <div class="cta-strip">
-    <a class="cta ga-career-banner-listings" href="{{ url('careers.listings') }}">View our current openings</a>
-    <a class="cta ga-career-banner-internship" href="{{ url('university.index') }}">Apply for an internship</a>
-    <a class="cta ga-career-banner-volunteer" href="https://www.mozilla.org/contribute/">Become a volunteer</a>
-  </div>
-  <div class="splash-credo">
-    <div class="contain">
-      <h3 class="splash-credo-head">Just call us Mozillians</h3>
-      <p>
-        We are a proudly non-profit organization driven by a culture of openness and collaboration. It’s a value we hold strong and it’s how we work together, day in and day out.
-      </p>
+<section class="mzp-c-hero mzp-t-dark page-hero">
+  <div class="mzp-l-content">
+    <div class="mzp-c-hero-body">
+      <h1 class="mzp-c-hero-title">Feel good about your work again</h1>
 
-      <div class="splash-video">
-        <div class="video-player" data-video-file-name="Are_You_a_Mozillian"
-          data-video-ga-interaction="Career Banner Interactions" data-video-ga-name="Are You A Mozillian Video"></div>
-      </div>
-
-      <p>
-        When you join Mozilla, you’re becoming part of a global community that’s helping to build a brighter future for the Web &mdash; and for everyone.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section id="teams">
-  <h2 class="teams-head">Teams &amp; Roles</h2>
-  <div id="teams-intro">
-    <div class="teams-intro-contain">
-      <p class="teams-blurb">
-        Our people are the best and brightest on the planet, and our success comes from when they work collaboratively on projects they care about deeply. Take a closer look at who does what and see where you fit best.
-      </p>
-
-      <ul class="teams-nav">
-        <li class="teams-hex hex-building">
-          <a href="#team-building" class="nosmoothscroll">
-            <strong>Building &amp; Designing</strong>
-            Working in the open, for the greater good.
-          </a>
-        </li>
-        <li class="teams-hex hex-operations">
-          <a href="#team-operations" class="nosmoothscroll">
-            <strong>Operations</strong>
-            Keep us safe, sound and always running.
-          </a>
-        </li>
-        <li class="teams-hex hex-people">
-          <a href="#team-people" class="nosmoothscroll">
-            <strong>People</strong>
-            Help us find the best. And be one yourself.
-          </a>
-        </li>
-        <li class="teams-hex hex-business">
-          <a href="#team-business" class="nosmoothscroll">
-            <strong>Business</strong>
-            For fast talkers <br>
-            and fine printers.
-          </a>
-        </li>
-        <li class="teams-hex hex-marketing">
-          <a href="#team-marketing" class="nosmoothscroll">
-            <strong>Marketing &amp; Engagement</strong>
-            Do cool stuff. <br>
-            Tell the world.
-          </a>
-        </li>
-        <li class="teams-hex hex-internships">
-          <a href="#team-internships" class="nosmoothscroll">
-            <strong>Internships</strong>
-            Learn from the best. Impress your folks.
-          </a>
-        </li>
-      </ul>
-      <a class="teams-volunteer" href="http://www.mozilla.org/en-US/contribute/">Looking to volunteer?</a>
-    </div>
-  </div>
-
-  <article id="team-building" class="teams-team team-building team-bg">
-    <div class="team-contain">
-      <h3 class="team-head">Building &amp; Designing</h3>
-      <p>
-        We are designers, engineers, creators and problem solvers. We work in the fishbowl known as open source, with a clear focus on making the Web better. Working with us, you’ll help build amazing things like Firefox, Rust and more. To be part of the team, we ask that you be awesome, intelligent and proud to be moving the mission forward. Rock on.
-      </p>
-      <a class="cta" href="{{ url('careers.listings') }}">View Open Positions</a>
-    </div>
-  </article>
-
-  <article id="team-operations" class="teams-team team-operations">
-    <div class="team-contain">
-      <h3 class="team-head">Operations</h3>
-      <p>
-        We are Systems, Security, IT and Finance. Our work at Mozilla is vital to our everyday lives and it keeps you — and everyone in our community — browsing the Web, developing awesome apps and more. We also work hard to keep your identity secure, the lights on and the refrigerators filled. Yep, we do it all.
-      </p>
-      <a class="cta" href="{{ url('careers.listings') }}">View Open Positions</a>
-    </div>
-  </article>
-
-  <article id="team-people" class="teams-team team-people">
-    <div class="team-contain">
-      <h3 class="team-head">People</h3>
-      <p>
-        People are at the heart of everything that happens here. Our focus is finding the best future Mozillians and helping them join the mission. We provide everyone at Mozilla the tools, resources and support they need to develop, grow and make the world (and the Web, of course) an exceptional place. What do you want to change about the world of work?
-      </p>
-      <a class="cta" href="{{ url('careers.listings') }}">View Open Positions</a>
-    </div>
-  </article>
-
-  <article id="team-business" class="teams-team team-business">
-    <div class="team-contain">
-      <h3 class="team-head">Business</h3>
-      <p>
-        Business at Mozilla is far from usual. Even for those who wear ties to work, things are a little more unconventional and creative. As the core growth and legal team, our efforts are focused on bringing in new business initiatives and partnerships that will support our current partners, team members, communities and, best of all, mankind. What do you say? Are you ready to get down to business?
-      </p>
-      <a class="cta" href="{{ url('careers.listings') }}">View Open Positions</a>
-    </div>
-  </article>
-
-  <article id="team-marketing" class="teams-team team-marketing">
-    <div class="team-contain">
-      <h3 class="team-head">Marketing &amp; Engagement</h3>
-      <p>
-        At Mozilla, we have powerful stories to tell — and talented storytellers who share them with the world at large. Working with this team of product marketing, public relations and brand-building dynamos, you’ll have an opportunity to tell thousands of stories from all around the globe, to inspire thousands more and to build our legacy as an innovative, world-changing non-profit. Hope you have your pencils sharpened.
-      </p>
-      <a class="cta" href="{{ url('careers.listings') }}">View Open Positions</a>
-    </div>
-  </article>
-
-  <article id="team-internships" class="teams-team team-internships">
-    <div class="team-contain">
-      <h3 class="team-head">Internships</h3>
-      <p>
-        Mozilla isn’t just a great place to work. It’s an experience you’ll carry with you throughout your career. As part of our internship program, you’ll have the opportunity to be mentored 1:1 by somebody brilliant, to impact the projects you’ll collaborate on and to never be bored. Ever. From the passionate people you’ll learn from to the chances you’ll have to make the Web a better place, your time with Mozilla will be unlike any other.
-      </p>
-      <a class="cta" href="{{ url('university.index') }}">Find out more</a>
-    </div>
-  </article>
-</section>
-
-<section id="life">
-  <div class="contain">
-    <h2 class="life-head">Life at Mozilla</h2>
-    <h3 class="life-intro-head">What makes us&#133; us.</h3>
-    <p class="life-intro">
-      At Mozilla, we like to find the best and most fun ways to do things, and we like to think it shows in all that we do. Throw in a good dose of freedom, teamwork and perks, and you’ve got life at Mozilla. And we haven’t even mentioned the snacks yet.
-    </p>
-  </div>
-  <article id="life-gallery">
-    <p class="ally">Gallery of photos showing people brainstorming, working playing, attending conferences, and working together. It also shows the personal touches many Mozillians bring to work: stuffed animals, laptop stickers, a Pac-man ghost made of post-it notes, and FireFox shoe laces.</p>
-    <div id="life-gallery-photos">
-      <!-- photos loaded here with javascript -->
-    </div>
-  </article>
-  <div class="contain">
-    <article id="life-people">
-      <h3 class="life-people-head">How we take care of our people</h3>
-      <div class="life-people-desc">
+      <div class="mzp-c-hero-desc">
         <p>
-          We offer a unique, flexible work environment where individual contribution and impact produce results greater than a paycheck and benefits. But pay and benefits are important, so we offer market-competitive salaries and cash-based incentives as well as a full stack of benefits.
+          Pursue your future while working to protect the future of the internet for everyone, everywhere.
         </p>
-        <a class="life-people-cta" href="https://assets.mozilla.net/pdf/mozilla-careers-comp-brochure.pdf">Learn more</a>
-      </div>
-    </article>
-  </div>
-</section>
-
-<section id="community">
-  <div class="contain">
-    <h3 class="community-head">Community &amp; Culture</h3>
-    <div class="community-boxes">
-      <div class="community-box community-monument video-player" data-video-file-name="Firefox_Monument_2014"
-        data-video-ga-interaction="Community & Culture Interactions" data-video-ga-name="Firefox Monument 2014 Video">
-        <h4>Firefox Monument</h4>
-        <p>Our tribute to the more than 4,500 people who have helped make Firefox what it is today.</p>
-        <p><a href="https://videos.cdn.mozilla.net/uploads/hr/Firefox_Monument_2014.mp4">watch video</a></p>
-      </div>
-      <div class="community-box community-interns video-player" data-video-file-name="rubic-cube"
-        data-video-ga-interaction="Community & Culture Interactions" data-video-ga-name="Creative Interns Video">
-        <h4>Creative interns</h4>
-        <p>A recent group of interns re-created our beloved Firefox out of Rubik’s Cubes. Showoffs.</p>
-        <p><a href="https://videos.cdn.mozilla.net/uploads/hr/rubic-cube.mp4">watch video</a></p>
-      </div>
-      <div class="community-box community-reps">
-        <h4>Mozilla Reps</h4>
-        <p>See how we empower volunteer Mozillians in their communities and around the world.</p>
-        <p><a href="https://reps.mozilla.org/">visit website</a></p>
-      </div>
-      <div class="community-box community-desk">
-        <h4>Desk companions</h4>
-        <p>From the fuzzy to the fierce, they’re always here, silently cheering us on. </p>
-      </div>
-      <div class="community-box community-festival">
-        <h4>Mozilla Festival</h4>
-        <p>Our annual gathering of thinkers and inventors from around the world. Consider yourself invited.</p>
-        <p><a href="http://mozillafestival.org/">visit website</a></p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="locations">
-  <h2 class="locations-head">Locations</h2>
-  <p class="locations-subhead">One community. <br>Many continents.</p>
-  <div class="locations-remote">
-    <strong>Remote working</strong>
-    <p class="locations-remote-pins">
-      The pins on the map only tell part of the story. Mozilla has hundreds of paid and volunteer contributors who work from home. And we’re happy to support them however we can.
-    </p>
-    <p class="locations-remote-nopins">
-      Office locations only tell part of the story. Mozilla has hundreds of paid and volunteer contributors who work from home. And we’re happy to support them however we can.
-    </p>
+<div class="mzp-l-content apply-now-wrapper">
+  <div class="centered">
+    <a class="mzp-c-button" href="{{ url('careers.listings') }}">Apply Now</a>
+  </div>
+</div>
+
+<div class="mzp-l-card-hero">
+  <section class="mzp-c-card mzp-c-card-large mzp-has-aspect-16-9 mzp-has-video has-video-embed">
+    <div class="mzp-c-card-media-wrapper iframe-video-wrapper">
+      <iframe src="https://www.youtube-nocookie.com/embed/uVf_lYoOT2A?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="mzp-c-card-content">
+      <div class="mzp-c-card-tag">Video</div>
+      <h2 class="mzp-c-card-title">Because in-person is best.</h2>
+      <div class="mzp-c-card-desc">
+        Our All Hands are a unique opportunity for employees and our most impactful
+        volunteers to come together, in person, to share experiences, generate new ideas
+        and spark new friendships. We went to Whistler this June.
+      </div>
+    </div>
+  </section>
+  <section class="mzp-c-card mzp-c-card-small">
+    <div class="mzp-c-card-content">
+      <ol class="survey-wrapper">
+        <li>
+          <h4>How we treat each other</h4>
+          At Mozilla, people treat each other with respect:
+          <svg width="261" height="20" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M19 0h232c5.523 0 10 4.477 10 10s-4.477 10-10 10H19c-5.523 0-10-4.477-10-10S13.477 0 19 0z" fill="#FF838D"/><path d="M129.5 0H236v20H19c-5.523 0-10-4.477-10-10S13.477 0 19 0h110.5z" fill="#FFF781"/><path d="M101.5 0H193v20H10C4.477 20 0 15.523 0 10S4.477 0 10 0h91.5z" fill="#A0F5F5"/><text fill="#000" font-family="Inter-Regular_Bold, Inter" font-size="12" font-weight="bold"><tspan x="238.888" y="14">3%</tspan></text><text fill="#000" font-family="Inter-Regular_Bold, Inter" font-size="12" font-weight="bold"><tspan x="203.87" y="14">10%</tspan></text><text fill="#000" font-family="Inter-Regular_Bold, Inter" font-size="12" font-weight="bold"><tspan x="89.31" y="15">87%</tspan></text></g></svg>
+        </li>
+        <li>
+          <h4>Learning and Development</h4>
+          I have access to the learning and development I need to do my job well:
+          <svg width="261" height="20" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><rect fill="#FF838D" x="22" width="239" height="20" rx="10"/><path d="M132.5 0H231v20H32c-5.523 0-10-4.477-10-10S26.477 0 32 0h100.5z" fill="#FFF781"/><path d="M91.5 0H175v20H10C4.477 20 0 15.523 0 10S4.477 0 10 0h81.5z" fill="#A0F5F5"/><text fill="#000" font-family="Inter-Regular_Bold, Inter" font-size="12" font-weight="bold"><tspan x="236.274" y="14">7%</tspan></text><text fill="#000" font-family="Inter-Regular_Bold, Inter" font-size="12" font-weight="bold"><tspan x="191.043" y="14">13%</tspan></text><text fill="#000" font-family="Inter-Regular_Bold, Inter" font-size="12" font-weight="bold"><tspan x="85.751" y="15">80%</tspan></text></g></svg>
+        </li>
+        <li>
+          <h4>Innovation</h4>
+          Within my organization, we act on promising new or innovative ideas:  
+          <svg width="261" height="20" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><rect fill="#FF838D" x="9" width="252" height="20" rx="10"/><path d="M117.5 0H224v20H19c-5.523 0-10-4.477-10-10S13.477 0 19 0h98.5z" fill="#FFF781"/><path d="M82.5 0H158v20H10C4.477 20 0 15.523 0 10S4.477 0 10 0h72.5z" fill="#A0F5F5"/><text fill="#000" font-family="Inter-Regular_Bold, Inter" font-size="12" font-weight="bold"><tspan x="232.879" y="14">8%</tspan></text><text fill="#000" font-family="Inter-Regular_Bold, Inter" font-size="12" font-weight="bold"><tspan x="179.286" y="14">22%</tspan></text><text fill="#000" font-family="Inter-Regular_Bold, Inter" font-size="12" font-weight="bold"><tspan x="74.146" y="15">70%</tspan></text></g></svg>
+        </li>
+      </ol>
+      <dl class="survey-legend-wrapper">
+        <div>
+          <dt>Favorable</dt>
+          <dd><div class="survey-legend survey-legend-favorable"></div></dd>
+        </div>
+        <div>
+          <dt>Neutral</dt>
+          <dd><div class="survey-legend survey-legend-neutral"></div></dd>
+        </div>
+        <div>
+          <dt>Unfavorable</dt>
+          <dd><div class="survey-legend survey-legend-unfavorable"></div></dd>
+        </div>
+      </dl>
+      <h2 class="mzp-c-card-title">Our culture ensures our future</h2>
+      <div class="mzp-c-card-desc">
+        Our most recent employee survey confirms, respect for one another and an emphasis
+        on learning and innovation, are what will ensure our future.
+      </div>
+    </div>
+  </section>
+</div>
+
+<br />
+
+<section class="mzp-l-card-half">
+  <div class="mzp-c-card mzp-c-card-medium mzp-has-aspect-16-9">
+    <div class="mzp-c-card-media-wrapper">
+      <div class="lazy-image-container">
+        <img src="{{ static('img/diverse-perspectives.jpg') }}" srcset="{{ static('img/diverse-perspectives-high-res.jpg') }} 1.5x" alt="" class="mzp-c-card-image" />
+      </div>
+    </div>
+  </div>
+  <div class="mzp-c-card mzp-c-card-medium">
+    <div class="mzp-c-card-content">
+      <h2 class="mzp-c-card-title">Diverse perspectives welcome</h2>
+      <div class="mzp-c-card-desc">
+        We respect differences. We seek them out. And we thrive because of them.
+      </div>
+      <a href="https://blog.mozilla.org/careers/transitioning-freely/" class="mzp-c-cta-link">Learn more</a>
+    </div>
+  </div>
+</section>
+
+<div class="mzp-c-billboard mzp-l-billboard-right">
+  <div class="mzp-c-billboard-image-container">
+    <img class="mzp-c-billboard-image" src="{{ static('img/improving-lives-not-profits.png') }}" srcset="{{ static('img/improving-lives-not-profits-high-res.png') }} 1.5x" alt="" height="381" width="286" />
+  </div>
+  <div class="mzp-c-billboard-content">
+    <div class="mzp-c-billboard-content-container">
+      <div class="mzp-c-billboard-content-inner">
+        <h2 class="mzp-c-billboard-title">Improving lives, not profits</h2>
+        <p class="mzp-c-billboard-desc">
+          Our mission is to keep the internet open and safe for everyone. It’s the
+          driving force of our culture, and almost every conversation.
+        </p>
+        <a class="mzp-c-cta-link" href="#">Learn more about us</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mzp-l-content apply-now-wrapper">
+  <div class="centered">
+    <a class="mzp-c-button" href="{{ url('careers.listings') }}">Apply Now</a>
+  </div>
+</div>
+
+{% if blog_posts %}
+  <section class="mzp-l-card-half">
+  {% for post in blog_posts %}
+    <div class="mzp-c-card mzp-c-card-medium mzp-has-aspect-16-9">
+      <a href="{{ post.link }}" class="mzp-c-card-block-link">
+        <div class="mzp-c-card-media-wrapper">
+          <div class="lazy-image-container">
+            <img src="{{ post.image }}" alt="" class="mzp-c-card-image" />
+          </div>
+        </div>
+        <div class="mzp-c-card-content">
+          <h2 class="mzp-c-card-title">{{ post.title }}</h2>
+          <div class="mzp-c-card-desc">
+            {{ post.excerpt }}
+          </div>
+        </div>
+      </a>
+    </div>
+  {% endfor %}
+  </section>
+{% endif %}
+
+<br />
+
+<div class="centered">
+  <h5>Connection is Our Superpower</h5>
+
+  <p>
+    We’re united by our passion for the internet, and for supporting each other. Once
+    you’re a Mozillian, you’re always a Mozillian.
+  </p>
+</div>
+
+<div class="mzp-l-card-third">
+  <section class="mzp-c-card mzp-has-aspect-1-1">
+    <div class="mzp-c-card-media-wrapper">
+      <img src="{{ static('img/mozillians/mozilla-office.jpg') }}" srcset="{{ static('img/mozillians/mozilla-office-high-res.jpg') }} 1.5x" alt="" class="mzp-c-card-image" />
+    </div>
+  </section>
+  <section class="mzp-c-card mzp-has-aspect-1-1">
+    <div class="mzp-c-card-media-wrapper">
+      <img src="{{ static('img/mozillians/london.jpg') }}" srcset="{{ static('img/mozillians/london-high-res.jpg') }} 1.5x" alt="" class="mzp-c-card-image" />
+    </div>
+  </section>
+  <section class="mzp-c-card mzp-has-aspect-1-1">
+    <div class="mzp-c-card-media-wrapper">
+      <img src="{{ static('img/mozillians/whistler-1.jpg') }}" srcset="{{ static('img/mozillians/whistler-1-high-res.jpg') }} 1.5x" alt="" class="mzp-c-card-image" />
+    </div>
+  </section>
+  <section class="mzp-c-card mzp-has-aspect-1-1">
+    <div class="mzp-c-card-media-wrapper">
+      <img src="{{ static('img/mozillians/whistler-2.jpg') }}" srcset="{{ static('img/mozillians/whistler-2-high-res.jpg') }} 1.5x" alt="" class="mzp-c-card-image" />
+    </div>
+  </section>
+  <section class="mzp-c-card mzp-has-aspect-1-1">
+    <div class="mzp-c-card-media-wrapper">
+      <img src="{{ static('img/mozillians/mozilla-team.jpg') }}" srcset="{{ static('img/mozillians/mozilla-team-high-res.jpg') }} 1.5x" alt="" class="mzp-c-card-image" />
+    </div>
+  </section>
+  <section class="mzp-c-card mzp-has-aspect-1-1">
+    <div class="mzp-c-card-media-wrapper">
+      <img src="{{ static('img/mozillians/whistler-all-hands.jpg') }}" srcset="{{ static('img/mozillians/whistler-all-hands-high-res.jpg') }} 1.5x" alt="" class="mzp-c-card-image" />
+    </div>
+  </section>
+</div>
+
+<section class="accolades">
+  <div class="mzp-c-call-out">
+    <div class="mzp-l-content">
+      <h2 class="mzp-c-call-out-title">Accolades from Others</h2>
+      <p class="mzp-c-call-out-desc">
+        The praise we value most comes from our employees, but we’re still honored to have
+        been acknowledged by these organizations.
+      </p>
+    </div>
   </div>
 
-  <ul id="locations-list">
-    <li id="mountain-view" class="locations-location">
-      <a class="location-link" href="https://www.mozilla.org/contact/spaces/mountain-view/">Mountain View</a>
-      <div class="location-details">
-        <strong>Mountain View</strong><br>
-        331 E. Evelyn Ave.<br>
-        Mountain View, CA,<br>
-        94041<br>
-        USA
-      </div>
-    </li>
-    <li id="beijing" class="locations-location">
-        <a class="location-link" href="https://www.mozilla.org/contact/spaces/beijing/">Beijing</a>
-        <div class="location-details">
-          <strong>Beijing</strong><br>
-          Mozilla Online Ltd.<br>
-          China Resources Building, Suite 1708<br>
-          8 Jianguomenbei Avenue<br>
-          Dongcheng District, Beijing 100005<br>
-          China
+  <div class="mzp-l-card-third">
+    <section class="mzp-c-card mzp-has-aspect-1-1">
+      <a href="https://www.fastcompany.com/90373504/fighting-for-online-freedom" class="mzp-c-card-block-link" rel="noopener noreferrer">
+        <div class="mzp-c-card-content centered">
+          <h2 class="mzp-c-card-title">Fast Company’s Best Workplaces for Innovators</h2>
+          <div class="mzp-c-card-desc">&ndash; 2019 &ndash;</div>
         </div>
-    </li>
-    <li id="berlin" class="locations-location">
-        <a class="location-link" href="https://www.mozilla.org/contact/spaces/berlin/">Berlin</a>
-        <div class="location-details">
-          <strong>Berlin</strong><br>
-          Mozilla Berlin<br>
-          GSG-Hof Schlesische Straße<br>
-          Gebäude 3, 4. Obergeschoss<br>
-          Schlesische Straße 27<br>
-          10997 Berlin<br>
-          Germany
+      </a>
+    </section>
+    <section class="mzp-c-card mzp-has-aspect-1-1">
+      <a href="https://www.fastcompany.com/90299092/mozilla-most-innovative-companies-2019" class="mzp-c-card-block-link" rel="noopener noreferrer">
+        <div class="mzp-c-card-content centered">
+          <h2 class="mzp-c-card-title">Fast Company Most Innovative Companies</h2>
+          <div class="mzp-c-card-desc">&ndash; 2019 &ndash;</div>
         </div>
-    </li>
-    <li id="london" class="locations-location">
-      <a class="location-link" href="https://www.mozilla.org/contact/spaces/london/">London</a>
-      <div class="location-details">
-        <strong>London</strong><br>
-        Metal Box Factory<br>
-        Suite 441<br>
-        30 Great Guildford Street<br>
-        London SE1 0HS<br>
-        UK
+      </a>
+    </section>
+    <section class="mzp-c-card mzp-has-aspect-1-1">
+      <a href="https://blog.mozilla.org/careers/mozilla-corporation-takes-part-in-hrcs-2019-lgbtq-workplace-equality-index/" class="mzp-c-card-block-link" rel="noopener noreferrer">
+        <div class="mzp-c-card-content centered">
+          <h2 class="mzp-c-card-title">Human Rights Campaign Corporate Equality Index</h2>
+          <div class="mzp-c-card-desc">&ndash; 2019 &ndash;</div>
+        </div>
+      </a>
+    </section>
+  </div>
+</section>
+
+<div class="mzp-l-content apply-now-wrapper">
+  <div class="centered">
+    <a class="mzp-c-button" href="{{ url('careers.listings') }}">Apply Now</a>
+  </div>
+</div>
+
+<section class="mzp-c-call-out">
+  <div class="mzp-l-content">
+    <h2 class="mzp-c-call-out-title">Your Career Growth is Part of our Mission </h2>
+    <p class="mzp-c-call-out-desc">
+      Serving 300+ million people means our small team has a mighty mandate. Add a
+      culture of exploration and mentorship, and there is always a new way to learn and
+      grow here.
+    </p>
+  </div>
+</section>
+
+<section class="mission-points">
+  <section class="mzp-c-billboard mzp-l-billboard-left">
+    <div class="mzp-c-billboard-image-container">
+      <img class="mzp-c-billboard-image" src="{{ static('img/truly-mission-driven.png') }}" srcset="{{ static('img/truly-mission-driven-high-res.png') }} 1.5x" alt="" height="309" width="236" />
+    </div>
+    <div class="mzp-c-billboard-content">
+      <div class="mzp-c-billboard-content-container">
+        <div class="mzp-c-billboard-content-inner">
+          <h3 class="mzp-c-billboard-title">Truly “mission-driven”</h3>
+          <p class="mzp-c-billboard-desc">
+            Being wholly-owned by the non-profit Mozilla Foundation means we can focus on
+            the real needs of people, rather than a bottom line. 
+          </p>
+        </div>
       </div>
-    </li>
-    <li id="paris" class="locations-location">
-      <a class="location-link" href="https://www.mozilla.org/contact/spaces/paris/">Paris</a>
-      <div class="location-details">
-        <strong>Paris</strong><br>
-        16 bis blvd. Montmartre<br>
-        Paris 75009,<br>
-        France
+    </div>
+  </section>
+
+  <section class="mzp-c-billboard mzp-l-billboard-right">
+    <div class="mzp-c-billboard-image-container">
+      <img class="mzp-c-billboard-image" src="{{ static('img/the-web-the-way-it-should-be.png') }}" srcset="{{ static('img/the-web-the-way-it-should-be-high-res.png') }} 1.5x" alt="" height="319" width="270" />
+    </div>
+    <div class="mzp-c-billboard-content">
+      <div class="mzp-c-billboard-content-container">
+        <div class="mzp-c-billboard-content-inner">
+          <h2 class="mzp-c-billboard-title">The web the way it should be</h2>
+          <p class="mzp-c-billboard-desc">
+            Join a global community of employees, collaborators, activists, and advocates
+            fighting to keep the internet healthy for generations.
+          </p>
+        </div>
       </div>
-    </li>
-    <li id="portland" class="locations-location">
-      <a class="location-link" href="https://www.mozilla.org/contact/spaces/portland/">Portland</a>
-      <div class="location-details">
-        <strong>Portland</strong><br>
-        Brewery Block 2<br>
-        1120 NW Couch St. Suite 320<br>
-        Portland, Oregon<br>
-        97209<br>
-        USA
+    </div>
+  </section>
+
+  <section class="mzp-c-billboard mzp-l-billboard-left">
+    <div class="mzp-c-billboard-image-container">
+      <img class="mzp-c-billboard-image" src="{{ static('img/beyond-the-browser.png') }}" srcset="{{ static('img/beyond-the-browser-high-res.png') }} 1.5x" alt="" height="358" width="358" />
+    </div>
+    <div class="mzp-c-billboard-content">
+      <div class="mzp-c-billboard-content-container">
+        <div class="mzp-c-billboard-content-inner">
+          <h2 class="mzp-c-billboard-title">Beyond the browser</h2>
+          <p class="mzp-c-billboard-desc">
+            While our Firefox family of products works to keep everyone safer and smarter
+            online, our Mozilla initiatives focus on shaping the future of the internet.
+          </p>
+        </div>
       </div>
+    </div>
+  </section>
+</section>
+
+<div class="mzp-l-content apply-now-wrapper">
+  <div class="centered">
+    <a class="mzp-c-button" href="{{ url('careers.listings') }}">Apply Now</a>
+  </div>
+</div>
+
+<section class="mzp-l-content centered locations" id="locations">
+  <div class="mzp-c-call-out">
+    <div class="mzp-l-content">
+      <h2 class="mzp-c-call-out-title">A Global View</h2>
+      <p class="mzp-c-call-out-desc">
+        With offices all over the world, we consider the internet from multiple cultures
+        and contexts.
+      </p>
+    </div>
+  </div>
+
+  <ul class="locations-list">
+    <li>
+      <img src="{{ static('img/locations/san-francisco.png') }}" srcset="{{ static('img/locations/san-francisco-high-res.png') }}" alt="" />
+      San Francisco
     </li>
-    <li id="san-francisco" class="locations-location">
-      <a class="location-link" href="https://www.mozilla.org/contact/spaces/san-francisco/">San Francisco</a>
-      <div class="location-details">
-        <strong>San Francisco</strong><br>
-        2 Harrison Street, Suite 175<br>
-        San Francisco, CA,<br>
-        94105<br>
-        USA
-      </div>
+    <li>
+      <img src="{{ static('img/locations/berlin.png') }}" srcset="{{ static('img/locations/berlin-high-res.png') }}" alt="" />
+      Berlin
     </li>
-    <li id="taipei" class="locations-location">
-      <a class="location-link" href="https://www.mozilla.org/contact/spaces/taipei/">Taipei</a>
-      <div class="location-details">
-        <strong>Taipei</strong><br>
-        4F-A1, No. 106, Sec. 5,<br>
-        Xinyi Rd., Xinyi Dist.,<br>
-        Taipei City, 11047,<br>
-        Taiwan
-      </div>
+    <li>
+      <img src="{{ static('img/locations/taipei.png') }}" srcset="{{ static('img/locations/taipei-high-res.png') }}" alt="" />
+      Taipei
     </li>
-    <li id="toronto" class="locations-location">
-      <a class="location-link" href="https://www.mozilla.org/contact/spaces/toronto/">Toronto</a>
-      <div class="location-details">
-        <strong>Toronto</strong><br>
-        366 Adelaide St W, Suite 500<br>
-        Toronto, Ontario<br>
-        M5V 1R9<br>
-        Canada
-      </div>
+    <li>
+      <img src="{{ static('img/locations/toronto.png') }}" srcset="{{ static('img/locations/toronto-high-res.png') }}" alt="" />
+      Toronto
     </li>
-    <li id="vancouver" class="locations-location">
-      <a class="location-link" href="https://www.mozilla.org/contact/spaces/vancouver/">Vancouver</a>
-      <div class="location-details">
-        <strong>Vancouver</strong><br>
-        163 W Hastings St<br>
-        Suite 209<br>
-        Vancouver, BC<br>
-        V6B 1H5<br>
-        Canada
-      </div>
+    <li>
+      <img src="{{ static('img/locations/vancouver.png') }}" srcset="{{ static('img/locations/vancouver-high-res.png') }}" alt="" />
+      Vancouver
+    </li>
+    <li>
+      <img src="{{ static('img/locations/mountain-view.png') }}" srcset="{{ static('img/locations/mountain-view-high-res.png') }}" alt="" />
+      Mountain View
+    </li>
+    <li>
+      <img src="{{ static('img/locations/london.png') }}" srcset="{{ static('img/locations/london-high-res.png') }}" alt="" />
+      London
+    </li>
+    <li>
+      <img src="{{ static('img/locations/paris.png') }}" srcset="{{ static('img/locations/paris-high-res.png') }}" alt="" />
+      Paris
+    </li>
+    <li>
+      <img src="{{ static('img/locations/portland.png') }}" srcset="{{ static('img/locations/portland-high-res.png') }}" alt="" />
+      Portland
+    </li>
+    <li>
+      <img src="{{ static('img/locations/remote.png') }}" srcset="{{ static('img/locations/remote-high-res.png') }}" alt="" />
+      Remote
     </li>
   </ul>
-
-  <p class="locations-tag">
-    We are global in the truest sense, working around the world for people everywhere.
-  </p>
-</section>
-
-<section id="next">
-  <div id="next-teaser">
-    <div class="contain">
-      <p class="next-box"><strong>Hundreds of millions</strong> of users</p>
-      <p class="next-box"><strong>Tens of thousands</strong> of contributors</p>
-      <p class="next-box"><strong>One</strong> global community</p>
-      <p class="next-you">Are <em>you</em> ready to join?</p>
-    </div>
-  </div>
-  <div class="cta-strip">
-    <a class="cta ga-career-banner-listings-bottom" href="{{ url('careers.listings') }}">View our current openings</a>
-    <a class="cta ga-career-banner-internship-bottom" href="{{ url('university.index') }}">Apply for an internship</a>
-    <a class="cta ga-career-banner-volunteer-bottom" href="https://www.mozilla.org/contribute/">Become a volunteer</a>
-  </div>
 </section>
 
 {% endblock %}

@@ -1,0 +1,90 @@
+{% set navbar_section = navbar_section|default(None) -%}
+
+<!DOCTYPE html>
+<html lang="{{ LANG }}" dir="{{ DIR }}" class="js-disabled"
+      data-ga-code="{{ settings.GA_ACCOUNT_CODE }}"
+      data-gtm-code="{{ settings.GTM_ACCOUNT_CODE }}">
+  <head>
+    {# meta #}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block page_title %}mozilla.org{% endblock %}</title>
+
+    {# css #}
+    {% block site_css %}
+      <link href="{{ static('css/base.css') }}" rel="stylesheet" />
+      <link href="{{ static('js/libs/video-js/video-js.css') }}" rel="stylesheet" />
+      <link href="{{ static('js/libs/video-js/video-js-sandstone.css') }}" rel="stylesheet" />
+    {% endblock %}
+    <link href="{{ static('css/print.css') }}" rel="stylesheet" media="print" />
+
+    {# js #}
+    <!--[if gt IE 8]> <!-- -->
+      <script src="{{ static('js/head.js') }}"></script>
+    <!-- <![endif]-->
+
+    <!--[if lte IE 8]>
+    {% block site_ie8 %}
+      <script src="{{ static('js/libs/html5shiv-printshiv.js') }}"></script>
+    {% endblock %}
+    <![endif]-->
+
+    {# icons #}
+    <link rel="shortcut icon" type="image/png" href="{{ static('img/favicon.ico') }}"/>
+
+    {# feeds #}
+    <link rel="alternate" type="application/rss+xml"
+          href="{{ url('careers.feed') }}" title="Current Mozilla job openings" />
+
+    {% block google_analytics %}
+      {# Google Analytics #}
+      {% if settings.GTM_ACCOUNT_CODE %}
+        <noscript>
+          <iframe src="//www.googletagmanager.com/ns.html?id={{ settings. GTM_ACCOUNT_CODE }}"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
+        <script src="{{ static('js/gtm.js') }}"></script>
+      {% elif settings.GA_ACCOUNT_CODE %}
+        <script src="{{ static('js/ga.js') }}"></script>
+      {% endif %}
+    {% endblock %}
+
+  </head>
+  <body id="{% block body_id %}{% endblock %}"
+    {%- block body_data %}
+    {%- endblock %}>
+
+    {% include "old/base/header.jinja" %}
+
+    <div id="wrapper">
+      <main role="main">
+
+        {% block content %}{% endblock %}
+
+      </main>
+
+      {% block site_footer %}
+        {% include "old/base/footer.jinja" %}
+      {% endblock %}
+
+    </div><!-- /#wrapper -->
+
+    {# js #}
+    {% block site_js %}
+      <script src="{{ static('js/libs/jquery-1.7.1.min.js') }}"></script>
+      <script src="{{ static('js/libs/waypoints.min.js') }}"></script>
+      <script src="{{ static('js/libs/modernizr.custom.96716.js') }}"></script>
+      <script src="{{ static('js/libs/jquery.carouFredSel-6.2.1-packed.js') }}"></script>
+      <script src="{{ static('js/libs/jquery.touchSwipe.min.js') }}"></script>
+      <script src="{{ static('js/ga_event-tracking.js') }}"></script>
+
+      <!--[if gt IE 8]> <!-- -->
+        <script src="{{ static('js/libs/video-js/video.dev.js') }}"></script>
+        <script src="{{ static('js/libs/requestAnimationFrame.min.js') }}"></script>
+        <script src="{{ static('js/base-old.js') }}"></script>
+      <!-- <![endif]-->
+    {% endblock %}
+
+  </body>
+</html>

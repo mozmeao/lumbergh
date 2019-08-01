@@ -1,0 +1,263 @@
+/* utility classes */
+
+.centered {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+/* nav */
+
+.mzp-c-menu-category .mzp-c-menu-title {
+    font-weight: bold;
+}
+
+/* page elements */
+
+.page-hero {
+    align-items: center;
+    background: url('../img/hero-bg.jpg') center center no-repeat;
+    background-size: cover;
+    display: flex;
+    min-height: 388px;
+}
+
+.listings-page .page-hero {
+    background-image: url('../img/hero-bg-listings.jpg');
+    background-position: bottom right;
+}
+
+.apply-now-wrapper {
+    padding-bottom: 48px;
+    padding-top: 48px;
+}
+
+.iframe-video-wrapper {
+    padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+}
+
+.iframe-video-wrapper iframe {
+    position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.survey-wrapper h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+}
+
+.survey-wrapper svg {
+    display: block;
+    margin-top: 1rem;
+}
+
+.survey-wrapper li {
+    margin-bottom: 2rem;
+}
+
+.survey-legend-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.survey-legend {
+    border-radius: 50%;
+    display: block;
+    height: 14px;
+    margin: 8px auto 0;
+    width: 14px;
+}
+
+.survey-legend-favorable {
+    background: #a0f5f5;
+}
+
+.survey-legend-neutral {
+    background: #fff781;
+}
+
+.survey-legend-unfavorable {
+    background: #ff838d;
+}
+
+.accolades {
+    background: url('../img/medal.png') top center no-repeat;
+    padding-top: 130px;
+}
+
+.accolades .mzp-c-call-out,
+.locations .mzp-c-call-out {
+    background: transparent;
+}
+
+.mission-points .mzp-c-billboard {
+    background: transparent;
+}
+
+.locations-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-gap: 30px;
+}
+
+.locations-list img {
+    display: block;
+    margin: 0 auto 10px;
+    width: 95px;
+}
+
+#listings-filters {
+    text-align: right;
+}
+
+.listings-filter {
+    margin-bottom: 20px;
+}
+
+#listings-filters select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url('../img/arrow.svg') right 10px center no-repeat;
+    border: 0;
+    border-radius: 6px;
+    box-shadow: inset 0 0 2px rgba(000,000,000, 0.5);
+    font-size: 0.8rem;
+    max-width: 250px;
+    padding: 12px 28px 12px 12px;
+}
+
+/* visually hidden, but accessible to screen readers */
+#listings-filters label {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.listings-positions thead {
+    display: none;
+}
+
+.listings-positions tbody tr {
+    border-bottom: 1px solid #d6d4d4;
+    display: block;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.listings-positions tbody td {
+    display: list-item;
+    list-style: none;
+}
+
+.job-post ul {
+    list-style: disc;
+    margin-left: 32px;
+}
+
+.job-post li {
+    margin-bottom: .25em;
+}
+
+/* $mq-sm in protocol */
+@media only screen and (min-width: 480px) {
+    .locations-list {
+        grid-gap: 70px;
+    }
+}
+
+/* $mq-md in protocol */
+@media only screen and (min-width: 768px) {
+    .accolades {
+        padding-top: 100px;
+    }
+
+    .listings-positions thead {
+        border-bottom: 1px solid #d6d4d4;
+        display: table-header-group;
+        text-align: left;
+    }
+
+    .listings-positions thead h4 {
+        font-size: 1.8rem;
+    }
+
+    .listings-positions tbody tr {
+        border-bottom: 1px solid #d6d4d4;
+        display: table-row;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .listings-positions tbody tr.hidden {
+        display: none;
+    }
+
+    .listings-positions tbody td {
+        display: table-cell;
+        padding: 15px 20px 15px 0;
+        vertical-align: top;
+    }
+
+    .title {
+        width: 35%;
+    }
+
+    .location {
+        width: 25%;
+    }
+
+    .type {
+        width: 15%;
+    }
+
+    .name {
+        width: 25%;
+    }
+
+    #listings-filters {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    #listings-filters .listings-filter {
+        padding-left: 10px;
+    }
+}
+
+/* $mq-xl in protocol */
+@media only screen and (min-width: 1312px) {
+    .listings-positions tbody td {
+        padding: 20px 30px 20px 0;
+    }
+}
+
+/* high res images */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx), only screen and (min-resolution: 144dpi) {
+    .page-hero {
+        background-image: url('../img/hero-bg-high-res.jpg');
+    }
+
+    .listings-page .page-hero {
+        background-image: url('../img/hero-bg-listings-high-res.jpg');
+    }
+
+    .accolades {
+        background-image: url('../img/medal-high-res.png');
+        background-size: 165px 148px;
+    }
+}

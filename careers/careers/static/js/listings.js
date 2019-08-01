@@ -41,6 +41,7 @@
         }
     }
 
+    /*
     // updates spans that appear instead of select box or labels on larger secreens
     function filtersMaskUpdate(e) {
         var filterSelect = $(e.target);
@@ -51,7 +52,9 @@
 
         ga('careersSnippetGA.send', 'event', 'Listings Filter', filterName, filterText);
     }
+    */
 
+    /*
     // hides or shows filters on mobile
     function filtersToggle() {
         var listingsFilters = $('#listings-filters');
@@ -69,7 +72,9 @@
             listingsFilters.addClass('open');
         }
     }
+    */
 
+    /*
     // go to the position details page for the job position clicked
     function listingGoToPosition(e) {
         if (e.target.tagName !== 'A') {
@@ -79,24 +84,30 @@
             window.location = listingsLocation;
         }
     }
+    */
 
     // create elements and add event listners for listings page
     function listingsInit() {
         // make sure select boxes match values in the querystring (for direct linking)
         propogateQueryParamsToSelects();
 
+        /*
         // turn filter heading into a button to hide and show filters on mobile
         var filterHeadButton = $('<button type="button">Filters</button>');
         filterHeadButton.click(filtersToggle);
         filterHeadButton.appendTo('.listings-filters-head');
+        */
 
+        /*
         // add done button to filters to hide filters on mobile
         var filterDoneWraper = $('<div class="listings-done"></div>');
         var filterDoneButton = $('<button class="cta" type="button">Done</button>');
         filterDoneButton.click(filtersToggle);
         filterDoneButton.appendTo(filterDoneWraper);
         filterDoneWraper.appendTo('#listings-filters');
+        */
 
+        /*
         // create spans to echo select contents - they appear instead of label on larger screens
         $('.listings-filter').each( function() {
             var filter = $(this);
@@ -110,9 +121,12 @@
             //attach filter mask
             filterMask.appendTo(filter);
         });
+        */
 
+        /*
         // make valid listings in the table clickable
         $('#listings-positions tbody tr.position').on('click', listingGoToPosition);
+        */
     }
 
     // init listings
