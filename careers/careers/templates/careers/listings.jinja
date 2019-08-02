@@ -3,14 +3,6 @@
 {% set navbar_section = 'listings' %}
 {% block page_title %}Listings{% endblock %}
 
-{% block site_js %}
-  {{ super() }}
-  <!--[if gt IE 8]> <!-- -->
-    <script src="{{ static('js/listings.js') }}"></script>
-  <!-- <![endif]-->
-  <script src="{{ static('js/filters.js') }}"></script>
-{% endblock %}
-
 {% block body_class %}listings-page{% endblock %}
 
 {% block content %}
@@ -70,7 +62,7 @@
         <td class="name">{{ position.department }}</td>
       </tr>
     {% endfor %}
-      <tr class="empty-filter-message hidden">
+      <tr class="empty-filter-message hidden" id="empty-filter-message">
         <td colspan="4">
           <p>No jobs found that match the selected filters.</p>
         </td>
@@ -78,4 +70,11 @@
     </tbody>
   </table>
 </section>
+{% endblock %}
+
+
+{% block site_js %}
+  {{ super() }}
+  <script src="{{ static('js/listings.js') }}"></script>
+  <script src="{{ static('js/filters.js') }}"></script>
 {% endblock %}
