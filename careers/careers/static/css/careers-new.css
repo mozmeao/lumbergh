@@ -24,14 +24,25 @@
     min-height: 388px;
 }
 
-.listings-page .page-hero {
+.page-hero .mzp-c-hero-desc,
+.page-hero .mzp-c-hero-desc p {
+    margin-bottom: 0;
+}
+
+.listings-page .page-hero,
+.listing-page .page-hero {
     background-image: url('../img/hero-bg-listings.jpg');
     background-position: bottom right;
 }
 
+.listing-page .page-hero {
+    background-position: top center;
+    min-height: 190px;
+}
+
 .apply-now-wrapper {
-    padding-bottom: 48px;
-    padding-top: 48px;
+    margin-bottom: 24px;
+    margin-top: 24px;
 }
 
 .iframe-video-wrapper {
@@ -53,6 +64,24 @@
     margin-bottom: 0.2rem;
 }
 
+.survey-graph {
+    border-radius: 22px;
+    height: 24px;
+    margin-top: 10px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.survey-graph div {
+    display: inline-block;
+    text-align: center;
+}
+
+.survey-graph-text {
+    font-size: 0.7em;
+    font-weight: bold;
+}
+
 .survey-wrapper svg {
     display: block;
     margin-top: 1rem;
@@ -65,7 +94,6 @@
 .survey-legend-wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    margin-bottom: 4rem;
     text-align: center;
 }
 
@@ -77,21 +105,25 @@
     width: 14px;
 }
 
-.survey-legend-favorable {
+.survey-favorable {
     background: #a0f5f5;
 }
 
-.survey-legend-neutral {
+.survey-neutral {
     background: #fff781;
 }
 
-.survey-legend-unfavorable {
+.survey-unfavorable {
     background: #ff838d;
 }
 
 .accolades {
     background: url('../img/medal.png') top center no-repeat;
     padding-top: 130px;
+}
+
+.improving-lives-billboard {
+    margin-bottom: 60px;
 }
 
 .accolades .mzp-c-call-out,
@@ -252,7 +284,8 @@
         background-image: url('../img/hero-bg-high-res.jpg');
     }
 
-    .listings-page .page-hero {
+    .listings-page .page-hero,
+    .listing-page .page-hero {
         background-image: url('../img/hero-bg-listings-high-res.jpg');
     }
 

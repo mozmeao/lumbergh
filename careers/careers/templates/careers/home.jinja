@@ -3,11 +3,6 @@
 {% set navbar_section = 'home' %}
 {% block page_title %}Mozilla Jobs &mdash; Open Positions{% endblock %}
 
-{% block site_js %}
-  {{ super() }}
-  <!--<script src="{{ static('js/careers.js') }}"></script>-->
-{% endblock %}
-
 {% block content %}
 
 <section class="mzp-c-hero mzp-t-dark page-hero">
@@ -51,31 +46,37 @@
         <li>
           <h4>How we treat each other</h4>
           At Mozilla, people treat each other with respect:
-          <svg width="261" height="20" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M19 0h232c5.523 0 10 4.477 10 10s-4.477 10-10 10H19c-5.523 0-10-4.477-10-10S13.477 0 19 0z" fill="#FF838D"/><path d="M129.5 0H236v20H19c-5.523 0-10-4.477-10-10S13.477 0 19 0h110.5z" fill="#FFF781"/><path d="M101.5 0H193v20H10C4.477 20 0 15.523 0 10S4.477 0 10 0h91.5z" fill="#A0F5F5"/><text fill="#000" font-family="Inter-Regular_Bold, Inter" font-size="12" font-weight="bold"><tspan x="238.888" y="14">3%</tspan></text><text fill="#000" font-family="Inter-Regular_Bold, Inter" font-size="12" font-weight="bold"><tspan x="203.87" y="14">10%</tspan></text><text fill="#000" font-family="Inter-Regular_Bold, Inter" font-size="12" font-weight="bold"><tspan x="89.31" y="15">87%</tspan></text></g></svg>
+          <div class="survey-graph">
+            <div class="survey-favorable" style="width: 87%;"><span class="survey-graph-text">87%</span></div><div class="survey-neutral" style="width: 10%;"><span class="survey-graph-text">10%</span></div><div class="survey-unfavorable" style="width: 3%;"><span class="survey-graph-text">&nbsp;</span></div>
+          </div>
         </li>
         <li>
           <h4>Learning and Development</h4>
           I have access to the learning and development I need to do my job well:
-          <svg width="261" height="20" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><rect fill="#FF838D" x="22" width="239" height="20" rx="10"/><path d="M132.5 0H231v20H32c-5.523 0-10-4.477-10-10S26.477 0 32 0h100.5z" fill="#FFF781"/><path d="M91.5 0H175v20H10C4.477 20 0 15.523 0 10S4.477 0 10 0h81.5z" fill="#A0F5F5"/><text fill="#000" font-family="Inter-Regular_Bold, Inter" font-size="12" font-weight="bold"><tspan x="236.274" y="14">7%</tspan></text><text fill="#000" font-family="Inter-Regular_Bold, Inter" font-size="12" font-weight="bold"><tspan x="191.043" y="14">13%</tspan></text><text fill="#000" font-family="Inter-Regular_Bold, Inter" font-size="12" font-weight="bold"><tspan x="85.751" y="15">80%</tspan></text></g></svg>
+          <div class="survey-graph">
+            <div class="survey-favorable" style="width: 80%;"><span class="survey-graph-text">80%</span></div><div class="survey-neutral" style="width: 13%;"><span class="survey-graph-text">13%</span></div><div class="survey-unfavorable" style="width: 7%;"><span class="survey-graph-text">7%</span></div>
+          </div>
         </li>
         <li>
           <h4>Innovation</h4>
-          Within my organization, we act on promising new or innovative ideas:  
-          <svg width="261" height="20" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><rect fill="#FF838D" x="9" width="252" height="20" rx="10"/><path d="M117.5 0H224v20H19c-5.523 0-10-4.477-10-10S13.477 0 19 0h98.5z" fill="#FFF781"/><path d="M82.5 0H158v20H10C4.477 20 0 15.523 0 10S4.477 0 10 0h72.5z" fill="#A0F5F5"/><text fill="#000" font-family="Inter-Regular_Bold, Inter" font-size="12" font-weight="bold"><tspan x="232.879" y="14">8%</tspan></text><text fill="#000" font-family="Inter-Regular_Bold, Inter" font-size="12" font-weight="bold"><tspan x="179.286" y="14">22%</tspan></text><text fill="#000" font-family="Inter-Regular_Bold, Inter" font-size="12" font-weight="bold"><tspan x="74.146" y="15">70%</tspan></text></g></svg>
+          Within my organization, we act on promising new or innovative ideas:
+          <div class="survey-graph">
+            <div class="survey-favorable" style="width: 70%;"><span class="survey-graph-text">70%</span></div><div class="survey-neutral" style="width: 22%;"><span class="survey-graph-text">22%</span></div><div class="survey-unfavorable" style="width: 8%;"><span class="survey-graph-text">8%</span></div>
+          </div>
         </li>
       </ol>
       <dl class="survey-legend-wrapper">
         <div>
           <dt>Favorable</dt>
-          <dd><div class="survey-legend survey-legend-favorable"></div></dd>
+          <dd><div class="survey-legend survey-favorable"></div></dd>
         </div>
         <div>
           <dt>Neutral</dt>
-          <dd><div class="survey-legend survey-legend-neutral"></div></dd>
+          <dd><div class="survey-legend survey-neutral"></div></dd>
         </div>
         <div>
           <dt>Unfavorable</dt>
-          <dd><div class="survey-legend survey-legend-unfavorable"></div></dd>
+          <dd><div class="survey-legend survey-unfavorable"></div></dd>
         </div>
       </dl>
       <h2 class="mzp-c-card-title">Our culture ensures our future</h2>
@@ -108,7 +109,7 @@
   </div>
 </section>
 
-<div class="mzp-c-billboard mzp-l-billboard-right">
+<div class="mzp-c-billboard mzp-l-billboard-right improving-lives-billboard">
   <div class="mzp-c-billboard-image-container">
     <img class="mzp-c-billboard-image" src="{{ static('img/improving-lives-not-profits.png') }}" srcset="{{ static('img/improving-lives-not-profits-high-res.png') }} 1.5x" alt="" height="381" width="286" />
   </div>
@@ -120,7 +121,7 @@
           Our mission is to keep the internet open and safe for everyone. It’s the
           driving force of our culture, and almost every conversation.
         </p>
-        <a class="mzp-c-cta-link" href="#">Learn more about us</a>
+        <a class="mzp-c-cta-link" href="https://assets.mozilla.net/pdf/mozilla-careers-comp-brochure.pdf">Learn more about us</a>
       </div>
     </div>
   </div>
@@ -157,7 +158,7 @@
 <br />
 
 <div class="centered">
-  <h5>Connection is Our Superpower</h5>
+  <h4>Connection is Our Superpower</h4>
 
   <p>
     We’re united by our passion for the internet, and for supporting each other. Once
