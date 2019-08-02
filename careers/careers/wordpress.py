@@ -1,3 +1,6 @@
+# this file is a simplified version of the wordpress app in bedrock
+# https://github.com/mozilla/bedrock/tree/master/bedrock/wordpress
+
 import bleach
 import requests
 
