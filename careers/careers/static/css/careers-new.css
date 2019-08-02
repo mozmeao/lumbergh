@@ -191,6 +191,10 @@
     padding-bottom: 1.5rem;
 }
 
+.listings-positions tbody tr.hidden {
+    display: none;
+}
+
 .listings-positions tbody td {
     display: list-item;
     list-style: none;
