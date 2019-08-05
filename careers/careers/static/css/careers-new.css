@@ -31,13 +31,21 @@
 
 .listings-page .page-hero,
 .listing-page .page-hero {
-    background-image: url('../img/hero-bg-listings.jpg');
+    background-image: url('../img/hero-bg-jobs.jpg');
     background-position: bottom right;
 }
 
 .listing-page .page-hero {
     background-position: top center;
     min-height: 190px;
+}
+
+.mzp-c-hero-title,
+.mzp-c-hero-desc {
+    text-shadow: -1px 1px 0 rgba(0, 0, 0, 0.3),
+				  1px 1px 0 rgba(0, 0, 0, 0.3),
+				  1px -1px 0 rgba(0, 0, 0, 0.3),
+				 -1px -1px 0 rgba(0, 0, 0, 0.3);
 }
 
 .apply-now-wrapper {
@@ -290,7 +298,7 @@
 
     .listings-page .page-hero,
     .listing-page .page-hero {
-        background-image: url('../img/hero-bg-listings-high-res.jpg');
+        background-image: url('../img/hero-bg-jobs-high-res.jpg');
     }
 
     .accolades {
