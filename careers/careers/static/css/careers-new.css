@@ -8,6 +8,18 @@
     display: none;
 }
 
+/* visually hidden, but accessible to screen readers */
+.visually-hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
 /* nav */
 
 .mzp-c-menu-category .mzp-c-menu-title {
@@ -174,18 +186,6 @@
     font-size: 0.8rem;
     max-width: 250px;
     padding: 12px 28px 12px 12px;
-}
-
-/* visually hidden, but accessible to screen readers */
-#listings-filters label {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
 }
 
 .listings-positions thead {
