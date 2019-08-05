@@ -2,92 +2,151 @@
 
 {% block page_title %}{{ position.title }} &mdash; Mozilla Jobs &mdash; Open Positions{% endblock %}
 
-{% block site_css %}
-  {{ super() }}
-  <link href="{{ static('css/position.css') }}" rel="stylesheet" />
-{% endblock %}
+{% block body_class %}listing-page{% endblock %}
 
 {% block content %}
-<section id="job">
+<section class="mzp-c-hero mzp-t-dark page-hero">
+  <div class="mzp-l-content">
+    <div class="mzp-c-hero-body">
+      <h1 class="mzp-c-hero-title">Feel good about your work again</h1>
 
-    <article id="job-post" class="job-post" data-location-filter="{{ position.location_filter }}">
-      <div class="job-post-head">
-        <div class="contain">
-          <h1 class="job-post-title">{{ position.title }}</h1>
-          <a class="cta job-post-head-apply ga-job-listing-apply"
-             href="{{ position.apply_url }}">
-              Apply for this job
-          </a>
-          <dl class="job-post-details">
-            <dt class="job-post-team-head">Team:</dt>
-            <dd class="job-post-team">{{ position.department }}</dd>
-            <dt class="job-post-location-head">Locations:</dt>
-            <dd class="job-post-location">{{ position.location_list|join(", ") }}</dd>
-          </dl>
-        </div>
+      <div class="mzp-c-hero-desc">
+        <p>
+          Join us.
+        </p>
       </div>
-
-      <div class="contain">
-        <div class="job-post-description">
-          {# Description is bleached through sync jobs so it will be happy here. #}
-          {{ position.description|safe }}
-        </div>
-        <aside class="job-related">
-          <h2 class="job-related-head">{{ position.department }}: {{ _('Open Positions') }}</h2>
-          <ul class="job-related-list">
-            {% for p in related_positions %}
-              <li>
-                <a href="{{ p.get_absolute_url() }}"
-                   class="ga-job-listing-detail"
-                   title="{{ p.title }}">{{ p.title }}</a>
-              </li>
-            {% endfor %}
-          </ul>
-        </aside>
-      </div>
-    </article>
+    </div>
   </div>
-  <a id="job-post-apply" class="cta ga-job-listing-apply" href="{{ position.apply_url }}">Apply for this job</a>
 </section>
 
-<section id="why">
-  <div class="contain">
-    <h2 class="why-head">Why Mozilla?</h2>
-    <div class="why-intro">
-      <p>
-        Mozilla is a thriving global community of technologists, thinkers and builders working collaboratively and openly to keep the Internet alive and accessible for all. When you work at Mozilla, you give yourself a chance to make a difference in the lives of Web users everywhere. And you give us a chance to make a difference in your life every day. Join our team today and together we’ll make a better Web for tomorrow.
-      </p>
-    </div>
+<br />
 
-    <div class="why-reasons">
-      <div class="why-reason-box">
-        <h3>We Are Global</h3>
-        <ul>
-          <li>500+ paid staff from over 30 countries</li>
-          <li>Thousands of active contributors across six continents</li>
-          <li>10 global offices: Mountain View, San Francisco, Portland,
-          Vancouver, Toronto, Paris, London, Berlin, Beijing, and Taipei</li>
-          <li>Hundreds of home offices and remote workers around the world</li>
+<h2>{{ position.title }}</h2>
+<div>
+  <a class="mzp-c-button job-post-head-apply ga-job-listing-apply"
+      href="{{ position.apply_url }}">
+      Apply for this job
+  </a>
+</div>
+
+<br />
+
+<div class="mzp-l-card-hero">
+  <section class="mzp-c-card mzp-c-card-large job-post" id="job-post" data-location-filter="{{ position.location_filter }}">
+    <div class="mzp-c-card-content">
+      <div class="mzp-c-card-desc">
+        <dl class="mzp-u-list-styled">
+          <dt class="job-post-team-head">Team:</dt>
+          <dd class="job-post-team">{{ position.department }}</dd>
+          <dt class="job-post-location-head">Locations:</dt>
+          <dd class="job-post-location">{{ position.location_list|join(", ") }}</dd>
+        </dl>
+
+        {# Description is bleached through sync jobs so it will be happy here. #}
+        {{ position.description|safe }}
+      </div>
+
+      <div>
+        <a class="mzp-c-button job-post-head-apply ga-job-listing-apply"
+            href="{{ position.apply_url }}">
+            Apply for this job
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="mzp-c-card mzp-c-card-small">
+    <div class="mzp-c-card-content">
+      <h2 class="mzp-c-card-title">{{ position.department }}: {{ _('Open Positions') }}</h2>
+      <div class="mzp-c-card-desc">
+        <ul class="job-related-list">
+          {% for p in related_positions %}
+            <li>
+              <a href="{{ p.get_absolute_url() }}"
+                  class="ga-job-listing-detail"
+                  title="{{ p.title }}">{{ p.title }}</a>
+            </li>
+          {% endfor %}
         </ul>
       </div>
-      <div class="why-reason-box">
-        <h3>And so are our benefits...</h3>
-        <ul>
-          <li>Competitive pay</li>
-          <li>Top-notch medical</li>
-          <li>Travel and conference budgets</li>
-          <li>Ability to work using the latest hardware and software of your choice</li>
-          <li>Dozens of technical Lunch and Learns and invited speakers each month</li>
+    </div>
+  </section>
+</div>
+
+<br />
+
+<section id="why" class="mzp-c-call-out">
+  <div class="mzp-l-content">
+    <h2 class="mzp-c-call-out-title">Why Mozilla?</h2>
+    <p class="mzp-c-call-out-desc">
+      At Mozilla, we’re serving humanity—by maintaining a safe, open internet—while also
+      helping the individual humans employed here to reach their personal and
+      professional goals. With a relatively small team serving hundreds of millions of
+      people, a culture of exploration, and a commitment to mentorship, opportunities
+      abound to learn and grow at Mozilla.
+    </p>
+  </div>
+</section>
+
+<br />
+
+<section class="mzp-l-card-third">
+  <div class="mzp-c-card">
+    <div class="mzp-c-card-content">
+      <h3 class="mzp-c-card-title">Our values drive our actions</h3>
+      <div class="mzp-c-card-desc">
+        <ul class="mzp-u-list-styled">
+          <li>
+            Purpose is built into our work, with our mission driving every decision
+          </li>
+          <li>We challenge assumptions, the status quo, ourselves, and each other</li>
+          <li>
+            We are transparent: in our code, our business partnerships, and our everyday
+            interactions
+          </li>
+          <li>
+            We seek out people from diverse backgrounds and with perspectives different
+            from our own
+          </li>
+          <li>We pair purpose with performance and put people ahead of profit</li>
         </ul>
       </div>
-      <div class="why-reason-box">
-        <h3>Because we love what we do!</h3>
-        <ul>
-          <li>We take bold technical leaps</li>
-          <li>We code and ship in the open</li>
-          <li>We directly impact hundreds of millions of users</li>
-          <li>We build technology for the benefit of the Web’s users and creators</li>
-          <li>We work in a culture defined by principles over profits</li>
+    </div>
+  </div>
+
+  <div class="mzp-c-card">
+    <div class="mzp-c-card-content">
+      <h3 class="mzp-c-card-title">Our impact is global</h3>
+      <div class="mzp-c-card-desc">
+        <ul class="mzp-u-list-styled">
+          <li>1000+ paid staff from over 30 countries</li>
+          <li>Thousands of volunteer contributors across six continents</li>
+          <li>
+            10 global offices: Mountain View, San Francisco, Portland, Vancouver,
+            Toronto, Paris, London, Berlin, Beijing, and Taipei
+          </li>
+          <li>Hundreds of home offices globally</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="mzp-c-card">
+    <div class="mzp-c-card-content">
+      <h3 class="mzp-c-card-title">Our benefits are world-class</h3>
+      <div class="mzp-c-card-desc">
+        <ul class="mzp-u-list-styled">
+          <li>Flexible work environment (nearly half of Mozillians work remotely)</li>
+          <li>
+            Industry-leading paid parental leave (up to 26 weeks of fully paid leave for
+            childbearing parents and up to 12 weeks for non-childbearing parents)
+          </li>
+          <li>Reimbursement for professional development (up to $3,000/year)</li>
+          <li>A work setup including the latest hardware and software of your choice</li>
+          <li>
+            Wellness programs &mdash; we reimburses up to $1700/year for expenses like
+            child and elder care, mental wellness, and personal enrichment
+          </li>
         </ul>
       </div>
     </div>

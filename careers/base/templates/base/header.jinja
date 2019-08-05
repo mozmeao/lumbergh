@@ -1,27 +1,43 @@
-<header class="masthead" role="banner">
-  <div class="masthead-wrapper">
-    <div class="contain">
-        <nav id="nav-main" class="nav-main" role="navigation">
-          <ul id="nav-main-menu" class="nav-main-menu">
-            <li class="nav-main-home {% if navbar_section == 'home' %}current{% endif %}">
-              <a class="ga-nav-home" href="{{ url('careers.home') }}">Home</a>
-            </li>
-            <li><a class="ga-nav-team" href="{{ url('careers.home')|urlparams(hash='teams') }}">Teams &amp; Roles</a></li>
-            <li><a class="ga-nav-life" href="{{ url('careers.home')|urlparams(hash='life') }}">Life at Mozilla</a></li>
-            <li><a class="ga-nav-locations" href="{{ url('careers.home')|urlparams(hash='locations') }}">Locations</a></li>
-            <li{% if navbar_section == 'university' %} class="current"{% endif %}>
-              <a class="ga-nav-university" href="{{ url('university.index') }}">University</a>
-            </li>
-            <li{% if navbar_section == 'listings' %} class="current"{% endif %}>
-              <a class="ga-nav-listing" href="{{ url('careers.listings') }}">Listings</a>
-            </li>
-          </ul>
-        </nav>
-        <h2 class="masthead-logo expanded">
-          <a href="{{ url('careers.home') }}">
-            <img class="ga-nav-home-logo" alt="Mozilla Careers" src="{{ static('img/wordmark-dark.svg') }}" height="45" width="158" />
-          </a>
-        </h2>
+<div class="mzp-c-navigation">
+  <div class="mzp-c-navigation-l-content">
+    <div class="mzp-c-navigation-container">
+      <button class="mzp-c-navigation-menu-button" type="button" aria-controls="patterns.organisms.navigation.navigation">Menu</button>
+
+      <div class="mzp-c-navigation-logo">
+        <a href="{{ url('careers.home') }}" id="ga-nav-home-logo"></a>
+      </div>
+
+      <div class="mzp-c-navigation-items" id="patterns.organisms.navigation.navigation">
+        <div class="mzp-c-navigation-menu">
+
+          <nav class="mzp-c-menu mzp-is-basic">
+            <ul class="mzp-c-menu-category-list">
+              <li class="mzp-c-menu-category">
+                <a href="{{ url('careers.listings') }}" class="mzp-c-menu-title" id="ga-nav-listing">Jobs</a>
+              </li>
+              <li class="mzp-c-menu-category">
+                <a href="https://blog.mozilla.org/careers/" class="mzp-c-menu-title" id="ga-nav-life">Life at Mozilla</a>
+              </li>
+              <li class="mzp-c-menu-category">
+                <a href="{{ url('careers.listings')|urlparams(position_type='Intern') }}" class="mzp-c-menu-title" id="ga-nav-internships">Internships</a>
+              </li>
+              <li class="mzp-c-menu-category">
+                <a href="{{ url('careers.home')|urlparams(hash='locations') }}" class="mzp-c-menu-title" id="ga-nav-locations">Locations</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
     </div>
   </div>
-</header>
+</div>
+
+<div class="mzp-u-modal-content" id="internships-modal">
+  <p>
+    We’ve finished our internship hiring for Summer 2019, but please check back with us
+    soon! We will begin accepting applications in September 2019 for Summer 2020
+    internships. If you’re still interested in contributing to Mozilla now, we’d love
+    for you to <a href="https://www.mozilla.org/contribute/">get involved</a>.
+  </p>
+</div>
+
