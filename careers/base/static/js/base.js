@@ -12,6 +12,7 @@
     link.addEventListener('click', function (e) {
         e.preventDefault();
         Mzp.Modal.createModal(e.target, content, {
+            title: 'Please check back',
             closeText: 'Close modal'
         });
     }, false);
