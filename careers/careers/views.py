@@ -34,7 +34,7 @@ class HomeView(TemplateView):
                     })
 
                 # notify dms when blog posts are successfully fetched
-                if (settings.DMS_BLOG_FETCH):
+                if settings.DMS_BLOG_FETCH:
                     requests.get(settings.DMS_BLOG_FETCH)
         except Exception:
             blog_posts = []
