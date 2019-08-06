@@ -11,5 +11,6 @@ docker run \
       -e BUCKET_PATH \
       -e ESCAPED_SITE_URL \
       -e DMS \
+      -e DMS_BLOG_FETCH \
       -e CI_COMMIT_SHA \
       ${IMAGE}

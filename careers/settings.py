@@ -125,3 +125,5 @@ GA_ACCOUNT_CODE = config('GA_ACCOUNT_CODE', default=None)
 GTM_ACCOUNT_CODE = config('GTM_ACCOUNT_CODE', default='GTM-MLM3DH')
 
 GREENHOUSE_BOARD_TOKEN = config('GREENHOUSE_BOARD_TOKEN', default='mozilla')
+
+DMS_BLOG_FETCH = config('DMS_BLOG_FETCH', default=None)

@@ -1,6 +1,9 @@
+from django.conf import settings
 from django.views.generic import DetailView, ListView, TemplateView
 from django.shortcuts import get_object_or_404
 from jinja2 import Markup
+
+import requests
 
 from careers.careers.forms import PositionFilterForm
 from careers.careers.models import Position
@@ -29,6 +32,10 @@ class HomeView(TemplateView):
                         'excerpt': Markup(process_excerpt(post['excerpt']['rendered'])),
                         'image': post['featured_media']['media_details']['sizes']['post-large']['source_url'],  # noqa
                     })
+
+                # notify dms when blog posts are successfully fetched
+                if (settings.DMS_BLOG_FETCH):
+                    requests.get(settings.DMS_BLOG_FETCH)
         except Exception:
             blog_posts = []
 
