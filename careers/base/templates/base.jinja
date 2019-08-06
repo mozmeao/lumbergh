@@ -13,12 +13,10 @@
 
     {# css #}
     {% block site_css %}
-      <link href="{{ static('css/protocol/css/protocol.css') }}" rel="stylesheet" />
-      <link href="{{ static('css/protocol/css/protocol-extra.css') }}" rel="stylesheet" />
+      <link href="{{ static('css/protocol/css/protocol.min.css') }}" rel="stylesheet" />
+      <link href="{{ static('css/protocol/css/protocol-extra.min.css') }}" rel="stylesheet" />
       <link href="{{ static('css/careers-new.css') }}" rel="stylesheet" />
     {% endblock %}
-
-    <link href="{{ static('css/print.css') }}" rel="stylesheet" media="print" />
 
     {# js #}
     <script src="{{ static('js/protocol/protocol-base.min.js') }}"></script>
