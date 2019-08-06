@@ -1,15 +1,15 @@
 {
     "name": "Mozilla Careers",
-    "description": "Lumbergh is the Mozilla careers website. It is a sugardough-based site that displays open jobs.",
+    "description": "Lumbergh is the Mozilla careers website.",
     "repository": {
-        "url": "https://github.com/mozilla/lumbergh",
+        "url": "https://github.com/mozmeao/lumbergh",
         "license": "MPL 2.0"
     },
     "participate": {
-        "home": "https://github.com/mozilla/lumbergh",
-        "docs": "https://github.com/mozilla/lumbergh#setup",
-        "irc": "irc://irc.mozilla.org/#careersweb",
-        "irc-contacts": ["#meao", "giorgos", "metadave"]
+        "home": "https://github.com/mozmeao/lumbergh",
+        "docs": "https://github.com/mozmeao/lumbergh#setup-your-environment-for-development",
+        "irc": "slack:///#websites",
+        "irc-contacts": ["#websites", "giorgos", "metadave"]
     },
     "bugs": {
         "list": "https://github.com/mozmeao/lumbergh/issues",
