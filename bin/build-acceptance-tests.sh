@@ -34,4 +34,30 @@ then
     exit 1;
 fi
 
+# array to hold bad urls
+declare -a bad_urls
+
+# loop through all href destination starting with http in index.html
+# this will target all external urls
+# (we shouldn't need to check other files...yet)
+while read -r url; do
+    # get the http status code
+    # instagram urls fail if using --head
+    urlstatus=$(curl -o /dev/null --silent --write-out '%{http_code}' "$url")
+
+    # if http status code is >= 400 or < 200, it's a problem
+    if [[ "$urlstatus" -ge 400 || "$urlstatus" -lt 200 ]];
+    then
+        bad_urls+=("$url")
+    fi
+done < <(sed -n 's/.*href="\(http[^"]*\).*/\1/p' index.html)
+
+# if we captured any bad urls, echo them out and return w/exit code 1
+if [ "${#bad_urls[@]}" -gt 0 ];
+then
+    echo "Unreachable external URLs found:";
+    echo ${bad_urls[*]};
+    exit 1;
+fi
+
 echo "Success: Done!"
