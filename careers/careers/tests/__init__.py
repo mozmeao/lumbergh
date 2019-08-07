@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.conf import settings
 
 import factory
@@ -14,6 +15,7 @@ class PositionFactory(factory.DjangoModelFactory):
     description = factory.Sequence(lambda n: 'Job Description {0}'.format(n))
     source = 'gh'
     position_type = fuzzy.FuzzyChoice(['Full-Time', 'Part-Time', 'Contractor', 'Intern'])
+    updated_at = datetime.utcnow()
 
     class Meta:
         model = Position

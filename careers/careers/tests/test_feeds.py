@@ -26,4 +26,5 @@ class FeedTests(TestCase):
             self.assertIn(job.title, content)
             self.assertIn(job.description, content)
             self.assertIn(job.department, content)
+            self.assertIn(job.updated_at.strftime('%a, %d %b %Y %H:%M:%S %z'), content)
             self.assertIn(job.get_absolute_url(), content)

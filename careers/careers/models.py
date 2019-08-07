@@ -1,3 +1,4 @@
+from datetime import datetime
 from itertools import chain
 
 from django.urls import reverse
@@ -16,6 +17,7 @@ class Position(models.Model):
     apply_url = models.URLField()
     source = models.CharField(max_length=100)
     position_type = models.CharField(max_length=100)
+    updated_at = models.DateTimeField(default=datetime.now)
 
     class Meta:
         ordering = ('department', 'title',)

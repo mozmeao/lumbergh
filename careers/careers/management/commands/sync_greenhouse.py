@@ -91,6 +91,7 @@ class Command(BaseCommand):
                 'description': description,
                 'position_type': position_type,
                 'apply_url': job['absolute_url'],
+                'updated_at': job['updated_at'],
             }
 
             changed = False

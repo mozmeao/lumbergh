@@ -35,6 +35,9 @@ class LatestPositionsFeed(Feed):
     def item_description(self, item):
         return item.description
 
+    def item_pubdate(self, item):
+        return item.updated_at
+
     def item_categories(self, item):
         categories = []
         categories.append(item.department)
