@@ -1,3 +1,5 @@
+from datetime import datetime, timezone
+
 from django.core.management import call_command
 from django.test.utils import override_settings
 from django.utils.six import StringIO
@@ -62,6 +64,8 @@ class SyncGreenhouseTests(TestCase):
         position = Position.objects.get()
         self.assertEqual(position.job_id, 'xxx')
         self.assertEqual(position.title, 'Web Fox')
+        self.assertEqual(position.updated_at, datetime(2016, 7, 25, 18, 45, 57,
+                                                       tzinfo=timezone.utc))
         self.assertEqual(position.location_list, ['Greece', 'Portland', 'Remote'])
         self.assertEqual(position.department, 'Engineering')
         self.assertEqual(position.apply_url, 'http://example.com/foo')
@@ -77,7 +81,8 @@ class SyncGreenhouseTests(TestCase):
                 {
                     'id': 'xxx',
                     'title': 'Web Fox',
-                    'absolute_url': 'http://example.com/foo'
+                    'absolute_url': 'http://example.com/foo',
+                    'updated_at': '2016-07-25T14:45:57-04:00',
                 },
             ]
         }
@@ -96,7 +101,8 @@ class SyncGreenhouseTests(TestCase):
                 {
                     'id': 'xxx',
                     'title': 'Web Fox',
-                    'absolute_url': 'http://example.com/foo'
+                    'absolute_url': 'http://example.com/foo',
+                    'updated_at': '2016-07-25T14:45:57-04:00',
                 },
             ]
         }
