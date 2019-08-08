@@ -3,12 +3,14 @@
 # AWS_ACCESS_KEY_ID
 # AWS_SECRET_ACCESS_KEY
 # DMS DeadMansSnitch URL
+# DMS_BLOG_FETCH DeadMansSnitch URL for successful blog fetches
 
 variables:
   STAGE_BUCKET_PATH: s3://mozilla-careers-stage
   STAGE_ESCAPED_SITE_URL: https:\/\/careers.allizom.org
   PROD_BUCKET_PATH: s3://mozilla-careers
   PROD_ESCAPED_SITE_URL: https:\/\/careers.mozilla.org
+
 deploy stage:
   stage: deploy
   tags:
