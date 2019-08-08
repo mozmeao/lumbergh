@@ -17,7 +17,7 @@ class Position(models.Model):
     apply_url = models.URLField()
     source = models.CharField(max_length=100)
     position_type = models.CharField(max_length=100)
-    updated_at = models.DateTimeField(default=datetime.now)
+    updated_at = models.DateTimeField(default=datetime.utcnow)
 
     class Meta:
         ordering = ('department', 'title',)

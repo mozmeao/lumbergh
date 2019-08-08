@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='position',
             name='updated_at',
-            field=models.DateTimeField(default=datetime.datetime.now),
+            field=models.DateTimeField(default=datetime.datetime.utcnow),
         ),
     ]
