@@ -13,4 +13,5 @@ docker run \
       -e DMS \
       -e DMS_BLOG_FETCH \
       -e CI_COMMIT_SHA \
+      -e CI_COMMIT_REF_NAME \
       ${IMAGE}
