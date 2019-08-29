@@ -29,13 +29,3 @@ class GeneratePositionMetaDescriptionTests(TestCase):
         meta = generate_position_meta_description(self.position)
         self.assertEqual(
             meta, 'Mozilla is hiring a full time Bowler in In-N-Out, Los Angeles and Ralphs')
-
-    def test_truncation(self):
-        self.position.title = ('Senior Executive Director of Bowling Data'
-                               ' Infrastructure Management - Europe')
-        self.position.location = 'Los Angeles,Ralphs,In-N-Out,Malibu,La Jolla'
-        meta = generate_position_meta_description(self.position)
-        self.assertEqual(
-            meta, ('Mozilla is hiring a full time Senior Executive Director of Bowling Data '
-                   'Infrastructure Management - Europe in In-N-Out, La Jolla, '
-                   'Los Angeles, Malibu and Ral&hellip;'))

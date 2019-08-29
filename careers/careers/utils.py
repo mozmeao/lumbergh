@@ -10,8 +10,4 @@ def generate_position_meta_description(position):
     else:
         meta = meta + position.location_list[0]
 
-    # finally, truncate if over 160 characters
-    if len(meta) >= 160:
-        meta = meta[:157] + '&hellip;'
-
     return meta
