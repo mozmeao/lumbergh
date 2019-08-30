@@ -161,10 +161,19 @@
     grid-gap: 30px;
 }
 
+.locations-list a {
+    display: block;
+}
+
 .locations-list img {
     display: block;
     margin: 0 auto 10px;
+    transition: transform 0.1s ease-in;
     width: 95px;
+}
+
+.locations-list a:hover img {
+    transform: scale(1.05) translateY(-6px);
 }
 
 #listings-filters {
