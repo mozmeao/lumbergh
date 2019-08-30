@@ -7,7 +7,12 @@ import requests
 
 from careers.careers.forms import PositionFilterForm
 from careers.careers.models import Position
-from careers.careers.wordpress import complete_posts_data, get_posts_data, process_excerpt
+from careers.careers.utils import generate_position_meta_description
+from careers.careers.wordpress import (
+    complete_posts_data,
+    get_posts_data,
+    process_excerpt,
+)
 
 
 class HomeView(TemplateView):
@@ -67,7 +72,11 @@ class PositionDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(PositionDetailView, self).get_context_data(**kwargs)
         position = context['position']
+
+        context['meta_description'] = generate_position_meta_description(position)
+
         related_positions = (
             Position.objects.filter(department=position.department).exclude(id=position.id))
         context['related_positions'] = related_positions
+
         return context
