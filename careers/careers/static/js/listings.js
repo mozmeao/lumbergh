@@ -10,8 +10,10 @@
     */
     function propogateQueryParamsToSelects() {
         var i;
+        var j;
         var keyVal;
         var keyVals;
+        var match;
         var qs = window.location.search;
         var select;
         var val;
@@ -32,10 +34,22 @@
 
                 // make sure the key is valid, then update the associated select box
                 if (select) {
-                    // undo the jQuery param string augmentation
                     // (decodeURIComponent does not change '+' to ' ', hence the replace call)
                     val = decodeURIComponent(keyVal[1]).replace(/\+/gi, ' ');
-                    select.value = val;
+
+                    // make sure select has an option matching the proposed value
+                    // this ensures the select box doesn't get set to an empty value if
+                    // e.g. there are no Intern positions available
+                    for (j = 0; j < select.options.length; j++) {
+                        if (select.options[j].value === val) {
+                            match = true;
+                            break;
+                        }
+                    }
+
+                    if (match) {
+                        select.value = val;
+                    }
                 }
             }
         }
