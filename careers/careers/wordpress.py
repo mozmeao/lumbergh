@@ -4,6 +4,9 @@
 import bleach
 import requests
 
+from django.conf import settings
+from jinja2 import Markup
+
 
 def _request(api_url, limit=None, page=1):
     # 100 is max per page from WP
@@ -29,9 +32,6 @@ def _api_url(data_type, data_id):
 
 def get_wp_data(data_type, data_id=None, limit=None):
     try:
-        if data_type == 'posts' and limit is None:
-            limit = 2
-
         api_url = _api_url(data_type, data_id)
 
         if data_id:
@@ -53,7 +53,6 @@ def get_posts_data(num_posts=None):
 
 
 def complete_posts_data(posts):
-    # posts will be a list of tuples (db obj or None, post data dict)
     tags = get_feed_tags()
     for post in posts:
         post['tags'] = [tags[t] for t in post['tags']]
@@ -98,3 +97,70 @@ def process_excerpt(excerpt):
         summary = summary[:-3] + '…'
 
     return summary
+
+
+def get_featured_post(posts_data):
+    featured_post_data = None
+    featured_post_index = None
+
+    for idx, post in enumerate(posts_data):
+        if 'story' in post['tags']:
+            featured_post_data = post
+            featured_post_index = idx
+            break
+
+    if featured_post_index:
+        del posts_data[featured_post_index]
+
+    return posts_data, featured_post_data
+
+
+def prepare_post_data(post_data):
+    # sometimes a post doesn't have a `post-large` image
+    try:
+        image = post_data['featured_media']['media_details']['sizes']['post-large']['source_url']  # noqa
+    except Exception:
+        image = None
+
+    return {
+        'title': Markup(post_data['title']['rendered']).unescape(),
+        'link': post_data['link'],
+        'excerpt': Markup(process_excerpt(post_data['excerpt']['rendered'])),
+        'image': image,
+    }
+
+
+def get_posts():
+    # blog content isn't critical to the page. if the wordpress API fails
+    # for some reason, we can just move on and wait for the next build
+    try:
+        # 100 posts should give us over a year of content in which to find
+        # a featured/tagged post
+        posts_data = get_posts_data(num_posts=100)
+    except Exception:
+        posts_data = None
+
+    if posts_data:
+        complete_posts_data(posts_data)
+
+        posts, featured_post_data = get_featured_post(posts_data)
+
+        if featured_post_data:
+            featured_post = prepare_post_data(featured_post_data)
+            recent_posts_data = posts[:2]
+        else:
+            # we always want to show 3 posts, so if a featured post wasn't
+            # found, grab the 3 latest posts
+            featured_post = None
+            recent_posts_data = posts[:3]
+
+        recent_posts = [prepare_post_data(post) for post in recent_posts_data]
+
+        # notify dms when blog posts are successfully fetched
+        if settings.DMS_BLOG_FETCH:
+            requests.get(settings.DMS_BLOG_FETCH)
+    else:
+        featured_post = None
+        recent_posts = None
+
+    return featured_post, recent_posts
