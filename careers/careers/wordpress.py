@@ -119,7 +119,7 @@ def prepare_post_data(post_data):
     # sometimes a post doesn't have a `post-large` image
     try:
         image = post_data['featured_media']['media_details']['sizes']['post-large']['source_url']  # noqa
-    except Exception:
+    except KeyError:
         image = None
 
     return {
