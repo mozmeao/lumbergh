@@ -133,14 +133,14 @@
   </div>
 </div>
 
-{% if blog_posts %}
-  <section class="mzp-l-card-half">
-  {% for post in blog_posts %}
+{% if recent_posts %}
+  <section class="mzp-l-card-third">
+  {% for post in recent_posts %}
     <div class="mzp-c-card mzp-c-card-medium mzp-has-aspect-16-9">
       <a href="{{ post.link }}" class="mzp-c-card-block-link">
         <div class="mzp-c-card-media-wrapper">
           <div class="lazy-image-container">
-            <img src="{{ post.image }}" alt="" class="mzp-c-card-image" />
+            <img src="{{ post.image|default(static('img/blog-fallback.png'), true) }}" class="mzp-c-card-image" />
           </div>
         </div>
         <div class="mzp-c-card-content">
@@ -152,6 +152,24 @@
       </a>
     </div>
   {% endfor %}
+  {% if featured_post %}
+    <div class="mzp-c-card mzp-c-card-medium mzp-has-aspect-16-9">
+      <a href="{{ featured_post.link }}" class="mzp-c-card-block-link">
+        <div class="mzp-c-card-media-wrapper">
+          <div class="lazy-image-container">
+            <img src="{{ featured_post.image|default(static('img/blog-fallback.png'), true) }}" class="mzp-c-card-image" />
+          </div>
+        </div>
+        <div class="mzp-c-card-content">
+          <h2 class="mzp-c-card-title">{{ featured_post.title }}</h2>
+          <div class="mzp-c-card-desc">
+            {{ featured_post.excerpt }}
+          </div>
+          <ul>
+        </div>
+      </a>
+    </div>
+  {% endif %}
   </section>
 {% endif %}
 
