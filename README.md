@@ -17,7 +17,8 @@ Page](https://mana.mozilla.org/wiki/display/EN/careers.mozilla.org)
 
 1. Get [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/)
 2. Run Build command
-3. Run the website
+3. Create local `.env` file (optional)
+4. Run the website
 
 ## Commands
 
@@ -26,6 +27,15 @@ Page](https://mana.mozilla.org/wiki/display/EN/careers.mozilla.org)
 ```shell
 docker-compose build
 ```
+
+### Create local `.env` file
+
+You _probably_ want to add a couple local environment settings to improve local dev:
+
+1. In the root of the project, create a file named `.env`
+2. Add `ENGAGE_ROBOTS=False` - this will prevent robots from indexing the site if you happen to build locally and push to a URL that shouldn't be indexed.
+3. Add `SKIP_POSTS=True` - this will avoid hitting the Wordpress API with each load of the home page (making page loads much faster). Change to `False` and re-start the server to fetch blog posts.
+
 
 ### Run the website locally
 ```shell
