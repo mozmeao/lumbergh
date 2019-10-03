@@ -131,6 +131,10 @@ def prepare_post_data(post_data):
 
 
 def get_posts():
+    # improve home page load time for local dev
+    if settings.SKIP_POSTS:
+        return None, None
+
     # blog content isn't critical to the page. if the wordpress API fails
     # for some reason, we can just move on and wait for the next build
     try:
@@ -141,6 +145,7 @@ def get_posts():
         posts_data = None
 
     if posts_data:
+        # gets tags and image for each post
         complete_posts_data(posts_data)
 
         posts, featured_post_data = get_featured_post(posts_data)

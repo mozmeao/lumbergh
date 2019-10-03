@@ -127,3 +127,5 @@ GTM_ACCOUNT_CODE = config('GTM_ACCOUNT_CODE', default='GTM-MLM3DH')
 GREENHOUSE_BOARD_TOKEN = config('GREENHOUSE_BOARD_TOKEN', default='mozilla')
 
 DMS_BLOG_FETCH = config('DMS_BLOG_FETCH', default=None)
+# allow local development to skip hitting the wordpress API on each page load
+SKIP_POSTS = config('SKIP_POSTS', default=False, cast=bool)
