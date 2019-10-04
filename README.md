@@ -58,3 +58,12 @@ docker-compose run web ./manage.py sync_greenhouse
 ```shell
 docker-compose stop
 ```
+
+## Testing the static build locally
+
+Ensure the site is running via `docker-compose up`, then:
+
+1. Get a command line inside the Docker container: `docker exec -it lumbergh_web_1 /bin/bash`
+2. In the Docker container, build the site: `./bin/mirror.sh` - this will create a `_site` folder in the root of your project
+3. On your machine, `cd _site` and start a little web server: `python -m SimpleHTTPServer 8001` (or `python -m http.server 8001` if you're on python 2.7)
+4. Open your browser to `http://localhost:8001` and you should see the newly built static site.
