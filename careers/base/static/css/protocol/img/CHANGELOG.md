@@ -1,3 +1,31 @@
+# 3.0.0
+
+* **logos** Move to standard sized logos for Firefox browsers and products
+* **logos** Remove Focus logos
+* **logos** Remove duplicate `social/icons` folder in favour of `/icons/social`
+* **logos** Add Pocket logo+wordmarks as SVGs
+* **logos** Update `/icons/social/firefox` icons to new browser design
+* **other** Add Open Graph images for products
+
+## migration tips
+
+* If you were using the old browser logos files you can swap them with the `lg` versions of the new ones, they are the same dimensions
+* If you need the focus logos, you will need to host them locally
+* If you were using the social icons in the root folder you can update to use the new folder location, there have not been any name changes.
+
+# 2.1.1.
+
+* **icons** Add social media icons back
+* **icons** Add white versions of some UI assets
+
+# 2.1.0
+
+* **logos** Update Firefox Beta, Developer and Nightly logos (#30)
+
+# 2.0.0
+
+* **icons** Replaced existing icons with new icon style
+
 # 1.0.1
 
 #Features

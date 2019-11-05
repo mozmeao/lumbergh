@@ -228,6 +228,10 @@
     margin-bottom: .25em;
 }
 
+.past-interns .mzp-c-card {
+    background: inherit;
+}
+
 /* $mq-sm in protocol */
 @media only screen and (min-width: 480px) {
     .locations-list {
@@ -291,6 +295,18 @@
 
     #listings-filters .listings-filter {
         padding-left: 10px;
+    }
+}
+
+/* $mq-lg in protocol */
+@media only screen and (min-width: 1056px) {
+    /*
+        quite the hack to center small cards in a two column layout!
+        cards at this breakpoint have a max-width of 300px, with a margin of
+        32px between, which = 632px. margin left is half of that.
+    */
+    .mzp-l-card-half .mzp-c-card.mzp-c-card-extra-small:nth-child(odd) {
+        margin-left: calc((100% - 632px)/2);
     }
 }
 

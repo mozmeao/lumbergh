@@ -1,0 +1,14 @@
+{% macro internships_apply(is_open) -%}
+  <div class="mzp-l-content apply-now-wrapper">
+    <div class="centered">
+    {% if is_open %}
+      <a class="mzp-c-button" href="{{ url('careers.listings')|urlparams(position_type='Intern') }}">Apply for an Internship</a>
+    {% else %}
+      <div class="mzp-c-box-emphasis">
+        <strong>We’ve finished our internship hiring for this summer.</strong>
+        But check back with us soon! We accept applications from October through March for summer internships.
+      </div>
+    {% endif %}
+    </div>
+  </div>
+{% endmacro -%}

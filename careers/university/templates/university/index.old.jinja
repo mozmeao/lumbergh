@@ -1,0 +1,203 @@
+{% extends 'old/base.jinja' %}
+
+{% set navbar_section = 'university' %}
+{% block page_title %}Mozilla University{% endblock %}
+
+{% block site_css %}
+  {{ super() }}
+  <link href="{{ static('css/university.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block site_ie8 %}
+  {{ super() }}
+  <link href="{{ static('css/university-ie8.css') }}" rel="stylesheet" />
+  <link href="{{ static('js/libs/video-js/video.dev.js') }}" rel="stylesheet" />
+  <link href="{{ static('js/university-ie8.js') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block site_js %}
+  {{ super() }}
+  <!--[if gt IE 8]> <!-- -->
+    <script src="{{ static('js/university.js') }}"></script>
+  <!-- <![endif]-->
+  <script src="{{ static('js/university_links.js') }}"></script>
+{% endblock %}
+
+{% block body_data %}
+  {{ super() }}
+  data-open-for-applications="{{ 'true' if open_for_applications else 'false' }}"
+{% endblock %}
+
+{% block content %}
+  <section id="uintro">
+    <div class="uintro-head">
+      <h2 class="uintro-head-inner"><span class="highlight">Once a Mozillian,<br> always a Mozillian</span></h2>
+    </div>
+    <div class="contain">
+      <p>
+        Mozilla isn’t just a great place to intern. It’s an experience you’ll keep with you throughout your career.
+      </p>
+      <p>
+        From the passionate global community of technologists, thinkers, and builders you’ll collaborate with, to the opportunities you’ll have to learn and make the Web a better place, it’s safe to say your internship with Mozilla will be unlike any other.
+      </p>
+    </div>
+    <a class="cta listings-link ga-apply-banner" href="{{ url('careers.listings')|urlparams(position_type='Intern') }}">Apply Now</a>
+  </section>
+  <section id="different">
+    <div class="different-lists-head">
+      <div class="contain">
+        <h2 class="different-head">
+          As a part of our internship program, here are the things you can expect to be a part of your experience.
+        </h2>
+      </div>
+    </div>
+    <div class="contain">
+      <div id="different-lists">
+        <div id="different-will" class="different-list different-list-current">
+          <h3>You will</h3>
+          <ul>
+            <li>Be mentored 1:1 by a fellow teammate and someone who shares the same values.</li>
+            <li>Work on and impact challenging projects like Firefox and Rust.</li>
+            <li>Take part in many social activities and events with fellow interns.</li>
+            <li>Have the opportunity to meet with leaders across Mozilla including our CEO, Co-Founder, COO, CPO, CMO and VP’s of Engineering.</li>
+            <li>Be a part of our community care program, aka Army of Awesome.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="know">
+  <div class="contain">
+    <h2 class="know-head">Things you’ll want to know</h2>
+    <div id="know-boxes">
+      <div class="know-box">
+        <h3><strong>When</strong> should I apply?</h3>
+        <p>
+          We begin accepting internship applications in October and are typically finished recruiting for the calendar year by the end of March. While there is no set application deadline, we have a limited number of positions open each year, so apply early! All open positions are posted on our <a href="{{ url('careers.listings')|urlparams(position_type='Intern') }}">Listings page</a>.
+        </p>
+      </div>
+      <div class="know-box">
+        <h3><strong>What</strong> is the interview process like?</h3>
+        <p>
+          Our interview process is pretty straightforward. You can expect a technical assessment and upon passing, two to three technical and behavioral interviews with live coding questions, typically done via video. It’s important to us to identify interns who are highly motivated, curious, and unique in their capabilities.
+        </p>
+      </div>
+      <div class="know-box">
+        <h3><strong>Will</strong> I get paid?</h3>
+        <p>
+          Yes! We offer a competitive salary in addition to housing, immigration and relocation assistance. And of course, lots of swag!
+        </p>
+      </div>
+      <div class="know-box">
+        <h3><strong>Where</strong> will I be?</h3>
+        <p>
+          We host interns at several our offices around the world: Mountain View, San Francisco, Portland, Toronto and London. Your internship will be based on the location of your team and/or your mentor.
+        </p>
+      </div>
+    </div>
+    <a class="cta listings-link ga-want-to-know" href="{{ url('careers.listings')|urlparams(position_type='Intern') }}">Apply Now</a>
+  </div>
+</section>
+
+<section id="videos">
+  <div class="contain">
+    <h2 class="videos-head">Check out what our interns have been working on</h2>
+    <div class="videos-players">
+      <figure class="video video-current">
+        <video id="video-morgan" class="video-js vjs-sandstone-skin"
+          controls preload="none" width="auto" height="auto">
+          <source src="//assets.mozilla.net/video/careers/2018-morgan-rae-reschenberg.webm" type='video/webm'>
+          <source src="//assets.mozilla.net/video/careers/2018-morgan-rae-reschenberg.mp4" type='video/mp4'>
+        </video>
+        <figcaption>CSS Containment - Morgan Rae Reschenberg</figcaption>
+      </figure>
+
+      <figure class="video">
+        <video id="video-harry" class="video-js vjs-sandstone-skin"
+          controls preload="none" width="auto" height="auto">
+          <source src="//assets.mozilla.net/video/careers/2018-harry-twyford.webm" type='video/webm'>
+          <source src="//assets.mozilla.net/video/careers/2018-harry-twyford.mp4" type='video/mp4'>
+        </video>
+        <figcaption>Touchbar: The Experience (in 3D!) - Harry Twyford</figcaption>
+      </figure>
+      <figure class="video">
+        <video id="video-samantha" class="video-js vjs-sandstone-skin"
+          controls preload="none" width="auto" height="auto">
+          <source src="//assets.mozilla.net/video/careers/2018-samantha-alipio.webm" type='video/webm'>
+          <source src="//assets.mozilla.net/video/careers/2018-samantha-alipio.mp4" type='video/mp4'>
+        </video>
+        <figcaption>Insights for Mobile Browser Strategy - Samantha Alipio</figcaption>
+      </figure>
+
+    </div>
+    <div class="videos-thumbs">
+        <button class="video-thumb video-thumb-morgan video-thumb-current" data-video-id="video-morgan">
+          <span>CSS Containment - Morgan Rae Reschenberg</span>
+        </button>
+        <button class="video-thumb video-thumb-harry" data-video-id="video-harry">
+          <span>Touchbar: The Experience (in 3D!) - Harry Twyford</span>
+        </button>
+        <button class="video-thumb video-thumb-samantha" data-video-id="video-samantha">
+          <span>Insights for Mobile Browser Strategy - Samantha Alipio</span>
+        </button>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="testimonials">
+    <figure class="testimonial testimonial-current">
+      <blockquote>“You get to work on highly relevant projects with a team of extremely smart yet fun people. My experience here was nothing short of amazing.”</blockquote>
+      <img src="/static/img/shilpan-320.jpg" alt="">
+      <figcaption><strong>Shilpan Bhagat</strong> &mdash; Mobile Front End Engineering Intern</figcaption>
+    </figure>
+
+    <figure class="testimonial">
+      <blockquote>“Interning at Mozilla was one of the best things I have done for my personal and professional development. A truly rewarding experience.”</blockquote>
+      <img src="/static/img/kelly-320.jpg" alt="">
+      <figcaption><strong>Joe Kelly</strong> &mdash; Metrics Intern</figcaption>
+    </figure>
+
+    <figure class="testimonial">
+      <blockquote>“My intern always asked good questions — which kept me on my toes — and had creative ways to approach a problem we were trying to solve. It was fantastic!”</blockquote>
+      <img src="/static/img/christina-320.jpg" alt="">
+      <figcaption><strong>Christina Choi</strong> &mdash; Mentor</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="gallery">
+  <h2 class="ally">Photo Gallery</h2>
+  <p class="ally">Gallery of photos showing various people who work at Mozilla.</p>
+  <div class="gallery-wrapper">
+    <div class="gallery-frame gallery-frame-1"></div>
+    <div class="gallery-frame gallery-frame-2"></div>
+    <div class="gallery-frame gallery-frame-3"></div>
+    <div class="gallery-frame gallery-frame-4"></div>
+    <div class="gallery-frame gallery-frame-5"></div>
+    <div class="gallery-frame gallery-frame-6"></div>
+    <div class="gallery-frame gallery-frame-7"></div>
+    <div class="gallery-frame gallery-frame-8"></div>
+    <div class="gallery-frame gallery-frame-9"></div>
+    <div class="gallery-frame gallery-frame-10"></div>
+  </div>
+</section>
+
+<section id="apply">
+  <h2 class="ally">Apply</h2>
+  {% if open_for_applications %}
+    <div class="contain apply-open">
+      <h3>Ready to start your Mozilla internship?</h3>
+      <a class="cta ga-apply-now" href="{{ url('careers.listings')|urlparams(position_type='Intern') }}">Apply Now</a>
+    </div>
+  {% else %}
+    <div class="contain apply-closed">
+      <h3 class="apply">We’ve finished our internship hiring for this summer.</h3>
+      <p>
+        But check back with us soon! We accept applications from October through March for summer internships. If you’re still interested in contributing to the Project, we’d love for you to <a href=" https://www.mozilla.org/contribute/">get involved</a>.
+      </p>
+    </div>
+  {% endif %}
+</section>
+
+{% endblock %}
