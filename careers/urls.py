@@ -5,7 +5,6 @@ from django.views.static import serve as servestatic
 from .base import views
 
 urlpatterns = [
-    url(r'', include('careers.university.urls')),
     url(r'', include('careers.careers.urls')),
 
     # contribute.json url
