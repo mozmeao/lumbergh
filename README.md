@@ -67,3 +67,11 @@ Ensure the site is running via `docker-compose up`, then:
 2. In the Docker container, build the site: `./bin/mirror.sh` - this will create a `_site` folder in the root of your project
 3. On your machine, `cd _site` and start a little web server: `python -m SimpleHTTPServer 8001` (or `python -m http.server 8001` if you're on python 2.7)
 4. Open your browser to `http://localhost:8001` and you should see the newly built static site.
+
+## Code of Conduct
+
+This repository is governed by Mozilla's [Community Participation Guidelines][participation]
+and [Developer Etiquette Guidelines][etiquette].
+
+[participation]: https://github.com/mozmeao/lumbergh/blob/master/CODE_OF_CONDUCT.md
+[etiquette]: https://bugzilla.mozilla.org/page.cgi?id=etiquette.html
