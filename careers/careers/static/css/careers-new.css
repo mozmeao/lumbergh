@@ -32,13 +32,6 @@ file, You can obtain one at http://mozilla.org/MPL/2.0/. */
     font-weight: bold;
 }
 
-/* $mq-sm in protocol */
-@media only screen and (min-width: 480px) {
-    .locations-list {
-        grid-gap: 70px;
-    }
-}
-
 /* -------------------------------------------------------------------------- */
 /* Home */
 
@@ -183,6 +176,13 @@ file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 .locations-list a:hover img {
     transform: scale(1.05) translateY(-6px);
+}
+
+/* $mq-sm in protocol */
+@media only screen and (min-width: 480px) {
+    .locations-list {
+        grid-gap: 70px;
+    }
 }
 
 
