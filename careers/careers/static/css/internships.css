@@ -156,15 +156,15 @@ file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 }
 
 .l-internships-section #quote-1::before {
-    background: url('../img/internships/quote1.png') center center no-repeat;;
+    background: url('../img/internships/quote1.png') center center no-repeat;
 }
 
 .l-internships-section #quote-2::before {
-    background: url('../img/internships/quote2.png') center center no-repeat;;
+    background: url('../img/internships/quote2.png') center center no-repeat;
 }
 
 .l-internships-section #quote-3::before {
-    background: url('../img/internships/quote3.png') center center no-repeat;;
+    background: url('../img/internships/quote3.png') center center no-repeat;
 }
 
 @media (max-width: 768px) {

@@ -39,89 +39,6 @@ file, You can obtain one at http://mozilla.org/MPL/2.0/. */
     }
 }
 
-/* $mq-md in protocol */
-@media only screen and (min-width: 768px) {
-    .accolades {
-        padding-top: 100px;
-    }
-
-    .listings-positions thead {
-        border-bottom: 1px solid #d6d4d4;
-        display: table-header-group;
-        text-align: left;
-    }
-
-    .listings-positions thead h4 {
-        font-size: 1.8rem;
-    }
-
-    .listings-positions tbody tr {
-        border-bottom: 1px solid #d6d4d4;
-        display: table-row;
-        margin-bottom: 1.5rem;
-        padding-bottom: 1.5rem;
-    }
-
-    .listings-positions tbody tr.hidden {
-        display: none;
-    }
-
-    .listings-positions tbody td {
-        display: table-cell;
-        padding: 15px 20px 15px 0;
-        vertical-align: top;
-    }
-
-    .title {
-        width: 35%;
-    }
-
-    .location {
-        width: 25%;
-    }
-
-    .type {
-        width: 15%;
-    }
-
-    .name {
-        width: 25%;
-    }
-
-    #listings-filters {
-        display: flex;
-        justify-content: flex-end;
-    }
-
-    #listings-filters .listings-filter {
-        padding-left: 10px;
-    }
-}
-
-/* $mq-xl in protocol */
-@media only screen and (min-width: 1312px) {
-    .listings-positions tbody td {
-        padding: 20px 30px 20px 0;
-    }
-}
-
-/* high res images */
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx), only screen and (min-resolution: 144dpi) {
-    .page-hero {
-        background-image: url('../img/hero-bg-high-res.jpg');
-    }
-
-    .listings-page .page-hero,
-    .listing-page .page-hero {
-        background-image: url('../img/hero-bg-jobs-high-res.jpg');
-    }
-
-    .accolades {
-        background-image: url('../img/medal-high-res.png');
-        background-size: 165px 148px;
-    }
-}
-
 /* -------------------------------------------------------------------------- */
 /* Home */
 
@@ -331,4 +248,87 @@ file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 .job-post li {
     margin-bottom: .25em;
+}
+
+/* $mq-md in protocol */
+@media only screen and (min-width: 768px) {
+    .accolades {
+        padding-top: 100px;
+    }
+
+    .listings-positions thead {
+        border-bottom: 1px solid #d6d4d4;
+        display: table-header-group;
+        text-align: left;
+    }
+
+    .listings-positions thead h4 {
+        font-size: 1.8rem;
+    }
+
+    .listings-positions tbody tr {
+        border-bottom: 1px solid #d6d4d4;
+        display: table-row;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .listings-positions tbody tr.hidden {
+        display: none;
+    }
+
+    .listings-positions tbody td {
+        display: table-cell;
+        padding: 15px 20px 15px 0;
+        vertical-align: top;
+    }
+
+    .title {
+        width: 35%;
+    }
+
+    .location {
+        width: 25%;
+    }
+
+    .type {
+        width: 15%;
+    }
+
+    .name {
+        width: 25%;
+    }
+
+    #listings-filters {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    #listings-filters .listings-filter {
+        padding-left: 10px;
+    }
+}
+
+/* $mq-xl in protocol */
+@media only screen and (min-width: 1312px) {
+    .listings-positions tbody td {
+        padding: 20px 30px 20px 0;
+    }
+}
+
+/* high res images */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx), only screen and (min-resolution: 144dpi) {
+    .page-hero {
+        background-image: url('../img/hero-bg-high-res.jpg');
+    }
+
+    .listings-page .page-hero,
+    .listing-page .page-hero {
+        background-image: url('../img/hero-bg-jobs-high-res.jpg');
+    }
+
+    .accolades {
+        background-image: url('../img/medal-high-res.png');
+        background-size: 165px 148px;
+    }
 }
