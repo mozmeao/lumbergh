@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 echo "Running build acceptance tests..."
 
-for dir in listings position university feed
+for dir in listings position internships feed
 do
     if [ ! -d $dir ];
     then
