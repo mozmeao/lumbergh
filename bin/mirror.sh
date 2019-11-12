@@ -49,7 +49,7 @@ wget --reject-regex "(.*)\?(.*)|/static/(.*)" \
      --mirror \
      -e robots=off \
      --quiet \
-     -nH -p  http://0.0.0.0:8000/ http://0.0.0.0:8000/contribute.json http://0.0.0.0:8000/404.html http://0.0.0.0:8000/robots.txt http://0.0.0.0:8000/university/
+     -nH -p  http://0.0.0.0:8000/ http://0.0.0.0:8000/contribute.json http://0.0.0.0:8000/404.html http://0.0.0.0:8000/robots.txt http://0.0.0.0:8000/internships/
 
 # Copy static directory
 cp -rp ../static .
