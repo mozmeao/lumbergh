@@ -10,7 +10,7 @@ do
     fi
 done
 
-for file in index.html robots.txt contribute.json feed/index.html listings/index.html university/index.html; do
+for file in index.html robots.txt contribute.json feed/index.html listings/index.html internships/index.html; do
     if [ ! -f $file ];
     then
         echo "Error: File ${file} does not exist!";
