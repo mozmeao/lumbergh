@@ -21,6 +21,10 @@ class HomeView(TemplateView):
         return context
 
 
+class InternshipsView(TemplateView):
+    template_name = 'careers/internships.jinja'
+
+
 class PositionListView(ListView):
     model = Position
     template_name = 'careers/listings.jinja'

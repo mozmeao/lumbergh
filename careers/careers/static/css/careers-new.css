@@ -1,5 +1,12 @@
-/* utility classes */
+/* This Source Code Form is subject to the terms of the Mozilla Public
+License, v. 2.0. If a copy of the MPL was not distributed with this
+file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+/* -------------------------------------------------------------------------- */
+
+/* Global */
+
+/* utility classes */
 .centered {
     text-align: center;
 }
@@ -21,12 +28,12 @@
 }
 
 /* nav */
-
 .mzp-c-menu-category .mzp-c-menu-title {
     font-weight: bold;
 }
 
-/* page elements */
+/* -------------------------------------------------------------------------- */
+/* Home */
 
 .page-hero {
     align-items: center;
@@ -36,22 +43,6 @@
     min-height: 388px;
 }
 
-.page-hero .mzp-c-hero-desc,
-.page-hero .mzp-c-hero-desc p {
-    margin-bottom: 0;
-}
-
-.listings-page .page-hero,
-.listing-page .page-hero {
-    background-image: url('../img/hero-bg-jobs.jpg');
-    background-position: bottom right;
-}
-
-.listing-page .page-hero {
-    background-position: top center;
-    min-height: 190px;
-}
-
 .mzp-c-hero-title,
 .mzp-c-hero-desc {
     text-shadow: -1px 1px 0 rgba(0, 0, 0, 0.3),
@@ -59,6 +50,12 @@
 				  1px -1px 0 rgba(0, 0, 0, 0.3),
 				 -1px -1px 0 rgba(0, 0, 0, 0.3);
 }
+
+.page-hero .mzp-c-hero-desc,
+.page-hero .mzp-c-hero-desc p {
+    margin-bottom: 0;
+}
+
 
 .apply-now-wrapper {
     margin-bottom: 24px;
@@ -157,6 +154,9 @@
     background: transparent;
 }
 
+
+/* Locations */
+
 .locations-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -176,6 +176,28 @@
 
 .locations-list a:hover img {
     transform: scale(1.05) translateY(-6px);
+}
+
+/* $mq-sm in protocol */
+@media only screen and (min-width: 480px) {
+    .locations-list {
+        grid-gap: 70px;
+    }
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* Jobs */
+
+.listings-page .page-hero,
+.listing-page .page-hero {
+    background-image: url('../img/hero-bg-jobs.jpg');
+    background-position: bottom right;
+}
+
+.listing-page .page-hero {
+    background-position: top center;
+    min-height: 190px;
 }
 
 #listings-filters {
@@ -226,13 +248,6 @@
 
 .job-post li {
     margin-bottom: .25em;
-}
-
-/* $mq-sm in protocol */
-@media only screen and (min-width: 480px) {
-    .locations-list {
-        grid-gap: 70px;
-    }
 }
 
 /* $mq-md in protocol */

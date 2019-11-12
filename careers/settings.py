@@ -34,7 +34,6 @@ INSTALLED_APPS = [
     # Project specific apps
     'careers.base',
     'careers.careers',
-    'careers.university',
 
     # Third party apps
     'django_jinja',
