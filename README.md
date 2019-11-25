@@ -1,4 +1,4 @@
-# lumbergh
+# Lumbergh
 
 [What's Deployed](https://whatsdeployed.io/s/Bcs)
 
