@@ -250,6 +250,19 @@ file, You can obtain one at http://mozilla.org/MPL/2.0/. */
     margin-bottom: .25em;
 }
 
+.c-apply-button-container {
+    display: inline-block;
+    margin-bottom: 24px;
+}
+
+.c-apply-button-container small {
+    display: block;
+    font-size: 0.75rem;
+    line-height: 1.5;
+    margin-top: 16px;
+    text-align: center;
+}
+
 /* $mq-md in protocol */
 @media only screen and (min-width: 768px) {
     .accolades {
