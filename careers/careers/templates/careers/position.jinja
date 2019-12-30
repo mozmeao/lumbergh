@@ -10,11 +10,8 @@
   <div class="mzp-l-content">
     <div class="mzp-c-hero-body">
       <h1 class="mzp-c-hero-title">Feel good about your work again</h1>
-
       <div class="mzp-c-hero-desc">
-        <p>
-          Join us.
-        </p>
+        <p>Join us.</p>
       </div>
     </div>
   </div>
@@ -23,17 +20,19 @@
 <br />
 
 <h2>{{ position.title }}</h2>
-<div>
-  <a class="mzp-c-button job-post-head-apply ga-job-listing-apply"
-      href="{{ position.apply_url }}">
-      Apply for this job
-  </a>
+
+<div class="c-apply-button-container">
+  <a href="{{ position.apply_url }}" class="mzp-c-button">Apply for this job</a>
+  <small>
+    <a rel="external" href="https://assets.moz.works/pdf/Mozilla_Applicant_Privacy_Notice_May_2018.pdf">Applicant Privacy Notice</a>
+  </small>
 </div>
 
 <br />
 
 <div class="mzp-l-card-hero">
-  <section class="mzp-c-card mzp-c-card-large job-post" id="job-post" data-location-filter="{{ position.location_filter }}">
+  <section class="mzp-c-card mzp-c-card-large job-post" id="job-post" data-location-filter="{{ position.location_filter
+    }}">
     <div class="mzp-c-card-content">
       <div class="mzp-c-card-desc">
         <dl class="mzp-u-list-styled">
@@ -47,11 +46,11 @@
         {{ position.description|safe }}
       </div>
 
-      <div>
-        <a class="mzp-c-button job-post-head-apply ga-job-listing-apply"
-            href="{{ position.apply_url }}">
-            Apply for this job
-        </a>
+      <div class="c-apply-button-container">
+        <a href="{{ position.apply_url }}" class="mzp-c-button">Apply for this job</a>
+        <small>
+          <a rel="external" href="https://assets.moz.works/pdf/Mozilla_Applicant_Privacy_Notice_May_2018.pdf">Applicant Privacy Notice</a>
+        </small>
       </div>
     </div>
   </section>
@@ -62,11 +61,11 @@
       <div class="mzp-c-card-desc">
         <ul class="job-related-list">
           {% for p in related_positions %}
-            <li>
-              <a href="{{ p.get_absolute_url() }}"
-                  class="ga-job-listing-detail"
-                  title="{{ p.title }}">{{ p.title }}</a>
-            </li>
+          <li>
+            <a href="{{ p.get_absolute_url() }}"
+              class="ga-job-listing-detail"
+              title="{{ p.title }}">{{ p.title }}</a>
+          </li>
           {% endfor %}
         </ul>
       </div>
