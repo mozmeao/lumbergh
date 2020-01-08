@@ -32,5 +32,5 @@ deploy prod:
     ESCAPED_SITE_URL: ${PROD_ESCAPED_SITE_URL}
   only:
     refs:
-    - production
+    - prod
   script: ./bin/ci-mirror.sh
