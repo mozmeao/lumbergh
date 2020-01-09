@@ -1,6 +1,6 @@
 # Lumbergh
 
-[![What's Deployed?](https://img.shields.io/badge/What's_Deployed-%3F-yellow.svg)](https://whatsdeployed.io/s/Bcs) [![Documentation RTFM](https://img.shields.io/badge/Documentation-RTFM-blue.svg)](https://mana.mozilla.org/wiki/display/EN/careers.mozilla.org) [![Pipeline](https://img.shields.io/badge/CI|CD-Pipeline-blueviolet.svg)](https://gitlab.com/mozmeao/lumbergh/pipelines) 
+[![What's Deployed?](https://img.shields.io/badge/What's_Deployed-%3F-yellow.svg)](https://whatsdeployed.io/s/Bcs) [![Documentation RTFM](https://img.shields.io/badge/Documentation-RTFM-blue.svg)](https://mana.mozilla.org/wiki/display/EN/careers.mozilla.org) [![Pipeline](https://img.shields.io/badge/CI|CD-Pipeline-blueviolet.svg)](https://gitlab.com/mozmeao/lumbergh/pipelines)
 
 Lumbergh is a Django based App for https://careers.mozilla.org. Follow the
 [Setup your environment for
@@ -67,6 +67,16 @@ Ensure the site is running via `docker-compose up`, then:
 2. In the Docker container, build the site: `./bin/mirror.sh` - this will create a `_site` folder in the root of your project
 3. On your machine, `cd _site` and start a little web server: `python -m SimpleHTTPServer 8001` (or `python -m http.server 8001` if you're on python 2.7)
 4. Open your browser to `http://localhost:8001` and you should see the newly built static site.
+
+
+## Pushing to production
+
+1. Verify all is good on the [staging site](https://careers.allizom.org)
+2. Make sure your local master branch is up to date
+3. Push the master branch to the prod branch: `git push origin master:prod`
+
+You can watch the deployment on [GitLab](https://gitlab.com/mozmeao/lumbergh/pipelines). A notice will be posted in `#careers-notify` on Slack when the push has completed.
+
 
 ## Code of Conduct
 
