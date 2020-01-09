@@ -1,6 +1,6 @@
 # Lumbergh
 
-[What's Deployed](https://whatsdeployed.io/s/Bcs)
+[![What's Deployed?](https://img.shields.io/badge/What's_Deployed-%3F-yellow.svg)](https://whatsdeployed.io/s/Bcs) [![Documentation RTFM](https://img.shields.io/badge/Documentation-RTFM-blue.svg)](https://mana.mozilla.org/wiki/display/EN/careers.mozilla.org) [![Pipeline](https://img.shields.io/badge/CI|CD-Pipeline-blueviolet.svg)](https://gitlab.com/mozmeao/lumbergh/pipelines) 
 
 Lumbergh is a Django based App for https://careers.mozilla.org. Follow the
 [Setup your environment for
