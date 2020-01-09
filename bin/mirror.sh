@@ -8,7 +8,7 @@ cp env-build .env
 ESCAPED_SITE_URL=${ESCAPED_SITE_URL:-"http:\/\/localhost:8000"}
 
 # Allow search engine crawling in production only
-if [[ ${CI_COMMIT_REF_NAME} == "production" ]];
+if [[ ${CI_COMMIT_REF_NAME} == "prod" ]];
 then
     echo "ENGAGE_ROBOTS=True" >> .env
 else
