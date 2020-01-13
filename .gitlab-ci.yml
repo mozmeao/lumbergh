@@ -21,6 +21,7 @@ deploy stage:
   only:
     refs:
     - master
+    - issue-515
   script: ./bin/ci-mirror.sh
 
 deploy prod:
