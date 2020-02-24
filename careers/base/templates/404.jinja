@@ -2,11 +2,6 @@
 
 {% block page_title %}Mozilla Jobs &mdash; Page not found{% endblock %}
 
-{% block site_css %}
-  {{ super() }}
-  <link href="{{ static('css/careers.css') }}" rel="stylesheet" />
-{% endblock %}
-
 {% block site_ie8 %}
   {{ super() }}
   <link href="{{ static('css/careers-ie8.css') }}" rel="stylesheet" />
@@ -15,7 +10,6 @@
 {% block content %}
 <section id="error" class="contain">
     <h1>Page not found!</h1>
-
     <p>
       Sorry, but we couldn't find the job listing or page you're looking for.
       <a href="{{ url('careers.listings') }}">Check out all the listings</a> for all
