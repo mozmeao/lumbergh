@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # `-f` escapes `*`
-set -xf
+set -exf
 BUCKET_PATH=${BUCKET_PATH:-s3://mozilla-careers-stage}
 BUCKET_NAME=${BUCKET_PATH:5}
 
@@ -23,20 +23,14 @@ fi
 
 for file in ${CHANGED_FILES};
 do
-    metadata=$(
-        aws s3api head-object \
-            --bucket ${BUCKET_NAME} \
-            --key ${file}
-             )
     aws s3api copy-object \
         --acl public-read \
         --copy-source ${BUCKET_NAME}/${file} \
         --bucket  ${BUCKET_NAME} \
         --key ${file} \
         --metadata-directive REPLACE \
-        --content-type $(echo ${metadata} | jq -r .ContentType) \
-        --cache-control "max-age=315360000,public,immutable" \
-        --metadata "{\"mtime\": $(echo $metadata | jq .Metadata.mtime)}"
+        --content-type "$(mimetype -b ${file})" \
+        --cache-control "max-age=315360000,public,immutable"
 done
 
 
