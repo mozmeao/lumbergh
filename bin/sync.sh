@@ -34,7 +34,7 @@ do
         --bucket  ${BUCKET_NAME} \
         --key ${file} \
         --metadata-directive REPLACE \
-        --content-type $(echo $metadata | jq .ContentType) \
+        --content-type "$(echo ${metadata} | jq -r .ContentType)" \
         --cache-control "max-age=315360000,public,immutable" \
         --metadata "{\"mtime\": $(echo $metadata | jq .Metadata.mtime)}"
 done

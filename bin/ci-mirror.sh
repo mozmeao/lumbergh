@@ -14,4 +14,5 @@ docker run \
       -e DMS_BLOG_FETCH \
       -e CI_COMMIT_SHA \
       -e CI_COMMIT_REF_NAME \
+      -e GLOBAL_SET_METADATA \
       ${IMAGE}
