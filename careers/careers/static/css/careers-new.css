@@ -189,14 +189,12 @@ file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 /* -------------------------------------------------------------------------- */
 /* Jobs */
 
-.listings-page .page-hero,
-.listing-page .page-hero {
+.listings-page .page-hero {
     background-image: url('../img/hero-bg-jobs.jpg');
-    background-position: bottom right;
 }
 
-.listing-page .page-hero {
-    background-position: top center;
+.position-page .page-hero {
+    background-image: url('../img/hero-bg-position.jpg');
     min-height: 190px;
 }
 
@@ -335,9 +333,12 @@ file, You can obtain one at http://mozilla.org/MPL/2.0/. */
         background-image: url('../img/hero-bg-high-res.jpg');
     }
 
-    .listings-page .page-hero,
-    .listing-page .page-hero {
+    .listings-page .page-hero {
         background-image: url('../img/hero-bg-jobs-high-res.jpg');
+    }
+
+    .position-page .page-hero {
+        background-image: url('../img/hero-bg-position-high-res.jpg');
     }
 
     .accolades {
