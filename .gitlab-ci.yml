@@ -14,7 +14,7 @@ variables:
 deploy stage:
   stage: deploy
   tags:
-  - oregon-b-shell
+  - mozmeao
   variables:
     BUCKET_PATH: ${STAGE_BUCKET_PATH}
     ESCAPED_SITE_URL: ${STAGE_ESCAPED_SITE_URL}
@@ -26,7 +26,7 @@ deploy stage:
 deploy prod:
   stage: deploy
   tags:
-  - oregon-b-shell
+  - mozmeao
   variables:
     BUCKET_PATH: ${PROD_BUCKET_PATH}
     ESCAPED_SITE_URL: ${PROD_ESCAPED_SITE_URL}
