@@ -17,12 +17,12 @@ class PositionFilterForm(forms.Form):
             locations.remove('All Offices')
 
         self.fields['location'].choices = (
-            [('', 'All Locations')] + [(l, l) for l in locations])
+            [('', 'All Locations')] + [(loc, loc) for loc in locations])
 
         types = Position.position_types()
         self.fields['position_type'].choices = (
-            [('', 'All Positions')] + [(t, t) for t in types])
+            [('', 'All Positions')] + [(typ, typ) for typ in types])
 
         categories = Position.categories()
         self.fields['team'].choices = (
-            [('', 'All Categories')] + [(k, k) for k in categories])
+            [('', 'All Categories')] + [(kat, kat) for kat in categories])
