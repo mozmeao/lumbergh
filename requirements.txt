@@ -81,9 +81,9 @@ html5lib==1.0.1 \
 tzlocal==2.0.0 \
     --hash=sha256:11c9f16e0a633b4b60e1eede97d8a46340d042e67b670b290ca526576e039048 \
     --hash=sha256:949b9dd5ba4be17190a80c0268167d7e6c92c62b30026cf9764caf3e308e5590
-django-extensions==3.0.2 \
-    --hash=sha256:2b96bb937329b4038809d0fa79c55f6c1e941bce5057ca9ff5f3207aadffcbb9 \
-    --hash=sha256:c4e8cff39a26bfb72438cd52ab37d760a2aa146b715b6cd27fa8b862ac29fdc5
+django-extensions==3.0.3 \
+    --hash=sha256:d5fcf8f3bab019487e07473c24453bccd5acfb4440f3ef36788294c307b09d4c \
+    --hash=sha256:6230898b1e1d5deb3ddab8335b2d270edb7afa4ef916a95e479a19fdfb0464cb
 coverage==5.0.3 \
     --hash=sha256:cc1109f54a14d940b8512ee9f1c3975c181bbb200306c6d8b87d93376538782f \
     --hash=sha256:be18f4ae5a9e46edae3f329de2191747966a34a3d93046dbdf897319923923bc \
