@@ -16,7 +16,7 @@ file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 .internships-page .mzp-c-hero {
     background:
     linear-gradient(to right, #000, transparent),
-    url('../img/internships/internships-hero-high-res.png') center center no-repeat;
+    url('../img/internships/internships-hero-high-res.jpg') center center no-repeat;
     background-size: cover;
 }
 
@@ -31,7 +31,7 @@ file, You can obtain one at http://mozilla.org/MPL/2.0/. */
     .internships-page .mzp-c-hero {
         background:
         linear-gradient(to right, #000, transparent),
-        url('../img/internships/internships-hero.png') center center no-repeat;
+        url('../img/internships/internships-hero.jpg') center center no-repeat;
         background-size: cover;
     }
 }
