@@ -14,19 +14,17 @@ privacy protection.{% endblock %}
 
 {% block content %}
 
-<section class="mzp-c-hero mzp-t-dark">
-  <div class="mzp-l-content">
-    <div class="mzp-c-hero-body">
-      <h1 class="mzp-c-hero-title">Make an Impact</h1>
-      <div class="mzp-c-hero-desc">
-        <p>Ready to work on meaningful projects that will reshape privacy and safety on the internet? Mozilla is the
-          right spot for you.</p>
-      </div>
-      <p class="mzp-c-hero-cta">
-        <a class="mzp-c-button mzp-t-dark" href="{{ url('careers.listings')|urlparams(position_type='Intern') }}">Apply
-          for an internship</a>
-      </p>
+<section class="mzp-l-content mzp-c-hero mzp-t-dark">
+  <div class="mzp-c-hero-body">
+    <h1 class="mzp-c-hero-title">Make an Impact</h1>
+    <div class="mzp-c-hero-desc">
+      <p>Ready to work on meaningful projects that will reshape privacy and safety on the internet? Mozilla is the
+        right spot for you.</p>
     </div>
+    <p class="mzp-c-hero-cta">
+      <a class="mzp-c-button mzp-t-dark" href="{{ url('careers.listings')|urlparams(position_type='Intern') }}">Apply
+        for an internship</a>
+    </p>
   </div>
 </section>
 
@@ -130,15 +128,15 @@ privacy protection.{% endblock %}
   </div>
 </section>
 
-<div class="mzp-l-content c-section-heading">
-  <h2>Application process</h2>
-  <p>Invest in your future and the future of internet privacy with a Mozilla internship. We hire on a rolling basis
-    from September through March, so please apply early!</p>
-</div>
 
-<section class="l-internships-apply mzp-l-content">
-  <div class="mzp-l-card-half">
-    <div class="mzp-c-card-picto ">
+<section class="internships-grey-section">
+  <div class="l-internships-apply mzp-l-content c-section-heading">
+    <h2>Application process</h2>
+    <p>Invest in your future and the future of internet privacy with a Mozilla internship. We hire on a rolling basis
+      from September through March, so please apply early!</p>
+  </div>
+  <div class="l-internships-apply mzp-l-content mzp-l-card-half">
+    <div class="mzp-c-card-picto">
       <div class="mzp-c-card-picto-content" id="step-1">
         <h2 class="mzp-c-card-picto-title">Step 1</h2>
         <p class="mzp-c-card-picto-desc">Submit your application.</p>
@@ -151,7 +149,7 @@ privacy protection.{% endblock %}
       </div>
     </div>
   </div>
-  <div class="mzp-l-card-half">
+  <div class="l-internships-apply mzp-l-content mzp-l-card-half">
     <div class="mzp-c-card-picto ">
       <div class="mzp-c-card-picto-content" id="step-3">
         <h2 class="mzp-c-card-picto-title">Step 3</h2>
@@ -165,12 +163,11 @@ privacy protection.{% endblock %}
       </div>
     </div>
   </div>
+  <div class="mzp-l-content centered">
+    <a class="mzp-c-button" href="{{ url('careers.listings')|urlparams(position_type='Intern') }}">Apply for an
+      internship</a>
+  </div>
 </section>
-
-<div class="mzp-l-content centered">
-  <a class="mzp-c-button" href="{{ url('careers.listings')|urlparams(position_type='Intern') }}">Apply for an
-    internship</a>
-</div>
 
 <section class="l-internships-section">
   <div class="mzp-l-content c-section-heading">
