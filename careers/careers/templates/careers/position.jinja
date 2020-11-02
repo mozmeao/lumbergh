@@ -1,7 +1,7 @@
 {% extends "base.jinja" %}
 
-{% block meta_description %}{{ meta_description|truncate(160, end='…') }}{% endblock %}
-{% block page_title %}{{ position.title }} &mdash; Mozilla Jobs &mdash; Open Positions{% endblock %}
+{% set meta_title = "Mozilla Careers &mdash; {{ position.title }} &mdash; Open Positions" %}
+{% set meta_description = "Mozilla Careers &mdash; {{ meta_description|truncate(175, end='…') }}" %}
 
 {% block body_class %}position-page{% endblock %}
 
