@@ -6,7 +6,7 @@ from factory import fuzzy
 from careers.careers.models import Position
 
 
-class PositionFactory(factory.DjangoModelFactory):
+class PositionFactory(factory.django.DjangoModelFactory):
     job_id = factory.Sequence(lambda n: 'jobid{0}'.format(n))
     title = factory.Sequence(lambda n: 'Job Title {0}'.format(n))
     department = fuzzy.FuzzyChoice(['Data Analytics', 'Engineering'])

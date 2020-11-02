@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import html.parser
+import html
 import re
 
 from django.conf import settings
@@ -13,7 +13,6 @@ from html5lib.filters.base import Filter
 from careers.careers.models import Position
 
 GREENHOUSE_URL = 'https://api.greenhouse.io/v1/boards/{}/jobs/?content=true'
-H = html.parser.HTMLParser()
 
 ALLOWED_TAGS = [
     'a', 'abbr', 'acronym', 'b', 'blockquote', 'code', 'em',
@@ -71,7 +70,7 @@ class Command(BaseCommand):
             else:
                 location = ''
 
-            description = H.unescape(job.get('content', ''))
+            description = html.unescape(job.get('content', ''))
             description = cleaner.clean(description)
             # Remove empty paragraphs and h4s and paragraphs with \xa0
             # (no-brake space). I ♥ regex
