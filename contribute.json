@@ -9,7 +9,7 @@
         "home": "https://github.com/mozmeao/lumbergh",
         "docs": "https://github.com/mozmeao/lumbergh#setup-your-environment-for-development",
         "irc": "slack:///#websites",
-        "irc-contacts": ["#websites", "giorgos", "metadave"]
+        "irc-contacts": ["#websites", "giorgos", "pmac"]
     },
     "bugs": {
         "list": "https://github.com/mozmeao/lumbergh/issues",
