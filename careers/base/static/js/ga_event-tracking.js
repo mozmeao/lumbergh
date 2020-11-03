@@ -28,7 +28,6 @@
     trackClick('#ga-nav-home-logo', ['Top Navigation', 'Click', 'Home Logo']);
     trackClick('#ga-nav-life', ['Top Navigation', 'Click', 'Life At Mozilla']);
     trackClick('#ga-nav-locations', ['Top Navigation', 'Click', 'Locations']);
-    trackClick('#ga-nav-internships', ['Top Navigation', 'Click', 'Internships']);
     trackClick('#ga-nav-listing', ['Top Navigation', 'Click', 'Job Listing']);
 
     /* Listings
