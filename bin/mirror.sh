@@ -19,7 +19,7 @@ python manage.py collectstatic --noinput
 python manage.py migrate --noinput
 python manage.py sync_greenhouse
 
-gunicorn careers.wsgi:application --daemon -b 0.0.0.0:8000 -w 2
+gunicorn careers.wsgi:application --daemon -b 0.0.0.0:8000 -w 2 --timeout 300
 
 # Wait for site to come online
 CHECK_PORT=8000 CHECK_HOST=0.0.0.0 ./bin/takis
