@@ -1,0 +1,24 @@
+name: Test Pull Request
+
+on:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: mozmeao/checkout@v1
+      - name: Docker build
+        run: docker build -t lumbergh:${GITHUB_SHA} .
+      - name: Lint
+        run: docker run lumbergh:${GITHUB_SHA} flake8 careers
+      - name: Test
+        env:
+          DEBUG: "False"
+          ALLOWED_HOSTS: "*"
+          SECRET_KEY: "foo"
+          DATABASE_URL: "sqlite://"
+          SECURE_SSL_REDIRECT: "False"
+        run: |
+          env | sed 's/ /_/' > .env
+          docker run --env-file .env lumbergh:${GITHUB_SHA} ./manage.py test
