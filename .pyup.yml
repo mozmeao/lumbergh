@@ -1,8 +1,0 @@
-update: all
-branch: master
-schedule: "every month"
-search: True
-close_prs: True
-requirements:
-  - docs/requirements.txt:
-      update: False
