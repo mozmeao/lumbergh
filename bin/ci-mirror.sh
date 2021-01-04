@@ -4,7 +4,17 @@
 # Ping DMS when complete
 
 export IMAGE=mozmeao/lumbergh-deploy:`git rev-parse --short HEAD`
-docker build --pull -f ./bin/Dockerfile . -t ${IMAGE}
+DOCKERFILE=$(mktemp)
+cat Dockerfile >> ${DOCKERFILE}
+
+echo "\
+USER root
+RUN pip install awscli
+USER webdev
+CMD ./bin/mirror.sh && ./bin/sync.sh && curl ${DMS} \
+" >> ${DOCKERFILE}
+
+docker build --pull -f ${DOCKERFILE} . -t ${IMAGE}
 docker run \
       -e AWS_ACCESS_KEY_ID \
       -e AWS_SECRET_ACCESS_KEY \
