@@ -10,7 +10,7 @@ RUN adduser --uid 1000 --disabled-password --gecos '' --no-create-home webdev
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-    build-essential wget curl sed && \
+    build-essential wget curl sed jq && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
