@@ -66,7 +66,7 @@ class Command(BaseCommand):
 
             offices = job.get('offices', '')
             if offices:
-                location = ','.join([office['name'] for office in offices])
+                location = job["location"].get("name", '');
             else:
                 location = ''
 
