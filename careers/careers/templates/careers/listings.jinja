@@ -57,7 +57,7 @@
           data-type="{{ position.position_type }},"
           data-location="{{ position.location }},">
         <td class="title"><a href="{{ position.get_absolute_url() }}">{{ position.title }}</a></td>
-        <td class="location">{{ position.location_list|join(", ") }}</td>
+        <td class="location">{{ position.location }}</td>
         <td class="type">{{ position.position_type }}</td>
         <td class="name">{{ position.department }}</td>
       </tr>
