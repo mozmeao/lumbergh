@@ -70,6 +70,8 @@ class Command(BaseCommand):
             else:
                 location = ''
 
+            jobLocations = job.get('location',{}).get('name','')
+
             description = html.unescape(job.get('content', ''))
             description = cleaner.clean(description)
             # Remove empty paragraphs and h4s and paragraphs with \xa0
@@ -86,7 +88,7 @@ class Command(BaseCommand):
             object_data = {
                 'title': job['title'],
                 'department': department,
-                'location': location,
+                'location': jobLocations,
                 'description': description,
                 'position_type': position_type,
                 'apply_url': job['absolute_url'],
