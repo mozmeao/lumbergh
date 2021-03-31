@@ -70,7 +70,7 @@ class Command(BaseCommand):
             else:
                 location = ''
 
-            jobLocations = job.get('location',{}).get('name','')
+            jobLocations = job.get('location', {}).get('name', '')
 
             description = html.unescape(job.get('content', ''))
             description = cleaner.clean(description)
