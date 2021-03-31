@@ -88,7 +88,8 @@ class Command(BaseCommand):
             object_data = {
                 'title': job['title'],
                 'department': department,
-                'location': jobLocations,
+                'location': location,
+                'job_locations': jobLocations,
                 'description': description,
                 'position_type': position_type,
                 'apply_url': job['absolute_url'],
