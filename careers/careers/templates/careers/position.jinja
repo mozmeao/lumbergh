@@ -39,7 +39,7 @@
           <dt class="job-post-team-head">Team:</dt>
           <dd class="job-post-team">{{ position.department }}</dd>
           <dt class="job-post-location-head">Locations:</dt>
-          <dd class="job-post-location">{{ position.location_list|join(", ") }}</dd>
+          <dd class="job-post-location">{{ position.job_locations }}</dd>
         </dl>
 
         {# Description is bleached through sync jobs so it will be happy here. #}
