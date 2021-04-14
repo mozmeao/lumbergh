@@ -33,4 +33,4 @@ class PositionFilterForm(forms.Form):
             categories.remove('')
 
         self.fields['team'].choices = (
-            [('', 'All Categories')] + [(kat, kat) for kat in categories])
+            [('', 'All Teams')] + [(kat, kat) for kat in categories])
