@@ -6,74 +6,46 @@
 {% block body_class %}position-page{% endblock %}
 
 {% block content %}
-<section class="mzp-c-hero mzp-t-dark page-hero">
-  <div class="mzp-l-content">
-    <div class="mzp-c-hero-body">
-      <h1 class="mzp-c-hero-title">Feel good about your work again</h1>
-      <div class="mzp-c-hero-desc">
-        <p>Join us.</p>
+<section class="job-post" id="job-post">
+  <div class="job-row">
+    <div>
+      <div class="job-title">
+        <strong>{{ position.title }}</strong>
       </div>
-    </div>
-  </div>
-</section>
-
-<br />
-
-<h2>{{ position.title }}</h2>
-
-<div class="c-apply-button-container">
-  <a href="{{ position.apply_url }}" class="mzp-c-button">Apply for this job</a>
-  <small>
-    <a rel="external" href="https://assets.mozilla.net/pdf/Mozilla_Applicant_Privacy_Notice_May_2018.pdf">Applicant Privacy Notice</a>
-  </small>
-</div>
-
-<br />
-
-<div class="mzp-l-card-hero">
-  <section class="mzp-c-card mzp-c-card-large job-post" id="job-post" data-location-filter="{{ position.location_filter
-    }}">
-    <div class="mzp-c-card-content">
-      <div class="mzp-c-card-desc">
-        <dl class="mzp-u-list-styled">
+      <div class="title-location">
+        at 
+        {% if position.is_mofo %} 
+          Mozilla Foundation
+        {% else %}
+          Mozilla Corporation
+        {% endif %}
+      </div>
+      <dl class="mzp-u-list-styled">
+        {% if position.is_mofo == False %}
           <dt class="job-post-team-head">Team:</dt>
           <dd class="job-post-team">{{ position.department }}</dd>
-          <dt class="job-post-location-head">Locations:</dt>
-          <dd class="job-post-location">{{ position.job_locations }}</dd>
-        </dl>
-
-        {# Description is bleached through sync jobs so it will be happy here. #}
-        {{ position.description|safe }}
-      </div>
-
-      <div class="c-apply-button-container">
-        <a href="{{ position.apply_url }}" class="mzp-c-button">Apply for this job</a>
-        <small>
-          <a rel="external" href="https://assets.mozilla.net/pdf/Mozilla_Applicant_Privacy_Notice_May_2018.pdf">Applicant Privacy Notice</a>
-        </small>
-      </div>
+        {% endif %}
+        <dt class="job-post-location-head">Locations:</dt>
+        <dd class="job-post-location">{{ position.job_locations }}</dd>
+      </dl>
     </div>
-  </section>
-
-  <section class="mzp-c-card mzp-c-card-small">
-    <div class="mzp-c-card-content">
-      <h2 class="mzp-c-card-title">{{ position.department }}: {{ _('Open Positions') }}</h2>
-      <div class="mzp-c-card-desc">
-        <ul class="job-related-list">
-          {% for p in related_positions %}
-          <li>
-            <a href="{{ p.get_absolute_url() }}"
-              class="ga-job-listing-detail"
-              title="{{ p.title }}">{{ p.title }}</a>
-          </li>
-          {% endfor %}
-        </ul>
-      </div>
+    <div class="appy-btn">
+      <a href="{{ position.apply_url }}" class="mzp-c-button">Apply Now</a>
     </div>
-  </section>
-</div>
-
-<br />
+  </div>
+  <div class="appy-btn-sm apply-sm">
+    <a href="{{ position.apply_url }}" class="mzp-c-button">Apply Now</a>
+  </div>
+  <div>
+    {{ position.description|safe }}
+  </div>
+  <div class="c-apply-button-container">
+    <a href="{{ position.apply_url }}" class="mzp-c-button">Apply for this job</a>
+    <small>
+      <a rel="external" href="https://assets.mozilla.net/pdf/Mozilla_Applicant_Privacy_Notice_May_2018.pdf">Applicant Privacy Notice</a>
+    </small>
+  </div>
+</section>
 
 <section id="why" class="mzp-c-call-out">
   <div class="mzp-l-content">
