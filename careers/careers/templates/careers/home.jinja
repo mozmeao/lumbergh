@@ -9,7 +9,6 @@
   <div class="mzp-l-content">
     <div class="mzp-c-hero-body">
       <h1 class="mzp-c-hero-title">Feel good about your work again</h1>
-
       <div class="mzp-c-hero-desc">
         <p>
           Pursue your future while working to protect the future of the internet for everyone, everywhere.
@@ -135,7 +134,7 @@
       <a href="{{ post.link }}" class="mzp-c-card-block-link">
         <div class="mzp-c-card-media-wrapper">
           <div class="lazy-image-container">
-            <img src="{{ post.image|default(static('img/blog-fallback.png'), true) }}" class="mzp-c-card-image" />
+            <img src="{{ post.image|default(static('img/blog-fallback.png'), true) }}" alt="{{ post.title }}" class="mzp-c-card-image" />
           </div>
         </div>
         <div class="mzp-c-card-content">
