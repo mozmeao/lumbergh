@@ -17,8 +17,8 @@ GREENHOUSE_URL = 'https://api.greenhouse.io/v1/boards/{}/jobs/?content=true'
 ALLOWED_TAGS = [
     'a', 'abbr', 'acronym', 'b', 'blockquote', 'code', 'em',
     'i', 'li', 'ol', 'ul', 'p', 'br', 'h1', 'h2', 'h3', 'h4',
+    'strong',
 ]
-
 
 class HeaderConverterFilter(Filter):
     def __iter__(self):
@@ -64,6 +64,10 @@ class Command(BaseCommand):
             else:
                 department = ''
 
+            is_mofo = False
+            if department == 'Mozilla Foundation':
+                is_mofo = True
+
             offices = job.get('offices', '')
             if offices:
                 location = ','.join([office['name'] for office in offices])
@@ -88,6 +92,7 @@ class Command(BaseCommand):
             object_data = {
                 'title': job['title'],
                 'department': department,
+                'is_mofo': is_mofo,
                 'location': location,
                 'job_locations': jobLocations,
                 'description': description,
