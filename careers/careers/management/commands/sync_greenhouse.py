@@ -20,6 +20,7 @@ ALLOWED_TAGS = [
     'strong',
 ]
 
+
 class HeaderConverterFilter(Filter):
     def __iter__(self):
         for token in Filter.__iter__(self):
