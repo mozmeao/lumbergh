@@ -14,6 +14,7 @@ class Position(models.Model):
     department = models.CharField(max_length=100)
     location = models.CharField(max_length=500)
     job_locations = models.CharField(max_length=500, default='')
+    is_mofo = models.BooleanField(default=False)
     description = models.TextField()
     apply_url = models.URLField()
     source = models.CharField(max_length=100)
