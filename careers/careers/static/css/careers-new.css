@@ -193,6 +193,23 @@ file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 /* -------------------------------------------------------------------------- */
 /* Jobs */
+.job-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.job-title {
+    font-size: 1.3rem;
+}
+
+.title-location {
+    margin-bottom: 15px;
+}
+
+.apply-sm {
+    margin: 0px 0px 15px 0px;
+}
 
 .listings-page .page-hero {
     background-image: url('../img/hero-bg-jobs.jpg');
@@ -322,6 +339,18 @@ file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
     #listings-filters .listings-filter {
         padding-left: 10px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .appy-btn-sm {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .appy-btn {
+        display: none;
     }
 }
 
