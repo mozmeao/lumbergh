@@ -21,7 +21,7 @@
         {% endif %}
       </div>
       <dl class="mzp-u-list-styled">
-        {% if position.is_mofo == False %}
+        {% if not position.is_mofo %}
           <dt class="job-post-team-head">Team:</dt>
           <dd class="job-post-team">{{ position.department }}</dd>
         {% endif %}
