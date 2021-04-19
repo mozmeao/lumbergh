@@ -24,6 +24,8 @@ class HomeView(TemplateView):
 class InternshipsView(TemplateView):
     template_name = 'careers/internships.jinja'
 
+class BenefitsView(TemplateView):
+    template_name = 'careers/benefits.jinja'
 
 class PositionListView(ListView):
     model = Position

@@ -56,7 +56,7 @@
           data-team="{{ position.department }},"
           data-type="{{ position.position_type }},"
           data-location="{{ position.location }},">
-        <td class="title"><a href="{{ position.get_absolute_url() }}">{{ position.title }}</a></td>
+        <td class="title"><a href="https://boards.greenhouse.io/mozilla/jobs/{{ position.job_id }}">{{ position.title }}</a></td>
         <td class="location">{{ position.job_locations }}</td>
         <td class="type">{{ position.position_type }}</td>
         <td class="name">{{ position.department }}</td>
