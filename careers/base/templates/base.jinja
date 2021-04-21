@@ -11,11 +11,11 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="{{ meta_title|default(default_slug, true)|safe }}">
     <meta property="og:description" content="{{ meta_description|default(default_slug, true)|safe }}">
-    <meta property="og:image" content="{{ meta_image|default(static('img/moz-m.png'), true)|safe }}">
+    <meta property="og:image" content="https://careers.mozilla.org{{ meta_image|default(static('img/moz-m.png'), true)|safe }}">
     <meta property="og:image:alt" content="{{ meta_title|default(default_slug, true)|safe }}">
     <meta name="twitter:title" content="{{ meta_title|default(default_slug, true)|safe }}">
     <meta name="twitter:description" content="{{ meta_description|default(default_slug, true)|safe }}">
-    <meta name="twitter:image" content="{{ meta_image|default(static('img/moz-m.png'), true)|safe }}">
+    <meta name="twitter:image" content="https://careers.mozilla.org{{ meta_image|default(static('img/moz-m.png'), true)|safe }}">
     <meta name="twitter:card" content="summary">
     <meta name="description" content="{{ meta_description|default(default_slug, true)|safe }}">
     <title>{{ meta_title|default(default_slug, true)|safe }}</title>
