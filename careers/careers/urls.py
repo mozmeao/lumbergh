@@ -10,5 +10,4 @@ urlpatterns = [
     url(r'^feed/$', LatestPositionsFeed(), name='careers.feed'),
     url(r'^listings/$', views.PositionListView.as_view(), name='careers.listings'),
     url(r'^internships/$', views.InternshipsView.as_view(), name='careers.internships'),
-    url(r'^benefits/$', views.BenefitsView.as_view(), name='careers.benefits'),
 ]
