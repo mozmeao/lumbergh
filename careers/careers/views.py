@@ -27,7 +27,7 @@ class InternshipsView(TemplateView):
 
 class BenefitsView(TemplateView):
     template_name = 'careers/benefits.jinja'
-    
+
 
 class PositionListView(ListView):
     model = Position
