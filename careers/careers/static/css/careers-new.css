@@ -216,6 +216,10 @@ file, You can obtain one at http://mozilla.org/MPL/2.0/. */
     background-image: url('../img/hero-bg-jobs.jpg');
 }
 
+.benefits-page .page-hero {
+    background-image: url('../img/hero-bg-benefits.jpg');
+}
+
 .position-page .page-hero {
     background-image: url('../img/hero-bg-position.jpg');
     min-height: 190px;
