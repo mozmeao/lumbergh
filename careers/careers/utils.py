@@ -5,9 +5,6 @@ def generate_position_meta_description(position):
         f'{position.position_type.lower()} {position.title} in '
     )
 
-    if len(position.location_list) > 1:
-        meta = meta + f'{", ".join(position.location_list[:-1])} and {position.location_list[-1]}'
-    else:
-        meta = meta + position.location_list[0]
+    meta = meta + position.job_locations
 
     return meta
