@@ -1,0 +1,44 @@
+version: 2
+updates:
+- package-ecosystem: pip
+  directory: "/"
+  schedule:
+    interval: monthly
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: django
+    versions:
+    - ">= 3.a, < 4"
+  - dependency-name: idna
+    versions:
+    - ">= 3.0.a, < 3.1"
+  - dependency-name: faker
+    versions:
+    - 5.8.0
+  - dependency-name: packaging
+    versions:
+    - "20.9"
+  - dependency-name: python-decouple
+    versions:
+    - "3.4"
+  - dependency-name: bleach
+    versions:
+    - 3.2.3
+  - dependency-name: sphinx-rtd-theme
+    versions:
+    - 0.5.1
+  - dependency-name: importlib-metadata
+    versions:
+    - 3.4.0
+  - dependency-name: jinja2
+    versions:
+    - 2.11.3
+  - dependency-name: pygments
+    versions:
+    - 2.7.4
+  - dependency-name: coverage
+    versions:
+    - "5.4"
+  - dependency-name: urllib3
+    versions:
+    - 1.26.3
