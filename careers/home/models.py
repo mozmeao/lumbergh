@@ -5,7 +5,7 @@ from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel
 
 
-class HomePage(Page):
+class HomeIndexPage(Page):
     heroHeader = RichTextField(blank=True)
     heroText = RichTextField(blank=True)
     videoUrlCode = models.CharField(max_length=255)
