@@ -31,7 +31,10 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 # Application definition
 
 INSTALLED_APPS = [
-    #Wagtail
+    'careers.positions',
+    'careers.positiondetail',
+    # 'careers.home',
+
     'wagtail.admin',
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -43,13 +46,14 @@ INSTALLED_APPS = [
     'wagtail.images',
     'wagtail.search',
     'wagtail.core',
-
     'modelcluster',
     'taggit',
 
     # Project specific apps
     'careers.base',
     'careers.careers',
+
+
 
     # Third party apps
     'django_jinja',
