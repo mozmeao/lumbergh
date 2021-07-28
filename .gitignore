@@ -9,3 +9,4 @@ docs/_build
 MANIFEST
 /static/
 _site
+/node_modules
