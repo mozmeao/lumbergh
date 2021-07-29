@@ -6,9 +6,11 @@ from wagtail.admin.edit_handlers import FieldPanel
 
 
 class HomeIndexPage(Page):
-    heroHeader = RichTextField(blank=True)
-    heroText = RichTextField(blank=True)
+    heroOneHeader = models.CharField(max_length=255)
+    heroOneText = models.CharField(max_length=255)
     videoUrlCode = models.CharField(max_length=255)
+    applyButtonUrl = models.CharField(max_length=255)
+    applyButtonText = models.CharField(max_length=255)
     dataOneA = models.CharField(max_length=255)
     dataOneB = models.CharField(max_length=255)
     dataOneC = models.CharField(max_length=255)
@@ -21,9 +23,11 @@ class HomeIndexPage(Page):
     ContentBlockOneContent = RichTextField(blank=True)
 
     content_panels = Page.content_panels + [
-        FieldPanel('heroHeader', classname="full"),
-        FieldPanel('heroText', classname="full"),
+        FieldPanel('heroOneHeader', classname="full"),
+        FieldPanel('heroOneText', classname="full"),
         FieldPanel('videoUrlCode', classname="full"),
+        FieldPanel('applyButtonUrl', classname="full"),
+        FieldPanel('applyButtonText', classname="full"),
         FieldPanel('dataOneA', classname="full"),
         FieldPanel('dataOneB', classname="full"),
         FieldPanel('dataOneC', classname="full"),
