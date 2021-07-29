@@ -1,0 +1,123 @@
+{% load static wagtailuserbar %}
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Mozilla Careers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    {# Global stylesheets #}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/careers.css' %}">
+
+    {% block extra_css %}{% endblock %}
+
+    <link href="https://careers.mozilla.org/static/css/protocol/css/protocol.min.2da94f9bbcd8.css" rel="stylesheet" />
+    <link href="https://careers.mozilla.org/static/css/protocol/css/protocol-extra.min.01b105652cf5.css" rel="stylesheet" />
+    <link href="https://careers.mozilla.org/static/css/careers-new.9bd96426e29b.css" rel="stylesheet" />
+        
+    <script src="https://careers.mozilla.org/static/js/dnt-helper.8a1f6051e916.js"></script>
+    <script src="https://careers.mozilla.org/static/js/protocol/protocol-base.min.6ebbf2512f8f.js"></script>
+    <script src="https://careers.mozilla.org/static/js/protocol/protocol-utils.min.e5ef43f92773.js"></script>
+    <script src="https://careers.mozilla.org/static/js/protocol/protocol-supports.min.b20a12f20d94.js"></script>
+    
+    <link rel="shortcut icon" type="image/png" href="https://careers.mozilla.org/static/img/favicon.d4f1f46b91f4.ico"/>
+
+    <link rel="alternate" type="application/rss+xml" href="/feed/" title="Current Mozilla job openings" />
+    <script src="https://careers.mozilla.org/static/js/gtm-snippet.3803a41fca06.js"></script>
+  </head>
+  <body class="{% block body_class %}{% endblock %}">
+    {% wagtailuserbar %}
+    <div class="mzp-c-navigation">
+      <div class="mzp-c-navigation-l-content">
+        <div class="mzp-c-navigation-container">
+          <button class="mzp-c-navigation-menu-button" type="button" aria-controls="patterns.organisms.navigation.navigation">Menu</button>
+          <div class="mzp-c-navigation-logo">
+            <a href="/pages/home" id="ga-nav-home-logo"></a>
+          </div>
+          <div class="mzp-c-navigation-items" id="patterns.organisms.navigation.navigation">
+            <div class="mzp-c-navigation-menu">
+              <nav class="mzp-c-menu mzp-is-basic">
+                <ul class="mzp-c-menu-category-list">
+                  <li class="mzp-c-menu-category">
+                    <a href="/pages/positions" class="mzp-c-menu-title" id="ga-nav-listing">Jobs</a>
+                  </li>
+                  <li class="mzp-c-menu-category">
+                    <a href="https://blog.mozilla.org/careers/" class="mzp-c-menu-title" id="ga-nav-life" target="_blank">Life at Mozilla</a>
+                  </li>
+                  <li class="mzp-c-menu-category">
+                    <a href="/pages/home/#locations" class="mzp-c-menu-title" id="ga-nav-locations">Locations</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="wrapper" class="mzp-l-content mzp-t-mozilla">
+      {% block content %}{% endblock %}
+    </div>
+
+    <footer class="mzp-c-footer" id="colophon">
+      <div class="mzp-l-content">
+        <nav class="mzp-c-footer-primary">
+          <div class="mzp-c-foot-sections">
+            <div class="mzp-c-footer-section mzp-c-footer-primary-logo">
+              <a href="https://www.mozilla.org/">Mozilla</a>
+            </div>
+            <div class="mzp-c-footer-section">
+              <a target="_blank" href='https://www.glassdoor.com/Overview/Working-at-Mozilla-EI_IE19129.11,18.htm'>
+                <img class="glassdoor-logo" src='https://careers.mozilla.org/static/img/glassdoor_250x90.png' alt="Glassdoor logo">
+              </a>
+            </div>
+          </div>
+          <div class="mzp-c-footer-sections">
+            <section class="mzp-c-footer-section">
+              <h5 class="mzp-c-footer-heading">
+                Company
+              </h5>
+              <ul class="mzp-c-footer-list">
+                <li><a href="https://www.mozilla.org/about/">About</a></li>
+                <li><a href="https://blog.mozilla.org/press/">Press Center</a>
+              </ul>
+            </section>
+            <section class="mzp-c-footer-section">
+              <h5 class="mzp-c-footer-heading">
+                Resources
+              </h5>
+              <ul class="mzp-c-footer-list">
+                <li><a href="https://www.mozilla.org/privacy/">Privacy</a></li>
+                <li><a href="https://www.mozilla.org/contact/">Contact</a></li>
+              </ul>
+            </section>
+          </div>
+        </nav>
+        <nav class="mzp-c-footer-secondary">
+          <ul class="mzp-c-footer-links-social">
+            <li><a class="twitter" href="https://twitter.com/mozilla">Twitter<span> (@mozilla)</span></a></li>
+            <li><a class="instagram" href="https://www.instagram.com/mozilla/">Instagram<span> (@mozilla)</span></a></li>
+          </ul>
+          <div class="mzp-c-footer-legal">
+            <p class="mzp-c-footer-license">
+                Visit Mozilla Corporation’s not-for-profit parent, the <a href="https://foundation.mozilla.org">Mozilla Foundation</a>.
+                Portions of this content are ©1998–2021 by individual mozilla.org
+                contributors. Content available under a <a rel="license" href="https://www.mozilla.org/foundation/licensing/website-content/">Creative Commons license</a>.
+            </p>
+          </div>
+        </nav>
+      </div>
+    </footer>
+   
+    <script src="https://careers.mozilla.org/static/js/protocol/protocol-navigation.min.1af81debb94a.js"></script>
+    <script src="https://careers.mozilla.org/static/js/protocol/protocol-menu.min.354615c6c0d4.js"></script>
+    <script src="https://careers.mozilla.org/static/js/base.d78298f02bc4.js"></script>
+
+
+
+
+    <script type="text/javascript" src="{% static 'js/careers.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+    </body>
+</html>

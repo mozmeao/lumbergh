@@ -9,4 +9,3 @@ docs/_build
 MANIFEST
 /static/
 _site
-*.sqlite
