@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
 {% load wagtailcore_tags %}
 
 {% block body_class %}template-homepage{% endblock %}
@@ -43,6 +44,8 @@
     </section>
     <section class="mzp-c-card mzp-c-card-small">
       <div class="mzp-c-card-content">
+        
+        
         <ol class="survey-wrapper">
           <li>
             <h4>Engagement</h4>
@@ -197,32 +200,32 @@
   <div class="mzp-l-card-third">
     <section class="mzp-c-card mzp-has-aspect-1-1">
       <div class="mzp-c-card-media-wrapper">
-        <img src="https://careers.mozilla.org/static/img/mozillians/mozilla-office.2b08248f234e.jpg" srcset="https://careers.mozilla.org/static/img/mozillians/mozilla-office-high-res.4e535abe1450.jpg 1.5x" alt="Father typing with a child in a front-facing baby carrier" class="mzp-c-card-image" />
+        {% image page.imageA width-400 %}  
       </div>
     </section>
     <section class="mzp-c-card mzp-has-aspect-1-1">
       <div class="mzp-c-card-media-wrapper">
-        <img src="https://careers.mozilla.org/static/img/mozillians/london.41f2d4f4f376.jpg" srcset="https://careers.mozilla.org/static/img/mozillians/london-high-res.93d68d4be2e8.jpg 1.5x" alt="Overhead view of employees sitting in communal bean bag chairs working on laptops" class="mzp-c-card-image" />
+        {% image page.imageB width-400 %}   
       </div>
     </section>
     <section class="mzp-c-card mzp-has-aspect-1-1">
       <div class="mzp-c-card-media-wrapper">
-        <img src="https://careers.mozilla.org/static/img/mozillians/whistler-1.9c90e021657d.jpg" srcset="https://careers.mozilla.org/static/img/mozillians/whistler-1-high-res.75be4622277c.jpg 1.5x" alt="Three female-presenting employees talking and laughing at a company gathering in Whistler, Canada" class="mzp-c-card-image" />
+        {% image page.imageC width-400 %}   
       </div>
     </section>
     <section class="mzp-c-card mzp-has-aspect-1-1">
       <div class="mzp-c-card-media-wrapper">
-        <img src="https://careers.mozilla.org/static/img/mozillians/whistler-2.6244a88ef011.jpg" srcset="https://careers.mozilla.org/static/img/mozillians/whistler-2-high-res.edb9e73ccba6.jpg 1.5x" alt="Two children posing for a picture with the Firefox mascot" class="mzp-c-card-image" />
+        {% image page.imageD width-400 %} 
       </div>
     </section>
     <section class="mzp-c-card mzp-has-aspect-1-1">
       <div class="mzp-c-card-media-wrapper">
-        <img src="https://careers.mozilla.org/static/img/mozillians/mozilla-team.cc5295aaa67e.jpg" srcset="https://careers.mozilla.org/static/img/mozillians/mozilla-team-high-res.9f1be4b44da7.jpg 1.5x" alt="A row of employees doing coordinated squats against a wall" class="mzp-c-card-image" />
+        {% image page.imageE width-400 %}   
       </div>
     </section>
     <section class="mzp-c-card mzp-has-aspect-1-1">
       <div class="mzp-c-card-media-wrapper">
-        <img src="https://careers.mozilla.org/static/img/mozillians/whistler-all-hands.c873255deaf5.jpg" srcset="https://careers.mozilla.org/static/img/mozillians/whistler-all-hands-high-res.402f02d54bd3.jpg 1.5x" alt="Mitchell Baker smiling while giving a presentationf" class="mzp-c-card-image" />
+        {% image page.imageF width-400 %}   
       </div>
     </section>
   </div>
@@ -391,5 +394,5 @@
     </ul>
   </section>
 </main>
-
 {% endblock content %}
+

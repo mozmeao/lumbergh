@@ -3,7 +3,7 @@ from django.db import models
 from wagtail.core.models import Page
 from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel
-
+from wagtail.images.edit_handlers import ImageChooserPanel
 
 class HomeIndexPage(Page):
     heroOneHeader = models.CharField(max_length=255)
@@ -22,20 +22,68 @@ class HomeIndexPage(Page):
     ContentBlockOneTitle = RichTextField(blank=True)
     ContentBlockOneContent = RichTextField(blank=True)
 
+    imageA = models.ForeignKey(
+        'wagtailimages.Image', 
+        related_name='+',
+        on_delete=models.SET_NULL,
+        null=True
+    )
+
+    imageB = models.ForeignKey(
+        'wagtailimages.Image', 
+        related_name='+',
+        on_delete=models.SET_NULL,
+        null=True
+    )
+
+    imageC = models.ForeignKey(
+        'wagtailimages.Image',
+        related_name='+',
+        on_delete=models.SET_NULL,
+        null=True
+    )
+
+    imageD = models.ForeignKey(
+        'wagtailimages.Image', 
+        related_name='+',
+        on_delete=models.SET_NULL,
+        null=True
+    )
+
+    imageE = models.ForeignKey(
+        'wagtailimages.Image', 
+        related_name='+',
+        on_delete=models.SET_NULL,
+        null=True
+    )
+
+    imageF = models.ForeignKey(
+        'wagtailimages.Image', 
+        related_name='+',
+        on_delete=models.SET_NULL,
+        null=True
+    )
+
     content_panels = Page.content_panels + [
-        FieldPanel('heroOneHeader', classname="full"),
-        FieldPanel('heroOneText', classname="full"),
-        FieldPanel('videoUrlCode', classname="full"),
-        FieldPanel('applyButtonUrl', classname="full"),
-        FieldPanel('applyButtonText', classname="full"),
-        FieldPanel('dataOneA', classname="full"),
-        FieldPanel('dataOneB', classname="full"),
-        FieldPanel('dataOneC', classname="full"),
-        FieldPanel('leadOneTitle', classname="full"),
-        FieldPanel('leadOneContent', classname="full"),
-        FieldPanel('SurveyContentTitle', classname="full"),
-        FieldPanel('SurveyContentContent', classname="full"),
-        FieldPanel('ContentBlockOneVideoId', classname="full"),
-        FieldPanel('ContentBlockOneTitle', classname="full"),
-        FieldPanel('ContentBlockOneContent', classname="full"),
+        FieldPanel('heroOneHeader'),
+        FieldPanel('heroOneText'),
+        FieldPanel('videoUrlCode'),
+        FieldPanel('applyButtonUrl'),
+        FieldPanel('applyButtonText'),
+        FieldPanel('dataOneA'),
+        FieldPanel('dataOneB'),
+        FieldPanel('dataOneC'),
+        FieldPanel('leadOneTitle'),
+        FieldPanel('leadOneContent'),
+        FieldPanel('SurveyContentTitle'),
+        FieldPanel('SurveyContentContent'),
+        FieldPanel('ContentBlockOneVideoId'),
+        FieldPanel('ContentBlockOneTitle'),
+        FieldPanel('ContentBlockOneContent'),
+        ImageChooserPanel('imageA'),
+        ImageChooserPanel('imageB'),
+        ImageChooserPanel('imageC'),
+        ImageChooserPanel('imageD'),
+        ImageChooserPanel('imageE'),
+        ImageChooserPanel('imageF'),
     ]
