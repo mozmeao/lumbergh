@@ -23,11 +23,9 @@ jobs:
   docker-build-test-publish:
     docker:
       - image: circleci/python:3.9
+
     steps:
       - checkout
-
-      - setup_remote_docker:
-          docker_layer_caching: true
 
       - run:
           name: Create version.json
