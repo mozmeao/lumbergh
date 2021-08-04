@@ -19,6 +19,11 @@ urlpatterns = [
     url(r'^listings/$', views.PositionListView.as_view(), name='careers.listings'),
     url(r'^internships/$', views.InternshipsView.as_view(), name='careers.internships'),
     url(r'^benefits/$', views.BenefitsView.as_view(), name='careers.benefits'),
+    url(r'^__heartbeat__/$', views.HeartBeatView.as_view(), name='careers.heartbeat'),
+    url(r'^__lbheartbeat__/$', views.LBHeartBeatView.as_view(), name='careers.lbheartbeat'),
+    url(r'^__version__/$', views.VersionView.as_view(), name='careers.version'),
+    
+    
     path('cms/', include(wagtailadmin_urls)),
     path('documents/', include(wagtaildocs_urls)),
     path('pages/', include(wagtail_urls)),
