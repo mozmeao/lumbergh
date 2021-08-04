@@ -6,7 +6,7 @@ ENV PIP_DISABLE_PIP_VERSION_CHECK=1
 
 EXPOSE 8000
 
-RUN adduser --uid 1000 --disabled-password --gecos '' --no-create-home webdev
+RUN adduser --uid 10001 --disabled-password --gecos '' --no-create-home app
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -21,6 +21,7 @@ RUN chown webdev /app
 COPY requirements.txt requirements.txt
 RUN pip install --require-hashes --no-cache-dir -r requirements.txt
 
-COPY --chown=webdev . /app
-USER webdev
-RUN DEBUG=False SECRET_KEY=foo ALLOWED_HOSTS=localhost, DATABASE_URL=sqlite:/// ./manage.py collectstatic --noinput -c
+COPY --chown=app . /app
+USER app
+#RUN DEBUG=False SECRET_KEY=foo ALLOWED_HOSTS=localhost, DATABASE_URL=sqlite:/// ./manage.py collectstatic --noinput -c
+RUN ./manage.py collectstatic --noinput -c

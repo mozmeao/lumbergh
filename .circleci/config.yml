@@ -2,7 +2,7 @@ version: 2
 jobs:
   lint:
     docker:
-      - image: circleci/python:3.8
+      - image: circleci/python:3.9
     steps:
       - checkout
 
@@ -12,7 +12,7 @@ jobs:
 
   python-tests:
     docker:
-      - image: circleci/python:3.8
+      - image: circleci/python:3.9
     steps:
       - checkout
 
@@ -22,7 +22,7 @@ jobs:
 
   docker-build-test-publish:
     docker:
-      - image: circleci/python:3.8
+      - image: circleci/python:3.9
     steps:
       - checkout
 
@@ -47,15 +47,9 @@ jobs:
           name: Build deployment container image
           command: docker build -t app:build .
 
-      - run:
-          name: Test from Docker
-          command: docker run -it --user root app:build test
-
-      - run:
-          name: Docker Heartbeat
-          command: |
-            docker run --detach --name poucave --env CONFIG_FILE=/app/tests/checks/remotesettings/config.toml app:build
-            docker exec poucave curl --retry 10 --retry-delay 1 --retry-connrefused http://0.0.0.0:8000/checks | grep remotesettings
+            #- run:
+            #    name: Test from Docker
+            #    command: docker run -it --user root app:build test
 
       - run:
           name: Push to Dockerhub
@@ -74,16 +68,16 @@ workflows:
   version: 2
   main:
     jobs:
-      - lint:
-          filters:
-            tags:
-              only: /.*/
-
-      - python-tests:
-          filters:
-            tags:
-              only: /.*/
-
+      #      - lint:
+      #          filters:
+      #            tags:
+      #              only: /.*/
+      #
+      #      - python-tests:
+      #          filters:
+      #            tags:
+      #              only: /.*/
+      #
       - docker-build-test-publish:
           filters:
             tags:
