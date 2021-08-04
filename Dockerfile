@@ -14,7 +14,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
-RUN chown webdev /app
+RUN chown app /app
 
 # First copy requirements.txt and peep so we can take advantage of
 # docker caching.
