@@ -2,7 +2,7 @@ version: '3.4'
 services:
   web:
     build: .
-    user: ${UID:-webdev}
+    user: ${UID:-app}
     ports:
       - "8000:8000"
     volumes:
