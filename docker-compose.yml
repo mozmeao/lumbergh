@@ -17,7 +17,6 @@ services:
       - .:/app
     environment:
       - PYTHONDONTWRITEBYTECODE=1
-      - DATABASE_URL=sqlite:///database.sqlite
       - DEBUG=True
       - ALLOWED_HOSTS=*
       - SECRET_KEY=59114b6a-2858-4caf-8878-482a24ee9542
