@@ -9,5 +9,5 @@ docs/_build
 MANIFEST
 /static/
 _site
-/data/
+/data/*
 database.sqlite
