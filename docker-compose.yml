@@ -21,5 +21,10 @@ services:
       - DEBUG=True
       - ALLOWED_HOSTS=*
       - SECRET_KEY=59114b6a-2858-4caf-8878-482a24ee9542
+      - PG_NAME=postgres
+      - PG_USER=postgres
+      - PG_PASSWORD=postgres
+      - PG_HOST=db
+      - PG_PORT=5432 
     command:
       ./bin/run-dev.sh
