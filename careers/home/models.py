@@ -6,11 +6,12 @@ from wagtail.admin.edit_handlers import FieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 
 class HomeIndexPage(Page):
-    heroOneHeader = models.CharField(max_length=255)
-    heroOneText = models.CharField(max_length=255)
-    videoUrlCode = models.CharField(max_length=255)
+    heroHeader = models.CharField(max_length=255)
+    heroText = models.CharField(max_length=255)
     applyButtonUrl = models.CharField(max_length=255)
     applyButtonText = models.CharField(max_length=255)
+
+    videoUrlCode = models.CharField(max_length=255)
     dataOneA = models.CharField(max_length=255)
     dataOneB = models.CharField(max_length=255)
     dataOneC = models.CharField(max_length=255)
@@ -65,8 +66,9 @@ class HomeIndexPage(Page):
     )
 
     content_panels = Page.content_panels + [
-        FieldPanel('heroOneHeader'),
-        FieldPanel('heroOneText'),
+        FieldPanel('heroHeader'),
+        FieldPanel('heroText'),
+
         FieldPanel('videoUrlCode'),
         FieldPanel('applyButtonUrl'),
         FieldPanel('applyButtonText'),

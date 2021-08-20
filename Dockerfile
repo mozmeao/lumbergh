@@ -16,6 +16,8 @@ RUN apt-get update && \
 WORKDIR /app
 RUN chown app /app
 
+RUN mkdir /app/static-build
+
 # First copy requirements.txt and peep so we can take advantage of
 # docker caching.
 COPY requirements.txt requirements.txt

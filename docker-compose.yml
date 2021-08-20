@@ -15,6 +15,7 @@ services:
       - "8000:8000"
     volumes:
       - .:/app
+      - ./static-build:/tmp/static-build
     environment:
       - PYTHONDONTWRITEBYTECODE=1
       - DEBUG=True

@@ -1,0 +1,150 @@
+/* Reset browser defaults */
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var, b, i, hr, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figure, figcaption, hgroup, menu, footer, header, nav, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+article, main, aside, canvas, figure, figure img, figcaption, hgroup, footer, header, nav, section, audio, video {
+    display: block;
+}
+
+a img { border: 0; }
+
+
+/* Basic Colors, Text, Links */
+html { background: #fff; }
+
+body {
+    font: 14px/1.5 'Open Sans', sans-serif;
+    color: #000;
+    background: #fff;
+}
+
+a:hover,
+a:focus,
+a:active {
+    text-decoration: underline;
+}
+
+/* Headings and text sizes */
+h1, h2, h3, h4, h5, h6, .huge, .large {
+    font-family: 'Open Sans Light', sans-serif;
+    line-height: 1;
+    font-weight: normal;
+    display: block;
+    margin: 0 0 12px 0;
+}
+
+h1 {
+    font-size: 48px;
+    letter-spacing: -2px;
+}
+
+h2 {
+    font-size: 32px;
+    letter-spacing: -1px;
+}
+
+h3 {
+    font-size: 28px;
+    letter-spacing: -0.5px;
+}
+
+h4 {
+    font-size: 24px;
+    letter-spacing: -0.25px;
+}
+
+h5 {
+    font-size: 16px;
+}
+
+h6 {
+    font-size: 14px;
+}
+
+/* General content */
+section, article, p, ul, ol, dl, hgroup, blockquote, pre {
+    margin: 0 0 20px;
+}
+
+blockquote {
+    padding: 0 20px;
+    border-left: 1px solid #d6d6d6;
+}
+
+li > ul {
+    margin-bottom: 0;
+}
+
+li {
+    margin-left: 20px;
+}
+
+dl dt {
+    font: normal 32px/1 'Open Sans Light', sans-serif;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+}
+
+dl dd {
+    margin-bottom: 40px;
+}
+
+pre,
+code {
+    color: #666;
+    font-size: 14px;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 20px;
+}
+
+table caption {
+    text-align: left;
+    padding-bottom: 1px; /* fix to get it to look nice in many browsers */
+    margin-bottom: -1px;
+    width: 100%;
+}
+
+table th,
+table td {
+    border-top: 1px solid rgba(0,0,0,0.2);
+    padding: 10px 20px 10px 0;
+    text-align: left;
+}
+
+table thead th,
+table thead td {
+    border-top: 0;
+    padding-top: 0;
+    font: normal 16px 'Open Sans Light', sans-serif;
+}
+
+/* layout */
+
+#nav-tray-close,
+#nav-tray,
+.carousel-button,
+.carousel-pager,
+.video-js div,
+.caroufredsel_wrapper,
+.masthead,
+.colophon-nav {
+    display: none !important;
+}

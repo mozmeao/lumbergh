@@ -31,7 +31,7 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 # Application definition
 
 INSTALLED_APPS = [
-    # Wagtail Career Page Types
+    # Wagtail Career Apps
     'careers.home',
     'careers.positions',
     'careers.positiondetail',
@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     'wagtail.core',
     'modelcluster',
     'taggit',
+    'bakery',
+    'wagtailbakery',
 
     # Project specific apps
     'careers.base',
@@ -124,6 +126,12 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_ROOT = config('MEDIA_ROOT', default=os.path.join(BASE_DIR, 'media'))
 MEDIA_URL = config('MEDIA_URL', '/media/')
+
+BUILD_DIR = '/app/static-build'
+
+BAKERY_VIEWS = (
+	'wagtailbakery.views.AllPublishedPagesView',
+)
 
 WAGTAIL_SITE_NAME = 'Careers Site Admin'
 

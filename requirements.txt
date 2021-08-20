@@ -261,3 +261,21 @@ importlib-metadata==4.6.1 \
 zipp==3.4.0 \
     --hash=sha256:102c24ef8f171fd729d46599845e95c7ab894a4cf45f5de11a44cc7444fb1108 \
     --hash=sha256:ed5eee1974372595f9e416cc7bbeeb12335201d8081ca8a0743c954d4446e5cb
+django-bakery==0.12.7 \
+    --hash=sha256:9eb91d1a65ecc0ba08c58ef091130b7daa012e4a1e30b4c3960ea36d9477fcef
+fs==2.0.17 \
+    --hash=sha256:3da21d7a0439f9dcd5cee06964816f53cac850fc8f108473a6ffccb1149aa182
+boto3==1.4.4 \
+    --hash=sha256:5050c29353fec97301116386f469fa5858ccf47201623b53cf9f74e603bda52f 
+appdirs==1.4.3 \
+    --hash=sha256:d8b24664561d0d34ddfaec54636d502d7cea6e29c3eaf68f3df6180863e2166e
+botocore==1.5.0 \
+    --hash=sha256:55da7c8ffe755648f5ca1642ee3495ea6ea9cb3ae0fdf7c278b3cf644cb9a45a
+s3transfer==0.1.10 \
+    --hash=sha256:bc52f38637f37572ae180c08a2dd87a4825b46713797633aab6e1a42d6b2b8ff
+jmespath==0.7.1 \
+    --hash=sha256:cb99b58dcf853f791bec28aa016c121663b79ee6125c892297d773d7fd4dcecf
+docutils==0.10 \
+    --hash=sha256:370624e61b6773da2f2fb17cc2a4eaea4bb596c3585d13f75ff193c1c738603e
+wagtail-bakery==0.5.0 \
+    --hash=sha256:6a8fd0d4b8aaaa40249a54ece058462065fc250b4c9deee743d63be6aa18acee
