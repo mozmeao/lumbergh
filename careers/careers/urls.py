@@ -14,7 +14,7 @@ from wagtail.documents import urls as wagtaildocs_urls
 urlpatterns = [
     url(r'^position/(?P<source>[\w]+)/(?P<job_id>[\w]+)/$', views.PositionDetailView.as_view(),
         name='careers.position'),
-    url(r'^$', views.HomeView.as_view(), name='careers.home'),
+    # url(r'^$', views.HomeView.as_view(), name='careers.home'),
     url(r'^feed/$', LatestPositionsFeed(), name='careers.feed'),
     url(r'^listings/$', views.PositionListView.as_view(), name='careers.listings'),
     url(r'^internships/$', views.InternshipsView.as_view(), name='careers.internships'),
@@ -23,8 +23,7 @@ urlpatterns = [
     url(r'^__lbheartbeat__/$', views.LBHeartBeatView.as_view(), name='careers.lbheartbeat'),
     url(r'^__version__/$', views.VersionView.as_view(), name='careers.version'),
     
-
     path('cms/', include(wagtailadmin_urls)),
     path('documents/', include(wagtaildocs_urls)),
-    path('', include(wagtail_urls)),
+    re_path(r'', include(wagtail_urls)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
