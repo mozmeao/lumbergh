@@ -1,0 +1,84 @@
+version: 2
+jobs:
+  lint:
+    docker:
+      - image: circleci/python:3.9
+    steps:
+      - checkout
+
+      - run:
+          name: Code lint
+          command: make lint
+
+  python-tests:
+    docker:
+      - image: circleci/python:3.9
+    steps:
+      - checkout
+
+      - run:
+          name: Test
+          command: make tests
+
+  docker-build-test-publish:
+    docker:
+      - image: circleci/python:3.9
+
+    steps:
+      - checkout
+
+      - setup_remote_docker
+
+      - run:
+          name: Create version.json
+          command: |
+            printf '{"name":"%s", "commit":"%s","version":"%s","source":"https://github.com/%s/%s","build":"%s"}\n' \
+            "$CIRCLE_PROJECT_REPONAME" \
+            "$CIRCLE_SHA1" \
+            "$CIRCLE_TAG" \
+            "$CIRCLE_PROJECT_USERNAME" \
+            "$CIRCLE_PROJECT_REPONAME" \
+            "$CIRCLE_BUILD_URL" | tee version.json
+
+      - store_artifacts:
+          path: version.json
+
+      - run:
+          name: Build deployment container image
+          command: docker build -t app:build .
+
+            #- run:
+            #    name: Test from Docker
+            #    command: docker run -it --user root app:build test
+
+      - run:
+          name: Push to Dockerhub
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "main" ]; then
+              scripts/deploy-dockerhub.sh latest
+            fi
+            if [[ "${CIRCLE_BRANCH}" == feature* ]] || [[ "${CIRCLE_BRANCH}" == dockerpush* ]]; then
+              scripts/deploy-dockerhub.sh "$CIRCLE_BRANCH"
+            fi
+            if [ -n "${CIRCLE_TAG}" ]; then
+              scripts/deploy-dockerhub.sh "$CIRCLE_TAG"
+            fi
+
+workflows:
+  version: 2
+  main:
+    jobs:
+      #      - lint:
+      #          filters:
+      #            tags:
+      #              only: /.*/
+      #
+      #      - python-tests:
+      #          filters:
+      #            tags:
+      #              only: /.*/
+      #
+      - docker-build-test-publish:
+          filters:
+            tags:
+              only: /.*/

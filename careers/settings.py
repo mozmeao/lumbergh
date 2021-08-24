@@ -31,6 +31,28 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 # Application definition
 
 INSTALLED_APPS = [
+    # Wagtail Career Apps
+    'careers.home',
+    'careers.positions',
+    'careers.positiondetail',
+
+    # Wagtail Apps
+    'wagtail.admin',
+    'wagtail.contrib.forms',
+    'wagtail.contrib.redirects',
+    'wagtail.embeds',
+    'wagtail.sites',
+    'wagtail.users',
+    'wagtail.snippets',
+    'wagtail.documents',
+    'wagtail.images',
+    'wagtail.search',
+    'wagtail.core',
+    'modelcluster',
+    'taggit',
+    'bakery',
+    'wagtailbakery',
+
     # Project specific apps
     'careers.base',
     'careers.careers',
@@ -38,7 +60,13 @@ INSTALLED_APPS = [
     # Third party apps
     'django_jinja',
     'django_extensions',
+
     # Django apps
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
 
@@ -48,6 +76,15 @@ for app in config('EXTRA_APPS', default='', cast=Csv()):
 MIDDLEWARE = (
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
+
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'wagtail.contrib.redirects.middleware.RedirectMiddleware',
 )
 
 
@@ -60,10 +97,14 @@ WSGI_APPLICATION = 'careers.wsgi.application'
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
 DATABASES = {
-    'default': config(
-        'DATABASE_URL',
-        cast=dj_database_url.parse
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('PG_NAME'),
+        'USER': config('PG_USER'),
+        'PASSWORD': config('PG_PASSWORD'),
+        'HOST': config('PG_HOST'),
+        'PORT': config('PG_PORT'),    
+    }
 }
 
 # Internationalization
@@ -86,6 +127,14 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_ROOT = config('MEDIA_ROOT', default=os.path.join(BASE_DIR, 'media'))
 MEDIA_URL = config('MEDIA_URL', '/media/')
 
+BUILD_DIR = '/app/static-build'
+
+BAKERY_VIEWS = (
+	'wagtailbakery.views.AllPublishedPagesView',
+)
+
+WAGTAIL_SITE_NAME = 'Careers Site Admin'
+
 TEMPLATES = [
     {
         'BACKEND': 'django_jinja.backend.Jinja2',
@@ -107,6 +156,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.i18n',
+                'django.template.context_processors.request',
                 'django.template.context_processors.media',
                 'django.template.context_processors.static',
                 'django.template.context_processors.tz',

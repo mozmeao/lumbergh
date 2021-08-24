@@ -7,6 +7,9 @@
 docs/_build
 .tox/
 MANIFEST
-/static/
+static/
 _site
-*.sqlite
+static-build/
+/data/*
+database.sqlite
+

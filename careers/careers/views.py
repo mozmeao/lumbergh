@@ -21,9 +21,17 @@ class HomeView(TemplateView):
         return context
 
 
+class VersionView(TemplateView):
+    template_name = 'careers/version.jinja'
+
+class HeartBeatView(TemplateView):
+    template_name = 'careers/heartbeat.jinja'
+
+class LBHeartBeatView(TemplateView):
+    template_name = 'careers/lbheartbeat.jinja'
+
 class InternshipsView(TemplateView):
     template_name = 'careers/internships.jinja'
-
 
 class BenefitsView(TemplateView):
     template_name = 'careers/benefits.jinja'
