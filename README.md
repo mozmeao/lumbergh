@@ -1,8 +1,8 @@
-# Lumbergh
+# Careers
 
 [![What's Deployed?](https://img.shields.io/badge/What's_Deployed-%3F-yellow.svg)](https://whatsdeployed.io/s/Bcs) [![Documentation RTFM](https://img.shields.io/badge/Documentation-RTFM-blue.svg)](https://mana.mozilla.org/wiki/display/EN/careers.mozilla.org) [![Pipeline](https://img.shields.io/badge/CI|CD-Pipeline-blueviolet.svg)](https://gitlab.com/mozmeao/lumbergh/pipelines)
 
-Lumbergh is a Django based App for https://careers.mozilla.org. Follow the
+Careers (previously known as Lumbergh) is a Django based App for https://careers.mozilla.org. Follow the
 [Setup your environment for
 development](#setup-your-environment-for-development) instructions to improve
 the website and fix errors.
@@ -86,5 +86,5 @@ You can watch the deployment on [GitLab](https://gitlab.com/mozmeao/lumbergh/pip
 This repository is governed by Mozilla's [Community Participation Guidelines][participation]
 and [Developer Etiquette Guidelines][etiquette].
 
-[participation]: https://github.com/mozmeao/lumbergh/blob/master/CODE_OF_CONDUCT.md
+[participation]: https://github.com/mozilla-it/careers/blob/master/CODE_OF_CONDUCT.md
 [etiquette]: https://bugzilla.mozilla.org/page.cgi?id=etiquette.html
