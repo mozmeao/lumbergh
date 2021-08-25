@@ -131,6 +131,7 @@ BUILD_DIR = '/app/static-build'
 
 BAKERY_VIEWS = (
 	'wagtailbakery.views.AllPublishedPagesView',
+    'careers.positions.views.PositionsIndexPageTemplateView',
 )
 
 WAGTAIL_SITE_NAME = 'Careers Site Admin'
@@ -151,6 +152,10 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'APP_DIRS': True,
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+                 os.path.join(BASE_DIR, 'your_app_name', 'templates', 'your_app_name'),
+        ],
         'OPTIONS': {
             'context_processors': [
                 'django.contrib.auth.context_processors.auth',
