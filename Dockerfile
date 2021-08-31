@@ -25,9 +25,4 @@ RUN pip install --require-hashes --no-cache-dir -r requirements.txt
 
 COPY --chown=app . /app
 USER app
-#RUN DEBUG=False SECRET_KEY=foo ALLOWED_HOSTS=localhost, DATABASE_URL=sqlite:/// ./manage.py collectstatic --noinput -c
-#RUN ./manage.py collectstatic --noinput -c
 
-# for later
-# ENTRYPOINT ["/app/scripts/run.sh"]
-# CMD ["server"]
