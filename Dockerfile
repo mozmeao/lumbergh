@@ -24,5 +24,8 @@ COPY requirements.txt requirements.txt
 RUN pip install --require-hashes --no-cache-dir -r requirements.txt
 
 COPY --chown=app . /app
+
+RUN python manage.py collectstatic --noinput
 USER app
 
+CMD ["gunicorn", "careers.wsgi:application", "--daemon". "-b", "0.0.0.0:8000", "-w 2", "--timeout", "300"]
