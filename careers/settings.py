@@ -25,9 +25,9 @@ ROOT = os.path.dirname(os.path.join(BASE_DIR, '..'))
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', cast=bool)
+DEBUG = config('DEBUG', cast=bool, default='false')
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv(), default='*')
 # Application definition
 
 INSTALLED_APPS = [
@@ -103,7 +103,7 @@ DATABASES = {
         'USER': config('PG_USER'),
         'PASSWORD': config('PG_PASSWORD'),
         'HOST': config('PG_HOST'),
-        'PORT': config('PG_PORT'),    
+        'PORT': config('PG_PORT'),
     }
 }
 
