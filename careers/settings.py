@@ -132,6 +132,7 @@ BUILD_DIR = '/app/static-build'
 BAKERY_VIEWS = (
 	'wagtailbakery.views.AllPublishedPagesView',
     'careers.positions.views.PositionsIndexPageTemplateView',
+    'careers.home.views.HomeIndexPageTemplateView',
 )
 
 WAGTAIL_SITE_NAME = 'Careers Site Admin'
@@ -148,6 +149,26 @@ TEMPLATES = [
                 'careers.base.context_processors.i18n',
             ],
         }
+    },
+    # 
+    #
+    # This is part of supporting Jinja Templates...
+    # https://docs.wagtail.io/en/v2.2/advanced_topics/jinja2.html
+    # 
+    { 
+        'BACKEND': 'django.template.backends.jinja2.Jinja2',
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'extensions': [
+                'wagtail.core.jinja2tags.core',
+                'wagtail.admin.jinja2tags.userbar',
+                'wagtail.images.jinja2tags.images',
+            ],
+            'context_processors': [
+                'careers.base.context_processors.settings',
+                'careers.base.context_processors.i18n',
+            ],
+        },
     },
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
