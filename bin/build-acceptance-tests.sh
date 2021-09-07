@@ -50,7 +50,7 @@ while read -r url; do
     then
         bad_urls+=("$url")
     fi
-done < <(sed -n 's/.*href="\(http[^"]*\).*/\1/p' index.html | grep -v twitter.com)
+done < <(sed -n 's/.*href="\(http[^"]*\).*/\1/p' index.html | grep -v twitter.com | grep -v foundation.mozilla.org)
 
 # if we captured any bad urls, echo them out and return w/exit code 1
 if [ "${#bad_urls[@]}" -gt 0 ];
