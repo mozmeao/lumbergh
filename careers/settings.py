@@ -33,8 +33,6 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 INSTALLED_APPS = [
     # Wagtail Career Apps
     'careers.home',
-    'careers.positions',
-    'careers.positiondetail',
 
     # Wagtail Apps
     'wagtail.admin',
@@ -131,8 +129,6 @@ BUILD_DIR = '/app/static-build'
 
 BAKERY_VIEWS = (
 	'wagtailbakery.views.AllPublishedPagesView',
-    'careers.positions.views.PositionsIndexPageTemplateView',
-    'careers.home.views.HomeIndexPageTemplateView',
 )
 
 WAGTAIL_SITE_NAME = 'Careers Site Admin'
