@@ -79,7 +79,7 @@ You can watch the deployment on [GitLab](https://gitlab.com/mozmeao/lumbergh/pip
 
 ## Wagtail Notes (DRAFT)
 1. Get a command line inside the Docker container: `docker exec -it lumbergh_web_1 /bin/bash`
-2. In the docker container, build the site from Wagtail: `./manage.py build` - This will create a `static-build` folder in the root of your project which can be served locally or deployed.
+2. In the docker container, build the site from Wagtail: `./bin/static-build.sh` - This will create a `static-build` folder in the root of your project which can be served locally or deployed.
 
 ## Code of Conduct
 
