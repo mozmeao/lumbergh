@@ -13,11 +13,51 @@ from html5lib.filters.base import Filter
 from careers.careers.models import Position
 
 GREENHOUSE_URL = 'https://api.greenhouse.io/v1/boards/{}/jobs/?content=true'
+# to see the raw data for debugging use this command:
+# curl 'https://api.greenhouse.io/v1/boards/mozilla/jobs/?content=true' | \
+# jq -r .jobs[0].content | sed 's/&lt;/</g' | sed 's/&quot;/"/g' | sed 's/&gt;/>/g'
 
+# based on bleach.sanitizer.ALLOWED_TAGS
 ALLOWED_TAGS = [
-    'a', 'abbr', 'acronym', 'b', 'blockquote', 'code', 'em',
-    'i', 'li', 'ol', 'ul', 'p', 'br', 'h1', 'h2', 'h3', 'h4',
+    'a',
+    'abbr',
+    'acronym',
+    'b',
+    'blockquote',
+    'button',
+    'code',
+    'div',
+    'em',
+    'h1',
+    'h2',
+    'h3',
+    'h4',
+    'h5',
+    'h6',
+    'i',
+    'img',
+    'li',
+    'ol',
+    'p',
+    'small',
+    'span',
+    'strike',
     'strong',
+    'ul',
+]
+ALLOWED_ATTRS = [
+    'alt',
+    'class',
+    'href',
+    'id',
+    'src',
+    'srcset',
+    'style',
+    'rel',
+    'title',
+]
+ALLOWED_STYLES = [
+    'font-weight',
 ]
 
 
@@ -30,7 +70,11 @@ class HeaderConverterFilter(Filter):
             yield token
 
 
-cleaner = bleach.sanitizer.Cleaner(tags=ALLOWED_TAGS, strip=True, filters=[HeaderConverterFilter])
+cleaner = bleach.sanitizer.Cleaner(tags=ALLOWED_TAGS,
+                                   attributes=ALLOWED_ATTRS,
+                                   styles=ALLOWED_STYLES,
+                                   strip=True,
+                                   filters=[HeaderConverterFilter])
 
 
 class Command(BaseCommand):
