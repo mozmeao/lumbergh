@@ -322,15 +322,11 @@ file, You can obtain one at http://mozilla.org/MPL/2.0/. */
     }
 
     .title {
-        width: 35%;
+        width: 50%;
     }
 
     .location {
         width: 25%;
-    }
-
-    .type {
-        width: 15%;
     }
 
     .name {

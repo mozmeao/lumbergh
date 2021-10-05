@@ -46,7 +46,6 @@
       <tr>
         <th class="title" scope="col"><h4>Job Title</h4></th>
         <th class="location" scope="col"><h4>Location</h4></th>
-        <th class="type" scope="col"><h4>Position</h4></th>
         <th class="name" scope="col"><h4>Team</h4></th>
       </tr>
     </thead>
@@ -58,7 +57,6 @@
           data-location="{{ position.location }},">
         <td class="title"><a href="{{ position.get_absolute_url() }}">{{ position.title }}</a></td>
         <td class="location">{{ position.job_locations }}</td>
-        <td class="type">{{ position.position_type }}</td>
         <td class="name">{{ position.department }}</td>
       </tr>
     {% endfor %}
