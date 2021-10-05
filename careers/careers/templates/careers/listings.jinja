@@ -29,10 +29,10 @@
       {{ form.location }}
       <label for="id_location" class="visually-hidden">Location</label>
     </div>
-    <div class="listings-filter listings-filter-type">
-      {{ form.position_type }}
-      <label for="id_position_type" class="visually-hidden">Position Type</label>
-    </div>
+
+    {# hidden input keeps JS/python working, but removes the old form field #}
+    <input type="hidden" id="id_position_type" name="position_type" value=""/>
+
     <div class="listings-filter listings-filter-name">
       {{ form.team }}
       <label for="id_team" class="visually-hidden">Team</label>
